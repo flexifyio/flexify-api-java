@@ -18,7 +18,7 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://bitbucket.org/simpligility/ossrh-pipeline-demo.git</connection>
+        <connection>scm:git:git://bitbucket.org/flexifyio/management.git</connection>
         <developerConnection>scm:git:ssh://bitbucket.org::flexifyio/management.git</developerConnection>
         <url>https://bitbucket.org/flexifyio/management/src</url>
     </scm>
