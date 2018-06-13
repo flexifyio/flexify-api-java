@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Log entry
  */
 @ApiModel(description = "Log entry")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T09:56:14.343+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
 public class LogEntry {
   @JsonProperty("endpointId")
   private Long endpointId = null;
