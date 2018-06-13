@@ -4,16 +4,16 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCostsForCurrentUserUsingGET**](BillingAccountControllerApi.md#getCostsForCurrentUserUsingGET) | **GET** /rest/account/costs | getCostsForCurrentUser
-[**getCurrentUserBillingAccountUsingGET**](BillingAccountControllerApi.md#getCurrentUserBillingAccountUsingGET) | **GET** /rest/account | getCurrentUserBillingAccount
-[**getPaymentsForCurrentUserUsingGET**](BillingAccountControllerApi.md#getPaymentsForCurrentUserUsingGET) | **GET** /rest/account/payments | getPaymentsForCurrentUser
+[**getCostsForCurrentUserUsingGET**](BillingAccountControllerApi.md#getCostsForCurrentUserUsingGET) | **GET** /rest/account/costs | Get costs for current user
+[**getCurrentUserBillingAccountUsingGET**](BillingAccountControllerApi.md#getCurrentUserBillingAccountUsingGET) | **GET** /rest/account | Get billing account for current user
+[**getPaymentsForCurrentUserUsingGET**](BillingAccountControllerApi.md#getPaymentsForCurrentUserUsingGET) | **GET** /rest/account/payments | Get payments for current user
 
 
 <a name="getCostsForCurrentUserUsingGET"></a>
 # **getCostsForCurrentUserUsingGET**
-> List&lt;CostData&gt; getCostsForCurrentUserUsingGET()
+> List&lt;CostDetails&gt; getCostsForCurrentUserUsingGET()
 
-getCostsForCurrentUser
+Get costs for current user
 
 ### Example
 ```java
@@ -34,7 +34,7 @@ Bearer.setApiKey("YOUR API KEY");
 
 BillingAccountControllerApi apiInstance = new BillingAccountControllerApi();
 try {
-    List<CostData> result = apiInstance.getCostsForCurrentUserUsingGET();
+    List<CostDetails> result = apiInstance.getCostsForCurrentUserUsingGET();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BillingAccountControllerApi#getCostsForCurrentUserUsingGET");
@@ -47,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;CostData&gt;**](CostData.md)
+[**List&lt;CostDetails&gt;**](CostDetails.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 # **getCurrentUserBillingAccountUsingGET**
 > BillingAccountWithMoney getCurrentUserBillingAccountUsingGET()
 
-getCurrentUserBillingAccount
+Get billing account for current user
 
 ### Example
 ```java
@@ -111,7 +111,7 @@ This endpoint does not need any parameter.
 # **getPaymentsForCurrentUserUsingGET**
 > List&lt;Payment&gt; getPaymentsForCurrentUserUsingGET()
 
-getPaymentsForCurrentUser
+Get payments for current user
 
 ### Example
 ```java

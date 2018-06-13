@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getLogForCurrentUserUsingGET"></a>
 # **getLogForCurrentUserUsingGET**
-> List&lt;DbLogEntry&gt; getLogForCurrentUserUsingGET(storageId, migrationId, endpointId)
+> List&lt;LogEntry&gt; getLogForCurrentUserUsingGET(storageId, migrationId, endpointId)
 
 getLogForCurrentUser
 
@@ -35,7 +35,7 @@ Long storageId = 789L; // Long | storage-id
 Long migrationId = 789L; // Long | migration-id
 Long endpointId = 789L; // Long | endpoint-id
 try {
-    List<DbLogEntry> result = apiInstance.getLogForCurrentUserUsingGET(storageId, migrationId, endpointId);
+    List<LogEntry> result = apiInstance.getLogForCurrentUserUsingGET(storageId, migrationId, endpointId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LogControllerApi#getLogForCurrentUserUsingGET");
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;DbLogEntry&gt;**](DbLogEntry.md)
+[**List&lt;LogEntry&gt;**](LogEntry.md)
 
 ### Authorization
 

@@ -20,7 +20,11 @@ target
 .gradle
 build
 
-
-# Idea
+# IDEs
+.settings
+.classpath
+.project
+.externalToolBuilders
 /.idea
-/*.iml
+management.iml
+.factorypath

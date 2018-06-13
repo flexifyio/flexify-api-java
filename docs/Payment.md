@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | [**DbMoney**](DbMoney.md) |  |  [optional]
-**comments** | **String** |  |  [optional]
-**entryMode** | [**EntryModeEnum**](#EntryModeEnum) |  |  [optional]
-**method** | [**MethodEnum**](#MethodEnum) |  |  [optional]
-**paymentDate** | [**DateTime**](DateTime.md) |  |  [optional]
+**amount** | [**Money**](Money.md) | Payment amount |  [optional]
+**comments** | **String** | Payment comments (will be shown to the customer) |  [optional]
+**entryMode** | [**EntryModeEnum**](#EntryModeEnum) | Payment entry mode (automatic or manual) |  [optional]
+**method** | [**MethodEnum**](#MethodEnum) | Payment method |  [optional]
+**paymentDate** | [**DateTime**](DateTime.md) | Payment date |  [optional]
 
 
 <a name="EntryModeEnum"></a>

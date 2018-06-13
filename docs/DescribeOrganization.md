@@ -1,11 +1,11 @@
 
-# DbMoney
+# DescribeOrganization
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **Double** |  |  [optional]
-**currencyCode** | **String** |  |  [optional]
+**id** | **Long** |  |  [optional]
+**name** | **String** |  |  [optional]
 
 
 

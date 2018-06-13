@@ -1,15 +1,14 @@
 
-# DbPriceListEntry
+# PriceListEntry
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**counter** | [**CounterEnum**](#CounterEnum) |  |  [optional]
-**id** | **Long** |  |  [optional]
-**price** | [**DbMoney**](DbMoney.md) |  |  [optional]
-**service** | [**ServiceEnum**](#ServiceEnum) |  |  [optional]
-**unitName** | **String** |  |  [optional]
-**unitSize** | **Long** |  |  [optional]
+**counter** | [**CounterEnum**](#CounterEnum) | Billable counter (such as traffic or storage volume) |  [optional]
+**price** | [**Money**](Money.md) | Price of one unit |  [optional]
+**service** | [**ServiceEnum**](#ServiceEnum) | Service |  [optional]
+**unitName** | **String** | Name of billable unit |  [optional]
+**unitSize** | **Long** | Size of billable unit in bytes |  [optional]
 
 
 <a name="CounterEnum"></a>

@@ -7,14 +7,14 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import io.flexify.apiclient.model.DbLogEntry;
+import io.flexify.apiclient.model.LogEntry;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-07T17:03:52.903+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T09:56:14.343+03:00")
 public class LogControllerApi {
   private ApiClient apiClient;
 
@@ -40,10 +40,10 @@ public class LogControllerApi {
    * @param storageId storage-id (optional)
    * @param migrationId migration-id (optional)
    * @param endpointId endpoint-id (optional)
-   * @return List&lt;DbLogEntry&gt;
+   * @return List&lt;LogEntry&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<DbLogEntry> getLogForCurrentUserUsingGET(Long storageId, Long migrationId, Long endpointId) throws ApiException {
+  public List<LogEntry> getLogForCurrentUserUsingGET(Long storageId, Long migrationId, Long endpointId) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -72,7 +72,7 @@ public class LogControllerApi {
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<List<DbLogEntry>> localVarReturnType = new GenericType<List<DbLogEntry>>() {};
+    GenericType<List<LogEntry>> localVarReturnType = new GenericType<List<LogEntry>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

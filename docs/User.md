@@ -4,14 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account** | [**BillingAccount**](BillingAccount.md) |  |  [optional]
-**id** | **Long** |  |  [optional]
-**org** | [**Org**](Org.md) |  |  [optional]
-**profile** | [**DbUserProfile**](DbUserProfile.md) |  |  [optional]
-**registered** | [**DateTime**](DateTime.md) |  |  [optional]
-**roles** | [**List&lt;RolesEnum&gt;**](#List&lt;RolesEnum&gt;) |  |  [optional]
-**state** | [**StateEnum**](#StateEnum) |  |  [optional]
-**username** | **String** |  |  [optional]
+**account** | [**BillingAccount**](BillingAccount.md) | Billing Account |  [optional]
+**id** | **Long** | User ID in the system |  [optional]
+**org** | [**DescribeOrganization**](DescribeOrganization.md) | Owning Organization |  [optional]
+**profile** | [**UserProfile**](UserProfile.md) | User Profile |  [optional]
+**registered** | [**DateTime**](DateTime.md) | Registration time |  [optional]
+**roles** | [**List&lt;RolesEnum&gt;**](#List&lt;RolesEnum&gt;) | User Roles |  [optional]
+**state** | [**StateEnum**](#StateEnum) | User State |  [optional]
+**username** | **String** | Username |  [optional]
 
 
 <a name="List<RolesEnum>"></a>

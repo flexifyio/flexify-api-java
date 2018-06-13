@@ -17,20 +17,19 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.flexify.apiclient.model.StorageProvider;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * StorageAccount
+ * StorageAccountCreateRequest
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T09:56:14.343+03:00")
-public class StorageAccount {
+public class StorageAccountCreateRequest {
   @JsonProperty("anonymous")
   private Boolean anonymous = null;
 
-  @JsonProperty("id")
-  private Long id = null;
+  @JsonProperty("credential")
+  private String credential = null;
 
   @JsonProperty("identity")
   private String identity = null;
@@ -38,25 +37,22 @@ public class StorageAccount {
   @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("provider")
-  private StorageProvider provider = null;
-
-  @JsonProperty("url")
-  private String url = null;
+  @JsonProperty("providerId")
+  private Long providerId = null;
 
   @JsonProperty("useSsl")
   private Boolean useSsl = null;
 
-  public StorageAccount anonymous(Boolean anonymous) {
+  public StorageAccountCreateRequest anonymous(Boolean anonymous) {
     this.anonymous = anonymous;
     return this;
   }
 
    /**
-   * True for public account
+   * Is public bucket
    * @return anonymous
   **/
-  @ApiModelProperty(example = "false", value = "True for public account")
+  @ApiModelProperty(example = "false", value = "Is public bucket")
   public Boolean isAnonymous() {
     return anonymous;
   }
@@ -65,16 +61,25 @@ public class StorageAccount {
     this.anonymous = anonymous;
   }
 
-   /**
-   * Id of the storage account
-   * @return id
-  **/
-  @ApiModelProperty(value = "Id of the storage account")
-  public Long getId() {
-    return id;
+  public StorageAccountCreateRequest credential(String credential) {
+    this.credential = credential;
+    return this;
   }
 
-  public StorageAccount identity(String identity) {
+   /**
+   * Credential of the cloud account
+   * @return credential
+  **/
+  @ApiModelProperty(value = "Credential of the cloud account")
+  public String getCredential() {
+    return credential;
+  }
+
+  public void setCredential(String credential) {
+    this.credential = credential;
+  }
+
+  public StorageAccountCreateRequest identity(String identity) {
     this.identity = identity;
     return this;
   }
@@ -92,7 +97,7 @@ public class StorageAccount {
     this.identity = identity;
   }
 
-  public StorageAccount name(String name) {
+  public StorageAccountCreateRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -110,43 +115,25 @@ public class StorageAccount {
     this.name = name;
   }
 
-  public StorageAccount provider(StorageProvider provider) {
-    this.provider = provider;
+  public StorageAccountCreateRequest providerId(Long providerId) {
+    this.providerId = providerId;
     return this;
   }
 
    /**
-   * Link to the storage provider (Amazon, Azure, etc)
-   * @return provider
+   * Get providerId
+   * @return providerId
   **/
-  @ApiModelProperty(value = "Link to the storage provider (Amazon, Azure, etc)")
-  public StorageProvider getProvider() {
-    return provider;
+  @ApiModelProperty(value = "")
+  public Long getProviderId() {
+    return providerId;
   }
 
-  public void setProvider(StorageProvider provider) {
-    this.provider = provider;
+  public void setProviderId(Long providerId) {
+    this.providerId = providerId;
   }
 
-  public StorageAccount url(String url) {
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * URL to the cloud
-   * @return url
-  **/
-  @ApiModelProperty(example = "https://s3.amazonaws.com", value = "URL to the cloud")
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public StorageAccount useSsl(Boolean useSsl) {
+  public StorageAccountCreateRequest useSsl(Boolean useSsl) {
     this.useSsl = useSsl;
     return this;
   }
@@ -173,33 +160,31 @@ public class StorageAccount {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StorageAccount storageAccount = (StorageAccount) o;
-    return Objects.equals(this.anonymous, storageAccount.anonymous) &&
-        Objects.equals(this.id, storageAccount.id) &&
-        Objects.equals(this.identity, storageAccount.identity) &&
-        Objects.equals(this.name, storageAccount.name) &&
-        Objects.equals(this.provider, storageAccount.provider) &&
-        Objects.equals(this.url, storageAccount.url) &&
-        Objects.equals(this.useSsl, storageAccount.useSsl);
+    StorageAccountCreateRequest storageAccountCreateRequest = (StorageAccountCreateRequest) o;
+    return Objects.equals(this.anonymous, storageAccountCreateRequest.anonymous) &&
+        Objects.equals(this.credential, storageAccountCreateRequest.credential) &&
+        Objects.equals(this.identity, storageAccountCreateRequest.identity) &&
+        Objects.equals(this.name, storageAccountCreateRequest.name) &&
+        Objects.equals(this.providerId, storageAccountCreateRequest.providerId) &&
+        Objects.equals(this.useSsl, storageAccountCreateRequest.useSsl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(anonymous, id, identity, name, provider, url, useSsl);
+    return Objects.hash(anonymous, credential, identity, name, providerId, useSsl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StorageAccount {\n");
+    sb.append("class StorageAccountCreateRequest {\n");
     
     sb.append("    anonymous: ").append(toIndentedString(anonymous)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    useSsl: ").append(toIndentedString(useSsl)).append("\n");
     sb.append("}");
     return sb.toString();

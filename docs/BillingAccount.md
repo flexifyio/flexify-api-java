@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **billingState** | [**BillingStateEnum**](#BillingStateEnum) | Billing Account state (Depend on balance and max credit) |  [optional]
 **createdDate** | [**DateTime**](DateTime.md) | Created Timestamp |  [optional]
 **id** | **Long** | Account Id |  [optional]
-**maxCredit** | [**DbMoney**](DbMoney.md) | Account Maximum Credit |  [optional]
+**maxCredit** | [**Money**](Money.md) | Account Maximum Credit |  [optional]
 **name** | **String** | Account Name |  [optional]
 
 

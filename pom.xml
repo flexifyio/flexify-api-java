@@ -5,7 +5,7 @@
     <artifactId>management-apiclient</artifactId>
     <packaging>jar</packaging>
     <name>Flexify.IO Management API Java Client</name>
-    <version>2.4.0</version>
+    <version>2.4.0-SNAPSHOT</version>
     <url>https://flexify.io</url>
     <description>Flexify.IO Management API Java Client Generated via Swagger Codegen</description>
 
@@ -18,9 +18,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://bitbucket.org/flexifyio/management.git</connection>
-        <developerConnection>scm:git:ssh://bitbucket.org::flexifyio/management.git</developerConnection>
-        <url>https://bitbucket.org/flexifyio/management/src</url>
+        <connection>scm:git:git://github.com/flexifyio/flexify-manage-api-client.git</connection>
+        <developerConnection>scm:git:ssh://github.com:flexifyio/flexify-manage-api-client.git</developerConnection>
+        <url>https://github.com/flexifyio/flexify-manage-api-client</url>
     </scm>
 
     <developers>
@@ -37,7 +37,7 @@
         <developer>
             <id>abondin</id>
             <name>Alexander Bondin</name>
-            <email>Alexander.Bondin@flexify.io</email>
+            <email>ab@flexify.io</email>
             <organization>Flexify.IO</organization>
             <organizationUrl>https://flexify.io/</organizationUrl>
             <roles>
@@ -129,7 +129,7 @@
                         <configuration>
                             <sources>
                                 <source>
-                                    src/main/java</source>
+                                src/main/java</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -142,7 +142,7 @@
                         <configuration>
                             <sources>
                                 <source>
-                                    src/test/java</source>
+                                src/test/java</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -153,9 +153,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
-                    <source>
+                        <source>
                         1.7</source>
-                    <target>1.7</target>
+                        <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -251,17 +251,17 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson-version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-joda</artifactId>
-            <version>${jackson-version}</version>
-        </dependency>
-        <!-- Base64 encoding that works in both JVM and Android -->
-        <dependency>
-            <groupId>com.brsanthu</groupId>
-            <artifactId>migbase64</artifactId>
-            <version>2.2</version>
-        </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-joda</artifactId>
+                <version>${jackson-version}</version>
+            </dependency>
+            <!-- Base64 encoding that works in both JVM and Android -->
+            <dependency>
+                <groupId>com.brsanthu</groupId>
+                <artifactId>migbase64</artifactId>
+                <version>2.2</version>
+            </dependency>
         <!-- test dependencies -->
         <dependency>
             <groupId>junit</groupId>
@@ -273,7 +273,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-core-version>1.5.15</swagger-core-version>
-        <jersey-version>2.25.1</jersey-version>
+            <jersey-version>2.25.1</jersey-version>
         <jackson-version>2.7.5</jackson-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.12</junit-version>

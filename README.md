@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.4.0</version>
+    <version>2.4.0-SNAPSHOT</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.flexify:management-apiclient:2.4.0"
+compile "io.flexify:management-apiclient:2.4.0-SNAPSHOT"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/management-apiclient-2.4.0.jar
+* target/management-apiclient-2.4.0-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -70,24 +70,44 @@ import java.util.List;
 
 public class FlexifyApiTest {
 
+    // Please contact info@flexify.io to get the URL
+    private final static String BASE_PATH_URL = "https://ask-flexify-for-your-url";
+
+    // Sign-up first
+    // NOTE: Skip authentication if you already have an API key
+    private final static String AUTH_USERNAME = "USE_EMAIL_FROM_SIGNUP_FORM";
+    private final static String AUTH_PASSWORD = "USE_YOUR_STRONG_PASSWORD";
+
+    // Amazon S3 Source Configuration Example
+    public static final String AMAZON_S3_ENDPOINT = "s3.amazonaws.com";
+    public static final String S3_IDENTITY = "USE_YOUR_S3_IDENTITY_HERE";
+    public static final String S3_CREDENTIAL = "USE_YOUR_S3_IDENTITY_HERE";
+    public static final String SOURCE_BUCKET_NAME_IN_AMAZON = "USE_YOUR_SOURCE_BUCKET_NAME";
+  
+    // Microsoft Azure Destination Configuration Example
+    public static final String MICROSOFT_AZURE_ENDPOINT = "{identity}.blob.core.windows.net";
+    public static final String AZURE_IDENTITY = "USE_YOUR_AZURE_IDENTITY_HERE";
+    public static final String AZURE_CREDENTIAL = "USE_YOUR_AZURE_IDENTITY_HERE+5SIsRO8YJTw==";
+    public static final String DESTINATION_BUCKET_NAME_IN_AZURE = "USE_YOUR_DESTINATION_CONTAINER";
+
+    
     public static void main(String[] args) {
+
         // 1) Setup connection URL
-        Configuration.getDefaultApiClient().setBasePath("https://ask-flexify-for-your-url");
+        Configuration.getDefaultApiClient().setBasePath(BASE_PATH_URL);
         try {
-            // 2) Login to the Flexify.IO
+            // 2) Login to the Flexify.IO if you don't have an API key
             AuthenticationResponse result = new AuthenticationControllerApi().authenticationRequestUsingPOST(
-                    new AuthenticationRequest().username("John.Smith@flexify.io").password("FlexifyRules")
+                    new AuthenticationRequest().username(AUTH_USERNAME).password(AUTH_PASSWORD)
             );
-            // 3) Authenticate the client with API token
+            // 3) Authenticate the client with API key
             Configuration.getDefaultApiClient().setApiKey("Bearer " + result.getToken());
 
             // 4) Use the api
-
             createNewMigration();
 
             PageMigration migrations = new MigrationsControllerApi().
                     getForCurrentUserUsingGET(false, false, new ArrayList<String>(), 0, 100, null);
-
             System.out.println("My migrations: " + migrations);
 
         } catch (ApiException e) {
@@ -96,49 +116,58 @@ public class FlexifyApiTest {
         }
     }
 
+    /**
+     * Create new migration to copy objects from bucket in Amazon to container in Azure
+     *
+     * @throws ApiException
+     */
     private static void createNewMigration() throws ApiException {
 
         StoragesControllerApi storagesApi = new StoragesControllerApi();
 
+        // Get all supported cloud storage providers
         List<StorageProvider> allProviders = storagesApi
                 .getAllStorageProvidersUsingGET();
 
         Long amazonS3ProviderId = allProviders.stream()
-                .filter(p -> "s3.amazonaws.com".equals(p.getEndpoint())).findFirst().orElseThrow(() -> new IllegalArgumentException("Unable to find Amazon S3 Provider")).getId();
+                .filter(p -> AMAZON_S3_ENDPOINT.equals(p.getEndpoint())).findFirst().orElseThrow(() -> new IllegalArgumentException("Unable to find Amazon S3 Provider")).getId();
 
         Long azureProviderId = allProviders.stream()
-                .filter(p -> "{identity}.blob.core.windows.net".equals(p.getEndpoint())).findFirst().orElseThrow(() -> new IllegalArgumentException("Unable to find Windows Azure Provider")).getId();
+                .filter(p -> MICROSOFT_AZURE_ENDPOINT.equals(p.getEndpoint())).findFirst().orElseThrow(() -> new IllegalArgumentException("Unable to find Windows Azure Provider")).getId();
 
 
         // Add Amazon Storage Account with one bucket
         Long amazonAccountId = storagesApi.addStorageAccountWithBucketsUsingPOST(
                 new AddStorageAccountWithBucketsRequest().storageAccount(
-                        new StorageAccount()
+                        new StorageAccountCreateRequest()
                                 .providerId(amazonS3ProviderId)
-                                .identity("QWERTYUIOPLKJHGFDS")
-                                .credential("01QWERTYUIOPLKJHGFDSSAZXCVBNM12345678900")
+                                .identity(S3_IDENTITY)
+                                .credential(S3_CREDENTIAL)
                                 .useSsl(true)
-                ).addBucketsItem(new Bucket().name("flexify-source"))
+                ).addBucketsItem(new Bucket().name(SOURCE_BUCKET_NAME_IN_AMAZON))
         ).getId();
 
-        // Add Microsoft Account with one bucket
+        // Add Microsoft Account with one container
         Long microsoftAccountId = storagesApi.addStorageAccountWithBucketsUsingPOST(
                 new AddStorageAccountWithBucketsRequest().storageAccount(
-                        new StorageAccount()
+                        new StorageAccountCreateRequest()
                                 .providerId(azureProviderId)
-                                .identity("microsoftid")
-                                .credential("superComplexCredKey==")
+                                .identity(AZURE_IDENTITY)
+                                .credential(AZURE_CREDENTIAL)
                                 .useSsl(true)
-                ).addBucketsItem(new Bucket().name("flexify-dest"))
+                ).addBucketsItem(new Bucket().name(DESTINATION_BUCKET_NAME_IN_AZURE))
         ).getId();
 
 
         // Get created Storage ID for an amazon bucket
         Long amazonBucketStorageId = storagesApi.getStoragesForStorageAccountUsingGET(amazonAccountId)
-                .stream().filter(s -> s.getBucket().equals("flexify-source")).findFirst().orElseThrow(() -> new IllegalArgumentException()).getId();
+                .stream().filter(s -> s.getBucket().equals(SOURCE_BUCKET_NAME_IN_AMAZON)).findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Bucket " + SOURCE_BUCKET_NAME_IN_AMAZON + " cannot be found")).getId();
+
         // Get created Storage ID for an azure bucket
         Long azureBucketStorageId = storagesApi.getStoragesForStorageAccountUsingGET(microsoftAccountId)
-                .stream().filter(s -> s.getBucket().equals("flexify-dest")).findFirst().orElseThrow(() -> new IllegalArgumentException()).getId();
+                .stream().filter(s -> s.getBucket().equals("test")).findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("DESTINATION_BUCKET_NAME_IN_AZURE " + DESTINATION_BUCKET_NAME_IN_AZURE + " cannot be found")).getId();
 
         // Start the Migration
         new MigrationsControllerApi().addMigrationUsingPOST(
@@ -150,8 +179,6 @@ public class FlexifyApiTest {
         );
     }
 }
-
-
 ```
 
 ## Documentation for API Endpoints
@@ -161,10 +188,10 @@ All URIs are relative to *https://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticationControllerApi* | [**authenticationRequestUsingPOST**](docs/AuthenticationControllerApi.md#authenticationRequestUsingPOST) | **POST** /rest/auth | Generate access token for user
-*AuthenticationControllerApi* | [**logoutUsingPOST**](docs/AuthenticationControllerApi.md#logoutUsingPOST) | **POST** /rest/auth/logout | logout
-*BillingAccountControllerApi* | [**getCostsForCurrentUserUsingGET**](docs/BillingAccountControllerApi.md#getCostsForCurrentUserUsingGET) | **GET** /rest/account/costs | getCostsForCurrentUser
-*BillingAccountControllerApi* | [**getCurrentUserBillingAccountUsingGET**](docs/BillingAccountControllerApi.md#getCurrentUserBillingAccountUsingGET) | **GET** /rest/account | getCurrentUserBillingAccount
-*BillingAccountControllerApi* | [**getPaymentsForCurrentUserUsingGET**](docs/BillingAccountControllerApi.md#getPaymentsForCurrentUserUsingGET) | **GET** /rest/account/payments | getPaymentsForCurrentUser
+*AuthenticationControllerApi* | [**logoutUsingPOST**](docs/AuthenticationControllerApi.md#logoutUsingPOST) | **POST** /rest/auth/logout | Logout
+*BillingAccountControllerApi* | [**getCostsForCurrentUserUsingGET**](docs/BillingAccountControllerApi.md#getCostsForCurrentUserUsingGET) | **GET** /rest/account/costs | Get costs for current user
+*BillingAccountControllerApi* | [**getCurrentUserBillingAccountUsingGET**](docs/BillingAccountControllerApi.md#getCurrentUserBillingAccountUsingGET) | **GET** /rest/account | Get billing account for current user
+*BillingAccountControllerApi* | [**getPaymentsForCurrentUserUsingGET**](docs/BillingAccountControllerApi.md#getPaymentsForCurrentUserUsingGET) | **GET** /rest/account/payments | Get payments for current user
 *CloudLocationsControllerApi* | [**getAvailableLocationsForCurrentUserUsingGET**](docs/CloudLocationsControllerApi.md#getAvailableLocationsForCurrentUserUsingGET) | **GET** /rest/cloud-locations | getAvailableLocationsForCurrentUser
 *EndpointsControllerApi* | [**attachStorageToEndpointUsingPOST**](docs/EndpointsControllerApi.md#attachStorageToEndpointUsingPOST) | **POST** /rest/endpoints/{endpoint-id}/storages | Attach the storage to the endpoint
 *EndpointsControllerApi* | [**detachStorageFromEndpointUsingDELETE**](docs/EndpointsControllerApi.md#detachStorageFromEndpointUsingDELETE) | **DELETE** /rest/endpoints/{endpoint-id}/storages/{storage-id} | Detach the storage from the endpoint
@@ -194,13 +221,8 @@ Class | Method | HTTP request | Description
 *StoragesControllerApi* | [**getStoragesForStorageAccountUsingGET**](docs/StoragesControllerApi.md#getStoragesForStorageAccountUsingGET) | **GET** /rest/storage-accounts/{storage-account-id}/storages | Get storages of the storage account
 *StoragesControllerApi* | [**refreshStorageUsingPOST**](docs/StoragesControllerApi.md#refreshStorageUsingPOST) | **POST** /rest/storage-accounts/{storage-account-id}/storages/{storage-id}/actions/refresh | Refresh storage
 *StoragesControllerApi* | [**refreshStoragesUsingPOST**](docs/StoragesControllerApi.md#refreshStoragesUsingPOST) | **POST** /rest/storage-accounts/actions/refresh-storages | Refresh storages
-*UserControllerApi* | [**changeCurrentUserPasswordUsingPOST**](docs/UserControllerApi.md#changeCurrentUserPasswordUsingPOST) | **POST** /rest/user/current/change-password | changeCurrentUserPassword
-*UserControllerApi* | [**getCurrentUserUsingGET**](docs/UserControllerApi.md#getCurrentUserUsingGET) | **GET** /rest/user/current | getCurrentUser
+*UserControllerApi* | [**getCurrentUserUsingGET**](docs/UserControllerApi.md#getCurrentUserUsingGET) | **GET** /rest/user/current | Get details information for logged in user
 *UserControllerApi* | [**requestResetPasswordUsingPOST**](docs/UserControllerApi.md#requestResetPasswordUsingPOST) | **POST** /rest/user/request-reset-password | requestResetPassword
-*UserControllerApi* | [**resetPasswordUsingPOST**](docs/UserControllerApi.md#resetPasswordUsingPOST) | **POST** /rest/user/reset-password | resetPassword
-*UserControllerApi* | [**signupUsingPOST**](docs/UserControllerApi.md#signupUsingPOST) | **POST** /rest/user/signup | signup
-*UserControllerApi* | [**updateCurrentUserProfileUsingPUT**](docs/UserControllerApi.md#updateCurrentUserProfileUsingPUT) | **PUT** /rest/user/current/profile | updateCurrentUserProfile
-*UserControllerApi* | [**validateTokenUsingGET**](docs/UserControllerApi.md#validateTokenUsingGET) | **GET** /rest/user/validate-token | validateToken
 
 
 ## Documentation for Models
@@ -216,28 +238,26 @@ Class | Method | HTTP request | Description
  - [Bucket](docs/Bucket.md)
  - [ChangePasswordRequest](docs/ChangePasswordRequest.md)
  - [CloudLocation](docs/CloudLocation.md)
- - [CostData](docs/CostData.md)
+ - [CostDetails](docs/CostDetails.md)
  - [DataStorageStat](docs/DataStorageStat.md)
- - [DbLogEntry](docs/DbLogEntry.md)
- - [DbLogEvent](docs/DbLogEvent.md)
- - [DbMoney](docs/DbMoney.md)
- - [DbPriceListEntry](docs/DbPriceListEntry.md)
- - [DbStorageProvider](docs/DbStorageProvider.md)
- - [DbUserProfile](docs/DbUserProfile.md)
+ - [DescribeOrganization](docs/DescribeOrganization.md)
  - [Endpoint](docs/Endpoint.md)
  - [EndpointDetails](docs/EndpointDetails.md)
  - [EndpointStat](docs/EndpointStat.md)
  - [EndpointStorage](docs/EndpointStorage.md)
  - [IdResponse](docs/IdResponse.md)
  - [IdsList](docs/IdsList.md)
+ - [LogEntry](docs/LogEntry.md)
+ - [LogEvent](docs/LogEvent.md)
  - [Migration](docs/Migration.md)
  - [MigrationSlotStat](docs/MigrationSlotStat.md)
  - [MigrationStat](docs/MigrationStat.md)
- - [Org](docs/Org.md)
+ - [Money](docs/Money.md)
  - [PageMigration](docs/PageMigration.md)
  - [Pageable](docs/Pageable.md)
  - [Payment](docs/Payment.md)
  - [PaymentOptions](docs/PaymentOptions.md)
+ - [PriceListEntry](docs/PriceListEntry.md)
  - [RequestResetPasswordReqeust](docs/RequestResetPasswordReqeust.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [SignUpRequest](docs/SignUpRequest.md)
@@ -245,8 +265,10 @@ Class | Method | HTTP request | Description
  - [Sort](docs/Sort.md)
  - [Storage](docs/Storage.md)
  - [StorageAccount](docs/StorageAccount.md)
+ - [StorageAccountCreateRequest](docs/StorageAccountCreateRequest.md)
  - [StorageProvider](docs/StorageProvider.md)
  - [User](docs/User.md)
+ - [UserProfile](docs/UserProfile.md)
 
 
 ## Documentation for Authorization

@@ -5,7 +5,7 @@ All URIs are relative to *https://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authenticationRequestUsingPOST**](AuthenticationControllerApi.md#authenticationRequestUsingPOST) | **POST** /rest/auth | Generate access token for user
-[**logoutUsingPOST**](AuthenticationControllerApi.md#logoutUsingPOST) | **POST** /rest/auth/logout | logout
+[**logoutUsingPOST**](AuthenticationControllerApi.md#logoutUsingPOST) | **POST** /rest/auth/logout | Logout
 
 
 <a name="authenticationRequestUsingPOST"></a>
@@ -55,7 +55,7 @@ No authorization required
 # **logoutUsingPOST**
 > Object logoutUsingPOST()
 
-logout
+Logout
 
 ### Example
 ```java

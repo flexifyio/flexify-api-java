@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **password** | **String** |  |  [optional]
-**profile** | [**DbUserProfile**](DbUserProfile.md) |  |  [optional]
+**profile** | [**UserProfile**](UserProfile.md) |  |  [optional]
 **signupCode** | **String** |  |  [optional]
 
 

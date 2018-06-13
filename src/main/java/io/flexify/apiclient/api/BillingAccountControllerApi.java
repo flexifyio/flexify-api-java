@@ -8,7 +8,7 @@ import io.flexify.apiclient.handler.Pair;
 import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.BillingAccountWithMoney;
-import io.flexify.apiclient.model.CostData;
+import io.flexify.apiclient.model.CostDetails;
 import io.flexify.apiclient.model.Payment;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-07T17:03:52.903+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T09:56:14.343+03:00")
 public class BillingAccountControllerApi {
   private ApiClient apiClient;
 
@@ -37,12 +37,12 @@ public class BillingAccountControllerApi {
   }
 
   /**
-   * getCostsForCurrentUser
+   * Get costs for current user
    * 
-   * @return List&lt;CostData&gt;
+   * @return List&lt;CostDetails&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<CostData> getCostsForCurrentUserUsingGET() throws ApiException {
+  public List<CostDetails> getCostsForCurrentUserUsingGET() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -68,11 +68,11 @@ public class BillingAccountControllerApi {
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<List<CostData>> localVarReturnType = new GenericType<List<CostData>>() {};
+    GenericType<List<CostDetails>> localVarReturnType = new GenericType<List<CostDetails>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * getCurrentUserBillingAccount
+   * Get billing account for current user
    * 
    * @return BillingAccountWithMoney
    * @throws ApiException if fails to make API call
@@ -107,7 +107,7 @@ public class BillingAccountControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * getPaymentsForCurrentUser
+   * Get payments for current user
    * 
    * @return List&lt;Payment&gt;
    * @throws ApiException if fails to make API call
