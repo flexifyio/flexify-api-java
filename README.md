@@ -56,6 +56,8 @@ Then manually install the following JARs:
 
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
+The complete example of new migration
+
 ```java
 
 import io.flexify.apiclient.api.AuthenticationControllerApi;
@@ -97,12 +99,16 @@ public class FlexifyApiTest {
         Configuration.getDefaultApiClient().setBasePath(BASE_PATH_URL);
         try {
             // 2) Login to the Flexify.IO if you don't have an API key
-            AuthenticationResponse result = new AuthenticationControllerApi().authenticationRequestUsingPOST(
+            AuthenticationResponse authResponse = new AuthenticationControllerApi().authenticationRequestUsingPOST(
                     new AuthenticationRequest().username(AUTH_USERNAME).password(AUTH_PASSWORD)
             );
-            // 3) Authenticate the client with API key
-            Configuration.getDefaultApiClient().setApiKey("Bearer " + result.getToken());
+            final String apiKey = authResponse.getToken();
 
+            // 3) Authenticate the client with API key
+            ApiKeyAuth bearer = (ApiKeyAuth) Configuration.getDefaultApiClient().getAuthentication("Bearer");
+            bearer.setApiKeyPrefix("Bearer");
+            bearer.setApiKey(apiKey);
+            
             // 4) Use the api
             createNewMigration();
 
