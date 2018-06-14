@@ -1,4 +1,10 @@
-# management-apiclient
+# Java API Client for Flexify.IO Management
+
+With [Flexify.IO](https://flexify.io/), storing your data in a cloud does not imply dependency on a single provider anymore!
+
+By unlocking your application from the specific cloud vendor or protocol, you finally gain the freedom to decide when and where to store your data.
+
+And we took care about data migration too!
 
 ## Requirements
 
@@ -291,7 +297,9 @@ Authentication schemes defined for the API:
 
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
-## Author
 
-Alexander Bondin ab@flexify.io
+## Contact us:
 
++ Information: [info@flexify.io](mailto:info@flexify.io)
++ Sales: [sales@flexify.io](mailto:sales@flexify.io)
++ Support: [support@flexify.io](mailto:support@flexify.io)
