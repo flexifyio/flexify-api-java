@@ -60,7 +60,7 @@ Then manually install the following JARs:
 
 ## Getting Started
 
-Please use our [examples]|(https://github.com/flexifyio/flexify-manage-api-client-sample)
+Please use our [examples](https://github.com/flexifyio/flexify-manage-api-client-sample)
 
 ## Documentation for API Endpoints
 
