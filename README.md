@@ -99,7 +99,7 @@ public class FlexifyApiTest {
     public static final String DESTINATION_BUCKET_NAME_IN_AZURE = "USE_YOUR_DESTINATION_CONTAINER";
 
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         // 1) Setup connection URL
         Configuration.getDefaultApiClient().setBasePath(BASE_PATH_URL);
@@ -114,14 +114,12 @@ public class FlexifyApiTest {
             ApiKeyAuth bearer = (ApiKeyAuth) Configuration.getDefaultApiClient().getAuthentication("Bearer");
             bearer.setApiKeyPrefix("Bearer");
             bearer.setApiKey(apiKey);
-            
+
             // 4) Use the api
-            createNewMigration();
+            Long migrationId = createNewMigration();
 
-            PageMigration migrations = new MigrationsControllerApi().
-                    getForCurrentUserUsingGET(false, false, new ArrayList<String>(), 0, 100, null);
-            System.out.println("My migrations: " + migrations);
-
+            // 5) Poll the migration state every 10 seconds
+            pollMigration(migrationId);
         } catch (ApiException e) {
             System.err.println("Exception when calling Flexify.IO API: " + e.getCode());
             e.printStackTrace();
@@ -131,9 +129,10 @@ public class FlexifyApiTest {
     /**
      * Create new migration to copy objects from bucket in Amazon to container in Azure
      *
+     * @return new migration id
      * @throws ApiException
      */
-    private static void createNewMigration() throws ApiException {
+    private static Long createNewMigration() throws ApiException {
 
         StoragesControllerApi storagesApi = new StoragesControllerApi();
 
@@ -182,13 +181,39 @@ public class FlexifyApiTest {
                 .orElseThrow(() -> new IllegalArgumentException("DESTINATION_BUCKET_NAME_IN_AZURE " + DESTINATION_BUCKET_NAME_IN_AZURE + " cannot be found")).getId();
 
         // Start the Migration
-        new MigrationsControllerApi().addMigrationUsingPOST(
+        return new MigrationsControllerApi().addMigrationUsingPOST(
                 new AddMigrationRequest()
                         .migrationMode(AddMigrationRequest.MigrationModeEnum.COPY)
                         .slots(8)
                         .sourceId(amazonBucketStorageId)
                         .destinationId(azureBucketStorageId)
-        );
+        ).getId();
+    }
+
+    private static void pollMigration(Long migrationId) throws Exception {
+        MigrationsControllerApi migrationsApi = new MigrationsControllerApi();
+        Migration migration;
+        boolean migrationCompleted = false;
+        while (!migrationCompleted) {
+            migration = migrationsApi.getUsingGET(migrationId);
+            switch (migration.getStat().getState()) {
+                case NOT_ASSIGNED:
+                    System.out.println("Migration is not yet assigned to engines");
+                    break;
+                case IN_PROGRESS:
+                    if (migration.getStat().getBytesProcessed() == null){
+                        System.out.println("Migration starting...");
+                    } else {
+                        System.out.println("Migration progress. Bytes processed " + migration.getStat().getBytesProcessed());
+                    }
+                    break;
+                default:
+                    System.out.println("------------- Migration completed with the state " + migration.getStat().getState());
+                    migrationCompleted = true;
+                    break;
+            }
+            Thread.sleep(5000l);
+        }
     }
 }
 ```
