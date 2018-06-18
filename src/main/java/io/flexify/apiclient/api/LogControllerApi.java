@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class LogControllerApi {
   private ApiClient apiClient;
 
@@ -43,7 +43,7 @@ public class LogControllerApi {
    * @return List&lt;LogEntry&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<LogEntry> getLogForCurrentUserUsingGET(Long storageId, Long migrationId, Long endpointId) throws ApiException {
+  public List<LogEntry> getLogForCurrentUser(Long storageId, Long migrationId, Long endpointId) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

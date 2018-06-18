@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class EndpointsControllerApi {
   private ApiClient apiClient;
 
@@ -43,17 +43,17 @@ public class EndpointsControllerApi {
    * @param endpointStorage endpointStorage (required)
    * @throws ApiException if fails to make API call
    */
-  public void attachStorageToEndpointUsingPOST(Long endpointId, EndpointStorage endpointStorage) throws ApiException {
+  public void attachStorageToEndpoint(Long endpointId, EndpointStorage endpointStorage) throws ApiException {
     Object localVarPostBody = endpointStorage;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling attachStorageToEndpointUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling attachStorageToEndpoint");
     }
     
     // verify the required parameter 'endpointStorage' is set
     if (endpointStorage == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointStorage' when calling attachStorageToEndpointUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'endpointStorage' when calling attachStorageToEndpoint");
     }
     
     // create path and map variables
@@ -90,17 +90,17 @@ public class EndpointsControllerApi {
    * @param storageId storage-id (required)
    * @throws ApiException if fails to make API call
    */
-  public void detachStorageFromEndpointUsingDELETE(Long endpointId, Long storageId) throws ApiException {
+  public void detachStorageFromEndpoint(Long endpointId, Long storageId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling detachStorageFromEndpointUsingDELETE");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling detachStorageFromEndpoint");
     }
     
     // verify the required parameter 'storageId' is set
     if (storageId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageId' when calling detachStorageFromEndpointUsingDELETE");
+      throw new ApiException(400, "Missing the required parameter 'storageId' when calling detachStorageFromEndpoint");
     }
     
     // create path and map variables
@@ -137,12 +137,12 @@ public class EndpointsControllerApi {
    * @param endpointId endpoint-id (required)
    * @throws ApiException if fails to make API call
    */
-  public void disableUsingPUT(Long endpointId) throws ApiException {
+  public void disable(Long endpointId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling disableUsingPUT");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling disable");
     }
     
     // create path and map variables
@@ -178,12 +178,12 @@ public class EndpointsControllerApi {
    * @param endpointId endpoint-id (required)
    * @throws ApiException if fails to make API call
    */
-  public void enableUsingPUT(Long endpointId) throws ApiException {
+  public void enable(Long endpointId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling enableUsingPUT");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling enable");
     }
     
     // create path and map variables
@@ -220,12 +220,12 @@ public class EndpointsControllerApi {
    * @return EndpointDetails
    * @throws ApiException if fails to make API call
    */
-  public EndpointDetails getEndpointDetailsUsingGET(Long endpointId) throws ApiException {
+  public EndpointDetails getEndpointDetails(Long endpointId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling getEndpointDetailsUsingGET");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling getEndpointDetails");
     }
     
     // create path and map variables
@@ -261,7 +261,7 @@ public class EndpointsControllerApi {
    * @return List&lt;EndpointDetails&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<EndpointDetails> getEndpointsForCurrentUserUsingGET() throws ApiException {
+  public List<EndpointDetails> getEndpointsForCurrentUser() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -297,17 +297,17 @@ public class EndpointsControllerApi {
    * @param storageId storage-id (required)
    * @throws ApiException if fails to make API call
    */
-  public void setDefaultStorageUsingPUT(Long endpointId, Long storageId) throws ApiException {
+  public void setDefaultStorage(Long endpointId, Long storageId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling setDefaultStorageUsingPUT");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling setDefaultStorage");
     }
     
     // verify the required parameter 'storageId' is set
     if (storageId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageId' when calling setDefaultStorageUsingPUT");
+      throw new ApiException(400, "Missing the required parameter 'storageId' when calling setDefaultStorage");
     }
     
     // create path and map variables
@@ -345,17 +345,17 @@ public class EndpointsControllerApi {
    * @param endpoint endpoint (required)
    * @throws ApiException if fails to make API call
    */
-  public void updateEndpointUsingPUT(Long endpointId, Endpoint endpoint) throws ApiException {
+  public void updateEndpoint(Long endpointId, Endpoint endpoint) throws ApiException {
     Object localVarPostBody = endpoint;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling updateEndpointUsingPUT");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling updateEndpoint");
     }
     
     // verify the required parameter 'endpoint' is set
     if (endpoint == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpoint' when calling updateEndpointUsingPUT");
+      throw new ApiException(400, "Missing the required parameter 'endpoint' when calling updateEndpoint");
     }
     
     // create path and map variables

@@ -4,12 +4,12 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getLogForCurrentUserUsingGET**](LogControllerApi.md#getLogForCurrentUserUsingGET) | **GET** /rest/log | getLogForCurrentUser
+[**getLogForCurrentUser**](LogControllerApi.md#getLogForCurrentUser) | **GET** /rest/log | getLogForCurrentUser
 
 
-<a name="getLogForCurrentUserUsingGET"></a>
-# **getLogForCurrentUserUsingGET**
-> List&lt;LogEntry&gt; getLogForCurrentUserUsingGET(storageId, migrationId, endpointId)
+<a name="getLogForCurrentUser"></a>
+# **getLogForCurrentUser**
+> List&lt;LogEntry&gt; getLogForCurrentUser(storageId, migrationId, endpointId)
 
 getLogForCurrentUser
 
@@ -35,10 +35,10 @@ Long storageId = 789L; // Long | storage-id
 Long migrationId = 789L; // Long | migration-id
 Long endpointId = 789L; // Long | endpoint-id
 try {
-    List<LogEntry> result = apiInstance.getLogForCurrentUserUsingGET(storageId, migrationId, endpointId);
+    List<LogEntry> result = apiInstance.getLogForCurrentUser(storageId, migrationId, endpointId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LogControllerApi#getLogForCurrentUserUsingGET");
+    System.err.println("Exception when calling LogControllerApi#getLogForCurrentUser");
     e.printStackTrace();
 }
 ```

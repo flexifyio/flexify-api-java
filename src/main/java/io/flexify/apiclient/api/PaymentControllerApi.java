@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class PaymentControllerApi {
   private ApiClient apiClient;
 
@@ -42,17 +42,17 @@ public class PaymentControllerApi {
    * @return PaymentOptions
    * @throws ApiException if fails to make API call
    */
-  public PaymentOptions getPaymentOptionsUsingGET(String currency, Double amount) throws ApiException {
+  public PaymentOptions getPaymentOptions(String currency, Double amount) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'currency' is set
     if (currency == null) {
-      throw new ApiException(400, "Missing the required parameter 'currency' when calling getPaymentOptionsUsingGET");
+      throw new ApiException(400, "Missing the required parameter 'currency' when calling getPaymentOptions");
     }
     
     // verify the required parameter 'amount' is set
     if (amount == null) {
-      throw new ApiException(400, "Missing the required parameter 'amount' when calling getPaymentOptionsUsingGET");
+      throw new ApiException(400, "Missing the required parameter 'amount' when calling getPaymentOptions");
     }
     
     // create path and map variables
@@ -88,7 +88,7 @@ public class PaymentControllerApi {
    * 
    * @throws ApiException if fails to make API call
    */
-  public void paymentFulfilledUsingGET() throws ApiException {
+  public void paymentFulfilled() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

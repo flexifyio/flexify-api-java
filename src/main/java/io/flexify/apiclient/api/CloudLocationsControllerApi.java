@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class CloudLocationsControllerApi {
   private ApiClient apiClient;
 
@@ -40,7 +40,7 @@ public class CloudLocationsControllerApi {
    * @return List&lt;CloudLocation&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<CloudLocation> getAvailableLocationsForCurrentUserUsingGET() throws ApiException {
+  public List<CloudLocation> getAvailableLocationsForCurrentUser() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

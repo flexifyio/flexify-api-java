@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class UserControllerApi {
   private ApiClient apiClient;
 
@@ -38,11 +38,11 @@ public class UserControllerApi {
   /**
    * Get details information for logged in user
    * 
-   * @param silence silence (optional, default to false)
+   * @param silence Return 204 No Content or 401 Unauthorized in case of username not found (optional, default to false)
    * @return User
    * @throws ApiException if fails to make API call
    */
-  public User getCurrentUserUsingGET(Boolean silence) throws ApiException {
+  public User getCurrentUser(Boolean silence) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -78,12 +78,12 @@ public class UserControllerApi {
    * @param reqeust reqeust (required)
    * @throws ApiException if fails to make API call
    */
-  public void requestResetPasswordUsingPOST(RequestResetPasswordReqeust reqeust) throws ApiException {
+  public void requestResetPassword(RequestResetPasswordReqeust reqeust) throws ApiException {
     Object localVarPostBody = reqeust;
     
     // verify the required parameter 'reqeust' is set
     if (reqeust == null) {
-      throw new ApiException(400, "Missing the required parameter 'reqeust' when calling requestResetPasswordUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'reqeust' when calling requestResetPassword");
     }
     
     // create path and map variables

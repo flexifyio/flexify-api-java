@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authenticationRequestUsingPOST**](AuthenticationControllerApi.md#authenticationRequestUsingPOST) | **POST** /rest/auth | Generate access token for user
-[**logoutUsingPOST**](AuthenticationControllerApi.md#logoutUsingPOST) | **POST** /rest/auth/logout | Logout
+[**authenticationRequest**](AuthenticationControllerApi.md#authenticationRequest) | **POST** /rest/auth | Generate access token for user
+[**logout**](AuthenticationControllerApi.md#logout) | **POST** /rest/auth/logout | Logout
 
 
-<a name="authenticationRequestUsingPOST"></a>
-# **authenticationRequestUsingPOST**
-> AuthenticationResponse authenticationRequestUsingPOST(authenticationRequest)
+<a name="authenticationRequest"></a>
+# **authenticationRequest**
+> AuthenticationResponse authenticationRequest(authenticationRequest)
 
 Generate access token for user
 
@@ -24,10 +24,10 @@ Generate access token for user
 AuthenticationControllerApi apiInstance = new AuthenticationControllerApi();
 AuthenticationRequest authenticationRequest = new AuthenticationRequest(); // AuthenticationRequest | authenticationRequest
 try {
-    AuthenticationResponse result = apiInstance.authenticationRequestUsingPOST(authenticationRequest);
+    AuthenticationResponse result = apiInstance.authenticationRequest(authenticationRequest);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationControllerApi#authenticationRequestUsingPOST");
+    System.err.println("Exception when calling AuthenticationControllerApi#authenticationRequest");
     e.printStackTrace();
 }
 ```
@@ -51,9 +51,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="logoutUsingPOST"></a>
-# **logoutUsingPOST**
-> Object logoutUsingPOST()
+<a name="logout"></a>
+# **logout**
+> Object logout()
 
 Logout
 
@@ -76,10 +76,10 @@ Bearer.setApiKey("YOUR API KEY");
 
 AuthenticationControllerApi apiInstance = new AuthenticationControllerApi();
 try {
-    Object result = apiInstance.logoutUsingPOST();
+    Object result = apiInstance.logout();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationControllerApi#logoutUsingPOST");
+    System.err.println("Exception when calling AuthenticationControllerApi#logout");
     e.printStackTrace();
 }
 ```

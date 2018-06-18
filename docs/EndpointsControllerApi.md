@@ -4,19 +4,19 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attachStorageToEndpointUsingPOST**](EndpointsControllerApi.md#attachStorageToEndpointUsingPOST) | **POST** /rest/endpoints/{endpoint-id}/storages | Attach the storage to the endpoint
-[**detachStorageFromEndpointUsingDELETE**](EndpointsControllerApi.md#detachStorageFromEndpointUsingDELETE) | **DELETE** /rest/endpoints/{endpoint-id}/storages/{storage-id} | Detach the storage from the endpoint
-[**disableUsingPUT**](EndpointsControllerApi.md#disableUsingPUT) | **PUT** /rest/endpoints/{endpoint-id}/actions/disable | Disable the endpoint
-[**enableUsingPUT**](EndpointsControllerApi.md#enableUsingPUT) | **PUT** /rest/endpoints/{endpoint-id}/actions/enable | Enable the endpoint
-[**getEndpointDetailsUsingGET**](EndpointsControllerApi.md#getEndpointDetailsUsingGET) | **GET** /rest/endpoints/{endpoint-id} | Get endpoint details
-[**getEndpointsForCurrentUserUsingGET**](EndpointsControllerApi.md#getEndpointsForCurrentUserUsingGET) | **GET** /rest/endpoints | Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
-[**setDefaultStorageUsingPUT**](EndpointsControllerApi.md#setDefaultStorageUsingPUT) | **PUT** /rest/endpoints/{endpoint-id}/storages/{storage-id}/actions/set-as-default | Set given storage as default for the endpoint
-[**updateEndpointUsingPUT**](EndpointsControllerApi.md#updateEndpointUsingPUT) | **PUT** /rest/endpoints/{endpoint-id} | Update attributes of the endpoint
+[**attachStorageToEndpoint**](EndpointsControllerApi.md#attachStorageToEndpoint) | **POST** /rest/endpoints/{endpoint-id}/storages | Attach the storage to the endpoint
+[**detachStorageFromEndpoint**](EndpointsControllerApi.md#detachStorageFromEndpoint) | **DELETE** /rest/endpoints/{endpoint-id}/storages/{storage-id} | Detach the storage from the endpoint
+[**disable**](EndpointsControllerApi.md#disable) | **PUT** /rest/endpoints/{endpoint-id}/actions/disable | Disable the endpoint
+[**enable**](EndpointsControllerApi.md#enable) | **PUT** /rest/endpoints/{endpoint-id}/actions/enable | Enable the endpoint
+[**getEndpointDetails**](EndpointsControllerApi.md#getEndpointDetails) | **GET** /rest/endpoints/{endpoint-id} | Get endpoint details
+[**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /rest/endpoints | Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
+[**setDefaultStorage**](EndpointsControllerApi.md#setDefaultStorage) | **PUT** /rest/endpoints/{endpoint-id}/storages/{storage-id}/actions/set-as-default | Set given storage as default for the endpoint
+[**updateEndpoint**](EndpointsControllerApi.md#updateEndpoint) | **PUT** /rest/endpoints/{endpoint-id} | Update attributes of the endpoint
 
 
-<a name="attachStorageToEndpointUsingPOST"></a>
-# **attachStorageToEndpointUsingPOST**
-> attachStorageToEndpointUsingPOST(endpointId, endpointStorage)
+<a name="attachStorageToEndpoint"></a>
+# **attachStorageToEndpoint**
+> attachStorageToEndpoint(endpointId, endpointStorage)
 
 Attach the storage to the endpoint
 
@@ -41,9 +41,9 @@ EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
 EndpointStorage endpointStorage = new EndpointStorage(); // EndpointStorage | endpointStorage
 try {
-    apiInstance.attachStorageToEndpointUsingPOST(endpointId, endpointStorage);
+    apiInstance.attachStorageToEndpoint(endpointId, endpointStorage);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#attachStorageToEndpointUsingPOST");
+    System.err.println("Exception when calling EndpointsControllerApi#attachStorageToEndpoint");
     e.printStackTrace();
 }
 ```
@@ -68,9 +68,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
-<a name="detachStorageFromEndpointUsingDELETE"></a>
-# **detachStorageFromEndpointUsingDELETE**
-> detachStorageFromEndpointUsingDELETE(endpointId, storageId)
+<a name="detachStorageFromEndpoint"></a>
+# **detachStorageFromEndpoint**
+> detachStorageFromEndpoint(endpointId, storageId)
 
 Detach the storage from the endpoint
 
@@ -95,9 +95,9 @@ EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
 Long storageId = 789L; // Long | storage-id
 try {
-    apiInstance.detachStorageFromEndpointUsingDELETE(endpointId, storageId);
+    apiInstance.detachStorageFromEndpoint(endpointId, storageId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#detachStorageFromEndpointUsingDELETE");
+    System.err.println("Exception when calling EndpointsControllerApi#detachStorageFromEndpoint");
     e.printStackTrace();
 }
 ```
@@ -122,9 +122,9 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="disableUsingPUT"></a>
-# **disableUsingPUT**
-> disableUsingPUT(endpointId)
+<a name="disable"></a>
+# **disable**
+> disable(endpointId)
 
 Disable the endpoint
 
@@ -148,9 +148,9 @@ Bearer.setApiKey("YOUR API KEY");
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
 try {
-    apiInstance.disableUsingPUT(endpointId);
+    apiInstance.disable(endpointId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#disableUsingPUT");
+    System.err.println("Exception when calling EndpointsControllerApi#disable");
     e.printStackTrace();
 }
 ```
@@ -174,9 +174,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
-<a name="enableUsingPUT"></a>
-# **enableUsingPUT**
-> enableUsingPUT(endpointId)
+<a name="enable"></a>
+# **enable**
+> enable(endpointId)
 
 Enable the endpoint
 
@@ -200,9 +200,9 @@ Bearer.setApiKey("YOUR API KEY");
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
 try {
-    apiInstance.enableUsingPUT(endpointId);
+    apiInstance.enable(endpointId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#enableUsingPUT");
+    System.err.println("Exception when calling EndpointsControllerApi#enable");
     e.printStackTrace();
 }
 ```
@@ -226,9 +226,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
-<a name="getEndpointDetailsUsingGET"></a>
-# **getEndpointDetailsUsingGET**
-> EndpointDetails getEndpointDetailsUsingGET(endpointId)
+<a name="getEndpointDetails"></a>
+# **getEndpointDetails**
+> EndpointDetails getEndpointDetails(endpointId)
 
 Get endpoint details
 
@@ -252,10 +252,10 @@ Bearer.setApiKey("YOUR API KEY");
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
 try {
-    EndpointDetails result = apiInstance.getEndpointDetailsUsingGET(endpointId);
+    EndpointDetails result = apiInstance.getEndpointDetails(endpointId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#getEndpointDetailsUsingGET");
+    System.err.println("Exception when calling EndpointsControllerApi#getEndpointDetails");
     e.printStackTrace();
 }
 ```
@@ -279,9 +279,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="getEndpointsForCurrentUserUsingGET"></a>
-# **getEndpointsForCurrentUserUsingGET**
-> List&lt;EndpointDetails&gt; getEndpointsForCurrentUserUsingGET()
+<a name="getEndpointsForCurrentUser"></a>
+# **getEndpointsForCurrentUser**
+> List&lt;EndpointDetails&gt; getEndpointsForCurrentUser()
 
 Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
 
@@ -304,10 +304,10 @@ Bearer.setApiKey("YOUR API KEY");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 try {
-    List<EndpointDetails> result = apiInstance.getEndpointsForCurrentUserUsingGET();
+    List<EndpointDetails> result = apiInstance.getEndpointsForCurrentUser();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#getEndpointsForCurrentUserUsingGET");
+    System.err.println("Exception when calling EndpointsControllerApi#getEndpointsForCurrentUser");
     e.printStackTrace();
 }
 ```
@@ -328,9 +328,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="setDefaultStorageUsingPUT"></a>
-# **setDefaultStorageUsingPUT**
-> setDefaultStorageUsingPUT(endpointId, storageId)
+<a name="setDefaultStorage"></a>
+# **setDefaultStorage**
+> setDefaultStorage(endpointId, storageId)
 
 Set given storage as default for the endpoint
 
@@ -355,9 +355,9 @@ EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
 Long storageId = 789L; // Long | storage-id
 try {
-    apiInstance.setDefaultStorageUsingPUT(endpointId, storageId);
+    apiInstance.setDefaultStorage(endpointId, storageId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#setDefaultStorageUsingPUT");
+    System.err.println("Exception when calling EndpointsControllerApi#setDefaultStorage");
     e.printStackTrace();
 }
 ```
@@ -382,9 +382,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
-<a name="updateEndpointUsingPUT"></a>
-# **updateEndpointUsingPUT**
-> updateEndpointUsingPUT(endpointId, endpoint)
+<a name="updateEndpoint"></a>
+# **updateEndpoint**
+> updateEndpoint(endpointId, endpoint)
 
 Update attributes of the endpoint
 
@@ -409,9 +409,9 @@ EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
 Endpoint endpoint = new Endpoint(); // Endpoint | endpoint
 try {
-    apiInstance.updateEndpointUsingPUT(endpointId, endpoint);
+    apiInstance.updateEndpoint(endpointId, endpoint);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#updateEndpointUsingPUT");
+    System.err.println("Exception when calling EndpointsControllerApi#updateEndpoint");
     e.printStackTrace();
 }
 ```

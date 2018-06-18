@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class BillingAccountControllerApi {
   private ApiClient apiClient;
 
@@ -42,7 +42,7 @@ public class BillingAccountControllerApi {
    * @return List&lt;CostDetails&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<CostDetails> getCostsForCurrentUserUsingGET() throws ApiException {
+  public List<CostDetails> getCostsForCurrentUser() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -77,7 +77,7 @@ public class BillingAccountControllerApi {
    * @return BillingAccountWithMoney
    * @throws ApiException if fails to make API call
    */
-  public BillingAccountWithMoney getCurrentUserBillingAccountUsingGET() throws ApiException {
+  public BillingAccountWithMoney getCurrentUserBillingAccount() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -112,7 +112,7 @@ public class BillingAccountControllerApi {
    * @return List&lt;Payment&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Payment> getPaymentsForCurrentUserUsingGET() throws ApiException {
+  public List<Payment> getPaymentsForCurrentUser() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

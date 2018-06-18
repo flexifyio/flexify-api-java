@@ -4,14 +4,14 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCostsForCurrentUserUsingGET**](BillingAccountControllerApi.md#getCostsForCurrentUserUsingGET) | **GET** /rest/account/costs | Get costs for current user
-[**getCurrentUserBillingAccountUsingGET**](BillingAccountControllerApi.md#getCurrentUserBillingAccountUsingGET) | **GET** /rest/account | Get billing account for current user
-[**getPaymentsForCurrentUserUsingGET**](BillingAccountControllerApi.md#getPaymentsForCurrentUserUsingGET) | **GET** /rest/account/payments | Get payments for current user
+[**getCostsForCurrentUser**](BillingAccountControllerApi.md#getCostsForCurrentUser) | **GET** /rest/account/costs | Get costs for current user
+[**getCurrentUserBillingAccount**](BillingAccountControllerApi.md#getCurrentUserBillingAccount) | **GET** /rest/account | Get billing account for current user
+[**getPaymentsForCurrentUser**](BillingAccountControllerApi.md#getPaymentsForCurrentUser) | **GET** /rest/account/payments | Get payments for current user
 
 
-<a name="getCostsForCurrentUserUsingGET"></a>
-# **getCostsForCurrentUserUsingGET**
-> List&lt;CostDetails&gt; getCostsForCurrentUserUsingGET()
+<a name="getCostsForCurrentUser"></a>
+# **getCostsForCurrentUser**
+> List&lt;CostDetails&gt; getCostsForCurrentUser()
 
 Get costs for current user
 
@@ -34,10 +34,10 @@ Bearer.setApiKey("YOUR API KEY");
 
 BillingAccountControllerApi apiInstance = new BillingAccountControllerApi();
 try {
-    List<CostDetails> result = apiInstance.getCostsForCurrentUserUsingGET();
+    List<CostDetails> result = apiInstance.getCostsForCurrentUser();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling BillingAccountControllerApi#getCostsForCurrentUserUsingGET");
+    System.err.println("Exception when calling BillingAccountControllerApi#getCostsForCurrentUser");
     e.printStackTrace();
 }
 ```
@@ -58,9 +58,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="getCurrentUserBillingAccountUsingGET"></a>
-# **getCurrentUserBillingAccountUsingGET**
-> BillingAccountWithMoney getCurrentUserBillingAccountUsingGET()
+<a name="getCurrentUserBillingAccount"></a>
+# **getCurrentUserBillingAccount**
+> BillingAccountWithMoney getCurrentUserBillingAccount()
 
 Get billing account for current user
 
@@ -83,10 +83,10 @@ Bearer.setApiKey("YOUR API KEY");
 
 BillingAccountControllerApi apiInstance = new BillingAccountControllerApi();
 try {
-    BillingAccountWithMoney result = apiInstance.getCurrentUserBillingAccountUsingGET();
+    BillingAccountWithMoney result = apiInstance.getCurrentUserBillingAccount();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling BillingAccountControllerApi#getCurrentUserBillingAccountUsingGET");
+    System.err.println("Exception when calling BillingAccountControllerApi#getCurrentUserBillingAccount");
     e.printStackTrace();
 }
 ```
@@ -107,9 +107,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="getPaymentsForCurrentUserUsingGET"></a>
-# **getPaymentsForCurrentUserUsingGET**
-> List&lt;Payment&gt; getPaymentsForCurrentUserUsingGET()
+<a name="getPaymentsForCurrentUser"></a>
+# **getPaymentsForCurrentUser**
+> List&lt;Payment&gt; getPaymentsForCurrentUser()
 
 Get payments for current user
 
@@ -132,10 +132,10 @@ Bearer.setApiKey("YOUR API KEY");
 
 BillingAccountControllerApi apiInstance = new BillingAccountControllerApi();
 try {
-    List<Payment> result = apiInstance.getPaymentsForCurrentUserUsingGET();
+    List<Payment> result = apiInstance.getPaymentsForCurrentUser();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling BillingAccountControllerApi#getPaymentsForCurrentUserUsingGET");
+    System.err.println("Exception when calling BillingAccountControllerApi#getPaymentsForCurrentUser");
     e.printStackTrace();
 }
 ```

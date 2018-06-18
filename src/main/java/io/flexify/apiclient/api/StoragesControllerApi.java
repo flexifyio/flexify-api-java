@@ -8,8 +8,9 @@ import io.flexify.apiclient.handler.Pair;
 import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.AccessKeysPair;
-import io.flexify.apiclient.model.AddBucketsToStorageAccountRequest;
-import io.flexify.apiclient.model.AddStorageAccountWithBucketsRequest;
+import io.flexify.apiclient.model.AddStorageAccountRequest;
+import io.flexify.apiclient.model.AddStoragesRequest;
+import io.flexify.apiclient.model.AddStoragesResponse;
 import io.flexify.apiclient.model.Bucket;
 import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.IdsList;
@@ -22,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class StoragesControllerApi {
   private ApiClient apiClient;
 
@@ -43,65 +44,18 @@ public class StoragesControllerApi {
   }
 
   /**
-   * Add buckets to the storage account and optionally attach them to endpoint
-   * 
-   * @param storageAccountId storage-account-id (required)
-   * @param request request (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void addBucketsToStorageAccountUsingPOST(Long storageAccountId, AddBucketsToStorageAccountRequest request) throws ApiException {
-    Object localVarPostBody = request;
-    
-    // verify the required parameter 'storageAccountId' is set
-    if (storageAccountId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling addBucketsToStorageAccountUsingPOST");
-    }
-    
-    // verify the required parameter 'request' is set
-    if (request == null) {
-      throw new ApiException(400, "Missing the required parameter 'request' when calling addBucketsToStorageAccountUsingPOST");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/rest/storage-accounts/{storage-account-id}/storages"
-      .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json;charset=UTF-8"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer" };
-
-
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
-  /**
-   * Add Storage Account with buckets
+   * Add Storage Account with an optional list of buckets
    * 
    * @param request request (required)
    * @return IdResponse
    * @throws ApiException if fails to make API call
    */
-  public IdResponse addStorageAccountWithBucketsUsingPOST(AddStorageAccountWithBucketsRequest request) throws ApiException {
+  public IdResponse addStorageAccount(AddStorageAccountRequest request) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'request' is set
     if (request == null) {
-      throw new ApiException(400, "Missing the required parameter 'request' when calling addStorageAccountWithBucketsUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'request' when calling addStorageAccount");
     }
     
     // create path and map variables
@@ -131,23 +85,71 @@ public class StoragesControllerApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Add buckets to the storage account and optionally attach them to endpoint
+   * 
+   * @param storageAccountId storage-account-id (required)
+   * @param request request (required)
+   * @return AddStoragesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AddStoragesResponse addStorages(Long storageAccountId, AddStoragesRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'storageAccountId' is set
+    if (storageAccountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling addStorages");
+    }
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling addStorages");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/rest/storage-accounts/{storage-account-id}/storages"
+      .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<AddStoragesResponse> localVarReturnType = new GenericType<AddStoragesResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Delete Storage
    * 
    * @param storageAccountId storage-account-id (required)
    * @param storageId storage-id (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteStorageUsingDELETE(Long storageAccountId, Long storageId) throws ApiException {
+  public void deleteStorage(Long storageAccountId, Long storageId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'storageAccountId' is set
     if (storageAccountId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling deleteStorageUsingDELETE");
+      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling deleteStorage");
     }
     
     // verify the required parameter 'storageId' is set
     if (storageId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageId' when calling deleteStorageUsingDELETE");
+      throw new ApiException(400, "Missing the required parameter 'storageId' when calling deleteStorage");
     }
     
     // create path and map variables
@@ -184,12 +186,12 @@ public class StoragesControllerApi {
    * @param request request (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteStoragesUsingPOST(IdsList request) throws ApiException {
+  public void deleteStorages(IdsList request) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'request' is set
     if (request == null) {
-      throw new ApiException(400, "Missing the required parameter 'request' when calling deleteStoragesUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'request' when calling deleteStorages");
     }
     
     // create path and map variables
@@ -224,7 +226,7 @@ public class StoragesControllerApi {
    * @return AccessKeysPair
    * @throws ApiException if fails to make API call
    */
-  public AccessKeysPair generateAccessKeysUsingGET() throws ApiException {
+  public AccessKeysPair generateAccessKeys() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -259,7 +261,7 @@ public class StoragesControllerApi {
    * @return List&lt;StorageProvider&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<StorageProvider> getAllStorageProvidersUsingGET() throws ApiException {
+  public List<StorageProvider> getProviders() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -289,100 +291,13 @@ public class StoragesControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Retrieve buckets from external cloud storage account
-   * 
-   * @param storageAccountId storage-account-id (required)
-   * @return List&lt;Bucket&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Bucket> getBucketsForStorageAccountUsingGET(Long storageAccountId) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'storageAccountId' is set
-    if (storageAccountId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling getBucketsForStorageAccountUsingGET");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/rest/storage-accounts/{storage-account-id}/buckets"
-      .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json;charset=UTF-8"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer" };
-
-    GenericType<List<Bucket>> localVarReturnType = new GenericType<List<Bucket>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
-   * Lists buckets of the external storage account
-   * 
-   * @param providerId Provider ID (Amazon S3, Microsoft Azure, etc) (optional)
-   * @param identity Account Identity (optional)
-   * @param credential Account Credential (optional)
-   * @param customUrl Optional endpoint to access the storage (optional)
-   * @param useSsl Use SSL to connect to the endpoint (optional, default to true)
-   * @return List&lt;Bucket&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Bucket> getBucketsUsingGET(Long providerId, String identity, String credential, String customUrl, Boolean useSsl) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/rest/buckets";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "providerId", providerId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identity", identity));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "credential", credential));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "customUrl", customUrl));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "useSsl", useSsl));
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json;charset=UTF-8"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer" };
-
-    GenericType<List<Bucket>> localVarReturnType = new GenericType<List<Bucket>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
    * Get all storage accounts for current user
    * 
    * @param includeStorages Include storages of given storage account to the response (optional, default to true)
    * @return List&lt;StorageAccount&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<StorageAccount> getStorageAccountsForCurrentUserUsingGET(Boolean includeStorages) throws ApiException {
+  public List<StorageAccount> getStorageAccounts(Boolean includeStorages) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -419,12 +334,12 @@ public class StoragesControllerApi {
    * @return List&lt;Storage&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Storage> getStoragesForStorageAccountUsingGET(Long storageAccountId) throws ApiException {
+  public List<Storage> getStorages(Long storageAccountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'storageAccountId' is set
     if (storageAccountId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling getStoragesForStorageAccountUsingGET");
+      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling getStorages");
     }
     
     // create path and map variables
@@ -461,17 +376,17 @@ public class StoragesControllerApi {
    * @param storageId storage-id (required)
    * @throws ApiException if fails to make API call
    */
-  public void refreshStorageUsingPOST(Long storageAccountId, Long storageId) throws ApiException {
+  public void refreshStorage(Long storageAccountId, Long storageId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'storageAccountId' is set
     if (storageAccountId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling refreshStorageUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling refreshStorage");
     }
     
     // verify the required parameter 'storageId' is set
     if (storageId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageId' when calling refreshStorageUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'storageId' when calling refreshStorage");
     }
     
     // create path and map variables
@@ -508,12 +423,12 @@ public class StoragesControllerApi {
    * @param request request (required)
    * @throws ApiException if fails to make API call
    */
-  public void refreshStoragesUsingPOST(IdsList request) throws ApiException {
+  public void refreshStorages(IdsList request) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'request' is set
     if (request == null) {
-      throw new ApiException(400, "Missing the required parameter 'request' when calling refreshStoragesUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'request' when calling refreshStorages");
     }
     
     // create path and map variables
@@ -542,4 +457,91 @@ public class StoragesControllerApi {
 
     apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
+  /**
+   * Lists buckets of the external storage account
+   * 
+   * @param providerId Provider ID (Amazon S3, Microsoft Azure, etc) (optional)
+   * @param identity Account Identity (optional)
+   * @param credential Account Credential (optional)
+   * @param customUrl Optional endpoint to access the storage (optional)
+   * @param useSsl Use SSL to connect to the endpoint (optional, default to true)
+   * @return List&lt;Bucket&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Bucket> requestBuckets(Long providerId, String identity, String credential, String customUrl, Boolean useSsl) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/rest/buckets";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "providerId", providerId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identity", identity));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "credential", credential));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "customUrl", customUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "useSsl", useSsl));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<List<Bucket>> localVarReturnType = new GenericType<List<Bucket>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Retrieve buckets from external cloud storage account
+   * 
+   * @param storageAccountId storage-account-id (required)
+   * @return List&lt;Bucket&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Bucket> requestBucketsForStorageAccount(Long storageAccountId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'storageAccountId' is set
+    if (storageAccountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling requestBucketsForStorageAccount");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/rest/storage-accounts/{storage-account-id}/buckets"
+      .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<List<Bucket>> localVarReturnType = new GenericType<List<Bucket>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
 }

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class MigrationsControllerApi {
   private ApiClient apiClient;
 
@@ -43,12 +43,12 @@ public class MigrationsControllerApi {
    * @return Migration
    * @throws ApiException if fails to make API call
    */
-  public Migration addMigrationUsingPOST(AddMigrationRequest migrationRequest) throws ApiException {
+  public Migration addMigration(AddMigrationRequest migrationRequest) throws ApiException {
     Object localVarPostBody = migrationRequest;
     
     // verify the required parameter 'migrationRequest' is set
     if (migrationRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'migrationRequest' when calling addMigrationUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'migrationRequest' when calling addMigration");
     }
     
     // create path and map variables
@@ -78,6 +78,48 @@ public class MigrationsControllerApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Get migration by id. Only migration owner or administrator have access to the migration
+   * 
+   * @param migrationId Migration Id (required)
+   * @return Migration
+   * @throws ApiException if fails to make API call
+   */
+  public Migration getMigration(Long migrationId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'migrationId' is set
+    if (migrationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'migrationId' when calling getMigration");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/rest/migrations/{migration-id}"
+      .replaceAll("\\{" + "migration-id" + "\\}", apiClient.escapeString(migrationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<Migration> localVarReturnType = new GenericType<Migration>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get all migrations for logged in user in pagged mode
    * 
    * @param activeOnly Show only active migrations (optional, default to false)
@@ -89,7 +131,7 @@ public class MigrationsControllerApi {
    * @return PageMigration
    * @throws ApiException if fails to make API call
    */
-  public PageMigration getForCurrentUserUsingGET(Boolean activeOnly, Boolean includeHidden, List<String> attributesToSort, Integer page, Integer size, String sortDirection) throws ApiException {
+  public PageMigration getMigrations(Boolean activeOnly, Boolean includeHidden, List<String> attributesToSort, Integer page, Integer size, String sortDirection) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -125,60 +167,18 @@ public class MigrationsControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get migration by id. Only migration owner or administrator have access to the migration
-   * 
-   * @param migrationId Migration Id (required)
-   * @return Migration
-   * @throws ApiException if fails to make API call
-   */
-  public Migration getUsingGET(Long migrationId) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'migrationId' is set
-    if (migrationId == null) {
-      throw new ApiException(400, "Missing the required parameter 'migrationId' when calling getUsingGET");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/rest/migrations/{migration-id}"
-      .replaceAll("\\{" + "migration-id" + "\\}", apiClient.escapeString(migrationId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json;charset=UTF-8"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer" };
-
-    GenericType<Migration> localVarReturnType = new GenericType<Migration>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
    * Hide migration from UI
    * 
    * @param migrationId migration-id (required)
    * @return Migration
    * @throws ApiException if fails to make API call
    */
-  public Migration hideMigrationUsingPOST(Long migrationId) throws ApiException {
+  public Migration hideMigration(Long migrationId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'migrationId' is set
     if (migrationId == null) {
-      throw new ApiException(400, "Missing the required parameter 'migrationId' when calling hideMigrationUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'migrationId' when calling hideMigration");
     }
     
     // create path and map variables
@@ -215,12 +215,12 @@ public class MigrationsControllerApi {
    * @return Migration
    * @throws ApiException if fails to make API call
    */
-  public Migration stopMigrationUsingPOST(Long migrationId) throws ApiException {
+  public Migration stopMigration(Long migrationId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'migrationId' is set
     if (migrationId == null) {
-      throw new ApiException(400, "Missing the required parameter 'migrationId' when calling stopMigrationUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'migrationId' when calling stopMigration");
     }
     
     // create path and map variables

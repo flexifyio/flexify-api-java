@@ -19,52 +19,41 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * ResetPasswordRequest
+ * AddStoragesResponse
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
-public class ResetPasswordRequest {
-  @JsonProperty("newPassword")
-  private String newPassword = null;
+public class AddStoragesResponse {
+  @JsonProperty("ids")
+  private List<Long> ids = null;
 
-  @JsonProperty("token")
-  private String token = null;
+  public AddStoragesResponse ids(List<Long> ids) {
+    this.ids = ids;
+    return this;
+  }
 
-  public ResetPasswordRequest newPassword(String newPassword) {
-    this.newPassword = newPassword;
+  public AddStoragesResponse addIdsItem(Long idsItem) {
+    if (this.ids == null) {
+      this.ids = new ArrayList<Long>();
+    }
+    this.ids.add(idsItem);
     return this;
   }
 
    /**
-   * Get newPassword
-   * @return newPassword
+   * Resource IDs
+   * @return ids
   **/
-  @ApiModelProperty(value = "")
-  public String getNewPassword() {
-    return newPassword;
+  @ApiModelProperty(value = "Resource IDs")
+  public List<Long> getIds() {
+    return ids;
   }
 
-  public void setNewPassword(String newPassword) {
-    this.newPassword = newPassword;
-  }
-
-  public ResetPasswordRequest token(String token) {
-    this.token = token;
-    return this;
-  }
-
-   /**
-   * Get token
-   * @return token
-  **/
-  @ApiModelProperty(value = "")
-  public String getToken() {
-    return token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
+  public void setIds(List<Long> ids) {
+    this.ids = ids;
   }
 
 
@@ -76,24 +65,22 @@ public class ResetPasswordRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResetPasswordRequest resetPasswordRequest = (ResetPasswordRequest) o;
-    return Objects.equals(this.newPassword, resetPasswordRequest.newPassword) &&
-        Objects.equals(this.token, resetPasswordRequest.token);
+    AddStoragesResponse addStoragesResponse = (AddStoragesResponse) o;
+    return Objects.equals(this.ids, addStoragesResponse.ids);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newPassword, token);
+    return Objects.hash(ids);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResetPasswordRequest {\n");
+    sb.append("class AddStoragesResponse {\n");
     
-    sb.append("    newPassword: ").append(toIndentedString(newPassword)).append("\n");
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("}");
     return sb.toString();
   }

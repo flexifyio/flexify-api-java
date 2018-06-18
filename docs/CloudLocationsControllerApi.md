@@ -4,12 +4,12 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAvailableLocationsForCurrentUserUsingGET**](CloudLocationsControllerApi.md#getAvailableLocationsForCurrentUserUsingGET) | **GET** /rest/cloud-locations | getAvailableLocationsForCurrentUser
+[**getAvailableLocationsForCurrentUser**](CloudLocationsControllerApi.md#getAvailableLocationsForCurrentUser) | **GET** /rest/cloud-locations | getAvailableLocationsForCurrentUser
 
 
-<a name="getAvailableLocationsForCurrentUserUsingGET"></a>
-# **getAvailableLocationsForCurrentUserUsingGET**
-> List&lt;CloudLocation&gt; getAvailableLocationsForCurrentUserUsingGET()
+<a name="getAvailableLocationsForCurrentUser"></a>
+# **getAvailableLocationsForCurrentUser**
+> List&lt;CloudLocation&gt; getAvailableLocationsForCurrentUser()
 
 getAvailableLocationsForCurrentUser
 
@@ -32,10 +32,10 @@ Bearer.setApiKey("YOUR API KEY");
 
 CloudLocationsControllerApi apiInstance = new CloudLocationsControllerApi();
 try {
-    List<CloudLocation> result = apiInstance.getAvailableLocationsForCurrentUserUsingGET();
+    List<CloudLocation> result = apiInstance.getAvailableLocationsForCurrentUser();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CloudLocationsControllerApi#getAvailableLocationsForCurrentUserUsingGET");
+    System.err.println("Exception when calling CloudLocationsControllerApi#getAvailableLocationsForCurrentUser");
     e.printStackTrace();
 }
 ```

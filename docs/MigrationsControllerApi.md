@@ -4,16 +4,16 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addMigrationUsingPOST**](MigrationsControllerApi.md#addMigrationUsingPOST) | **POST** /rest/migrations | Add new migration
-[**getForCurrentUserUsingGET**](MigrationsControllerApi.md#getForCurrentUserUsingGET) | **GET** /rest/migrations | Get all migrations for logged in user in pagged mode
-[**getUsingGET**](MigrationsControllerApi.md#getUsingGET) | **GET** /rest/migrations/{migration-id} | Get migration by id. Only migration owner or administrator have access to the migration
-[**hideMigrationUsingPOST**](MigrationsControllerApi.md#hideMigrationUsingPOST) | **POST** /rest/migrations/{migration-id}/hide | Hide migration from UI
-[**stopMigrationUsingPOST**](MigrationsControllerApi.md#stopMigrationUsingPOST) | **POST** /rest/migrations/{migration-id}/stop | Stop (cancel) the migration
+[**addMigration**](MigrationsControllerApi.md#addMigration) | **POST** /rest/migrations | Add new migration
+[**getMigration**](MigrationsControllerApi.md#getMigration) | **GET** /rest/migrations/{migration-id} | Get migration by id. Only migration owner or administrator have access to the migration
+[**getMigrations**](MigrationsControllerApi.md#getMigrations) | **GET** /rest/migrations | Get all migrations for logged in user in pagged mode
+[**hideMigration**](MigrationsControllerApi.md#hideMigration) | **POST** /rest/migrations/{migration-id}/hide | Hide migration from UI
+[**stopMigration**](MigrationsControllerApi.md#stopMigration) | **POST** /rest/migrations/{migration-id}/stop | Stop (cancel) the migration
 
 
-<a name="addMigrationUsingPOST"></a>
-# **addMigrationUsingPOST**
-> Migration addMigrationUsingPOST(migrationRequest)
+<a name="addMigration"></a>
+# **addMigration**
+> Migration addMigration(migrationRequest)
 
 Add new migration
 
@@ -37,10 +37,10 @@ Bearer.setApiKey("YOUR API KEY");
 MigrationsControllerApi apiInstance = new MigrationsControllerApi();
 AddMigrationRequest migrationRequest = new AddMigrationRequest(); // AddMigrationRequest | migrationRequest
 try {
-    Migration result = apiInstance.addMigrationUsingPOST(migrationRequest);
+    Migration result = apiInstance.addMigration(migrationRequest);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MigrationsControllerApi#addMigrationUsingPOST");
+    System.err.println("Exception when calling MigrationsControllerApi#addMigration");
     e.printStackTrace();
 }
 ```
@@ -64,9 +64,62 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
-<a name="getForCurrentUserUsingGET"></a>
-# **getForCurrentUserUsingGET**
-> PageMigration getForCurrentUserUsingGET(activeOnly, includeHidden, attributesToSort, page, size, sortDirection)
+<a name="getMigration"></a>
+# **getMigration**
+> Migration getMigration(migrationId)
+
+Get migration by id. Only migration owner or administrator have access to the migration
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.MigrationsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+MigrationsControllerApi apiInstance = new MigrationsControllerApi();
+Long migrationId = 789L; // Long | Migration Id
+try {
+    Migration result = apiInstance.getMigration(migrationId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MigrationsControllerApi#getMigration");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **migrationId** | **Long**| Migration Id |
+
+### Return type
+
+[**Migration**](Migration.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="getMigrations"></a>
+# **getMigrations**
+> PageMigration getMigrations(activeOnly, includeHidden, attributesToSort, page, size, sortDirection)
 
 Get all migrations for logged in user in pagged mode
 
@@ -95,10 +148,10 @@ Integer page = 0; // Integer | Page number
 Integer size = 100; // Integer | Page size
 String sortDirection = "ASC"; // String | Sort Direction
 try {
-    PageMigration result = apiInstance.getForCurrentUserUsingGET(activeOnly, includeHidden, attributesToSort, page, size, sortDirection);
+    PageMigration result = apiInstance.getMigrations(activeOnly, includeHidden, attributesToSort, page, size, sortDirection);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MigrationsControllerApi#getForCurrentUserUsingGET");
+    System.err.println("Exception when calling MigrationsControllerApi#getMigrations");
     e.printStackTrace();
 }
 ```
@@ -127,62 +180,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="getUsingGET"></a>
-# **getUsingGET**
-> Migration getUsingGET(migrationId)
-
-Get migration by id. Only migration owner or administrator have access to the migration
-
-### Example
-```java
-// Import classes:
-//import io.flexify.apiclient.handler.ApiClient;
-//import io.flexify.apiclient.handler.ApiException;
-//import io.flexify.apiclient.handler.Configuration;
-//import io.flexify.apiclient.handler.auth.*;
-//import io.flexify.apiclient.api.MigrationsControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: Bearer
-ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-Bearer.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.setApiKeyPrefix("Token");
-
-MigrationsControllerApi apiInstance = new MigrationsControllerApi();
-Long migrationId = 789L; // Long | Migration Id
-try {
-    Migration result = apiInstance.getUsingGET(migrationId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MigrationsControllerApi#getUsingGET");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **migrationId** | **Long**| Migration Id |
-
-### Return type
-
-[**Migration**](Migration.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json;charset=UTF-8
-
-<a name="hideMigrationUsingPOST"></a>
-# **hideMigrationUsingPOST**
-> Migration hideMigrationUsingPOST(migrationId)
+<a name="hideMigration"></a>
+# **hideMigration**
+> Migration hideMigration(migrationId)
 
 Hide migration from UI
 
@@ -206,10 +206,10 @@ Bearer.setApiKey("YOUR API KEY");
 MigrationsControllerApi apiInstance = new MigrationsControllerApi();
 Long migrationId = 789L; // Long | migration-id
 try {
-    Migration result = apiInstance.hideMigrationUsingPOST(migrationId);
+    Migration result = apiInstance.hideMigration(migrationId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MigrationsControllerApi#hideMigrationUsingPOST");
+    System.err.println("Exception when calling MigrationsControllerApi#hideMigration");
     e.printStackTrace();
 }
 ```
@@ -233,9 +233,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
-<a name="stopMigrationUsingPOST"></a>
-# **stopMigrationUsingPOST**
-> Migration stopMigrationUsingPOST(migrationId)
+<a name="stopMigration"></a>
+# **stopMigration**
+> Migration stopMigration(migrationId)
 
 Stop (cancel) the migration
 
@@ -259,10 +259,10 @@ Bearer.setApiKey("YOUR API KEY");
 MigrationsControllerApi apiInstance = new MigrationsControllerApi();
 Long migrationId = 789L; // Long | migration-id
 try {
-    Migration result = apiInstance.stopMigrationUsingPOST(migrationId);
+    Migration result = apiInstance.stopMigration(migrationId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MigrationsControllerApi#stopMigrationUsingPOST");
+    System.err.println("Exception when calling MigrationsControllerApi#stopMigration");
     e.printStackTrace();
 }
 ```

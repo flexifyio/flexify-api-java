@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCurrentUserUsingGET**](UserControllerApi.md#getCurrentUserUsingGET) | **GET** /rest/user/current | Get details information for logged in user
-[**requestResetPasswordUsingPOST**](UserControllerApi.md#requestResetPasswordUsingPOST) | **POST** /rest/user/request-reset-password | requestResetPassword
+[**getCurrentUser**](UserControllerApi.md#getCurrentUser) | **GET** /rest/user/current | Get details information for logged in user
+[**requestResetPassword**](UserControllerApi.md#requestResetPassword) | **POST** /rest/user/request-reset-password | requestResetPassword
 
 
-<a name="getCurrentUserUsingGET"></a>
-# **getCurrentUserUsingGET**
-> User getCurrentUserUsingGET(silence)
+<a name="getCurrentUser"></a>
+# **getCurrentUser**
+> User getCurrentUser(silence)
 
 Get details information for logged in user
 
@@ -32,12 +32,12 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 UserControllerApi apiInstance = new UserControllerApi();
-Boolean silence = false; // Boolean | silence
+Boolean silence = false; // Boolean | Return 204 No Content or 401 Unauthorized in case of username not found
 try {
-    User result = apiInstance.getCurrentUserUsingGET(silence);
+    User result = apiInstance.getCurrentUser(silence);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UserControllerApi#getCurrentUserUsingGET");
+    System.err.println("Exception when calling UserControllerApi#getCurrentUser");
     e.printStackTrace();
 }
 ```
@@ -46,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **silence** | **Boolean**| silence | [optional] [default to false]
+ **silence** | **Boolean**| Return 204 No Content or 401 Unauthorized in case of username not found | [optional] [default to false]
 
 ### Return type
 
@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="requestResetPasswordUsingPOST"></a>
-# **requestResetPasswordUsingPOST**
-> requestResetPasswordUsingPOST(reqeust)
+<a name="requestResetPassword"></a>
+# **requestResetPassword**
+> requestResetPassword(reqeust)
 
 requestResetPassword
 
@@ -87,9 +87,9 @@ Bearer.setApiKey("YOUR API KEY");
 UserControllerApi apiInstance = new UserControllerApi();
 RequestResetPasswordReqeust reqeust = new RequestResetPasswordReqeust(); // RequestResetPasswordReqeust | reqeust
 try {
-    apiInstance.requestResetPasswordUsingPOST(reqeust);
+    apiInstance.requestResetPassword(reqeust);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UserControllerApi#requestResetPasswordUsingPOST");
+    System.err.println("Exception when calling UserControllerApi#requestResetPassword");
     e.printStackTrace();
 }
 ```

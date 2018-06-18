@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-13T12:27:12.882+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
 public class AuthenticationControllerApi {
   private ApiClient apiClient;
 
@@ -42,12 +42,12 @@ public class AuthenticationControllerApi {
    * @return AuthenticationResponse
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationResponse authenticationRequestUsingPOST(AuthenticationRequest authenticationRequest) throws ApiException {
+  public AuthenticationResponse authenticationRequest(AuthenticationRequest authenticationRequest) throws ApiException {
     Object localVarPostBody = authenticationRequest;
     
     // verify the required parameter 'authenticationRequest' is set
     if (authenticationRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'authenticationRequest' when calling authenticationRequestUsingPOST");
+      throw new ApiException(400, "Missing the required parameter 'authenticationRequest' when calling authenticationRequest");
     }
     
     // create path and map variables
@@ -82,7 +82,7 @@ public class AuthenticationControllerApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object logoutUsingPOST() throws ApiException {
+  public Object logout() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

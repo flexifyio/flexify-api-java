@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPaymentOptionsUsingGET**](PaymentControllerApi.md#getPaymentOptionsUsingGET) | **GET** /rest/pay/paddle/options | getPaymentOptions
-[**paymentFulfilledUsingGET**](PaymentControllerApi.md#paymentFulfilledUsingGET) | **GET** /rest/pay/paddle/webhook | paymentFulfilled
+[**getPaymentOptions**](PaymentControllerApi.md#getPaymentOptions) | **GET** /rest/pay/paddle/options | getPaymentOptions
+[**paymentFulfilled**](PaymentControllerApi.md#paymentFulfilled) | **GET** /rest/pay/paddle/webhook | paymentFulfilled
 
 
-<a name="getPaymentOptionsUsingGET"></a>
-# **getPaymentOptionsUsingGET**
-> PaymentOptions getPaymentOptionsUsingGET(currency, amount)
+<a name="getPaymentOptions"></a>
+# **getPaymentOptions**
+> PaymentOptions getPaymentOptions(currency, amount)
 
 getPaymentOptions
 
@@ -35,10 +35,10 @@ PaymentControllerApi apiInstance = new PaymentControllerApi();
 String currency = "currency_example"; // String | currency
 Double amount = 3.4D; // Double | amount
 try {
-    PaymentOptions result = apiInstance.getPaymentOptionsUsingGET(currency, amount);
+    PaymentOptions result = apiInstance.getPaymentOptions(currency, amount);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PaymentControllerApi#getPaymentOptionsUsingGET");
+    System.err.println("Exception when calling PaymentControllerApi#getPaymentOptions");
     e.printStackTrace();
 }
 ```
@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="paymentFulfilledUsingGET"></a>
-# **paymentFulfilledUsingGET**
-> paymentFulfilledUsingGET()
+<a name="paymentFulfilled"></a>
+# **paymentFulfilled**
+> paymentFulfilled()
 
 paymentFulfilled
 
@@ -88,9 +88,9 @@ Bearer.setApiKey("YOUR API KEY");
 
 PaymentControllerApi apiInstance = new PaymentControllerApi();
 try {
-    apiInstance.paymentFulfilledUsingGET();
+    apiInstance.paymentFulfilled();
 } catch (ApiException e) {
-    System.err.println("Exception when calling PaymentControllerApi#paymentFulfilledUsingGET");
+    System.err.println("Exception when calling PaymentControllerApi#paymentFulfilled");
     e.printStackTrace();
 }
 ```
