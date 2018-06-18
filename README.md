@@ -178,7 +178,7 @@ public class FlexifyApiTest {
 
         // Get created Storage ID for an azure bucket
         Long azureBucketStorageId = storagesApi.getStoragesForStorageAccountUsingGET(microsoftAccountId)
-                .stream().filter(s -> s.getBucket().equals("test")).findFirst()
+                .stream().filter(s -> s.getBucket().equals(DESTINATION_BUCKET_NAME_IN_AZURE)).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("DESTINATION_BUCKET_NAME_IN_AZURE " + DESTINATION_BUCKET_NAME_IN_AZURE + " cannot be found")).getId();
 
         // Start the Migration
