@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-18T14:37:49.273+03:00")
 public class UserControllerApi {
   private ApiClient apiClient;
 
@@ -36,13 +36,12 @@ public class UserControllerApi {
   }
 
   /**
-   * Get details information for logged in user
+   * Get details of user correponsing to provided auth token
    * 
-   * @param silence Return 204 No Content or 401 Unauthorized in case of username not found (optional, default to false)
    * @return User
    * @throws ApiException if fails to make API call
    */
-  public User getCurrentUser(Boolean silence) throws ApiException {
+  public User getCurrentUser() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -53,7 +52,6 @@ public class UserControllerApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "silence", silence));
 
     
     

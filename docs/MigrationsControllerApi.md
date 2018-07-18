@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 <a name="getMigrations"></a>
 # **getMigrations**
-> PageMigration getMigrations(activeOnly, includeHidden, attributesToSort, page, size, sortDirection)
+> PageMigration getMigrations(includeHidden, attributesToSort, page, size, sortDirection)
 
 Get all migrations for logged in user in pagged mode
 
@@ -141,14 +141,13 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 MigrationsControllerApi apiInstance = new MigrationsControllerApi();
-Boolean activeOnly = false; // Boolean | Show only active migrations
 Boolean includeHidden = true; // Boolean | Include hidden migrations to response
 List<String> attributesToSort = Arrays.asList("attributesToSort_example"); // List<String> | Attributes to sort
 Integer page = 0; // Integer | Page number
 Integer size = 100; // Integer | Page size
 String sortDirection = "ASC"; // String | Sort Direction
 try {
-    PageMigration result = apiInstance.getMigrations(activeOnly, includeHidden, attributesToSort, page, size, sortDirection);
+    PageMigration result = apiInstance.getMigrations(includeHidden, attributesToSort, page, size, sortDirection);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MigrationsControllerApi#getMigrations");
@@ -160,7 +159,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activeOnly** | **Boolean**| Show only active migrations | [optional] [default to false]
  **includeHidden** | **Boolean**| Include hidden migrations to response | [optional] [default to true]
  **attributesToSort** | [**List&lt;String&gt;**](String.md)| Attributes to sort | [optional]
  **page** | **Integer**| Page number | [optional] [default to 0]

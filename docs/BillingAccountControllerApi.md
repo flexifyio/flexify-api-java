@@ -4,14 +4,14 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCostsForCurrentUser**](BillingAccountControllerApi.md#getCostsForCurrentUser) | **GET** /rest/account/costs | Get costs for current user
+[**getCostsForCurrentUserBillingAccount**](BillingAccountControllerApi.md#getCostsForCurrentUserBillingAccount) | **GET** /rest/account/costs | Get costs for current user
 [**getCurrentUserBillingAccount**](BillingAccountControllerApi.md#getCurrentUserBillingAccount) | **GET** /rest/account | Get billing account for current user
 [**getPaymentsForCurrentUser**](BillingAccountControllerApi.md#getPaymentsForCurrentUser) | **GET** /rest/account/payments | Get payments for current user
 
 
-<a name="getCostsForCurrentUser"></a>
-# **getCostsForCurrentUser**
-> List&lt;CostDetails&gt; getCostsForCurrentUser()
+<a name="getCostsForCurrentUserBillingAccount"></a>
+# **getCostsForCurrentUserBillingAccount**
+> List&lt;CostDetails&gt; getCostsForCurrentUserBillingAccount()
 
 Get costs for current user
 
@@ -34,10 +34,10 @@ Bearer.setApiKey("YOUR API KEY");
 
 BillingAccountControllerApi apiInstance = new BillingAccountControllerApi();
 try {
-    List<CostDetails> result = apiInstance.getCostsForCurrentUser();
+    List<CostDetails> result = apiInstance.getCostsForCurrentUserBillingAccount();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling BillingAccountControllerApi#getCostsForCurrentUser");
+    System.err.println("Exception when calling BillingAccountControllerApi#getCostsForCurrentUserBillingAccount");
     e.printStackTrace();
 }
 ```

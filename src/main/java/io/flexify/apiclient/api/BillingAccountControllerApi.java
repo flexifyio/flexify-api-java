@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-18T14:37:49.273+03:00")
 public class BillingAccountControllerApi {
   private ApiClient apiClient;
 
@@ -42,7 +42,7 @@ public class BillingAccountControllerApi {
    * @return List&lt;CostDetails&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<CostDetails> getCostsForCurrentUser() throws ApiException {
+  public List<CostDetails> getCostsForCurrentUserBillingAccount() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

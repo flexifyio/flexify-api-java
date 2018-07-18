@@ -19,12 +19,3 @@ hs_err_pid*
 target
 .gradle
 build
-
-# IDEs
-.settings
-.classpath
-.project
-.externalToolBuilders
-/.idea
-management.iml
-.factorypath

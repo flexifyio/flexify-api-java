@@ -6,10 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account** | [**BillingAccount**](BillingAccount.md) | Billing Account |  [optional]
 **id** | **Long** | User ID in the system |  [optional]
-**org** | [**DescribeOrganization**](DescribeOrganization.md) | Owning Organization |  [optional]
+**org** | [**Organization**](Organization.md) | Owning Organization |  [optional]
 **profile** | [**UserProfile**](UserProfile.md) | User Profile |  [optional]
 **registered** | [**DateTime**](DateTime.md) | Registration time |  [optional]
-**resourceLastModified** | **Long** | Timestamp of the last update of the user, organization or billing account |  [optional]
 **roles** | [**List&lt;RolesEnum&gt;**](#List&lt;RolesEnum&gt;) | User Roles |  [optional]
 **state** | [**StateEnum**](#StateEnum) | User State |  [optional]
 **username** | **String** | Username |  [optional]

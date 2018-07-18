@@ -4,15 +4,16 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authenticationRequest**](AuthenticationControllerApi.md#authenticationRequest) | **POST** /rest/auth | Generate access token for user
+[**authenticate**](AuthenticationControllerApi.md#authenticate) | **POST** /rest/auth | Generate new access token for the user
+[**getConfig**](AuthenticationControllerApi.md#getConfig) | **GET** /rest/auth/config | Logout
 [**logout**](AuthenticationControllerApi.md#logout) | **POST** /rest/auth/logout | Logout
 
 
-<a name="authenticationRequest"></a>
-# **authenticationRequest**
-> AuthenticationResponse authenticationRequest(authenticationRequest)
+<a name="authenticate"></a>
+# **authenticate**
+> AuthenticationResponse authenticate(authenticationRequest)
 
-Generate access token for user
+Generate new access token for the user
 
 ### Example
 ```java
@@ -24,10 +25,10 @@ Generate access token for user
 AuthenticationControllerApi apiInstance = new AuthenticationControllerApi();
 AuthenticationRequest authenticationRequest = new AuthenticationRequest(); // AuthenticationRequest | authenticationRequest
 try {
-    AuthenticationResponse result = apiInstance.authenticationRequest(authenticationRequest);
+    AuthenticationResponse result = apiInstance.authenticate(authenticationRequest);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationControllerApi#authenticationRequest");
+    System.err.println("Exception when calling AuthenticationControllerApi#authenticate");
     e.printStackTrace();
 }
 ```
@@ -49,6 +50,55 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="getConfig"></a>
+# **getConfig**
+> PublicAuthenticationConfiguration getConfig()
+
+Logout
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.AuthenticationControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+AuthenticationControllerApi apiInstance = new AuthenticationControllerApi();
+try {
+    PublicAuthenticationConfiguration result = apiInstance.getConfig();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AuthenticationControllerApi#getConfig");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PublicAuthenticationConfiguration**](PublicAuthenticationConfiguration.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 <a name="logout"></a>

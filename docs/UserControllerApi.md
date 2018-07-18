@@ -4,15 +4,15 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCurrentUser**](UserControllerApi.md#getCurrentUser) | **GET** /rest/user/current | Get details information for logged in user
+[**getCurrentUser**](UserControllerApi.md#getCurrentUser) | **GET** /rest/user/current | Get details of user correponsing to provided auth token
 [**requestResetPassword**](UserControllerApi.md#requestResetPassword) | **POST** /rest/user/request-reset-password | requestResetPassword
 
 
 <a name="getCurrentUser"></a>
 # **getCurrentUser**
-> User getCurrentUser(silence)
+> User getCurrentUser()
 
-Get details information for logged in user
+Get details of user correponsing to provided auth token
 
 ### Example
 ```java
@@ -32,9 +32,8 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 UserControllerApi apiInstance = new UserControllerApi();
-Boolean silence = false; // Boolean | Return 204 No Content or 401 Unauthorized in case of username not found
 try {
-    User result = apiInstance.getCurrentUser(silence);
+    User result = apiInstance.getCurrentUser();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserControllerApi#getCurrentUser");
@@ -43,10 +42,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **silence** | **Boolean**| Return 204 No Content or 401 Unauthorized in case of username not found | [optional] [default to false]
+This endpoint does not need any parameter.
 
 ### Return type
 

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-18T14:37:49.273+03:00")
 public class MigrationsControllerApi {
   private ApiClient apiClient;
 
@@ -122,7 +122,6 @@ public class MigrationsControllerApi {
   /**
    * Get all migrations for logged in user in pagged mode
    * 
-   * @param activeOnly Show only active migrations (optional, default to false)
    * @param includeHidden Include hidden migrations to response (optional, default to true)
    * @param attributesToSort Attributes to sort (optional)
    * @param page Page number (optional, default to 0)
@@ -131,7 +130,7 @@ public class MigrationsControllerApi {
    * @return PageMigration
    * @throws ApiException if fails to make API call
    */
-  public PageMigration getMigrations(Boolean activeOnly, Boolean includeHidden, List<String> attributesToSort, Integer page, Integer size, String sortDirection) throws ApiException {
+  public PageMigration getMigrations(Boolean includeHidden, List<String> attributesToSort, Integer page, Integer size, String sortDirection) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -142,7 +141,6 @@ public class MigrationsControllerApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "active-only", activeOnly));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-hidden", includeHidden));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "attributesToSort", attributesToSort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));

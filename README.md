@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.4.1</version>
+    <version>2.5.0-SNAPSHOT</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -68,9 +68,10 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationControllerApi* | [**authenticationRequest**](docs/AuthenticationControllerApi.md#authenticationRequest) | **POST** /rest/auth | Generate access token for user
+*AuthenticationControllerApi* | [**authenticate**](docs/AuthenticationControllerApi.md#authenticate) | **POST** /rest/auth | Generate new access token for the user
+*AuthenticationControllerApi* | [**getConfig**](docs/AuthenticationControllerApi.md#getConfig) | **GET** /rest/auth/config | Logout
 *AuthenticationControllerApi* | [**logout**](docs/AuthenticationControllerApi.md#logout) | **POST** /rest/auth/logout | Logout
-*BillingAccountControllerApi* | [**getCostsForCurrentUser**](docs/BillingAccountControllerApi.md#getCostsForCurrentUser) | **GET** /rest/account/costs | Get costs for current user
+*BillingAccountControllerApi* | [**getCostsForCurrentUserBillingAccount**](docs/BillingAccountControllerApi.md#getCostsForCurrentUserBillingAccount) | **GET** /rest/account/costs | Get costs for current user
 *BillingAccountControllerApi* | [**getCurrentUserBillingAccount**](docs/BillingAccountControllerApi.md#getCurrentUserBillingAccount) | **GET** /rest/account | Get billing account for current user
 *BillingAccountControllerApi* | [**getPaymentsForCurrentUser**](docs/BillingAccountControllerApi.md#getPaymentsForCurrentUser) | **GET** /rest/account/payments | Get payments for current user
 *CloudLocationsControllerApi* | [**getAvailableLocationsForCurrentUser**](docs/CloudLocationsControllerApi.md#getAvailableLocationsForCurrentUser) | **GET** /rest/cloud-locations | getAvailableLocationsForCurrentUser
@@ -102,7 +103,7 @@ Class | Method | HTTP request | Description
 *StoragesControllerApi* | [**refreshStorages**](docs/StoragesControllerApi.md#refreshStorages) | **POST** /rest/storage-accounts/actions/refresh-storages | Refresh storages
 *StoragesControllerApi* | [**requestBuckets**](docs/StoragesControllerApi.md#requestBuckets) | **GET** /rest/buckets | Lists buckets of the external storage account
 *StoragesControllerApi* | [**requestBucketsForStorageAccount**](docs/StoragesControllerApi.md#requestBucketsForStorageAccount) | **GET** /rest/storage-accounts/{storage-account-id}/buckets | Retrieve buckets from external cloud storage account
-*UserControllerApi* | [**getCurrentUser**](docs/UserControllerApi.md#getCurrentUser) | **GET** /rest/user/current | Get details information for logged in user
+*UserControllerApi* | [**getCurrentUser**](docs/UserControllerApi.md#getCurrentUser) | **GET** /rest/user/current | Get details of user correponsing to provided auth token
 *UserControllerApi* | [**requestResetPassword**](docs/UserControllerApi.md#requestResetPassword) | **POST** /rest/user/request-reset-password | requestResetPassword
 
 
@@ -122,7 +123,6 @@ Class | Method | HTTP request | Description
  - [CloudLocation](docs/CloudLocation.md)
  - [CostDetails](docs/CostDetails.md)
  - [DataStorageStat](docs/DataStorageStat.md)
- - [DescribeOrganization](docs/DescribeOrganization.md)
  - [Endpoint](docs/Endpoint.md)
  - [EndpointDetails](docs/EndpointDetails.md)
  - [EndpointStat](docs/EndpointStat.md)
@@ -134,12 +134,16 @@ Class | Method | HTTP request | Description
  - [Migration](docs/Migration.md)
  - [MigrationSlotStat](docs/MigrationSlotStat.md)
  - [MigrationStat](docs/MigrationStat.md)
+ - [MigrationStorageMapping](docs/MigrationStorageMapping.md)
  - [Money](docs/Money.md)
+ - [NewMigrationStorageMapping](docs/NewMigrationStorageMapping.md)
+ - [Organization](docs/Organization.md)
  - [PageMigration](docs/PageMigration.md)
  - [Pageable](docs/Pageable.md)
  - [Payment](docs/Payment.md)
  - [PaymentOptions](docs/PaymentOptions.md)
  - [PriceListEntry](docs/PriceListEntry.md)
+ - [PublicAuthenticationConfiguration](docs/PublicAuthenticationConfiguration.md)
  - [RequestResetPasswordReqeust](docs/RequestResetPasswordReqeust.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [SignUpRequest](docs/SignUpRequest.md)
@@ -161,7 +165,6 @@ Authentication schemes defined for the API:
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
-
 
 
 ## Recommendation
