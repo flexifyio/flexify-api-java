@@ -7,14 +7,14 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import io.flexify.apiclient.model.LogEntry;
+import io.flexify.apiclient.model.PageLogEntry;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
 public class LogControllerApi {
   private ApiClient apiClient;
 
@@ -40,10 +40,14 @@ public class LogControllerApi {
    * @param storageId storage-id (optional)
    * @param migrationId migration-id (optional)
    * @param endpointId endpoint-id (optional)
-   * @return List&lt;LogEntry&gt;
+   * @param sort Attributes to sort (optional)
+   * @param page Page number (optional, default to 0)
+   * @param size Page size (optional, default to 100)
+   * @param sortDirection Sort Direction (optional, default to ASC)
+   * @return PageLogEntry
    * @throws ApiException if fails to make API call
    */
-  public List<LogEntry> getLogForCurrentUser(Long storageId, Long migrationId, Long endpointId) throws ApiException {
+  public PageLogEntry getLogForCurrentUser(Long storageId, Long migrationId, Long endpointId, List<String> sort, Integer page, Integer size, String sortDirection) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -57,6 +61,10 @@ public class LogControllerApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "storage-id", storageId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "migration-id", migrationId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endpoint-id", endpointId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
 
     
     
@@ -72,7 +80,7 @@ public class LogControllerApi {
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<List<LogEntry>> localVarReturnType = new GenericType<List<LogEntry>>() {};
+    GenericType<PageLogEntry> localVarReturnType = new GenericType<PageLogEntry>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

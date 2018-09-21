@@ -26,6 +26,7 @@ Name | Value
 CASH | &quot;CASH&quot;
 WIRE_TRANSFER | &quot;WIRE_TRANSFER&quot;
 PAYMENT_GATEWAY | &quot;PAYMENT_GATEWAY&quot;
+DISTRIBUTOR | &quot;DISTRIBUTOR&quot;
 ADJUSTMENT | &quot;ADJUSTMENT&quot;
 
 

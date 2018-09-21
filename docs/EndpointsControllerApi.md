@@ -4,19 +4,19 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attachStorageToEndpoint**](EndpointsControllerApi.md#attachStorageToEndpoint) | **POST** /rest/endpoints/{endpoint-id}/storages | Attach the storage to the endpoint
+[**attachStoragesToEndpoint**](EndpointsControllerApi.md#attachStoragesToEndpoint) | **POST** /rest/endpoints/{endpoint-id}/storages | Attach the storage to the endpoint
 [**detachStorageFromEndpoint**](EndpointsControllerApi.md#detachStorageFromEndpoint) | **DELETE** /rest/endpoints/{endpoint-id}/storages/{storage-id} | Detach the storage from the endpoint
 [**disable**](EndpointsControllerApi.md#disable) | **PUT** /rest/endpoints/{endpoint-id}/actions/disable | Disable the endpoint
 [**enable**](EndpointsControllerApi.md#enable) | **PUT** /rest/endpoints/{endpoint-id}/actions/enable | Enable the endpoint
 [**getEndpointDetails**](EndpointsControllerApi.md#getEndpointDetails) | **GET** /rest/endpoints/{endpoint-id} | Get endpoint details
 [**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /rest/endpoints | Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
-[**setDefaultStorage**](EndpointsControllerApi.md#setDefaultStorage) | **PUT** /rest/endpoints/{endpoint-id}/storages/{storage-id}/actions/set-as-default | Set given storage as default for the endpoint
+[**setStoragePutObjects**](EndpointsControllerApi.md#setStoragePutObjects) | **PUT** /rest/endpoints/{endpoint-id}/storages/{storage-id}/put-objects | Set given storage as default for the endpoint
 [**updateEndpoint**](EndpointsControllerApi.md#updateEndpoint) | **PUT** /rest/endpoints/{endpoint-id} | Update attributes of the endpoint
 
 
-<a name="attachStorageToEndpoint"></a>
-# **attachStorageToEndpoint**
-> attachStorageToEndpoint(endpointId, endpointStorage)
+<a name="attachStoragesToEndpoint"></a>
+# **attachStoragesToEndpoint**
+> attachStoragesToEndpoint(endpointId, request)
 
 Attach the storage to the endpoint
 
@@ -39,11 +39,11 @@ Bearer.setApiKey("YOUR API KEY");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
-EndpointStorage endpointStorage = new EndpointStorage(); // EndpointStorage | endpointStorage
+AttachStoragesToEndpointRequest request = new AttachStoragesToEndpointRequest(); // AttachStoragesToEndpointRequest | request
 try {
-    apiInstance.attachStorageToEndpoint(endpointId, endpointStorage);
+    apiInstance.attachStoragesToEndpoint(endpointId, request);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#attachStorageToEndpoint");
+    System.err.println("Exception when calling EndpointsControllerApi#attachStoragesToEndpoint");
     e.printStackTrace();
 }
 ```
@@ -53,7 +53,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **endpointId** | **Long**| endpoint-id |
- **endpointStorage** | [**EndpointStorage**](EndpointStorage.md)| endpointStorage |
+ **request** | [**AttachStoragesToEndpointRequest**](AttachStoragesToEndpointRequest.md)| request |
 
 ### Return type
 
@@ -328,9 +328,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="setDefaultStorage"></a>
-# **setDefaultStorage**
-> setDefaultStorage(endpointId, storageId)
+<a name="setStoragePutObjects"></a>
+# **setStoragePutObjects**
+> setStoragePutObjects(endpointId, storageId, settings)
 
 Set given storage as default for the endpoint
 
@@ -354,10 +354,11 @@ Bearer.setApiKey("YOUR API KEY");
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
 Long storageId = 789L; // Long | storage-id
+EndpointStorageSettings settings = new EndpointStorageSettings(); // EndpointStorageSettings | settings
 try {
-    apiInstance.setDefaultStorage(endpointId, storageId);
+    apiInstance.setStoragePutObjects(endpointId, storageId, settings);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsControllerApi#setDefaultStorage");
+    System.err.println("Exception when calling EndpointsControllerApi#setStoragePutObjects");
     e.printStackTrace();
 }
 ```
@@ -368,6 +369,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **endpointId** | **Long**| endpoint-id |
  **storageId** | **Long**| storage-id |
+ **settings** | [**EndpointStorageSettings**](EndpointStorageSettings.md)| settings |
 
 ### Return type
 

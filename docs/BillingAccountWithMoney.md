@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **billingState** | [**BillingStateEnum**](#BillingStateEnum) | Billing Account state (Depend on balance and max credit) |  [optional]
 **createdDate** | [**DateTime**](DateTime.md) | Created Timestamp |  [optional]
 **creditExceeded** | **Boolean** | Is credit exceeded |  [optional]
+**distributor** | [**Distributor**](Distributor.md) | Distributor that manages this account |  [optional]
 **id** | **Long** | Account Id |  [optional]
 **maxCredit** | [**Money**](Money.md) | Account Maximum Credit |  [optional]
 **name** | **String** | Account Name |  [optional]

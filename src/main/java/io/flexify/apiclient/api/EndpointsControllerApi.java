@@ -7,16 +7,17 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import io.flexify.apiclient.model.AttachStoragesToEndpointRequest;
 import io.flexify.apiclient.model.Endpoint;
 import io.flexify.apiclient.model.EndpointDetails;
-import io.flexify.apiclient.model.EndpointStorage;
+import io.flexify.apiclient.model.EndpointStorageSettings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
 public class EndpointsControllerApi {
   private ApiClient apiClient;
 
@@ -40,20 +41,20 @@ public class EndpointsControllerApi {
    * Attach the storage to the endpoint
    * 
    * @param endpointId endpoint-id (required)
-   * @param endpointStorage endpointStorage (required)
+   * @param request request (required)
    * @throws ApiException if fails to make API call
    */
-  public void attachStorageToEndpoint(Long endpointId, EndpointStorage endpointStorage) throws ApiException {
-    Object localVarPostBody = endpointStorage;
+  public void attachStoragesToEndpoint(Long endpointId, AttachStoragesToEndpointRequest request) throws ApiException {
+    Object localVarPostBody = request;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling attachStorageToEndpoint");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling attachStoragesToEndpoint");
     }
     
-    // verify the required parameter 'endpointStorage' is set
-    if (endpointStorage == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointStorage' when calling attachStorageToEndpoint");
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling attachStoragesToEndpoint");
     }
     
     // create path and map variables
@@ -295,23 +296,29 @@ public class EndpointsControllerApi {
    * 
    * @param endpointId endpoint-id (required)
    * @param storageId storage-id (required)
+   * @param settings settings (required)
    * @throws ApiException if fails to make API call
    */
-  public void setDefaultStorage(Long endpointId, Long storageId) throws ApiException {
-    Object localVarPostBody = null;
+  public void setStoragePutObjects(Long endpointId, Long storageId, EndpointStorageSettings settings) throws ApiException {
+    Object localVarPostBody = settings;
     
     // verify the required parameter 'endpointId' is set
     if (endpointId == null) {
-      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling setDefaultStorage");
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling setStoragePutObjects");
     }
     
     // verify the required parameter 'storageId' is set
     if (storageId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageId' when calling setDefaultStorage");
+      throw new ApiException(400, "Missing the required parameter 'storageId' when calling setStoragePutObjects");
+    }
+    
+    // verify the required parameter 'settings' is set
+    if (settings == null) {
+      throw new ApiException(400, "Missing the required parameter 'settings' when calling setStoragePutObjects");
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/storages/{storage-id}/actions/set-as-default"
+    String localVarPath = "/rest/endpoints/{endpoint-id}/storages/{storage-id}/put-objects"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
       .replaceAll("\\{" + "storage-id" + "\\}", apiClient.escapeString(storageId.toString()));
 

@@ -9,13 +9,14 @@ import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.AuthenticationRequest;
 import io.flexify.apiclient.model.AuthenticationResponse;
+import io.flexify.apiclient.model.PublicAuthenticationConfiguration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
 public class AuthenticationControllerApi {
   private ApiClient apiClient;
 
@@ -36,18 +37,18 @@ public class AuthenticationControllerApi {
   }
 
   /**
-   * Generate access token for user
+   * Generate new access token for the user
    * 
    * @param authenticationRequest authenticationRequest (required)
    * @return AuthenticationResponse
    * @throws ApiException if fails to make API call
    */
-  public AuthenticationResponse authenticationRequest(AuthenticationRequest authenticationRequest) throws ApiException {
+  public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) throws ApiException {
     Object localVarPostBody = authenticationRequest;
     
     // verify the required parameter 'authenticationRequest' is set
     if (authenticationRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'authenticationRequest' when calling authenticationRequest");
+      throw new ApiException(400, "Missing the required parameter 'authenticationRequest' when calling authenticate");
     }
     
     // create path and map variables
@@ -75,6 +76,41 @@ public class AuthenticationControllerApi {
 
     GenericType<AuthenticationResponse> localVarReturnType = new GenericType<AuthenticationResponse>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Logout
+   * 
+   * @return PublicAuthenticationConfiguration
+   * @throws ApiException if fails to make API call
+   */
+  public PublicAuthenticationConfiguration getConfig() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/rest/auth/config";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "*/*"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<PublicAuthenticationConfiguration> localVarReturnType = new GenericType<PublicAuthenticationConfiguration>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Logout

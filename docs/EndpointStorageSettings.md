@@ -1,10 +1,10 @@
 
-# AddStoragesResponse
+# EndpointStorageSettings
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **List&lt;Long&gt;** | Resource IDs |  [optional]
+**putObjects** | **Boolean** | Save new data to this storage |  [optional]
 
 
 

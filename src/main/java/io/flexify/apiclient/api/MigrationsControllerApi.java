@@ -8,6 +8,7 @@ import io.flexify.apiclient.handler.Pair;
 import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.AddMigrationRequest;
+import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.Migration;
 import io.flexify.apiclient.model.PageMigration;
 
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:03:35.898+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
 public class MigrationsControllerApi {
   private ApiClient apiClient;
 
@@ -40,10 +41,10 @@ public class MigrationsControllerApi {
    * Add new migration
    * 
    * @param migrationRequest migrationRequest (required)
-   * @return Migration
+   * @return IdResponse
    * @throws ApiException if fails to make API call
    */
-  public Migration addMigration(AddMigrationRequest migrationRequest) throws ApiException {
+  public IdResponse addMigration(AddMigrationRequest migrationRequest) throws ApiException {
     Object localVarPostBody = migrationRequest;
     
     // verify the required parameter 'migrationRequest' is set
@@ -74,7 +75,7 @@ public class MigrationsControllerApi {
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<Migration> localVarReturnType = new GenericType<Migration>() {};
+    GenericType<IdResponse> localVarReturnType = new GenericType<IdResponse>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -122,16 +123,15 @@ public class MigrationsControllerApi {
   /**
    * Get all migrations for logged in user in pagged mode
    * 
-   * @param activeOnly Show only active migrations (optional, default to false)
    * @param includeHidden Include hidden migrations to response (optional, default to true)
-   * @param attributesToSort Attributes to sort (optional)
+   * @param sort Attributes to sort (optional)
    * @param page Page number (optional, default to 0)
    * @param size Page size (optional, default to 100)
    * @param sortDirection Sort Direction (optional, default to ASC)
    * @return PageMigration
    * @throws ApiException if fails to make API call
    */
-  public PageMigration getMigrations(Boolean activeOnly, Boolean includeHidden, List<String> attributesToSort, Integer page, Integer size, String sortDirection) throws ApiException {
+  public PageMigration getMigrations(Boolean includeHidden, List<String> sort, Integer page, Integer size, String sortDirection) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -142,9 +142,8 @@ public class MigrationsControllerApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "active-only", activeOnly));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-hidden", includeHidden));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "attributesToSort", attributesToSort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
