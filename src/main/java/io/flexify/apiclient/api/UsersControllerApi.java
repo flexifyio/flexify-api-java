@@ -15,15 +15,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
-public class UserControllerApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
+public class UsersControllerApi {
   private ApiClient apiClient;
 
-  public UserControllerApi() {
+  public UsersControllerApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public UserControllerApi(ApiClient apiClient) {
+  public UsersControllerApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -38,10 +38,27 @@ public class UserControllerApi {
   /**
    * Get details of user correponsing to provided auth token
    * 
+   * @param contextPath  (optional)
+   * @param localeISO3Country  (optional)
+   * @param localeISO3Language  (optional)
+   * @param localeCountry  (optional)
+   * @param localeDisplayCountry  (optional)
+   * @param localeDisplayLanguage  (optional)
+   * @param localeDisplayName  (optional)
+   * @param localeDisplayScript  (optional)
+   * @param localeDisplayVariant  (optional)
+   * @param localeLanguage  (optional)
+   * @param localeScript  (optional)
+   * @param localeUnicodeLocaleAttributes  (optional)
+   * @param localeUnicodeLocaleKeys  (optional)
+   * @param localeVariant  (optional)
+   * @param remoteUser  (optional)
+   * @param secure  (optional)
+   * @param userPrincipalName  (optional)
    * @return User
    * @throws ApiException if fails to make API call
    */
-  public User getCurrentUser() throws ApiException {
+  public User getCurrentUser(String contextPath, String localeISO3Country, String localeISO3Language, String localeCountry, String localeDisplayCountry, String localeDisplayLanguage, String localeDisplayName, String localeDisplayScript, String localeDisplayVariant, String localeLanguage, String localeScript, List<String> localeUnicodeLocaleAttributes, List<String> localeUnicodeLocaleKeys, String localeVariant, String remoteUser, Boolean secure, String userPrincipalName) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -52,6 +69,23 @@ public class UserControllerApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contextPath", contextPath));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.ISO3Country", localeISO3Country));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.ISO3Language", localeISO3Language));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.country", localeCountry));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.displayCountry", localeDisplayCountry));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.displayLanguage", localeDisplayLanguage));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.displayName", localeDisplayName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.displayScript", localeDisplayScript));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.displayVariant", localeDisplayVariant));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.language", localeLanguage));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.script", localeScript));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "locale.unicodeLocaleAttributes", localeUnicodeLocaleAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "locale.unicodeLocaleKeys", localeUnicodeLocaleKeys));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locale.variant", localeVariant));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "remoteUser", remoteUser));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "secure", secure));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "userPrincipal.name", userPrincipalName));
 
     
     

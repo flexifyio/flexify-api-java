@@ -14,15 +14,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
-public class PaymentControllerApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
+public class PaymentsControllerApi {
   private ApiClient apiClient;
 
-  public PaymentControllerApi() {
+  public PaymentsControllerApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public PaymentControllerApi(ApiClient apiClient) {
+  public PaymentsControllerApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -37,22 +37,22 @@ public class PaymentControllerApi {
   /**
    * getPaymentOptions
    * 
-   * @param currency currency (required)
    * @param amount amount (required)
+   * @param currency currency (required)
    * @return PaymentOptions
    * @throws ApiException if fails to make API call
    */
-  public PaymentOptions getPaymentOptions(String currency, Double amount) throws ApiException {
+  public PaymentOptions getPaymentOptions(Double amount, String currency) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'currency' is set
-    if (currency == null) {
-      throw new ApiException(400, "Missing the required parameter 'currency' when calling getPaymentOptions");
-    }
     
     // verify the required parameter 'amount' is set
     if (amount == null) {
       throw new ApiException(400, "Missing the required parameter 'amount' when calling getPaymentOptions");
+    }
+    
+    // verify the required parameter 'currency' is set
+    if (currency == null) {
+      throw new ApiException(400, "Missing the required parameter 'currency' when calling getPaymentOptions");
     }
     
     // create path and map variables
@@ -63,8 +63,8 @@ public class PaymentControllerApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "amount", amount));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
 
     
     

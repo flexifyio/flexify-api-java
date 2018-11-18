@@ -50,7 +50,7 @@ import io.flexify.apiclient.handler.auth.HttpBasicAuth;
 import io.flexify.apiclient.handler.auth.ApiKeyAuth;
 import io.flexify.apiclient.handler.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected String basePath = "https://localhost";
@@ -76,7 +76,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("Swagger-Codegen/2.6/java");
+    setUserAgent("Swagger-Codegen/2.7-SNAPSHOT/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

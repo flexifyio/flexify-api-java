@@ -1,16 +1,16 @@
-# PaymentControllerApi
+# PaymentsControllerApi
 
 All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPaymentOptions**](PaymentControllerApi.md#getPaymentOptions) | **GET** /rest/pay/paddle/options | getPaymentOptions
-[**paymentFulfilled**](PaymentControllerApi.md#paymentFulfilled) | **GET** /rest/pay/paddle/webhook | paymentFulfilled
+[**getPaymentOptions**](PaymentsControllerApi.md#getPaymentOptions) | **GET** /rest/pay/paddle/options | getPaymentOptions
+[**paymentFulfilled**](PaymentsControllerApi.md#paymentFulfilled) | **GET** /rest/pay/paddle/webhook | paymentFulfilled
 
 
 <a name="getPaymentOptions"></a>
 # **getPaymentOptions**
-> PaymentOptions getPaymentOptions(currency, amount)
+> PaymentOptions getPaymentOptions(amount, currency)
 
 getPaymentOptions
 
@@ -21,7 +21,7 @@ getPaymentOptions
 //import io.flexify.apiclient.handler.ApiException;
 //import io.flexify.apiclient.handler.Configuration;
 //import io.flexify.apiclient.handler.auth.*;
-//import io.flexify.apiclient.api.PaymentControllerApi;
+//import io.flexify.apiclient.api.PaymentsControllerApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -31,14 +31,14 @@ Bearer.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Bearer.setApiKeyPrefix("Token");
 
-PaymentControllerApi apiInstance = new PaymentControllerApi();
-String currency = "currency_example"; // String | currency
+PaymentsControllerApi apiInstance = new PaymentsControllerApi();
 Double amount = 3.4D; // Double | amount
+String currency = "currency_example"; // String | currency
 try {
-    PaymentOptions result = apiInstance.getPaymentOptions(currency, amount);
+    PaymentOptions result = apiInstance.getPaymentOptions(amount, currency);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PaymentControllerApi#getPaymentOptions");
+    System.err.println("Exception when calling PaymentsControllerApi#getPaymentOptions");
     e.printStackTrace();
 }
 ```
@@ -47,8 +47,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| currency |
  **amount** | **Double**| amount |
+ **currency** | **String**| currency |
 
 ### Return type
 
@@ -76,7 +76,7 @@ paymentFulfilled
 //import io.flexify.apiclient.handler.ApiException;
 //import io.flexify.apiclient.handler.Configuration;
 //import io.flexify.apiclient.handler.auth.*;
-//import io.flexify.apiclient.api.PaymentControllerApi;
+//import io.flexify.apiclient.api.PaymentsControllerApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -86,11 +86,11 @@ Bearer.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Bearer.setApiKeyPrefix("Token");
 
-PaymentControllerApi apiInstance = new PaymentControllerApi();
+PaymentsControllerApi apiInstance = new PaymentsControllerApi();
 try {
     apiInstance.paymentFulfilled();
 } catch (ApiException e) {
-    System.err.println("Exception when calling PaymentControllerApi#paymentFulfilled");
+    System.err.println("Exception when calling PaymentsControllerApi#paymentFulfilled");
     e.printStackTrace();
 }
 ```

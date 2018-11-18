@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getLogForCurrentUser"></a>
 # **getLogForCurrentUser**
-> PageLogEntry getLogForCurrentUser(storageId, migrationId, endpointId, sort, page, size, sortDirection)
+> PageLogEntry getLogForCurrentUser(page, size, endpointId, migrationId, sort, sortDirection, springPageRequestOffset, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestPaged, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged, storageId)
 
 getLogForCurrentUser
 
@@ -31,15 +31,22 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 LogControllerApi apiInstance = new LogControllerApi();
-Long storageId = 789L; // Long | storage-id
-Long migrationId = 789L; // Long | migration-id
-Long endpointId = 789L; // Long | endpoint-id
-List<String> sort = Arrays.asList("sort_example"); // List<String> | Attributes to sort
 Integer page = 0; // Integer | Page number
 Integer size = 100; // Integer | Page size
-String sortDirection = "ASC"; // String | Sort Direction
+Long endpointId = 789L; // Long | endpoint-id
+Long migrationId = 789L; // Long | migration-id
+List<String> sort = Arrays.asList("sort_example"); // List<String> | Attributes to sort
+String sortDirection = "\"ASC\""; // String | Sort Direction
+Long springPageRequestOffset = 789L; // Long | 
+Integer springPageRequestPageNumber = 56; // Integer | 
+Integer springPageRequestPageSize = 56; // Integer | 
+Boolean springPageRequestPaged = true; // Boolean | 
+Boolean springPageRequestSortSorted = true; // Boolean | 
+Boolean springPageRequestSortUnsorted = true; // Boolean | 
+Boolean springPageRequestUnpaged = true; // Boolean | 
+Long storageId = 789L; // Long | storage-id
 try {
-    PageLogEntry result = apiInstance.getLogForCurrentUser(storageId, migrationId, endpointId, sort, page, size, sortDirection);
+    PageLogEntry result = apiInstance.getLogForCurrentUser(page, size, endpointId, migrationId, sort, sortDirection, springPageRequestOffset, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestPaged, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged, storageId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LogControllerApi#getLogForCurrentUser");
@@ -51,13 +58,20 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storageId** | **Long**| storage-id | [optional]
- **migrationId** | **Long**| migration-id | [optional]
+ **page** | **Integer**| Page number |
+ **size** | **Integer**| Page size |
  **endpointId** | **Long**| endpoint-id | [optional]
+ **migrationId** | **Long**| migration-id | [optional]
  **sort** | [**List&lt;String&gt;**](String.md)| Attributes to sort | [optional]
- **page** | **Integer**| Page number | [optional] [default to 0]
- **size** | **Integer**| Page size | [optional] [default to 100]
- **sortDirection** | **String**| Sort Direction | [optional] [default to ASC] [enum: ASC, DESC]
+ **sortDirection** | **String**| Sort Direction | [optional] [enum: ASC, DESC]
+ **springPageRequestOffset** | **Long**|  | [optional]
+ **springPageRequestPageNumber** | **Integer**|  | [optional]
+ **springPageRequestPageSize** | **Integer**|  | [optional]
+ **springPageRequestPaged** | **Boolean**|  | [optional]
+ **springPageRequestSortSorted** | **Boolean**|  | [optional]
+ **springPageRequestSortUnsorted** | **Boolean**|  | [optional]
+ **springPageRequestUnpaged** | **Boolean**|  | [optional]
+ **storageId** | **Long**| storage-id | [optional]
 
 ### Return type
 
