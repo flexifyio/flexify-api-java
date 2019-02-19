@@ -38,6 +38,7 @@ Name | Value
 ---- | -----
 WAITING | &quot;WAITING&quot;
 STARTING | &quot;STARTING&quot;
+RESTARTING | &quot;RESTARTING&quot;
 IN_PROGRESS | &quot;IN_PROGRESS&quot;
 STOPPING | &quot;STOPPING&quot;
 SUCCEEDED | &quot;SUCCEEDED&quot;

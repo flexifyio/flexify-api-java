@@ -2,6 +2,7 @@ package io.flexify.apiclient.api;
 
 import io.flexify.apiclient.handler.ApiException;
 import io.flexify.apiclient.handler.ApiClient;
+import io.flexify.apiclient.handler.ApiResponse;
 import io.flexify.apiclient.handler.Configuration;
 import io.flexify.apiclient.handler.Pair;
 
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
 public class CloudLocationsControllerApi {
   private ApiClient apiClient;
 
@@ -41,6 +42,16 @@ public class CloudLocationsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public List<CloudLocation> getAvailableLocationsForCurrentUser() throws ApiException {
+    return getAvailableLocationsForCurrentUserWithHttpInfo().getData();
+      }
+
+  /**
+   * getAvailableLocationsForCurrentUser
+   * 
+   * @return ApiResponse&lt;List&lt;CloudLocation&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<CloudLocation>> getAvailableLocationsForCurrentUserWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

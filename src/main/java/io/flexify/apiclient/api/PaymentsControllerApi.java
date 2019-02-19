@@ -2,6 +2,7 @@ package io.flexify.apiclient.api;
 
 import io.flexify.apiclient.handler.ApiException;
 import io.flexify.apiclient.handler.ApiClient;
+import io.flexify.apiclient.handler.ApiResponse;
 import io.flexify.apiclient.handler.Configuration;
 import io.flexify.apiclient.handler.Pair;
 
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
 public class PaymentsControllerApi {
   private ApiClient apiClient;
 
@@ -43,6 +44,18 @@ public class PaymentsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public PaymentOptions getPaymentOptions(Double amount, String currency) throws ApiException {
+    return getPaymentOptionsWithHttpInfo(amount, currency).getData();
+      }
+
+  /**
+   * getPaymentOptions
+   * 
+   * @param amount amount (required)
+   * @param currency currency (required)
+   * @return ApiResponse&lt;PaymentOptions&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<PaymentOptions> getPaymentOptionsWithHttpInfo(Double amount, String currency) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'amount' is set
@@ -89,6 +102,16 @@ public class PaymentsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void paymentFulfilled() throws ApiException {
+
+    paymentFulfilledWithHttpInfo();
+  }
+
+  /**
+   * paymentFulfilled
+   * 
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> paymentFulfilledWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -115,6 +138,6 @@ public class PaymentsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }

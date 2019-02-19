@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getLogForCurrentUser"></a>
 # **getLogForCurrentUser**
-> PageLogEntry getLogForCurrentUser(page, size, endpointId, migrationId, sort, sortDirection, springPageRequestOffset, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestPaged, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged, storageId)
+> MarkerPageLogEntry getLogForCurrentUser(endpointId, marker, migrationId, storageAccountId, storageId)
 
 getLogForCurrentUser
 
@@ -31,22 +31,13 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 LogControllerApi apiInstance = new LogControllerApi();
-Integer page = 0; // Integer | Page number
-Integer size = 100; // Integer | Page size
 Long endpointId = 789L; // Long | endpoint-id
+Long marker = 789L; // Long | marker
 Long migrationId = 789L; // Long | migration-id
-List<String> sort = Arrays.asList("sort_example"); // List<String> | Attributes to sort
-String sortDirection = "\"ASC\""; // String | Sort Direction
-Long springPageRequestOffset = 789L; // Long | 
-Integer springPageRequestPageNumber = 56; // Integer | 
-Integer springPageRequestPageSize = 56; // Integer | 
-Boolean springPageRequestPaged = true; // Boolean | 
-Boolean springPageRequestSortSorted = true; // Boolean | 
-Boolean springPageRequestSortUnsorted = true; // Boolean | 
-Boolean springPageRequestUnpaged = true; // Boolean | 
+Long storageAccountId = 789L; // Long | storage-account-id
 Long storageId = 789L; // Long | storage-id
 try {
-    PageLogEntry result = apiInstance.getLogForCurrentUser(page, size, endpointId, migrationId, sort, sortDirection, springPageRequestOffset, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestPaged, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged, storageId);
+    MarkerPageLogEntry result = apiInstance.getLogForCurrentUser(endpointId, marker, migrationId, storageAccountId, storageId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LogControllerApi#getLogForCurrentUser");
@@ -58,24 +49,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Page number |
- **size** | **Integer**| Page size |
  **endpointId** | **Long**| endpoint-id | [optional]
+ **marker** | **Long**| marker | [optional]
  **migrationId** | **Long**| migration-id | [optional]
- **sort** | [**List&lt;String&gt;**](String.md)| Attributes to sort | [optional]
- **sortDirection** | **String**| Sort Direction | [optional] [enum: ASC, DESC]
- **springPageRequestOffset** | **Long**|  | [optional]
- **springPageRequestPageNumber** | **Integer**|  | [optional]
- **springPageRequestPageSize** | **Integer**|  | [optional]
- **springPageRequestPaged** | **Boolean**|  | [optional]
- **springPageRequestSortSorted** | **Boolean**|  | [optional]
- **springPageRequestSortUnsorted** | **Boolean**|  | [optional]
- **springPageRequestUnpaged** | **Boolean**|  | [optional]
+ **storageAccountId** | **Long**| storage-account-id | [optional]
  **storageId** | **Long**| storage-id | [optional]
 
 ### Return type
 
-[**PageLogEntry**](PageLogEntry.md)
+[**MarkerPageLogEntry**](MarkerPageLogEntry.md)
 
 ### Authorization
 

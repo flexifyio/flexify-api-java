@@ -2,6 +2,7 @@ package io.flexify.apiclient.api;
 
 import io.flexify.apiclient.handler.ApiException;
 import io.flexify.apiclient.handler.ApiClient;
+import io.flexify.apiclient.handler.ApiResponse;
 import io.flexify.apiclient.handler.Configuration;
 import io.flexify.apiclient.handler.Pair;
 
@@ -22,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
 public class EndpointsControllerApi {
   private ApiClient apiClient;
 
@@ -50,6 +51,18 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void attachAccounts(Long endpointId, AttachStorageAccountsRequest request) throws ApiException {
+
+    attachAccountsWithHttpInfo(endpointId, request);
+  }
+
+  /**
+   * Attach storage accounts to the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> attachAccountsWithHttpInfo(Long endpointId, AttachStorageAccountsRequest request) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'endpointId' is set
@@ -87,7 +100,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Attach storages to the virtual bucket
@@ -98,6 +111,19 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void attachBuckets(Long endpointId, AttachVirtualBucketStoragesRequest request, String virtualBucket) throws ApiException {
+
+    attachBucketsWithHttpInfo(endpointId, request, virtualBucket);
+  }
+
+  /**
+   * Attach storages to the virtual bucket
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param request request (required)
+   * @param virtualBucket virtual-bucket (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> attachBucketsWithHttpInfo(Long endpointId, AttachVirtualBucketStoragesRequest request, String virtualBucket) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'endpointId' is set
@@ -141,7 +167,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Creates new virtual bucket
@@ -151,6 +177,18 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void createVirtualBucket(Long endpointId, CreateVirtualBucketRequest request) throws ApiException {
+
+    createVirtualBucketWithHttpInfo(endpointId, request);
+  }
+
+  /**
+   * Creates new virtual bucket
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> createVirtualBucketWithHttpInfo(Long endpointId, CreateVirtualBucketRequest request) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'endpointId' is set
@@ -188,7 +226,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Deletes virtual bucket
@@ -198,6 +236,18 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void deleteVirtualBucket(Long endpointId, String virtualBucket) throws ApiException {
+
+    deleteVirtualBucketWithHttpInfo(endpointId, virtualBucket);
+  }
+
+  /**
+   * Deletes virtual bucket
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param virtualBucket virtual-bucket (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> deleteVirtualBucketWithHttpInfo(Long endpointId, String virtualBucket) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
@@ -236,7 +286,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Detach storage account from the endpoint
@@ -246,6 +296,18 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void detachAccount(Long endpointId, Long storageAccountId) throws ApiException {
+
+    detachAccountWithHttpInfo(endpointId, storageAccountId);
+  }
+
+  /**
+   * Detach storage account from the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param storageAccountId storage-account-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> detachAccountWithHttpInfo(Long endpointId, Long storageAccountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
@@ -284,7 +346,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Detach storage account from the endpoint
@@ -295,6 +357,19 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void detachBucket(Long bucketId, Long endpointId, String virtualBucket) throws ApiException {
+
+    detachBucketWithHttpInfo(bucketId, endpointId, virtualBucket);
+  }
+
+  /**
+   * Detach storage account from the endpoint
+   * 
+   * @param bucketId bucket-id (required)
+   * @param endpointId endpoint-id (required)
+   * @param virtualBucket virtual-bucket (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> detachBucketWithHttpInfo(Long bucketId, Long endpointId, String virtualBucket) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'bucketId' is set
@@ -339,7 +414,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Disable the endpoint
@@ -348,6 +423,17 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void disable(Long endpointId) throws ApiException {
+
+    disableWithHttpInfo(endpointId);
+  }
+
+  /**
+   * Disable the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> disableWithHttpInfo(Long endpointId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
@@ -380,7 +466,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Enable the endpoint
@@ -389,6 +475,17 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void enable(Long endpointId) throws ApiException {
+
+    enableWithHttpInfo(endpointId);
+  }
+
+  /**
+   * Enable the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> enableWithHttpInfo(Long endpointId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
@@ -421,7 +518,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Generate new access keys pair
@@ -430,6 +527,16 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public AccessKeysPair generateAccessKeys() throws ApiException {
+    return generateAccessKeysWithHttpInfo().getData();
+      }
+
+  /**
+   * Generate new access keys pair
+   * 
+   * @return ApiResponse&lt;AccessKeysPair&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<AccessKeysPair> generateAccessKeysWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -466,6 +573,17 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public EndpointDetails getEndpointDetails(Long endpointId) throws ApiException {
+    return getEndpointDetailsWithHttpInfo(endpointId).getData();
+      }
+
+  /**
+   * Get endpoint details
+   * 
+   * @param endpointId endpoint-id (required)
+   * @return ApiResponse&lt;EndpointDetails&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<EndpointDetails> getEndpointDetailsWithHttpInfo(Long endpointId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'endpointId' is set
@@ -507,6 +625,16 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public List<EndpointDetails> getEndpointsForCurrentUser() throws ApiException {
+    return getEndpointsForCurrentUserWithHttpInfo().getData();
+      }
+
+  /**
+   * Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
+   * 
+   * @return ApiResponse&lt;List&lt;EndpointDetails&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<EndpointDetails>> getEndpointsForCurrentUserWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -544,6 +672,19 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void setAttachedAccountSettings(Long endpointId, EndpointStorageAccountSettings settings, Long storageAccountId) throws ApiException {
+
+    setAttachedAccountSettingsWithHttpInfo(endpointId, settings, storageAccountId);
+  }
+
+  /**
+   * Modifies settings of the attached storage account
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param settings settings (required)
+   * @param storageAccountId storage-account-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setAttachedAccountSettingsWithHttpInfo(Long endpointId, EndpointStorageAccountSettings settings, Long storageAccountId) throws ApiException {
     Object localVarPostBody = settings;
     
     // verify the required parameter 'endpointId' is set
@@ -587,7 +728,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Modifies settings of the attached storage
@@ -599,6 +740,20 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void setAttachedBucketSettings(Long bucketId, Long endpointId, VirtualBucketStorageSettings settings, String virtualBucket) throws ApiException {
+
+    setAttachedBucketSettingsWithHttpInfo(bucketId, endpointId, settings, virtualBucket);
+  }
+
+  /**
+   * Modifies settings of the attached storage
+   * 
+   * @param bucketId bucket-id (required)
+   * @param endpointId endpoint-id (required)
+   * @param settings settings (required)
+   * @param virtualBucket virtual-bucket (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setAttachedBucketSettingsWithHttpInfo(Long bucketId, Long endpointId, VirtualBucketStorageSettings settings, String virtualBucket) throws ApiException {
     Object localVarPostBody = settings;
     
     // verify the required parameter 'bucketId' is set
@@ -648,7 +803,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Modifies virtual bucket configuration
@@ -659,6 +814,19 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void setVirtualBucketSettings(Long endpointId, VirtualBucketSettings settings, String virtualBucket) throws ApiException {
+
+    setVirtualBucketSettingsWithHttpInfo(endpointId, settings, virtualBucket);
+  }
+
+  /**
+   * Modifies virtual bucket configuration
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param settings settings (required)
+   * @param virtualBucket virtual-bucket (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setVirtualBucketSettingsWithHttpInfo(Long endpointId, VirtualBucketSettings settings, String virtualBucket) throws ApiException {
     Object localVarPostBody = settings;
     
     // verify the required parameter 'endpointId' is set
@@ -702,7 +870,7 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Update attributes of the endpoint
@@ -712,6 +880,18 @@ public class EndpointsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void updateEndpointSettings(Long endpointId, EndpointSettings settings) throws ApiException {
+
+    updateEndpointSettingsWithHttpInfo(endpointId, settings);
+  }
+
+  /**
+   * Update attributes of the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param settings settings (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> updateEndpointSettingsWithHttpInfo(Long endpointId, EndpointSettings settings) throws ApiException {
     Object localVarPostBody = settings;
     
     // verify the required parameter 'endpointId' is set
@@ -749,6 +929,6 @@ public class EndpointsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }

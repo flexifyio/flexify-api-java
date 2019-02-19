@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **credential** | **String** | Credential (such as Secret Key) of the cloud account |  [optional]
 **identity** | **String** | Identity (such as Key ID) of the cloud account |  [optional]
 **name** | **String** | User-defined storage account name |  [optional]
+**refreshIntervalSec** | **Integer** | Automatic refresh interval in seconds or null to disable automatic refresh |  [optional]
+**refreshStoragesStat** | **Boolean** | Indicates if statistics for each bucket/container should be calculated on refresh |  [optional]
 **useSsl** | **Boolean** | Encrypt transfer with SSL |  [optional]
 
 

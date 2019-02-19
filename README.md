@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.7-SNAPSHOT</version>
+    <version>2.7.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.flexify:management-apiclient:2.4.1"
+compile "io.flexify:management-apiclient:2.7.0"
 ```
 
 ### Others
@@ -55,7 +55,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/management-apiclient-2.4.1.jar
+* target/management-apiclient-2.7.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -100,15 +100,20 @@ Class | Method | HTTP request | Description
 *MigrationsControllerApi* | [**addMigration**](docs/MigrationsControllerApi.md#addMigration) | **POST** /rest/migrations | Add new migration
 *MigrationsControllerApi* | [**getMigration**](docs/MigrationsControllerApi.md#getMigration) | **GET** /rest/migrations/{migration-id} | Get migration by id. Only migration owner or administrator have access to the migration
 *MigrationsControllerApi* | [**getMigrations**](docs/MigrationsControllerApi.md#getMigrations) | **GET** /rest/migrations | Get all migrations for logged in user in pagged mode
-*MigrationsControllerApi* | [**hideMigration**](docs/MigrationsControllerApi.md#hideMigration) | **POST** /rest/migrations/{migration-id}/hide | Hide migration from UI
-*MigrationsControllerApi* | [**stopMigration**](docs/MigrationsControllerApi.md#stopMigration) | **POST** /rest/migrations/{migration-id}/stop | Stop (cancel) the migration
+*MigrationsControllerApi* | [**hideAllMigrations**](docs/MigrationsControllerApi.md#hideAllMigrations) | **POST** /rest/migrations/actions/hide-all | Mark all unfinished migrations as hidden UI
+*MigrationsControllerApi* | [**hideMigration**](docs/MigrationsControllerApi.md#hideMigration) | **POST** /rest/migrations/{migration-id}/actions/hide | Mark migration as hidden
+*MigrationsControllerApi* | [**restartSlot**](docs/MigrationsControllerApi.md#restartSlot) | **POST** /rest/migrations/{migration-id}/mappings/{mapping-id}/slots/{slot}/actions/restart | Mark migration as hidden
+*MigrationsControllerApi* | [**stopMigration**](docs/MigrationsControllerApi.md#stopMigration) | **POST** /rest/migrations/{migration-id}/actions/stop | Stop (cancel) the migration
 *PaymentsControllerApi* | [**getPaymentOptions**](docs/PaymentsControllerApi.md#getPaymentOptions) | **GET** /rest/pay/paddle/options | getPaymentOptions
 *PaymentsControllerApi* | [**paymentFulfilled**](docs/PaymentsControllerApi.md#paymentFulfilled) | **GET** /rest/pay/paddle/webhook | paymentFulfilled
 *StorageAccountsControllerApi* | [**addStorageAccount**](docs/StorageAccountsControllerApi.md#addStorageAccount) | **POST** /rest/storage-accounts | Add Storage Account with an optional list of buckets
-*StorageAccountsControllerApi* | [**deleteStorageAccount**](docs/StorageAccountsControllerApi.md#deleteStorageAccount) | **DELETE** /rest/storage-accounts/{storage-account-id} | Deletes (hides) a bucket/container
+*StorageAccountsControllerApi* | [**deleteStorageAccount**](docs/StorageAccountsControllerApi.md#deleteStorageAccount) | **DELETE** /rest/storage-accounts/{storage-account-id} | Deletes (hides) storage account and all its buckets/containers
+*StorageAccountsControllerApi* | [**deleteStorageAccounts**](docs/StorageAccountsControllerApi.md#deleteStorageAccounts) | **POST** /rest/storage-accounts/actions/delete | Deletes (hides) a multiple storage accounts and all their buckets/containers
 *StorageAccountsControllerApi* | [**getStorageAccount**](docs/StorageAccountsControllerApi.md#getStorageAccount) | **GET** /rest/storage-accounts/storage-accounts/{storage-account-id} | Get storage account by id
 *StorageAccountsControllerApi* | [**getStorageAccounts**](docs/StorageAccountsControllerApi.md#getStorageAccounts) | **GET** /rest/storage-accounts | Get all storage accounts for current user
 *StorageAccountsControllerApi* | [**refreshStorageAccount**](docs/StorageAccountsControllerApi.md#refreshStorageAccount) | **POST** /rest/storage-accounts/{storage-account-id}/actions/refresh | Requests and updates list of buckets/containers for the storage account
+*StorageAccountsControllerApi* | [**refreshStorageAccounts**](docs/StorageAccountsControllerApi.md#refreshStorageAccounts) | **POST** /rest/storage-accounts/actions/refresh | Requests and updates list of buckets/containers for a list of storage accounts
+*StorageAccountsControllerApi* | [**setStorageAccountSettings**](docs/StorageAccountsControllerApi.md#setStorageAccountSettings) | **PUT** /rest/storage-accounts/{storage-account-id}/settings | Updates storage account settings
 *StoragesControllerApi* | [**addBuckets**](docs/StoragesControllerApi.md#addBuckets) | **POST** /rest/storage-accounts/{storage-account-id}/buckets | Add buckets to the storage account
 *StoragesControllerApi* | [**deleteBucket**](docs/StoragesControllerApi.md#deleteBucket) | **DELETE** /rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Deletes (hides) a bucket/container
 *StoragesControllerApi* | [**deleteBuckets**](docs/StoragesControllerApi.md#deleteBuckets) | **POST** /rest/storage-accounts/actions/delete-buckets | Deletes (hides) multiple buckets/containers
@@ -151,13 +156,13 @@ Class | Method | HTTP request | Description
  - [LogEvent](docs/LogEvent.md)
  - [Mapping](docs/Mapping.md)
  - [MappingStat](docs/MappingStat.md)
+ - [MarkerPageLogEntry](docs/MarkerPageLogEntry.md)
  - [Migration](docs/Migration.md)
  - [MigrationSettings](docs/MigrationSettings.md)
  - [MigrationStat](docs/MigrationStat.md)
  - [Money](docs/Money.md)
  - [NewStorageAccount](docs/NewStorageAccount.md)
  - [Organization](docs/Organization.md)
- - [PageLogEntry](docs/PageLogEntry.md)
  - [PageMigration](docs/PageMigration.md)
  - [Pageable](docs/Pageable.md)
  - [Payment](docs/Payment.md)

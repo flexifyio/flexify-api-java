@@ -2,6 +2,7 @@ package io.flexify.apiclient.api;
 
 import io.flexify.apiclient.handler.ApiException;
 import io.flexify.apiclient.handler.ApiClient;
+import io.flexify.apiclient.handler.ApiResponse;
 import io.flexify.apiclient.handler.Configuration;
 import io.flexify.apiclient.handler.Pair;
 
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
 public class UsersControllerApi {
   private ApiClient apiClient;
 
@@ -59,6 +60,33 @@ public class UsersControllerApi {
    * @throws ApiException if fails to make API call
    */
   public User getCurrentUser(String contextPath, String localeISO3Country, String localeISO3Language, String localeCountry, String localeDisplayCountry, String localeDisplayLanguage, String localeDisplayName, String localeDisplayScript, String localeDisplayVariant, String localeLanguage, String localeScript, List<String> localeUnicodeLocaleAttributes, List<String> localeUnicodeLocaleKeys, String localeVariant, String remoteUser, Boolean secure, String userPrincipalName) throws ApiException {
+    return getCurrentUserWithHttpInfo(contextPath, localeISO3Country, localeISO3Language, localeCountry, localeDisplayCountry, localeDisplayLanguage, localeDisplayName, localeDisplayScript, localeDisplayVariant, localeLanguage, localeScript, localeUnicodeLocaleAttributes, localeUnicodeLocaleKeys, localeVariant, remoteUser, secure, userPrincipalName).getData();
+      }
+
+  /**
+   * Get details of user correponsing to provided auth token
+   * 
+   * @param contextPath  (optional)
+   * @param localeISO3Country  (optional)
+   * @param localeISO3Language  (optional)
+   * @param localeCountry  (optional)
+   * @param localeDisplayCountry  (optional)
+   * @param localeDisplayLanguage  (optional)
+   * @param localeDisplayName  (optional)
+   * @param localeDisplayScript  (optional)
+   * @param localeDisplayVariant  (optional)
+   * @param localeLanguage  (optional)
+   * @param localeScript  (optional)
+   * @param localeUnicodeLocaleAttributes  (optional)
+   * @param localeUnicodeLocaleKeys  (optional)
+   * @param localeVariant  (optional)
+   * @param remoteUser  (optional)
+   * @param secure  (optional)
+   * @param userPrincipalName  (optional)
+   * @return ApiResponse&lt;User&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<User> getCurrentUserWithHttpInfo(String contextPath, String localeISO3Country, String localeISO3Language, String localeCountry, String localeDisplayCountry, String localeDisplayLanguage, String localeDisplayName, String localeDisplayScript, String localeDisplayVariant, String localeLanguage, String localeScript, List<String> localeUnicodeLocaleAttributes, List<String> localeUnicodeLocaleKeys, String localeVariant, String remoteUser, Boolean secure, String userPrincipalName) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -111,6 +139,17 @@ public class UsersControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void requestResetPassword(RequestResetPasswordReqeust reqeust) throws ApiException {
+
+    requestResetPasswordWithHttpInfo(reqeust);
+  }
+
+  /**
+   * requestResetPassword
+   * 
+   * @param reqeust reqeust (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> requestResetPasswordWithHttpInfo(RequestResetPasswordReqeust reqeust) throws ApiException {
     Object localVarPostBody = reqeust;
     
     // verify the required parameter 'reqeust' is set
@@ -142,6 +181,6 @@ public class UsersControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }

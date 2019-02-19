@@ -2,6 +2,7 @@ package io.flexify.apiclient.api;
 
 import io.flexify.apiclient.handler.ApiException;
 import io.flexify.apiclient.handler.ApiClient;
+import io.flexify.apiclient.handler.ApiResponse;
 import io.flexify.apiclient.handler.Configuration;
 import io.flexify.apiclient.handler.Pair;
 
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
 public class BillingAccountsControllerApi {
   private ApiClient apiClient;
 
@@ -43,6 +44,16 @@ public class BillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public List<CostDetails> getCostsForCurrentUserBillingAccount() throws ApiException {
+    return getCostsForCurrentUserBillingAccountWithHttpInfo().getData();
+      }
+
+  /**
+   * Get costs for current user
+   * 
+   * @return ApiResponse&lt;List&lt;CostDetails&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<CostDetails>> getCostsForCurrentUserBillingAccountWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -78,6 +89,16 @@ public class BillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public BillingAccountWithMoney getCurrentUserBillingAccount() throws ApiException {
+    return getCurrentUserBillingAccountWithHttpInfo().getData();
+      }
+
+  /**
+   * Get billing account for current user
+   * 
+   * @return ApiResponse&lt;BillingAccountWithMoney&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<BillingAccountWithMoney> getCurrentUserBillingAccountWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -113,6 +134,16 @@ public class BillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public List<Payment> getPaymentsForCurrentUser() throws ApiException {
+    return getPaymentsForCurrentUserWithHttpInfo().getData();
+      }
+
+  /**
+   * Get payments for current user
+   * 
+   * @return ApiResponse&lt;List&lt;Payment&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<Payment>> getPaymentsForCurrentUserWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

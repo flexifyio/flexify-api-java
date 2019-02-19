@@ -2,6 +2,7 @@ package io.flexify.apiclient.api;
 
 import io.flexify.apiclient.handler.ApiException;
 import io.flexify.apiclient.handler.ApiClient;
+import io.flexify.apiclient.handler.ApiResponse;
 import io.flexify.apiclient.handler.Configuration;
 import io.flexify.apiclient.handler.Pair;
 
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-19T00:30:02.233+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
 public class DistributorBillingAccountsControllerApi {
   private ApiClient apiClient;
 
@@ -44,6 +45,17 @@ public class DistributorBillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void activateAccount(Long accountId) throws ApiException {
+
+    activateAccountWithHttpInfo(accountId);
+  }
+
+  /**
+   * activateAccount
+   * 
+   * @param accountId account-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> activateAccountWithHttpInfo(Long accountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountId' is set
@@ -76,7 +88,7 @@ public class DistributorBillingAccountsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * addPayment
@@ -86,6 +98,18 @@ public class DistributorBillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void addPayment(Long accountId, PaymentAddRequest paymentRequest) throws ApiException {
+
+    addPaymentWithHttpInfo(accountId, paymentRequest);
+  }
+
+  /**
+   * addPayment
+   * 
+   * @param accountId account-id (required)
+   * @param paymentRequest paymentRequest (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> addPaymentWithHttpInfo(Long accountId, PaymentAddRequest paymentRequest) throws ApiException {
     Object localVarPostBody = paymentRequest;
     
     // verify the required parameter 'accountId' is set
@@ -123,7 +147,7 @@ public class DistributorBillingAccountsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * getCosts
@@ -133,6 +157,17 @@ public class DistributorBillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public List<CostDetails> getCosts(Long accountId) throws ApiException {
+    return getCostsWithHttpInfo(accountId).getData();
+      }
+
+  /**
+   * getCosts
+   * 
+   * @param accountId account-id (required)
+   * @return ApiResponse&lt;List&lt;CostDetails&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<CostDetails>> getCostsWithHttpInfo(Long accountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountId' is set
@@ -175,6 +210,17 @@ public class DistributorBillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public BillingAccountWithMoney getDetails(Long accountId) throws ApiException {
+    return getDetailsWithHttpInfo(accountId).getData();
+      }
+
+  /**
+   * getDetails
+   * 
+   * @param accountId account-id (required)
+   * @return ApiResponse&lt;BillingAccountWithMoney&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<BillingAccountWithMoney> getDetailsWithHttpInfo(Long accountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountId' is set
@@ -217,6 +263,17 @@ public class DistributorBillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public List<Payment> getPayments(Long accountId) throws ApiException {
+    return getPaymentsWithHttpInfo(accountId).getData();
+      }
+
+  /**
+   * getPayments
+   * 
+   * @param accountId account-id (required)
+   * @return ApiResponse&lt;List&lt;Payment&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<Payment>> getPaymentsWithHttpInfo(Long accountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountId' is set
@@ -258,6 +315,17 @@ public class DistributorBillingAccountsControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void suspendAccount(Long accountId) throws ApiException {
+
+    suspendAccountWithHttpInfo(accountId);
+  }
+
+  /**
+   * suspendAccount
+   * 
+   * @param accountId account-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> suspendAccountWithHttpInfo(Long accountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountId' is set
@@ -290,6 +358,6 @@ public class DistributorBillingAccountsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }

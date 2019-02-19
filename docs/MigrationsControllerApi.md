@@ -7,8 +7,10 @@ Method | HTTP request | Description
 [**addMigration**](MigrationsControllerApi.md#addMigration) | **POST** /rest/migrations | Add new migration
 [**getMigration**](MigrationsControllerApi.md#getMigration) | **GET** /rest/migrations/{migration-id} | Get migration by id. Only migration owner or administrator have access to the migration
 [**getMigrations**](MigrationsControllerApi.md#getMigrations) | **GET** /rest/migrations | Get all migrations for logged in user in pagged mode
-[**hideMigration**](MigrationsControllerApi.md#hideMigration) | **POST** /rest/migrations/{migration-id}/hide | Hide migration from UI
-[**stopMigration**](MigrationsControllerApi.md#stopMigration) | **POST** /rest/migrations/{migration-id}/stop | Stop (cancel) the migration
+[**hideAllMigrations**](MigrationsControllerApi.md#hideAllMigrations) | **POST** /rest/migrations/actions/hide-all | Mark all unfinished migrations as hidden UI
+[**hideMigration**](MigrationsControllerApi.md#hideMigration) | **POST** /rest/migrations/{migration-id}/actions/hide | Mark migration as hidden
+[**restartSlot**](MigrationsControllerApi.md#restartSlot) | **POST** /rest/migrations/{migration-id}/mappings/{mapping-id}/slots/{slot}/actions/restart | Mark migration as hidden
+[**stopMigration**](MigrationsControllerApi.md#stopMigration) | **POST** /rest/migrations/{migration-id}/actions/stop | Stop (cancel) the migration
 
 
 <a name="addMigration"></a>
@@ -192,11 +194,59 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
+<a name="hideAllMigrations"></a>
+# **hideAllMigrations**
+> hideAllMigrations()
+
+Mark all unfinished migrations as hidden UI
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.MigrationsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+MigrationsControllerApi apiInstance = new MigrationsControllerApi();
+try {
+    apiInstance.hideAllMigrations();
+} catch (ApiException e) {
+    System.err.println("Exception when calling MigrationsControllerApi#hideAllMigrations");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
 <a name="hideMigration"></a>
 # **hideMigration**
-> Migration hideMigration(migrationId)
+> hideMigration(migrationId)
 
-Hide migration from UI
+Mark migration as hidden
 
 ### Example
 ```java
@@ -218,8 +268,7 @@ Bearer.setApiKey("YOUR API KEY");
 MigrationsControllerApi apiInstance = new MigrationsControllerApi();
 Long migrationId = 789L; // Long | migration-id
 try {
-    Migration result = apiInstance.hideMigration(migrationId);
-    System.out.println(result);
+    apiInstance.hideMigration(migrationId);
 } catch (ApiException e) {
     System.err.println("Exception when calling MigrationsControllerApi#hideMigration");
     e.printStackTrace();
@@ -234,7 +283,63 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Migration**](Migration.md)
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="restartSlot"></a>
+# **restartSlot**
+> restartSlot(mappingId, migrationId, slot)
+
+Mark migration as hidden
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.MigrationsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+MigrationsControllerApi apiInstance = new MigrationsControllerApi();
+Long mappingId = 789L; // Long | mapping-id
+Long migrationId = 789L; // Long | migration-id
+Integer slot = 56; // Integer | slot
+try {
+    apiInstance.restartSlot(mappingId, migrationId, slot);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MigrationsControllerApi#restartSlot");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mappingId** | **Long**| mapping-id |
+ **migrationId** | **Long**| migration-id |
+ **slot** | **Integer**| slot |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
@@ -247,7 +352,7 @@ Name | Type | Description  | Notes
 
 <a name="stopMigration"></a>
 # **stopMigration**
-> Migration stopMigration(migrationId)
+> stopMigration(migrationId)
 
 Stop (cancel) the migration
 
@@ -271,8 +376,7 @@ Bearer.setApiKey("YOUR API KEY");
 MigrationsControllerApi apiInstance = new MigrationsControllerApi();
 Long migrationId = 789L; // Long | migration-id
 try {
-    Migration result = apiInstance.stopMigration(migrationId);
-    System.out.println(result);
+    apiInstance.stopMigration(migrationId);
 } catch (ApiException e) {
     System.err.println("Exception when calling MigrationsControllerApi#stopMigration");
     e.printStackTrace();
@@ -287,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Migration**](Migration.md)
+null (empty response body)
 
 ### Authorization
 
