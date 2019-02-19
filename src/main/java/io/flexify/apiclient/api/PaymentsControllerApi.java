@@ -2,6 +2,7 @@ package io.flexify.apiclient.api;
 
 import io.flexify.apiclient.handler.ApiException;
 import io.flexify.apiclient.handler.ApiClient;
+import io.flexify.apiclient.handler.ApiResponse;
 import io.flexify.apiclient.handler.Configuration;
 import io.flexify.apiclient.handler.Pair;
 
@@ -14,15 +15,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
-public class PaymentControllerApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
+public class PaymentsControllerApi {
   private ApiClient apiClient;
 
-  public PaymentControllerApi() {
+  public PaymentsControllerApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public PaymentControllerApi(ApiClient apiClient) {
+  public PaymentsControllerApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -37,22 +38,34 @@ public class PaymentControllerApi {
   /**
    * getPaymentOptions
    * 
-   * @param currency currency (required)
    * @param amount amount (required)
+   * @param currency currency (required)
    * @return PaymentOptions
    * @throws ApiException if fails to make API call
    */
-  public PaymentOptions getPaymentOptions(String currency, Double amount) throws ApiException {
+  public PaymentOptions getPaymentOptions(Double amount, String currency) throws ApiException {
+    return getPaymentOptionsWithHttpInfo(amount, currency).getData();
+      }
+
+  /**
+   * getPaymentOptions
+   * 
+   * @param amount amount (required)
+   * @param currency currency (required)
+   * @return ApiResponse&lt;PaymentOptions&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<PaymentOptions> getPaymentOptionsWithHttpInfo(Double amount, String currency) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'currency' is set
-    if (currency == null) {
-      throw new ApiException(400, "Missing the required parameter 'currency' when calling getPaymentOptions");
-    }
     
     // verify the required parameter 'amount' is set
     if (amount == null) {
       throw new ApiException(400, "Missing the required parameter 'amount' when calling getPaymentOptions");
+    }
+    
+    // verify the required parameter 'currency' is set
+    if (currency == null) {
+      throw new ApiException(400, "Missing the required parameter 'currency' when calling getPaymentOptions");
     }
     
     // create path and map variables
@@ -63,8 +76,8 @@ public class PaymentControllerApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "amount", amount));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
 
     
     
@@ -89,6 +102,16 @@ public class PaymentControllerApi {
    * @throws ApiException if fails to make API call
    */
   public void paymentFulfilled() throws ApiException {
+
+    paymentFulfilledWithHttpInfo();
+  }
+
+  /**
+   * paymentFulfilled
+   * 
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> paymentFulfilledWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -115,6 +138,6 @@ public class PaymentControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
 
-    apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 }

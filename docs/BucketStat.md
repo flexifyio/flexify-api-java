@@ -7,19 +7,19 @@ Name | Type | Description | Notes
 **bytes** | **Long** | Bytes in this bucket/container |  [optional]
 **lastRefreshed** | [**DateTime**](DateTime.md) | Last success refresh operation complete timestamp |  [optional]
 **objects** | **Long** | Objects in this bucket/container |  [optional]
-**statState** | [**StatStateEnum**](#StatStateEnum) | State of the bucket/container |  [optional]
+**region** | **String** | Region where this bucket is located |  [optional]
+**state** | [**StateEnum**](#StateEnum) | State of the bucket/container |  [optional]
 
 
-<a name="StatStateEnum"></a>
-## Enum: StatStateEnum
+<a name="StateEnum"></a>
+## Enum: StateEnum
 Name | Value
 ---- | -----
 NONE | &quot;NONE&quot;
-CALCULATING | &quot;CALCULATING&quot;
 REFRESHING | &quot;REFRESHING&quot;
-FAILED | &quot;FAILED&quot;
-CANCELED | &quot;CANCELED&quot;
-UPDATED | &quot;UPDATED&quot;
+ERROR | &quot;ERROR&quot;
+WARNING | &quot;WARNING&quot;
+OK | &quot;OK&quot;
 
 
 

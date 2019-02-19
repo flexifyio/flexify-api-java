@@ -50,7 +50,7 @@ import io.flexify.apiclient.handler.auth.HttpBasicAuth;
 import io.flexify.apiclient.handler.auth.ApiKeyAuth;
 import io.flexify.apiclient.handler.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected String basePath = "https://localhost";
@@ -64,9 +64,6 @@ public class ApiClient {
 
   protected Map<String, Authentication> authentications;
 
-  protected int statusCode;
-  protected Map<String, List<String>> responseHeaders;
-
   protected DateFormat dateFormat;
 
   public ApiClient() {
@@ -76,7 +73,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("Swagger-Codegen/2.6/java");
+    setUserAgent("Swagger-Codegen/2.7.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -109,22 +106,6 @@ public class ApiClient {
   public ApiClient setBasePath(String basePath) {
     this.basePath = basePath;
     return this;
-  }
-
-  /**
-   * Gets the status code of the previous request
-   * @return Status code
-   */
-  public int getStatusCode() {
-    return statusCode;
-  }
-
-  /**
-   * Gets the response headers of the previous request
-   * @return Response headers
-   */
-  public Map<String, List<String>> getResponseHeaders() {
-    return responseHeaders;
   }
 
   /**
@@ -655,7 +636,7 @@ public class ApiClient {
    * @return The response body in type of string
    * @throws ApiException API exception
    */
-  public <T> T invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType) throws ApiException {
+  public <T> ApiResponse<T> invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType) throws ApiException {
     updateParamsForAuth(authNames, queryParams, headerParams);
 
     // Not using `.target(this.basePath).path(path)` below,
@@ -710,16 +691,16 @@ public class ApiClient {
         throw new ApiException(500, "unknown method type " + method);
       }
 
-      statusCode = response.getStatusInfo().getStatusCode();
-      responseHeaders = buildResponseHeaders(response);
+      int statusCode = response.getStatusInfo().getStatusCode();
+      Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
 
       if (response.getStatus() == Status.NO_CONTENT.getStatusCode()) {
-        return null;
+        return new ApiResponse<>(statusCode, responseHeaders);
       } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
         if (returnType == null)
-          return null;
+          return new ApiResponse<>(statusCode, responseHeaders);
         else
-          return deserialize(response, returnType);
+          return new ApiResponse<>(statusCode, responseHeaders, deserialize(response, returnType));
       } else {
         String message = "error";
         String respBody = null;

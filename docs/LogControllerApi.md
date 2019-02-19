@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getLogForCurrentUser"></a>
 # **getLogForCurrentUser**
-> PageLogEntry getLogForCurrentUser(storageId, migrationId, endpointId, sort, page, size, sortDirection)
+> MarkerPageLogEntry getLogForCurrentUser(endpointId, marker, migrationId, storageAccountId, storageId)
 
 getLogForCurrentUser
 
@@ -31,15 +31,13 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 LogControllerApi apiInstance = new LogControllerApi();
-Long storageId = 789L; // Long | storage-id
-Long migrationId = 789L; // Long | migration-id
 Long endpointId = 789L; // Long | endpoint-id
-List<String> sort = Arrays.asList("sort_example"); // List<String> | Attributes to sort
-Integer page = 0; // Integer | Page number
-Integer size = 100; // Integer | Page size
-String sortDirection = "ASC"; // String | Sort Direction
+Long marker = 789L; // Long | marker
+Long migrationId = 789L; // Long | migration-id
+Long storageAccountId = 789L; // Long | storage-account-id
+Long storageId = 789L; // Long | storage-id
 try {
-    PageLogEntry result = apiInstance.getLogForCurrentUser(storageId, migrationId, endpointId, sort, page, size, sortDirection);
+    MarkerPageLogEntry result = apiInstance.getLogForCurrentUser(endpointId, marker, migrationId, storageAccountId, storageId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LogControllerApi#getLogForCurrentUser");
@@ -51,17 +49,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storageId** | **Long**| storage-id | [optional]
- **migrationId** | **Long**| migration-id | [optional]
  **endpointId** | **Long**| endpoint-id | [optional]
- **sort** | [**List&lt;String&gt;**](String.md)| Attributes to sort | [optional]
- **page** | **Integer**| Page number | [optional] [default to 0]
- **size** | **Integer**| Page size | [optional] [default to 100]
- **sortDirection** | **String**| Sort Direction | [optional] [default to ASC] [enum: ASC, DESC]
+ **marker** | **Long**| marker | [optional]
+ **migrationId** | **Long**| migration-id | [optional]
+ **storageAccountId** | **Long**| storage-account-id | [optional]
+ **storageId** | **Long**| storage-id | [optional]
 
 ### Return type
 
-[**PageLogEntry**](PageLogEntry.md)
+[**MarkerPageLogEntry**](MarkerPageLogEntry.md)
 
 ### Authorization
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **content** | [**List&lt;Migration&gt;**](Migration.md) |  |  [optional]
+**empty** | **Boolean** |  |  [optional]
 **first** | **Boolean** |  |  [optional]
 **last** | **Boolean** |  |  [optional]
 **number** | **Integer** |  |  [optional]

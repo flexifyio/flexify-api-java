@@ -2,6 +2,7 @@ package io.flexify.apiclient.api;
 
 import io.flexify.apiclient.handler.ApiException;
 import io.flexify.apiclient.handler.ApiClient;
+import io.flexify.apiclient.handler.ApiResponse;
 import io.flexify.apiclient.handler.Configuration;
 import io.flexify.apiclient.handler.Pair;
 
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-21T12:54:18.961+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
 public class AuthenticationControllerApi {
   private ApiClient apiClient;
 
@@ -44,6 +45,17 @@ public class AuthenticationControllerApi {
    * @throws ApiException if fails to make API call
    */
   public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) throws ApiException {
+    return authenticateWithHttpInfo(authenticationRequest).getData();
+      }
+
+  /**
+   * Generate new access token for the user
+   * 
+   * @param authenticationRequest authenticationRequest (required)
+   * @return ApiResponse&lt;AuthenticationResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<AuthenticationResponse> authenticateWithHttpInfo(AuthenticationRequest authenticationRequest) throws ApiException {
     Object localVarPostBody = authenticationRequest;
     
     // verify the required parameter 'authenticationRequest' is set
@@ -84,6 +96,16 @@ public class AuthenticationControllerApi {
    * @throws ApiException if fails to make API call
    */
   public PublicAuthenticationConfiguration getConfig() throws ApiException {
+    return getConfigWithHttpInfo().getData();
+      }
+
+  /**
+   * Logout
+   * 
+   * @return ApiResponse&lt;PublicAuthenticationConfiguration&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<PublicAuthenticationConfiguration> getConfigWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -119,6 +141,16 @@ public class AuthenticationControllerApi {
    * @throws ApiException if fails to make API call
    */
   public Object logout() throws ApiException {
+    return logoutWithHttpInfo().getData();
+      }
+
+  /**
+   * Logout
+   * 
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Object> logoutWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
