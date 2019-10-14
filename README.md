@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.7.0</version>
+    <version>2.8.5</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.flexify:management-apiclient:2.7.0"
+compile "io.flexify:management-apiclient:2.8.5"
 ```
 
 ### Others
@@ -55,7 +55,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/management-apiclient-2.7.0.jar
+* target/management-apiclient-2.8.5.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -121,6 +121,7 @@ Class | Method | HTTP request | Description
 *StoragesControllerApi* | [**refreshBucket**](docs/StoragesControllerApi.md#refreshBucket) | **POST** /rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}/actions/refresh | Refresh statistics of a single bucket
 *StoragesControllerApi* | [**refreshBuckets**](docs/StoragesControllerApi.md#refreshBuckets) | **POST** /rest/storage-accounts/actions/refresh-buckets | Refresh statistics of multiple buckets
 *UsersControllerApi* | [**getCurrentUser**](docs/UsersControllerApi.md#getCurrentUser) | **GET** /rest/user/current | Get details of user correponsing to provided auth token
+*UsersControllerApi* | [**requestDelete**](docs/UsersControllerApi.md#requestDelete) | **POST** /rest/user/request-delete | requestDelete
 *UsersControllerApi* | [**requestResetPassword**](docs/UsersControllerApi.md#requestResetPassword) | **POST** /rest/user/request-reset-password | requestResetPassword
 
 
@@ -168,9 +169,11 @@ Class | Method | HTTP request | Description
  - [Payment](docs/Payment.md)
  - [PaymentAddRequest](docs/PaymentAddRequest.md)
  - [PaymentOptions](docs/PaymentOptions.md)
- - [PriceListEntry](docs/PriceListEntry.md)
+ - [Price](docs/Price.md)
+ - [PriceConstraints](docs/PriceConstraints.md)
+ - [PriceList](docs/PriceList.md)
  - [PublicAuthenticationConfiguration](docs/PublicAuthenticationConfiguration.md)
- - [RequestResetPasswordReqeust](docs/RequestResetPasswordReqeust.md)
+ - [RequestResetPasswordRequest](docs/RequestResetPasswordRequest.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [SignUpRequest](docs/SignUpRequest.md)
  - [SignupResult](docs/SignupResult.md)
@@ -179,6 +182,7 @@ Class | Method | HTTP request | Description
  - [Sort](docs/Sort.md)
  - [StorageAccount](docs/StorageAccount.md)
  - [StorageAccountSettings](docs/StorageAccountSettings.md)
+ - [StorageAccountStat](docs/StorageAccountStat.md)
  - [StorageProvider](docs/StorageProvider.md)
  - [User](docs/User.md)
  - [UserProfile](docs/UserProfile.md)

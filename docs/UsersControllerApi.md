@@ -5,6 +5,7 @@ All URIs are relative to *https://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getCurrentUser**](UsersControllerApi.md#getCurrentUser) | **GET** /rest/user/current | Get details of user correponsing to provided auth token
+[**requestDelete**](UsersControllerApi.md#requestDelete) | **POST** /rest/user/request-delete | requestDelete
 [**requestResetPassword**](UsersControllerApi.md#requestResetPassword) | **POST** /rest/user/request-reset-password | requestResetPassword
 
 
@@ -93,9 +94,57 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
+<a name="requestDelete"></a>
+# **requestDelete**
+> requestDelete()
+
+requestDelete
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.UsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+UsersControllerApi apiInstance = new UsersControllerApi();
+try {
+    apiInstance.requestDelete();
+} catch (ApiException e) {
+    System.err.println("Exception when calling UsersControllerApi#requestDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
 <a name="requestResetPassword"></a>
 # **requestResetPassword**
-> requestResetPassword(reqeust)
+> requestResetPassword(request)
 
 requestResetPassword
 
@@ -117,9 +166,9 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 UsersControllerApi apiInstance = new UsersControllerApi();
-RequestResetPasswordReqeust reqeust = new RequestResetPasswordReqeust(); // RequestResetPasswordReqeust | reqeust
+RequestResetPasswordRequest request = new RequestResetPasswordRequest(); // RequestResetPasswordRequest | request
 try {
-    apiInstance.requestResetPassword(reqeust);
+    apiInstance.requestResetPassword(request);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersControllerApi#requestResetPassword");
     e.printStackTrace();
@@ -130,7 +179,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reqeust** | [**RequestResetPasswordReqeust**](RequestResetPasswordReqeust.md)| reqeust |
+ **request** | [**RequestResetPasswordRequest**](RequestResetPasswordRequest.md)| request |
 
 ### Return type
 

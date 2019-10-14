@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **id** | **Long** | Account Id |  [optional]
 **maxCredit** | [**Money**](Money.md) | Account Maximum Credit |  [optional]
 **name** | **String** | Account Name |  [optional]
+**priceList** | [**PriceList**](PriceList.md) | Price list (without prices) |  [optional]
 **totalCost** | [**Money**](Money.md) | Account Total Cost |  [optional]
 **totalPaid** | [**Money**](Money.md) | Account Total Paid |  [optional]
 

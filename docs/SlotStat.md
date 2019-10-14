@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **bytesProcessed** | **Long** |  |  [optional]
 **bytesSkipped** | **Long** |  |  [optional]
 **bytesUploaded** | **Long** |  |  [optional]
+**dstRegion** | **String** |  |  [optional]
 **finished** | [**DateTime**](DateTime.md) | Finished time |  [optional]
 **objectsFailed** | **Long** |  |  [optional]
 **objectsNotMatchingPattern** | **Long** |  |  [optional]
@@ -19,8 +20,10 @@ Name | Type | Description | Notes
 **objectsUploaded** | **Long** |  |  [optional]
 **processingObjectsPerSecond** | **Double** | Objects/second processed |  [optional]
 **retried** | **Long** | Number of retries |  [optional]
+**srcRegion** | **String** |  |  [optional]
 **started** | [**DateTime**](DateTime.md) | Started time |  [optional]
 **state** | [**StateEnum**](#StateEnum) | State of migration on its part |  [optional]
+**totalUpload** | **Long** |  |  [optional]
 **uploadingBytesPerSecond** | **Double** |  |  [optional]
 **uploadingObjectsPerSecond** | **Double** |  |  [optional]
 
