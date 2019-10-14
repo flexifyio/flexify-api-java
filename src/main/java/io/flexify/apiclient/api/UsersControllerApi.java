@@ -8,7 +8,7 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import io.flexify.apiclient.model.RequestResetPasswordReqeust;
+import io.flexify.apiclient.model.RequestResetPasswordRequest;
 import io.flexify.apiclient.model.User;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T15:19:29.561+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-14T13:08:44.282+08:00")
 public class UsersControllerApi {
   private ApiClient apiClient;
 
@@ -133,28 +133,72 @@ public class UsersControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * requestResetPassword
+   * requestDelete
    * 
-   * @param reqeust reqeust (required)
    * @throws ApiException if fails to make API call
    */
-  public void requestResetPassword(RequestResetPasswordReqeust reqeust) throws ApiException {
+  public void requestDelete() throws ApiException {
 
-    requestResetPasswordWithHttpInfo(reqeust);
+    requestDeleteWithHttpInfo();
+  }
+
+  /**
+   * requestDelete
+   * 
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> requestDeleteWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/rest/user/request-delete";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * requestResetPassword
+   * 
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void requestResetPassword(RequestResetPasswordRequest request) throws ApiException {
+
+    requestResetPasswordWithHttpInfo(request);
   }
 
   /**
    * requestResetPassword
    * 
-   * @param reqeust reqeust (required)
+   * @param request request (required)
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> requestResetPasswordWithHttpInfo(RequestResetPasswordReqeust reqeust) throws ApiException {
-    Object localVarPostBody = reqeust;
+  public ApiResponse<Void> requestResetPasswordWithHttpInfo(RequestResetPasswordRequest request) throws ApiException {
+    Object localVarPostBody = request;
     
-    // verify the required parameter 'reqeust' is set
-    if (reqeust == null) {
-      throw new ApiException(400, "Missing the required parameter 'reqeust' when calling requestResetPassword");
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling requestResetPassword");
     }
     
     // create path and map variables

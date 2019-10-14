@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **dotEncode** | **String** | Indicates that the privder does not support dots in bucket names and how dots should be encoded |  [optional]
 **endpoint** | **String** | Endpoint to access this provider or null for custom providers |  [optional]
 **id** | **Long** | Id of the provider in the system |  [optional]
+**multiRegional** | **Boolean** | This cloud provider supports multiple regions |  [optional]
 **name** | **String** | Name of the provider |  [optional]
 **portHttp** | **Integer** | Port for HTTP request (null for default 80) |  [optional]
 **portHttps** | **Integer** | Port for HTTPS request (null for default 443) |  [optional]

@@ -1,5 +1,5 @@
 
-# RequestResetPasswordReqeust
+# RequestResetPasswordRequest
 
 ## Properties
 Name | Type | Description | Notes

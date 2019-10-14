@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account** | [**BillingAccount**](BillingAccount.md) | Billing Account |  [optional]
+**deleteRequested** | [**DateTime**](DateTime.md) | Time when user resueted to delete account |  [optional]
 **id** | **Long** | User ID in the system |  [optional]
 **org** | [**Organization**](Organization.md) | Owning Organization |  [optional]
 **profile** | [**UserProfile**](UserProfile.md) | User Profile |  [optional]
@@ -30,6 +31,7 @@ Name | Value
 ---- | -----
 ACTIVE | &quot;ACTIVE&quot;
 DISABLED | &quot;DISABLED&quot;
+DELETED | &quot;DELETED&quot;
 
 
 
