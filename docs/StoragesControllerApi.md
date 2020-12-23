@@ -1,15 +1,15 @@
 # StoragesControllerApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://api.flexify.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addBuckets**](StoragesControllerApi.md#addBuckets) | **POST** /rest/storage-accounts/{storage-account-id}/buckets | Add buckets to the storage account
-[**deleteBucket**](StoragesControllerApi.md#deleteBucket) | **DELETE** /rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Deletes (hides) a bucket/container
-[**deleteBuckets**](StoragesControllerApi.md#deleteBuckets) | **POST** /rest/storage-accounts/actions/delete-buckets | Deletes (hides) multiple buckets/containers
-[**getProviders**](StoragesControllerApi.md#getProviders) | **GET** /rest/providers | Get all storage providers
-[**refreshBucket**](StoragesControllerApi.md#refreshBucket) | **POST** /rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}/actions/refresh | Refresh statistics of a single bucket
-[**refreshBuckets**](StoragesControllerApi.md#refreshBuckets) | **POST** /rest/storage-accounts/actions/refresh-buckets | Refresh statistics of multiple buckets
+[**addBuckets**](StoragesControllerApi.md#addBuckets) | **POST** /backend/rest/storage-accounts/{storage-account-id}/buckets | Add buckets to the storage account
+[**deleteBucket**](StoragesControllerApi.md#deleteBucket) | **DELETE** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Deletes (hides) a bucket/container
+[**deleteBuckets**](StoragesControllerApi.md#deleteBuckets) | **POST** /backend/rest/storage-accounts/actions/delete-buckets | Deletes (hides) multiple buckets/containers
+[**getProviders**](StoragesControllerApi.md#getProviders) | **GET** /backend/rest/providers | Get all storage providers
+[**refreshBucket**](StoragesControllerApi.md#refreshBucket) | **POST** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}/actions/refresh | Refresh statistics of a single bucket
+[**refreshBuckets**](StoragesControllerApi.md#refreshBuckets) | **POST** /backend/rest/storage-accounts/actions/refresh-buckets | Refresh statistics of multiple buckets
 
 
 <a name="addBuckets"></a>

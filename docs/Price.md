@@ -17,16 +17,16 @@ Name | Type | Description | Notes
 ## Enum: CounterEnum
 Name | Value
 ---- | -----
-TRAFFIC | &quot;TRAFFIC&quot;
 STORAGE_VOLUME | &quot;STORAGE_VOLUME&quot;
+TRAFFIC | &quot;TRAFFIC&quot;
 
 
 <a name="ServiceEnum"></a>
 ## Enum: ServiceEnum
 Name | Value
 ---- | -----
-MIGRATION | &quot;DATA_MIGRATION&quot;
 FORWARDING | &quot;DATA_FORWARDING&quot;
+MIGRATION | &quot;DATA_MIGRATION&quot;
 
 
 

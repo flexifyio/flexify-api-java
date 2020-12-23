@@ -9,25 +9,26 @@ Name | Type | Description | Notes
 **entryMode** | [**EntryModeEnum**](#EntryModeEnum) | Payment entry mode (automatic or manual) |  [optional]
 **method** | [**MethodEnum**](#MethodEnum) | Payment method |  [optional]
 **paymentDate** | [**DateTime**](DateTime.md) | Payment date |  [optional]
+**paymentGatewayName** | **String** | Gateway used to make this payment |  [optional]
 
 
 <a name="EntryModeEnum"></a>
 ## Enum: EntryModeEnum
 Name | Value
 ---- | -----
-MANUAL | &quot;MANUAL&quot;
 AUTOMATIC | &quot;AUTOMATIC&quot;
+MANUAL | &quot;MANUAL&quot;
 
 
 <a name="MethodEnum"></a>
 ## Enum: MethodEnum
 Name | Value
 ---- | -----
-CASH | &quot;CASH&quot;
-WIRE_TRANSFER | &quot;WIRE_TRANSFER&quot;
-PAYMENT_GATEWAY | &quot;PAYMENT_GATEWAY&quot;
-DISTRIBUTOR | &quot;DISTRIBUTOR&quot;
 ADJUSTMENT | &quot;ADJUSTMENT&quot;
+CASH | &quot;CASH&quot;
+DISTRIBUTOR | &quot;DISTRIBUTOR&quot;
+PAYMENT_GATEWAY | &quot;PAYMENT_GATEWAY&quot;
+WIRE_TRANSFER | &quot;WIRE_TRANSFER&quot;
 
 
 

@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 ## Enum: LevelEnum
 Name | Value
 ---- | -----
+ERROR | &quot;ERROR&quot;
 INFO | &quot;INFO&quot;
 WARNING | &quot;WARNING&quot;
-ERROR | &quot;ERROR&quot;
 
 
 

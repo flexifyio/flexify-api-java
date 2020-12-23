@@ -4,7 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Long** | Id of the priece list |  [optional]
+**currencyCode** | **String** | Currency of this price list |  [optional]
+**id** | **Long** | ID of the price list |  [optional]
 **name** | **String** | Name of the price list |  [optional]
 
 

@@ -1,24 +1,26 @@
 # EndpointsControllerApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://api.flexify.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attachAccounts**](EndpointsControllerApi.md#attachAccounts) | **POST** /rest/endpoints/{endpoint-id}/storage-accounts | Attach storage accounts to the endpoint
-[**attachBuckets**](EndpointsControllerApi.md#attachBuckets) | **POST** /rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets | Attach storages to the virtual bucket
-[**createVirtualBucket**](EndpointsControllerApi.md#createVirtualBucket) | **POST** /rest/endpoints/{endpoint-id}/virtual-buckets | Creates new virtual bucket
-[**deleteVirtualBucket**](EndpointsControllerApi.md#deleteVirtualBucket) | **DELETE** /rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket} | Deletes virtual bucket
-[**detachAccount**](EndpointsControllerApi.md#detachAccount) | **DELETE** /rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id} | Detach storage account from the endpoint
-[**detachBucket**](EndpointsControllerApi.md#detachBucket) | **DELETE** /rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id} | Detach storage account from the endpoint
-[**disable**](EndpointsControllerApi.md#disable) | **PUT** /rest/endpoints/{endpoint-id}/actions/disable | Disable the endpoint
-[**enable**](EndpointsControllerApi.md#enable) | **PUT** /rest/endpoints/{endpoint-id}/actions/enable | Enable the endpoint
-[**generateAccessKeys**](EndpointsControllerApi.md#generateAccessKeys) | **GET** /rest/endpoints/generated-access-keys | Generate new access keys pair
-[**getEndpointDetails**](EndpointsControllerApi.md#getEndpointDetails) | **GET** /rest/endpoints/{endpoint-id} | Get endpoint details
-[**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /rest/endpoints | Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
-[**setAttachedAccountSettings**](EndpointsControllerApi.md#setAttachedAccountSettings) | **PUT** /rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}/settings | Modifies settings of the attached storage account
-[**setAttachedBucketSettings**](EndpointsControllerApi.md#setAttachedBucketSettings) | **PUT** /rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}/settings | Modifies settings of the attached storage
-[**setVirtualBucketSettings**](EndpointsControllerApi.md#setVirtualBucketSettings) | **PUT** /rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/settings | Modifies virtual bucket configuration
-[**updateEndpointSettings**](EndpointsControllerApi.md#updateEndpointSettings) | **PUT** /rest/endpoints/{endpoint-id}/settings | Update attributes of the endpoint
+[**attachAccounts**](EndpointsControllerApi.md#attachAccounts) | **POST** /backend/rest/endpoints/{endpoint-id}/storage-accounts | Attach storage accounts to the endpoint
+[**attachBuckets**](EndpointsControllerApi.md#attachBuckets) | **POST** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets | Attach storages to the virtual bucket
+[**createEndpoint**](EndpointsControllerApi.md#createEndpoint) | **POST** /backend/rest/endpoints | Creates new endpoint
+[**createVirtualBucket**](EndpointsControllerApi.md#createVirtualBucket) | **POST** /backend/rest/endpoints/{endpoint-id}/virtual-buckets | Creates new virtual bucket
+[**delete**](EndpointsControllerApi.md#delete) | **DELETE** /backend/rest/endpoints/{endpoint-id} | Delete the endpoint
+[**deleteVirtualBucket**](EndpointsControllerApi.md#deleteVirtualBucket) | **DELETE** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket} | Deletes virtual bucket
+[**detachAccount**](EndpointsControllerApi.md#detachAccount) | **DELETE** /backend/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id} | Detach storage account from the endpoint
+[**detachBucket**](EndpointsControllerApi.md#detachBucket) | **DELETE** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id} | Detach storage account from the endpoint
+[**disable**](EndpointsControllerApi.md#disable) | **PUT** /backend/rest/endpoints/{endpoint-id}/actions/disable | Disable the endpoint
+[**enable**](EndpointsControllerApi.md#enable) | **PUT** /backend/rest/endpoints/{endpoint-id}/actions/enable | Enable the endpoint
+[**generateAccessKeys**](EndpointsControllerApi.md#generateAccessKeys) | **GET** /backend/rest/endpoints/generated-access-keys | Generate new access keys pair
+[**getEndpointDetails**](EndpointsControllerApi.md#getEndpointDetails) | **GET** /backend/rest/endpoints/{endpoint-id} | Get endpoint details
+[**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /backend/rest/endpoints | Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
+[**setAttachedAccountSettings**](EndpointsControllerApi.md#setAttachedAccountSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}/settings | Modifies settings of the attached storage account
+[**setAttachedBucketSettings**](EndpointsControllerApi.md#setAttachedBucketSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}/settings | Modifies settings of the attached storage
+[**setVirtualBucketSettings**](EndpointsControllerApi.md#setVirtualBucketSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/settings | Modifies virtual bucket configuration
+[**updateEndpointSettings**](EndpointsControllerApi.md#updateEndpointSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/settings | Update attributes of the endpoint
 
 
 <a name="attachAccounts"></a>
@@ -131,6 +133,55 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
+<a name="createEndpoint"></a>
+# **createEndpoint**
+> IdResponse createEndpoint()
+
+Creates new endpoint
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.EndpointsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+EndpointsControllerApi apiInstance = new EndpointsControllerApi();
+try {
+    IdResponse result = apiInstance.createEndpoint();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsControllerApi#createEndpoint");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**IdResponse**](IdResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
 <a name="createVirtualBucket"></a>
 # **createVirtualBucket**
 > createVirtualBucket(endpointId, request)
@@ -183,6 +234,58 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="delete"></a>
+# **delete**
+> delete(endpointId)
+
+Delete the endpoint
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.EndpointsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+EndpointsControllerApi apiInstance = new EndpointsControllerApi();
+Long endpointId = 789L; // Long | endpoint-id
+try {
+    apiInstance.delete(endpointId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsControllerApi#delete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **endpointId** | **Long**| endpoint-id |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
 <a name="deleteVirtualBucket"></a>

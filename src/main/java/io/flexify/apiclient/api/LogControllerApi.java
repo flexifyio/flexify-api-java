@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-14T13:08:44.282+08:00")
+
 public class LogControllerApi {
   private ApiClient apiClient;
 
@@ -65,7 +65,7 @@ public class LogControllerApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/rest/log";
+    String localVarPath = "/backend/rest/log";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

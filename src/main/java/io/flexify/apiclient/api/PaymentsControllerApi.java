@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-14T13:08:44.282+08:00")
+
 public class PaymentsControllerApi {
   private ApiClient apiClient;
 
@@ -69,7 +69,7 @@ public class PaymentsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/pay/paddle/options";
+    String localVarPath = "/backend/rest/pay/paddle/options";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -115,7 +115,7 @@ public class PaymentsControllerApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/rest/pay/paddle/webhook";
+    String localVarPath = "/backend/rest/pay/paddle/webhook";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

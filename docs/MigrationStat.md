@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **bytesNotMatchingPattern** | **Long** |  |  [optional]
 **bytesProcessed** | **Long** |  |  [optional]
 **bytesSkipped** | **Long** |  |  [optional]
+**bytesSkippedGlacier** | **Long** |  |  [optional]
 **bytesUploaded** | **Long** |  |  [optional]
 **cleanup** | [**CleanupStat**](CleanupStat.md) | Cleanup that may be performed before migration |  [optional]
 **created** | [**DateTime**](DateTime.md) | Creation time |  [optional]
@@ -23,6 +24,7 @@ Name | Type | Description | Notes
 **objectsNotMatchingPattern** | **Long** |  |  [optional]
 **objectsProcessed** | **Long** |  |  [optional]
 **objectsSkipped** | **Long** |  |  [optional]
+**objectsSkippedGlacier** | **Long** |  |  [optional]
 **objectsUploaded** | **Long** |  |  [optional]
 **processingObjectsPerSecond** | **Double** | Objects/second processed |  [optional]
 **progress** | **Double** | Progress from 0.0 to 1.0 |  [optional]
@@ -40,23 +42,24 @@ Name | Type | Description | Notes
 ## Enum: StateEnum
 Name | Value
 ---- | -----
-WAITING | &quot;WAITING&quot;
-STARTING | &quot;STARTING&quot;
-RESTARTING | &quot;RESTARTING&quot;
+DEPLOYING | &quot;DEPLOYING&quot;
+FAILED | &quot;FAILED&quot;
 IN_PROGRESS | &quot;IN_PROGRESS&quot;
+NO_CONNECTION_TO_ENGINE | &quot;NO_CONNECTION_TO_ENGINE&quot;
+RESTARTING | &quot;RESTARTING&quot;
+STARTING | &quot;STARTING&quot;
+STOPPED | &quot;STOPPED&quot;
 STOPPING | &quot;STOPPING&quot;
 SUCCEEDED | &quot;SUCCEEDED&quot;
-FAILED | &quot;FAILED&quot;
-STOPPED | &quot;STOPPED&quot;
-NO_CONNECTION_TO_ENGINE | &quot;NO_CONNECTION_TO_ENGINE&quot;
+WAITING | &quot;WAITING&quot;
 
 
 <a name="StepEnum"></a>
 ## Enum: StepEnum
 Name | Value
 ---- | -----
-COUNT | &quot;COUNT&quot;
 CLEAN | &quot;CLEAN&quot;
+COUNT | &quot;COUNT&quot;
 MIGRATE | &quot;MIGRATE&quot;
 
 

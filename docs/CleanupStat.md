@@ -28,15 +28,16 @@ Name | Type | Description | Notes
 ## Enum: StateEnum
 Name | Value
 ---- | -----
-WAITING | &quot;WAITING&quot;
-STARTING | &quot;STARTING&quot;
-RESTARTING | &quot;RESTARTING&quot;
+DEPLOYING | &quot;DEPLOYING&quot;
+FAILED | &quot;FAILED&quot;
 IN_PROGRESS | &quot;IN_PROGRESS&quot;
+NO_CONNECTION_TO_ENGINE | &quot;NO_CONNECTION_TO_ENGINE&quot;
+RESTARTING | &quot;RESTARTING&quot;
+STARTING | &quot;STARTING&quot;
+STOPPED | &quot;STOPPED&quot;
 STOPPING | &quot;STOPPING&quot;
 SUCCEEDED | &quot;SUCCEEDED&quot;
-FAILED | &quot;FAILED&quot;
-STOPPED | &quot;STOPPED&quot;
-NO_CONNECTION_TO_ENGINE | &quot;NO_CONNECTION_TO_ENGINE&quot;
+WAITING | &quot;WAITING&quot;
 
 
 

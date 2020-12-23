@@ -10,7 +10,9 @@ Name | Type | Description | Notes
 **createdDate** | [**DateTime**](DateTime.md) | Created Timestamp |  [optional]
 **distributor** | [**Distributor**](Distributor.md) | Distributor that manages this account |  [optional]
 **id** | **Long** | Account Id |  [optional]
+**maxCredit** | [**Money**](Money.md) | Account Maximum Credit |  [optional]
 **name** | **String** | Account Name |  [optional]
+**priceList** | [**PriceList**](PriceList.md) | Price list (without prices) |  [optional]
 
 
 <a name="AdminStateEnum"></a>

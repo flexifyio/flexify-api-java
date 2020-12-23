@@ -1,11 +1,11 @@
 # PaymentsControllerApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://api.flexify.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPaymentOptions**](PaymentsControllerApi.md#getPaymentOptions) | **GET** /rest/pay/paddle/options | getPaymentOptions
-[**paymentFulfilled**](PaymentsControllerApi.md#paymentFulfilled) | **GET** /rest/pay/paddle/webhook | paymentFulfilled
+[**getPaymentOptions**](PaymentsControllerApi.md#getPaymentOptions) | **GET** /backend/rest/pay/paddle/options | getPaymentOptions
+[**paymentFulfilled**](PaymentsControllerApi.md#paymentFulfilled) | **GET** /backend/rest/pay/paddle/webhook | paymentFulfilled
 
 
 <a name="getPaymentOptions"></a>

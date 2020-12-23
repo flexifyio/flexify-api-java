@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-14T13:08:44.282+08:00")
+
 public class MigrationsControllerApi {
   private ApiClient apiClient;
 
@@ -65,7 +65,7 @@ public class MigrationsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/migrations";
+    String localVarPath = "/backend/rest/migrations";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -117,7 +117,7 @@ public class MigrationsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/migrations/{migration-id}"
+    String localVarPath = "/backend/rest/migrations/{migration-id}"
       .replaceAll("\\{" + "migration-id" + "\\}", apiClient.escapeString(migrationId.toString()));
 
     // query params
@@ -144,7 +144,7 @@ public class MigrationsControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get all migrations for logged in user in pagged mode
+   * Get all migrations for logged in user in paged mode
    * 
    * @param page Page number (required)
    * @param size Page size (required)
@@ -152,21 +152,21 @@ public class MigrationsControllerApi {
    * @param sort Attributes to sort (optional)
    * @param sortDirection Sort Direction (optional)
    * @param springPageRequestOffset  (optional)
+   * @param springPageRequestPaged  (optional)
    * @param springPageRequestPageNumber  (optional)
    * @param springPageRequestPageSize  (optional)
-   * @param springPageRequestPaged  (optional)
    * @param springPageRequestSortSorted  (optional)
    * @param springPageRequestSortUnsorted  (optional)
    * @param springPageRequestUnpaged  (optional)
    * @return PageMigration
    * @throws ApiException if fails to make API call
    */
-  public PageMigration getMigrations(Integer page, Integer size, Boolean includeHidden, List<String> sort, String sortDirection, Long springPageRequestOffset, Integer springPageRequestPageNumber, Integer springPageRequestPageSize, Boolean springPageRequestPaged, Boolean springPageRequestSortSorted, Boolean springPageRequestSortUnsorted, Boolean springPageRequestUnpaged) throws ApiException {
-    return getMigrationsWithHttpInfo(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestPaged, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged).getData();
+  public PageMigration getMigrations(Integer page, Integer size, Boolean includeHidden, List<String> sort, String sortDirection, Long springPageRequestOffset, Boolean springPageRequestPaged, Integer springPageRequestPageNumber, Integer springPageRequestPageSize, Boolean springPageRequestSortSorted, Boolean springPageRequestSortUnsorted, Boolean springPageRequestUnpaged) throws ApiException {
+    return getMigrationsWithHttpInfo(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPaged, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged).getData();
       }
 
   /**
-   * Get all migrations for logged in user in pagged mode
+   * Get all migrations for logged in user in paged mode
    * 
    * @param page Page number (required)
    * @param size Page size (required)
@@ -174,16 +174,16 @@ public class MigrationsControllerApi {
    * @param sort Attributes to sort (optional)
    * @param sortDirection Sort Direction (optional)
    * @param springPageRequestOffset  (optional)
+   * @param springPageRequestPaged  (optional)
    * @param springPageRequestPageNumber  (optional)
    * @param springPageRequestPageSize  (optional)
-   * @param springPageRequestPaged  (optional)
    * @param springPageRequestSortSorted  (optional)
    * @param springPageRequestSortUnsorted  (optional)
    * @param springPageRequestUnpaged  (optional)
    * @return ApiResponse&lt;PageMigration&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PageMigration> getMigrationsWithHttpInfo(Integer page, Integer size, Boolean includeHidden, List<String> sort, String sortDirection, Long springPageRequestOffset, Integer springPageRequestPageNumber, Integer springPageRequestPageSize, Boolean springPageRequestPaged, Boolean springPageRequestSortSorted, Boolean springPageRequestSortUnsorted, Boolean springPageRequestUnpaged) throws ApiException {
+  public ApiResponse<PageMigration> getMigrationsWithHttpInfo(Integer page, Integer size, Boolean includeHidden, List<String> sort, String sortDirection, Long springPageRequestOffset, Boolean springPageRequestPaged, Integer springPageRequestPageNumber, Integer springPageRequestPageSize, Boolean springPageRequestSortSorted, Boolean springPageRequestSortUnsorted, Boolean springPageRequestUnpaged) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
@@ -197,7 +197,7 @@ public class MigrationsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/migrations";
+    String localVarPath = "/backend/rest/migrations";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -210,9 +210,9 @@ public class MigrationsControllerApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.offset", springPageRequestOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.paged", springPageRequestPaged));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.pageNumber", springPageRequestPageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.pageSize", springPageRequestPageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.paged", springPageRequestPaged));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.sort.sorted", springPageRequestSortSorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.sort.unsorted", springPageRequestSortUnsorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.unpaged", springPageRequestUnpaged));
@@ -253,7 +253,7 @@ public class MigrationsControllerApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/rest/migrations/actions/hide-all";
+    String localVarPath = "/backend/rest/migrations/actions/hide-all";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -304,7 +304,7 @@ public class MigrationsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/migrations/{migration-id}/actions/hide"
+    String localVarPath = "/backend/rest/migrations/{migration-id}/actions/hide"
       .replaceAll("\\{" + "migration-id" + "\\}", apiClient.escapeString(migrationId.toString()));
 
     // query params
@@ -370,7 +370,7 @@ public class MigrationsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/migrations/{migration-id}/mappings/{mapping-id}/slots/{slot}/actions/restart"
+    String localVarPath = "/backend/rest/migrations/{migration-id}/mappings/{mapping-id}/slots/{slot}/actions/restart"
       .replaceAll("\\{" + "mapping-id" + "\\}", apiClient.escapeString(mappingId.toString()))
       .replaceAll("\\{" + "migration-id" + "\\}", apiClient.escapeString(migrationId.toString()))
       .replaceAll("\\{" + "slot" + "\\}", apiClient.escapeString(slot.toString()));
@@ -424,7 +424,7 @@ public class MigrationsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/migrations/{migration-id}/actions/stop"
+    String localVarPath = "/backend/rest/migrations/{migration-id}/actions/stop"
       .replaceAll("\\{" + "migration-id" + "\\}", apiClient.escapeString(migrationId.toString()));
 
     // query params

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **slots** | [**List&lt;Slot&gt;**](Slot.md) | Slots that this mapping is split into | 
 **sourceBucket** | [**Bucket**](Bucket.md) | Source bucket/container | 
 **sourceStorageAccount** | [**StorageAccount**](StorageAccount.md) | Source storage account | 
-**stat** | [**MappingStat**](MappingStat.md) | Comulative statistics of this mapping | 
+**stat** | [**MappingStat**](MappingStat.md) | Cumulative statistics of this mapping | 
 
 
 

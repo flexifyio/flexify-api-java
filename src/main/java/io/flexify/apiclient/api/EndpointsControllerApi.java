@@ -15,6 +15,7 @@ import io.flexify.apiclient.model.CreateVirtualBucketRequest;
 import io.flexify.apiclient.model.EndpointDetails;
 import io.flexify.apiclient.model.EndpointSettings;
 import io.flexify.apiclient.model.EndpointStorageAccountSettings;
+import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.VirtualBucketSettings;
 import io.flexify.apiclient.model.VirtualBucketStorageSettings;
 
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-14T13:08:44.282+08:00")
+
 public class EndpointsControllerApi {
   private ApiClient apiClient;
 
@@ -76,7 +77,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/storage-accounts"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/storage-accounts"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
 
     // query params
@@ -142,7 +143,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
       .replaceAll("\\{" + "virtual-bucket" + "\\}", apiClient.escapeString(virtualBucket.toString()));
 
@@ -169,6 +170,51 @@ public class EndpointsControllerApi {
 
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
+  /**
+   * Creates new endpoint
+   * 
+   * @return IdResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IdResponse createEndpoint() throws ApiException {
+    return createEndpointWithHttpInfo().getData();
+      }
+
+  /**
+   * Creates new endpoint
+   * 
+   * @return ApiResponse&lt;IdResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<IdResponse> createEndpointWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/endpoints";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<IdResponse> localVarReturnType = new GenericType<IdResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
   /**
    * Creates new virtual bucket
    * 
@@ -202,7 +248,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/virtual-buckets"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/virtual-buckets"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
 
     // query params
@@ -227,6 +273,58 @@ public class EndpointsControllerApi {
 
 
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Delete the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void delete(Long endpointId) throws ApiException {
+
+    deleteWithHttpInfo(endpointId);
+  }
+
+  /**
+   * Delete the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> deleteWithHttpInfo(Long endpointId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling delete");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}"
+      .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Deletes virtual bucket
@@ -261,7 +359,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
       .replaceAll("\\{" + "virtual-bucket" + "\\}", apiClient.escapeString(virtualBucket.toString()));
 
@@ -321,7 +419,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
@@ -388,7 +486,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}"
       .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
       .replaceAll("\\{" + "virtual-bucket" + "\\}", apiClient.escapeString(virtualBucket.toString()));
@@ -442,7 +540,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/actions/disable"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/actions/disable"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
 
     // query params
@@ -494,7 +592,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/actions/enable"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/actions/enable"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
 
     // query params
@@ -540,7 +638,7 @@ public class EndpointsControllerApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/generated-access-keys";
+    String localVarPath = "/backend/rest/endpoints/generated-access-keys";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -592,7 +690,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
 
     // query params
@@ -638,7 +736,7 @@ public class EndpointsControllerApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints";
+    String localVarPath = "/backend/rest/endpoints";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -703,7 +801,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}/settings"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}/settings"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
@@ -777,7 +875,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}/settings"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}/settings"
       .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
       .replaceAll("\\{" + "virtual-bucket" + "\\}", apiClient.escapeString(virtualBucket.toString()));
@@ -845,7 +943,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/settings"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/settings"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
       .replaceAll("\\{" + "virtual-bucket" + "\\}", apiClient.escapeString(virtualBucket.toString()));
 
@@ -905,7 +1003,7 @@ public class EndpointsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/endpoints/{endpoint-id}/settings"
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/settings"
       .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
 
     // query params

@@ -13,14 +13,14 @@ import io.flexify.apiclient.model.Bucket;
 import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.IdsList;
 import io.flexify.apiclient.model.StorageAccount;
-import io.flexify.apiclient.model.StorageAccountSettings;
+import io.flexify.apiclient.model.StorageAccountSettingsReq;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-14T13:08:44.282+08:00")
+
 public class StorageAccountsControllerApi {
   private ApiClient apiClient;
 
@@ -67,7 +67,7 @@ public class StorageAccountsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts";
+    String localVarPath = "/backend/rest/storage-accounts";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -120,7 +120,7 @@ public class StorageAccountsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/{storage-account-id}"
+    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}"
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
     // query params
@@ -175,7 +175,7 @@ public class StorageAccountsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/actions/delete";
+    String localVarPath = "/backend/rest/storage-accounts/actions/delete";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -228,7 +228,7 @@ public class StorageAccountsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/storage-accounts/{storage-account-id}"
+    String localVarPath = "/backend/rest/storage-accounts/storage-accounts/{storage-account-id}"
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
     // query params
@@ -257,33 +257,33 @@ public class StorageAccountsControllerApi {
   /**
    * Get all storage accounts for current user
    * 
-   * @param includeStorages Include storages of given storage account to the response (optional, default to true)
+   * @param includeBuckets Include storages of given storage account to the response (optional, default to true)
    * @return List&lt;StorageAccount&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<StorageAccount> getStorageAccounts(Boolean includeStorages) throws ApiException {
-    return getStorageAccountsWithHttpInfo(includeStorages).getData();
+  public List<StorageAccount> getStorageAccounts(Boolean includeBuckets) throws ApiException {
+    return getStorageAccountsWithHttpInfo(includeBuckets).getData();
       }
 
   /**
    * Get all storage accounts for current user
    * 
-   * @param includeStorages Include storages of given storage account to the response (optional, default to true)
+   * @param includeBuckets Include storages of given storage account to the response (optional, default to true)
    * @return ApiResponse&lt;List&lt;StorageAccount&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<List<StorageAccount>> getStorageAccountsWithHttpInfo(Boolean includeStorages) throws ApiException {
+  public ApiResponse<List<StorageAccount>> getStorageAccountsWithHttpInfo(Boolean includeBuckets) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts";
+    String localVarPath = "/backend/rest/storage-accounts";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-storages", includeStorages));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-buckets", includeBuckets));
 
     
     
@@ -328,7 +328,7 @@ public class StorageAccountsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/{storage-account-id}/actions/refresh"
+    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}/actions/refresh"
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
     // query params
@@ -380,7 +380,7 @@ public class StorageAccountsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/actions/refresh";
+    String localVarPath = "/backend/rest/storage-accounts/actions/refresh";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -412,7 +412,7 @@ public class StorageAccountsControllerApi {
    * @param storageAccountId storage-account-id (required)
    * @throws ApiException if fails to make API call
    */
-  public void setStorageAccountSettings(StorageAccountSettings settings, Long storageAccountId) throws ApiException {
+  public void setStorageAccountSettings(StorageAccountSettingsReq settings, Long storageAccountId) throws ApiException {
 
     setStorageAccountSettingsWithHttpInfo(settings, storageAccountId);
   }
@@ -424,7 +424,7 @@ public class StorageAccountsControllerApi {
    * @param storageAccountId storage-account-id (required)
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> setStorageAccountSettingsWithHttpInfo(StorageAccountSettings settings, Long storageAccountId) throws ApiException {
+  public ApiResponse<Void> setStorageAccountSettingsWithHttpInfo(StorageAccountSettingsReq settings, Long storageAccountId) throws ApiException {
     Object localVarPostBody = settings;
     
     // verify the required parameter 'settings' is set
@@ -438,7 +438,7 @@ public class StorageAccountsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/{storage-account-id}/settings"
+    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}/settings"
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
     // query params

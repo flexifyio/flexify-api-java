@@ -1,16 +1,16 @@
 # MigrationsControllerApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://api.flexify.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addMigration**](MigrationsControllerApi.md#addMigration) | **POST** /rest/migrations | Add new migration
-[**getMigration**](MigrationsControllerApi.md#getMigration) | **GET** /rest/migrations/{migration-id} | Get migration by id. Only migration owner or administrator have access to the migration
-[**getMigrations**](MigrationsControllerApi.md#getMigrations) | **GET** /rest/migrations | Get all migrations for logged in user in pagged mode
-[**hideAllMigrations**](MigrationsControllerApi.md#hideAllMigrations) | **POST** /rest/migrations/actions/hide-all | Mark all unfinished migrations as hidden UI
-[**hideMigration**](MigrationsControllerApi.md#hideMigration) | **POST** /rest/migrations/{migration-id}/actions/hide | Mark migration as hidden
-[**restartSlot**](MigrationsControllerApi.md#restartSlot) | **POST** /rest/migrations/{migration-id}/mappings/{mapping-id}/slots/{slot}/actions/restart | Mark migration as hidden
-[**stopMigration**](MigrationsControllerApi.md#stopMigration) | **POST** /rest/migrations/{migration-id}/actions/stop | Stop (cancel) the migration
+[**addMigration**](MigrationsControllerApi.md#addMigration) | **POST** /backend/rest/migrations | Add new migration
+[**getMigration**](MigrationsControllerApi.md#getMigration) | **GET** /backend/rest/migrations/{migration-id} | Get migration by id. Only migration owner or administrator have access to the migration
+[**getMigrations**](MigrationsControllerApi.md#getMigrations) | **GET** /backend/rest/migrations | Get all migrations for logged in user in paged mode
+[**hideAllMigrations**](MigrationsControllerApi.md#hideAllMigrations) | **POST** /backend/rest/migrations/actions/hide-all | Mark all unfinished migrations as hidden UI
+[**hideMigration**](MigrationsControllerApi.md#hideMigration) | **POST** /backend/rest/migrations/{migration-id}/actions/hide | Mark migration as hidden
+[**restartSlot**](MigrationsControllerApi.md#restartSlot) | **POST** /backend/rest/migrations/{migration-id}/mappings/{mapping-id}/slots/{slot}/actions/restart | Mark migration as hidden
+[**stopMigration**](MigrationsControllerApi.md#stopMigration) | **POST** /backend/rest/migrations/{migration-id}/actions/stop | Stop (cancel) the migration
 
 
 <a name="addMigration"></a>
@@ -121,9 +121,9 @@ Name | Type | Description  | Notes
 
 <a name="getMigrations"></a>
 # **getMigrations**
-> PageMigration getMigrations(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestPaged, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged)
+> PageMigration getMigrations(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPaged, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged)
 
-Get all migrations for logged in user in pagged mode
+Get all migrations for logged in user in paged mode
 
 ### Example
 ```java
@@ -147,16 +147,16 @@ Integer page = 0; // Integer | Page number
 Integer size = 100; // Integer | Page size
 Boolean includeHidden = true; // Boolean | Include hidden migrations to response
 List<String> sort = Arrays.asList("sort_example"); // List<String> | Attributes to sort
-String sortDirection = "\"ASC\""; // String | Sort Direction
+String sortDirection = "ASC"; // String | Sort Direction
 Long springPageRequestOffset = 789L; // Long | 
+Boolean springPageRequestPaged = true; // Boolean | 
 Integer springPageRequestPageNumber = 56; // Integer | 
 Integer springPageRequestPageSize = 56; // Integer | 
-Boolean springPageRequestPaged = true; // Boolean | 
 Boolean springPageRequestSortSorted = true; // Boolean | 
 Boolean springPageRequestSortUnsorted = true; // Boolean | 
 Boolean springPageRequestUnpaged = true; // Boolean | 
 try {
-    PageMigration result = apiInstance.getMigrations(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestPaged, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged);
+    PageMigration result = apiInstance.getMigrations(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPaged, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MigrationsControllerApi#getMigrations");
@@ -174,9 +174,9 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;String&gt;**](String.md)| Attributes to sort | [optional]
  **sortDirection** | **String**| Sort Direction | [optional] [enum: ASC, DESC]
  **springPageRequestOffset** | **Long**|  | [optional]
+ **springPageRequestPaged** | **Boolean**|  | [optional]
  **springPageRequestPageNumber** | **Integer**|  | [optional]
  **springPageRequestPageSize** | **Integer**|  | [optional]
- **springPageRequestPaged** | **Boolean**|  | [optional]
  **springPageRequestSortSorted** | **Boolean**|  | [optional]
  **springPageRequestSortUnsorted** | **Boolean**|  | [optional]
  **springPageRequestUnpaged** | **Boolean**|  | [optional]

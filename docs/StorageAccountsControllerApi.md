@@ -1,17 +1,17 @@
 # StorageAccountsControllerApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://api.flexify.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addStorageAccount**](StorageAccountsControllerApi.md#addStorageAccount) | **POST** /rest/storage-accounts | Add Storage Account with an optional list of buckets
-[**deleteStorageAccount**](StorageAccountsControllerApi.md#deleteStorageAccount) | **DELETE** /rest/storage-accounts/{storage-account-id} | Deletes (hides) storage account and all its buckets/containers
-[**deleteStorageAccounts**](StorageAccountsControllerApi.md#deleteStorageAccounts) | **POST** /rest/storage-accounts/actions/delete | Deletes (hides) a multiple storage accounts and all their buckets/containers
-[**getStorageAccount**](StorageAccountsControllerApi.md#getStorageAccount) | **GET** /rest/storage-accounts/storage-accounts/{storage-account-id} | Get storage account by id
-[**getStorageAccounts**](StorageAccountsControllerApi.md#getStorageAccounts) | **GET** /rest/storage-accounts | Get all storage accounts for current user
-[**refreshStorageAccount**](StorageAccountsControllerApi.md#refreshStorageAccount) | **POST** /rest/storage-accounts/{storage-account-id}/actions/refresh | Requests and updates list of buckets/containers for the storage account
-[**refreshStorageAccounts**](StorageAccountsControllerApi.md#refreshStorageAccounts) | **POST** /rest/storage-accounts/actions/refresh | Requests and updates list of buckets/containers for a list of storage accounts
-[**setStorageAccountSettings**](StorageAccountsControllerApi.md#setStorageAccountSettings) | **PUT** /rest/storage-accounts/{storage-account-id}/settings | Updates storage account settings
+[**addStorageAccount**](StorageAccountsControllerApi.md#addStorageAccount) | **POST** /backend/rest/storage-accounts | Add Storage Account with an optional list of buckets
+[**deleteStorageAccount**](StorageAccountsControllerApi.md#deleteStorageAccount) | **DELETE** /backend/rest/storage-accounts/{storage-account-id} | Deletes (hides) storage account and all its buckets/containers
+[**deleteStorageAccounts**](StorageAccountsControllerApi.md#deleteStorageAccounts) | **POST** /backend/rest/storage-accounts/actions/delete | Deletes (hides) a multiple storage accounts and all their buckets/containers
+[**getStorageAccount**](StorageAccountsControllerApi.md#getStorageAccount) | **GET** /backend/rest/storage-accounts/storage-accounts/{storage-account-id} | Get storage account by id
+[**getStorageAccounts**](StorageAccountsControllerApi.md#getStorageAccounts) | **GET** /backend/rest/storage-accounts | Get all storage accounts for current user
+[**refreshStorageAccount**](StorageAccountsControllerApi.md#refreshStorageAccount) | **POST** /backend/rest/storage-accounts/{storage-account-id}/actions/refresh | Requests and updates list of buckets/containers for the storage account
+[**refreshStorageAccounts**](StorageAccountsControllerApi.md#refreshStorageAccounts) | **POST** /backend/rest/storage-accounts/actions/refresh | Requests and updates list of buckets/containers for a list of storage accounts
+[**setStorageAccountSettings**](StorageAccountsControllerApi.md#setStorageAccountSettings) | **PUT** /backend/rest/storage-accounts/{storage-account-id}/settings | Updates storage account settings
 
 
 <a name="addStorageAccount"></a>
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 <a name="getStorageAccounts"></a>
 # **getStorageAccounts**
-> List&lt;StorageAccount&gt; getStorageAccounts(includeStorages)
+> List&lt;StorageAccount&gt; getStorageAccounts(includeBuckets)
 
 Get all storage accounts for current user
 
@@ -252,9 +252,9 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 StorageAccountsControllerApi apiInstance = new StorageAccountsControllerApi();
-Boolean includeStorages = true; // Boolean | Include storages of given storage account to the response
+Boolean includeBuckets = true; // Boolean | Include storages of given storage account to the response
 try {
-    List<StorageAccount> result = apiInstance.getStorageAccounts(includeStorages);
+    List<StorageAccount> result = apiInstance.getStorageAccounts(includeBuckets);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageAccountsControllerApi#getStorageAccounts");
@@ -266,7 +266,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeStorages** | **Boolean**| Include storages of given storage account to the response | [optional] [default to true]
+ **includeBuckets** | **Boolean**| Include storages of given storage account to the response | [optional] [default to true]
 
 ### Return type
 
@@ -409,7 +409,7 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 StorageAccountsControllerApi apiInstance = new StorageAccountsControllerApi();
-StorageAccountSettings settings = new StorageAccountSettings(); // StorageAccountSettings | settings
+StorageAccountSettingsReq settings = new StorageAccountSettingsReq(); // StorageAccountSettingsReq | settings
 Long storageAccountId = 789L; // Long | storage-account-id
 try {
     apiInstance.setStorageAccountSettings(settings, storageAccountId);
@@ -423,7 +423,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settings** | [**StorageAccountSettings**](StorageAccountSettings.md)| settings |
+ **settings** | [**StorageAccountSettingsReq**](StorageAccountSettingsReq.md)| settings |
  **storageAccountId** | **Long**| storage-account-id |
 
 ### Return type

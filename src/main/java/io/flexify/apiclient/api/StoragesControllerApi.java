@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-14T13:08:44.282+08:00")
+
 public class StoragesControllerApi {
   private ApiClient apiClient;
 
@@ -71,7 +71,7 @@ public class StoragesControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/{storage-account-id}/buckets"
+    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}/buckets"
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
     // query params
@@ -132,7 +132,7 @@ public class StoragesControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}"
+    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}"
       .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
@@ -188,7 +188,7 @@ public class StoragesControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/actions/delete-buckets";
+    String localVarPath = "/backend/rest/storage-accounts/actions/delete-buckets";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -234,7 +234,7 @@ public class StoragesControllerApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/rest/providers";
+    String localVarPath = "/backend/rest/providers";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -292,7 +292,7 @@ public class StoragesControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}/actions/refresh"
+    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}/actions/refresh"
       .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
@@ -345,7 +345,7 @@ public class StoragesControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/rest/storage-accounts/actions/refresh-buckets";
+    String localVarPath = "/backend/rest/storage-accounts/actions/refresh-buckets";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

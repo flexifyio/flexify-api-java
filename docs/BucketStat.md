@@ -15,11 +15,11 @@ Name | Type | Description | Notes
 ## Enum: StateEnum
 Name | Value
 ---- | -----
-NONE | &quot;NONE&quot;
-REFRESHING | &quot;REFRESHING&quot;
 ERROR | &quot;ERROR&quot;
-WARNING | &quot;WARNING&quot;
+NONE | &quot;NONE&quot;
 OK | &quot;OK&quot;
+REFRESHING | &quot;REFRESHING&quot;
+WARNING | &quot;WARNING&quot;
 
 
 
