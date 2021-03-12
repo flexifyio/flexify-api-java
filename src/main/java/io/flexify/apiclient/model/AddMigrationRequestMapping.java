@@ -39,6 +39,12 @@ public class AddMigrationRequestMapping {
   @JsonProperty("destStorageAccountId")
   private Long destStorageAccountId = null;
 
+  @JsonProperty("keyAddPrefix")
+  private String keyAddPrefix = null;
+
+  @JsonProperty("keyRemovePrefix")
+  private String keyRemovePrefix = null;
+
   @JsonProperty("sourceBucketName")
   private String sourceBucketName = null;
 
@@ -99,6 +105,42 @@ public class AddMigrationRequestMapping {
     this.destStorageAccountId = destStorageAccountId;
   }
 
+  public AddMigrationRequestMapping keyAddPrefix(String keyAddPrefix) {
+    this.keyAddPrefix = keyAddPrefix;
+    return this;
+  }
+
+   /**
+   * Prefix to to be added to each key when migrating
+   * @return keyAddPrefix
+  **/
+  @ApiModelProperty(value = "Prefix to to be added to each key when migrating")
+  public String getKeyAddPrefix() {
+    return keyAddPrefix;
+  }
+
+  public void setKeyAddPrefix(String keyAddPrefix) {
+    this.keyAddPrefix = keyAddPrefix;
+  }
+
+  public AddMigrationRequestMapping keyRemovePrefix(String keyRemovePrefix) {
+    this.keyRemovePrefix = keyRemovePrefix;
+    return this;
+  }
+
+   /**
+   * Prefix to to be removed from each key when migrating
+   * @return keyRemovePrefix
+  **/
+  @ApiModelProperty(value = "Prefix to to be removed from each key when migrating")
+  public String getKeyRemovePrefix() {
+    return keyRemovePrefix;
+  }
+
+  public void setKeyRemovePrefix(String keyRemovePrefix) {
+    this.keyRemovePrefix = keyRemovePrefix;
+  }
+
   public AddMigrationRequestMapping sourceBucketName(String sourceBucketName) {
     this.sourceBucketName = sourceBucketName;
     return this;
@@ -148,13 +190,15 @@ public class AddMigrationRequestMapping {
     return Objects.equals(this.destBucketName, addMigrationRequestMapping.destBucketName) &&
         Objects.equals(this.destBucketNewRegion, addMigrationRequestMapping.destBucketNewRegion) &&
         Objects.equals(this.destStorageAccountId, addMigrationRequestMapping.destStorageAccountId) &&
+        Objects.equals(this.keyAddPrefix, addMigrationRequestMapping.keyAddPrefix) &&
+        Objects.equals(this.keyRemovePrefix, addMigrationRequestMapping.keyRemovePrefix) &&
         Objects.equals(this.sourceBucketName, addMigrationRequestMapping.sourceBucketName) &&
         Objects.equals(this.sourceStorageAccountId, addMigrationRequestMapping.sourceStorageAccountId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destBucketName, destBucketNewRegion, destStorageAccountId, sourceBucketName, sourceStorageAccountId);
+    return Objects.hash(destBucketName, destBucketNewRegion, destStorageAccountId, keyAddPrefix, keyRemovePrefix, sourceBucketName, sourceStorageAccountId);
   }
 
 
@@ -166,6 +210,8 @@ public class AddMigrationRequestMapping {
     sb.append("    destBucketName: ").append(toIndentedString(destBucketName)).append("\n");
     sb.append("    destBucketNewRegion: ").append(toIndentedString(destBucketNewRegion)).append("\n");
     sb.append("    destStorageAccountId: ").append(toIndentedString(destStorageAccountId)).append("\n");
+    sb.append("    keyAddPrefix: ").append(toIndentedString(keyAddPrefix)).append("\n");
+    sb.append("    keyRemovePrefix: ").append(toIndentedString(keyRemovePrefix)).append("\n");
     sb.append("    sourceBucketName: ").append(toIndentedString(sourceBucketName)).append("\n");
     sb.append("    sourceStorageAccountId: ").append(toIndentedString(sourceStorageAccountId)).append("\n");
     sb.append("}");

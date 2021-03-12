@@ -47,6 +47,12 @@ public class Mapping {
   @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("keyAddPrefix")
+  private String keyAddPrefix = null;
+
+  @JsonProperty("keyRemovePrefix")
+  private String keyRemovePrefix = null;
+
   @JsonProperty("slots")
   private List<Slot> slots = new ArrayList<Slot>();
 
@@ -129,6 +135,42 @@ public class Mapping {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public Mapping keyAddPrefix(String keyAddPrefix) {
+    this.keyAddPrefix = keyAddPrefix;
+    return this;
+  }
+
+   /**
+   * Prefix added to each object key
+   * @return keyAddPrefix
+  **/
+  @ApiModelProperty(value = "Prefix added to each object key")
+  public String getKeyAddPrefix() {
+    return keyAddPrefix;
+  }
+
+  public void setKeyAddPrefix(String keyAddPrefix) {
+    this.keyAddPrefix = keyAddPrefix;
+  }
+
+  public Mapping keyRemovePrefix(String keyRemovePrefix) {
+    this.keyRemovePrefix = keyRemovePrefix;
+    return this;
+  }
+
+   /**
+   * Prefix removed from each object key
+   * @return keyRemovePrefix
+  **/
+  @ApiModelProperty(value = "Prefix removed from each object key")
+  public String getKeyRemovePrefix() {
+    return keyRemovePrefix;
+  }
+
+  public void setKeyRemovePrefix(String keyRemovePrefix) {
+    this.keyRemovePrefix = keyRemovePrefix;
   }
 
   public Mapping slots(List<Slot> slots) {
@@ -222,6 +264,8 @@ public class Mapping {
         Objects.equals(this.destBucketNewRegion, mapping.destBucketNewRegion) &&
         Objects.equals(this.destStorageAccount, mapping.destStorageAccount) &&
         Objects.equals(this.id, mapping.id) &&
+        Objects.equals(this.keyAddPrefix, mapping.keyAddPrefix) &&
+        Objects.equals(this.keyRemovePrefix, mapping.keyRemovePrefix) &&
         Objects.equals(this.slots, mapping.slots) &&
         Objects.equals(this.sourceBucket, mapping.sourceBucket) &&
         Objects.equals(this.sourceStorageAccount, mapping.sourceStorageAccount) &&
@@ -230,7 +274,7 @@ public class Mapping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destBucket, destBucketNewRegion, destStorageAccount, id, slots, sourceBucket, sourceStorageAccount, stat);
+    return Objects.hash(destBucket, destBucketNewRegion, destStorageAccount, id, keyAddPrefix, keyRemovePrefix, slots, sourceBucket, sourceStorageAccount, stat);
   }
 
 
@@ -243,6 +287,8 @@ public class Mapping {
     sb.append("    destBucketNewRegion: ").append(toIndentedString(destBucketNewRegion)).append("\n");
     sb.append("    destStorageAccount: ").append(toIndentedString(destStorageAccount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    keyAddPrefix: ").append(toIndentedString(keyAddPrefix)).append("\n");
+    sb.append("    keyRemovePrefix: ").append(toIndentedString(keyRemovePrefix)).append("\n");
     sb.append("    slots: ").append(toIndentedString(slots)).append("\n");
     sb.append("    sourceBucket: ").append(toIndentedString(sourceBucket)).append("\n");
     sb.append("    sourceStorageAccount: ").append(toIndentedString(sourceStorageAccount)).append("\n");
