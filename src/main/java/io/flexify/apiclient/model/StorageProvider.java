@@ -32,6 +32,9 @@ import java.util.List;
 
 
 public class StorageProvider {
+  @JsonProperty("canCreateBucketsWithUppercase")
+  private Boolean canCreateBucketsWithUppercase = null;
+
   @JsonProperty("code")
   private String code = null;
 
@@ -126,6 +129,24 @@ public class StorageProvider {
 
   @JsonProperty("supportsOAuth")
   private Boolean supportsOAuth = null;
+
+  public StorageProvider canCreateBucketsWithUppercase(Boolean canCreateBucketsWithUppercase) {
+    this.canCreateBucketsWithUppercase = canCreateBucketsWithUppercase;
+    return this;
+  }
+
+   /**
+   * Indicates that this provider allow creating bucket with uppercase in names
+   * @return canCreateBucketsWithUppercase
+  **/
+  @ApiModelProperty(example = "false", value = "Indicates that this provider allow creating bucket with uppercase in names")
+  public Boolean isCanCreateBucketsWithUppercase() {
+    return canCreateBucketsWithUppercase;
+  }
+
+  public void setCanCreateBucketsWithUppercase(Boolean canCreateBucketsWithUppercase) {
+    this.canCreateBucketsWithUppercase = canCreateBucketsWithUppercase;
+  }
 
   public StorageProvider code(String code) {
     this.code = code;
@@ -469,7 +490,8 @@ public class StorageProvider {
       return false;
     }
     StorageProvider storageProvider = (StorageProvider) o;
-    return Objects.equals(this.code, storageProvider.code) &&
+    return Objects.equals(this.canCreateBucketsWithUppercase, storageProvider.canCreateBucketsWithUppercase) &&
+        Objects.equals(this.code, storageProvider.code) &&
         Objects.equals(this.defaultRegion, storageProvider.defaultRegion) &&
         Objects.equals(this.disabledAsDestination, storageProvider.disabledAsDestination) &&
         Objects.equals(this.dotEncode, storageProvider.dotEncode) &&
@@ -491,7 +513,7 @@ public class StorageProvider {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, defaultRegion, disabledAsDestination, dotEncode, endpoint, id, maxUploadSize, multiRegional, name, portHttp, portHttps, productName, protocol, regions, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
+    return Objects.hash(canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, dotEncode, endpoint, id, maxUploadSize, multiRegional, name, portHttp, portHttps, productName, protocol, regions, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
   }
 
 
@@ -500,6 +522,7 @@ public class StorageProvider {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageProvider {\n");
     
+    sb.append("    canCreateBucketsWithUppercase: ").append(toIndentedString(canCreateBucketsWithUppercase)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    defaultRegion: ").append(toIndentedString(defaultRegion)).append("\n");
     sb.append("    disabledAsDestination: ").append(toIndentedString(disabledAsDestination)).append("\n");
