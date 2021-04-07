@@ -77,6 +77,10 @@ public class User {
     
     DISTRIBUTOR("ROLE_DISTRIBUTOR"),
     
+    IMPERSONATOR("ROLE_IMPERSONATOR"),
+    
+    PARTNER_ADMIN("ROLE_PARTNER_ADMIN"),
+    
     USER("ROLE_USER");
 
     private String value;

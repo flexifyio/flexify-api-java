@@ -30,8 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 public class UserSettings {
-  @JsonProperty("allowDistributorImpersonate")
-  private Boolean allowDistributorImpersonate = null;
+  @JsonProperty("allowPartnerManage")
+  private Boolean allowPartnerManage = null;
 
   @JsonProperty("sendNews")
   private Boolean sendNews = null;
@@ -39,22 +39,22 @@ public class UserSettings {
   @JsonProperty("sendNotifications")
   private Boolean sendNotifications = null;
 
-  public UserSettings allowDistributorImpersonate(Boolean allowDistributorImpersonate) {
-    this.allowDistributorImpersonate = allowDistributorImpersonate;
+  public UserSettings allowPartnerManage(Boolean allowPartnerManage) {
+    this.allowPartnerManage = allowPartnerManage;
     return this;
   }
 
    /**
-   * Indicates that the user allowed his or her distributor to impersonate and manage user&#39;s account
-   * @return allowDistributorImpersonate
+   * Indicates that the user allowed his or her partner to impersonate and manage user&#39;s account
+   * @return allowPartnerManage
   **/
-  @ApiModelProperty(value = "Indicates that the user allowed his or her distributor to impersonate and manage user's account")
-  public Boolean isAllowDistributorImpersonate() {
-    return allowDistributorImpersonate;
+  @ApiModelProperty(value = "Indicates that the user allowed his or her partner to impersonate and manage user's account")
+  public Boolean isAllowPartnerManage() {
+    return allowPartnerManage;
   }
 
-  public void setAllowDistributorImpersonate(Boolean allowDistributorImpersonate) {
-    this.allowDistributorImpersonate = allowDistributorImpersonate;
+  public void setAllowPartnerManage(Boolean allowPartnerManage) {
+    this.allowPartnerManage = allowPartnerManage;
   }
 
   public UserSettings sendNews(Boolean sendNews) {
@@ -103,14 +103,14 @@ public class UserSettings {
       return false;
     }
     UserSettings userSettings = (UserSettings) o;
-    return Objects.equals(this.allowDistributorImpersonate, userSettings.allowDistributorImpersonate) &&
+    return Objects.equals(this.allowPartnerManage, userSettings.allowPartnerManage) &&
         Objects.equals(this.sendNews, userSettings.sendNews) &&
         Objects.equals(this.sendNotifications, userSettings.sendNotifications);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowDistributorImpersonate, sendNews, sendNotifications);
+    return Objects.hash(allowPartnerManage, sendNews, sendNotifications);
   }
 
 
@@ -119,7 +119,7 @@ public class UserSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserSettings {\n");
     
-    sb.append("    allowDistributorImpersonate: ").append(toIndentedString(allowDistributorImpersonate)).append("\n");
+    sb.append("    allowPartnerManage: ").append(toIndentedString(allowPartnerManage)).append("\n");
     sb.append("    sendNews: ").append(toIndentedString(sendNews)).append("\n");
     sb.append("    sendNotifications: ").append(toIndentedString(sendNotifications)).append("\n");
     sb.append("}");
