@@ -44,6 +44,12 @@ Method | HTTP request | Description
 [**sendPasswordResetEmailByExternalId1**](PartnerUsersControllerApi.md#sendPasswordResetEmailByExternalId1) | **POST** /backend/rest/partner/users/external/{externalId}/actions/send-password-reset-email | Set/reset password by external ID
 [**sendPasswordResetEmailByUsername**](PartnerUsersControllerApi.md#sendPasswordResetEmailByUsername) | **POST** /backend/rest/distributor/users/username/{username}/actions/send-password-reset-email | Set/reset password by username
 [**sendPasswordResetEmailByUsername1**](PartnerUsersControllerApi.md#sendPasswordResetEmailByUsername1) | **POST** /backend/rest/partner/users/username/{username}/actions/send-password-reset-email | Set/reset password by username
+[**setRoles**](PartnerUsersControllerApi.md#setRoles) | **PUT** /backend/rest/distributor/users/{userId}/roles | setRoles
+[**setRoles1**](PartnerUsersControllerApi.md#setRoles1) | **PUT** /backend/rest/partner/users/{userId}/roles | setRoles
+[**setRolesByExternalId**](PartnerUsersControllerApi.md#setRolesByExternalId) | **PUT** /backend/rest/distributor/users/external/{externalId}/roles | setRolesByExternalId
+[**setRolesByExternalId1**](PartnerUsersControllerApi.md#setRolesByExternalId1) | **PUT** /backend/rest/partner/users/external/{externalId}/roles | setRolesByExternalId
+[**setRolesByUsername**](PartnerUsersControllerApi.md#setRolesByUsername) | **PUT** /backend/rest/distributor/users/username/{username}/roles | setRolesByUsername
+[**setRolesByUsername1**](PartnerUsersControllerApi.md#setRolesByUsername1) | **PUT** /backend/rest/partner/users/username/{username}/roles | setRolesByUsername
 [**updateUser**](PartnerUsersControllerApi.md#updateUser) | **PUT** /backend/rest/distributor/users/{userId} | Update profile
 [**updateUser1**](PartnerUsersControllerApi.md#updateUser1) | **PUT** /backend/rest/partner/users/{userId} | Update profile
 [**updateUserByExternalId**](PartnerUsersControllerApi.md#updateUserByExternalId) | **PUT** /backend/rest/distributor/users/external/{externalId} | Update profile by external ID
@@ -2223,6 +2229,330 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **username** | **String**| username |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setRoles"></a>
+# **setRoles**
+> setRoles(request, userId)
+
+setRoles
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+SetRolesRequest request = new SetRolesRequest(); // SetRolesRequest | request
+Long userId = 789L; // Long | userId
+try {
+    apiInstance.setRoles(request, userId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setRoles");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SetRolesRequest**](SetRolesRequest.md)| request |
+ **userId** | **Long**| userId |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setRoles1"></a>
+# **setRoles1**
+> setRoles1(request, userId)
+
+setRoles
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+SetRolesRequest request = new SetRolesRequest(); // SetRolesRequest | request
+Long userId = 789L; // Long | userId
+try {
+    apiInstance.setRoles1(request, userId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setRoles1");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SetRolesRequest**](SetRolesRequest.md)| request |
+ **userId** | **Long**| userId |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setRolesByExternalId"></a>
+# **setRolesByExternalId**
+> setRolesByExternalId(externalId, request)
+
+setRolesByExternalId
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+String externalId = "externalId_example"; // String | externalId
+SetRolesRequest request = new SetRolesRequest(); // SetRolesRequest | request
+try {
+    apiInstance.setRolesByExternalId(externalId, request);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setRolesByExternalId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **externalId** | **String**| externalId |
+ **request** | [**SetRolesRequest**](SetRolesRequest.md)| request |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setRolesByExternalId1"></a>
+# **setRolesByExternalId1**
+> setRolesByExternalId1(externalId, request)
+
+setRolesByExternalId
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+String externalId = "externalId_example"; // String | externalId
+SetRolesRequest request = new SetRolesRequest(); // SetRolesRequest | request
+try {
+    apiInstance.setRolesByExternalId1(externalId, request);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setRolesByExternalId1");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **externalId** | **String**| externalId |
+ **request** | [**SetRolesRequest**](SetRolesRequest.md)| request |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setRolesByUsername"></a>
+# **setRolesByUsername**
+> setRolesByUsername(request, username)
+
+setRolesByUsername
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+SetRolesRequest request = new SetRolesRequest(); // SetRolesRequest | request
+String username = "username_example"; // String | username
+try {
+    apiInstance.setRolesByUsername(request, username);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setRolesByUsername");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SetRolesRequest**](SetRolesRequest.md)| request |
+ **username** | **String**| username |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setRolesByUsername1"></a>
+# **setRolesByUsername1**
+> setRolesByUsername1(request, username)
+
+setRolesByUsername
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+SetRolesRequest request = new SetRolesRequest(); // SetRolesRequest | request
+String username = "username_example"; // String | username
+try {
+    apiInstance.setRolesByUsername1(request, username);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setRolesByUsername1");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SetRolesRequest**](SetRolesRequest.md)| request |
  **username** | **String**| username |
 
 ### Return type

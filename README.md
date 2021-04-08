@@ -155,6 +155,12 @@ Class | Method | HTTP request | Description
 *PartnerUsersControllerApi* | [**sendPasswordResetEmailByExternalId1**](docs/PartnerUsersControllerApi.md#sendPasswordResetEmailByExternalId1) | **POST** /backend/rest/partner/users/external/{externalId}/actions/send-password-reset-email | Set/reset password by external ID
 *PartnerUsersControllerApi* | [**sendPasswordResetEmailByUsername**](docs/PartnerUsersControllerApi.md#sendPasswordResetEmailByUsername) | **POST** /backend/rest/distributor/users/username/{username}/actions/send-password-reset-email | Set/reset password by username
 *PartnerUsersControllerApi* | [**sendPasswordResetEmailByUsername1**](docs/PartnerUsersControllerApi.md#sendPasswordResetEmailByUsername1) | **POST** /backend/rest/partner/users/username/{username}/actions/send-password-reset-email | Set/reset password by username
+*PartnerUsersControllerApi* | [**setRoles**](docs/PartnerUsersControllerApi.md#setRoles) | **PUT** /backend/rest/distributor/users/{userId}/roles | setRoles
+*PartnerUsersControllerApi* | [**setRoles1**](docs/PartnerUsersControllerApi.md#setRoles1) | **PUT** /backend/rest/partner/users/{userId}/roles | setRoles
+*PartnerUsersControllerApi* | [**setRolesByExternalId**](docs/PartnerUsersControllerApi.md#setRolesByExternalId) | **PUT** /backend/rest/distributor/users/external/{externalId}/roles | setRolesByExternalId
+*PartnerUsersControllerApi* | [**setRolesByExternalId1**](docs/PartnerUsersControllerApi.md#setRolesByExternalId1) | **PUT** /backend/rest/partner/users/external/{externalId}/roles | setRolesByExternalId
+*PartnerUsersControllerApi* | [**setRolesByUsername**](docs/PartnerUsersControllerApi.md#setRolesByUsername) | **PUT** /backend/rest/distributor/users/username/{username}/roles | setRolesByUsername
+*PartnerUsersControllerApi* | [**setRolesByUsername1**](docs/PartnerUsersControllerApi.md#setRolesByUsername1) | **PUT** /backend/rest/partner/users/username/{username}/roles | setRolesByUsername
 *PartnerUsersControllerApi* | [**updateUser**](docs/PartnerUsersControllerApi.md#updateUser) | **PUT** /backend/rest/distributor/users/{userId} | Update profile
 *PartnerUsersControllerApi* | [**updateUser1**](docs/PartnerUsersControllerApi.md#updateUser1) | **PUT** /backend/rest/partner/users/{userId} | Update profile
 *PartnerUsersControllerApi* | [**updateUserByExternalId**](docs/PartnerUsersControllerApi.md#updateUserByExternalId) | **PUT** /backend/rest/distributor/users/external/{externalId} | Update profile by external ID
@@ -247,6 +253,7 @@ Class | Method | HTTP request | Description
  - [PublicAuthenticationConfiguration](docs/PublicAuthenticationConfiguration.md)
  - [RequestResetPasswordRequest](docs/RequestResetPasswordRequest.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
+ - [SetRolesRequest](docs/SetRolesRequest.md)
  - [SetUserStateRequest](docs/SetUserStateRequest.md)
  - [SignUpRequest](docs/SignUpRequest.md)
  - [SignupCodeReq](docs/SignupCodeReq.md)

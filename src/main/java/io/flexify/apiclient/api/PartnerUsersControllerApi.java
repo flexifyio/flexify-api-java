@@ -12,6 +12,7 @@ import io.flexify.apiclient.model.CreateUserRequest;
 import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.InformationAboutAuthenticationToken;
 import io.flexify.apiclient.model.PasswordResetToken;
+import io.flexify.apiclient.model.SetRolesRequest;
 import io.flexify.apiclient.model.SetUserStateRequest;
 import io.flexify.apiclient.model.TokenConfiguration;
 import io.flexify.apiclient.model.UpdateUserRequest;
@@ -2210,6 +2211,360 @@ public class PartnerUsersControllerApi {
 
 
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setRoles
+   * 
+   * @param request request (required)
+   * @param userId userId (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setRoles(SetRolesRequest request, Long userId) throws ApiException {
+
+    setRolesWithHttpInfo(request, userId);
+  }
+
+  /**
+   * setRoles
+   * 
+   * @param request request (required)
+   * @param userId userId (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setRolesWithHttpInfo(SetRolesRequest request, Long userId) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setRoles");
+    }
+    
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling setRoles");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/distributor/users/{userId}/roles"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setRoles
+   * 
+   * @param request request (required)
+   * @param userId userId (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setRoles1(SetRolesRequest request, Long userId) throws ApiException {
+
+    setRoles1WithHttpInfo(request, userId);
+  }
+
+  /**
+   * setRoles
+   * 
+   * @param request request (required)
+   * @param userId userId (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setRoles1WithHttpInfo(SetRolesRequest request, Long userId) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setRoles1");
+    }
+    
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling setRoles1");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/partner/users/{userId}/roles"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setRolesByExternalId
+   * 
+   * @param externalId externalId (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setRolesByExternalId(String externalId, SetRolesRequest request) throws ApiException {
+
+    setRolesByExternalIdWithHttpInfo(externalId, request);
+  }
+
+  /**
+   * setRolesByExternalId
+   * 
+   * @param externalId externalId (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setRolesByExternalIdWithHttpInfo(String externalId, SetRolesRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'externalId' is set
+    if (externalId == null) {
+      throw new ApiException(400, "Missing the required parameter 'externalId' when calling setRolesByExternalId");
+    }
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setRolesByExternalId");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/distributor/users/external/{externalId}/roles"
+      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(externalId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setRolesByExternalId
+   * 
+   * @param externalId externalId (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setRolesByExternalId1(String externalId, SetRolesRequest request) throws ApiException {
+
+    setRolesByExternalId1WithHttpInfo(externalId, request);
+  }
+
+  /**
+   * setRolesByExternalId
+   * 
+   * @param externalId externalId (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setRolesByExternalId1WithHttpInfo(String externalId, SetRolesRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'externalId' is set
+    if (externalId == null) {
+      throw new ApiException(400, "Missing the required parameter 'externalId' when calling setRolesByExternalId1");
+    }
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setRolesByExternalId1");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/partner/users/external/{externalId}/roles"
+      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(externalId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setRolesByUsername
+   * 
+   * @param request request (required)
+   * @param username username (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setRolesByUsername(SetRolesRequest request, String username) throws ApiException {
+
+    setRolesByUsernameWithHttpInfo(request, username);
+  }
+
+  /**
+   * setRolesByUsername
+   * 
+   * @param request request (required)
+   * @param username username (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setRolesByUsernameWithHttpInfo(SetRolesRequest request, String username) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setRolesByUsername");
+    }
+    
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling setRolesByUsername");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/distributor/users/username/{username}/roles"
+      .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setRolesByUsername
+   * 
+   * @param request request (required)
+   * @param username username (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setRolesByUsername1(SetRolesRequest request, String username) throws ApiException {
+
+    setRolesByUsername1WithHttpInfo(request, username);
+  }
+
+  /**
+   * setRolesByUsername
+   * 
+   * @param request request (required)
+   * @param username username (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setRolesByUsername1WithHttpInfo(SetRolesRequest request, String username) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setRolesByUsername1");
+    }
+    
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling setRolesByUsername1");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/partner/users/username/{username}/roles"
+      .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Update profile
