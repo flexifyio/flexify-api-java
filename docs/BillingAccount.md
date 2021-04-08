@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **adminState** | [**AdminStateEnum**](#AdminStateEnum) | System Account state (Updated by Administrator) |  [optional]
 **aggregateState** | [**AggregateStateEnum**](#AggregateStateEnum) | Aggregated Account state (ACTIVE only if admin state and billing state are ACTIVE) |  [optional]
 **billingState** | [**BillingStateEnum**](#BillingStateEnum) | Billing Account state (Depend on balance and max credit) |  [optional]
+**billingType** | [**BillingTypeEnum**](#BillingTypeEnum) | Type of billing for this account |  [optional]
 **createdDate** | [**DateTime**](DateTime.md) | Created Timestamp |  [optional]
 **distributor** | [**Distributor**](Distributor.md) | Distributor that manages this account |  [optional]
 **id** | **Long** | Account Id |  [optional]
@@ -37,6 +38,14 @@ Name | Value
 ---- | -----
 ACTIVE | &quot;ACTIVE&quot;
 SUSPENDED | &quot;SUSPENDED&quot;
+
+
+<a name="BillingTypeEnum"></a>
+## Enum: BillingTypeEnum
+Name | Value
+---- | -----
+BILLING_SERVER | &quot;BILLING_SERVER&quot;
+INTEGRATED | &quot;INTEGRATED&quot;
 
 
 

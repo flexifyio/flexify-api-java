@@ -196,7 +196,6 @@ Class | Method | HTTP request | Description
  - [AuthenticationResponse](docs/AuthenticationResponse.md)
  - [AuthorizationResponse](docs/AuthorizationResponse.md)
  - [BillingAccount](docs/BillingAccount.md)
- - [BillingAccountWithMoney](docs/BillingAccountWithMoney.md)
  - [Bucket](docs/Bucket.md)
  - [BucketStat](docs/BucketStat.md)
  - [BucketsRequest](docs/BucketsRequest.md)

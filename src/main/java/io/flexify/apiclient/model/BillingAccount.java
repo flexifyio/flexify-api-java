@@ -148,6 +148,44 @@ public class BillingAccount {
   @JsonProperty("billingState")
   private BillingStateEnum billingState = null;
 
+  /**
+   * Type of billing for this account
+   */
+  public enum BillingTypeEnum {
+    BILLING_SERVER("BILLING_SERVER"),
+    
+    INTEGRATED("INTEGRATED");
+
+    private String value;
+
+    BillingTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static BillingTypeEnum fromValue(String text) {
+      for (BillingTypeEnum b : BillingTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("billingType")
+  private BillingTypeEnum billingType = null;
+
   @JsonProperty("createdDate")
   private DateTime createdDate = null;
 
@@ -218,6 +256,24 @@ public class BillingAccount {
 
   public void setBillingState(BillingStateEnum billingState) {
     this.billingState = billingState;
+  }
+
+  public BillingAccount billingType(BillingTypeEnum billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Type of billing for this account
+   * @return billingType
+  **/
+  @ApiModelProperty(value = "Type of billing for this account")
+  public BillingTypeEnum getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(BillingTypeEnum billingType) {
+    this.billingType = billingType;
   }
 
   public BillingAccount createdDate(DateTime createdDate) {
@@ -341,6 +397,7 @@ public class BillingAccount {
     return Objects.equals(this.adminState, billingAccount.adminState) &&
         Objects.equals(this.aggregateState, billingAccount.aggregateState) &&
         Objects.equals(this.billingState, billingAccount.billingState) &&
+        Objects.equals(this.billingType, billingAccount.billingType) &&
         Objects.equals(this.createdDate, billingAccount.createdDate) &&
         Objects.equals(this.distributor, billingAccount.distributor) &&
         Objects.equals(this.id, billingAccount.id) &&
@@ -351,7 +408,7 @@ public class BillingAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminState, aggregateState, billingState, createdDate, distributor, id, maxCredit, name, priceList);
+    return Objects.hash(adminState, aggregateState, billingState, billingType, createdDate, distributor, id, maxCredit, name, priceList);
   }
 
 
@@ -363,6 +420,7 @@ public class BillingAccount {
     sb.append("    adminState: ").append(toIndentedString(adminState)).append("\n");
     sb.append("    aggregateState: ").append(toIndentedString(aggregateState)).append("\n");
     sb.append("    billingState: ").append(toIndentedString(billingState)).append("\n");
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    distributor: ").append(toIndentedString(distributor)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

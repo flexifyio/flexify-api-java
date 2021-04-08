@@ -60,7 +60,7 @@ This endpoint does not need any parameter.
 
 <a name="getCurrentUserBillingAccount"></a>
 # **getCurrentUserBillingAccount**
-> BillingAccountWithMoney getCurrentUserBillingAccount()
+> BillingAccount getCurrentUserBillingAccount()
 
 Get billing account for current user
 
@@ -83,7 +83,7 @@ Bearer.setApiKey("YOUR API KEY");
 
 BillingAccountControllerApi apiInstance = new BillingAccountControllerApi();
 try {
-    BillingAccountWithMoney result = apiInstance.getCurrentUserBillingAccount();
+    BillingAccount result = apiInstance.getCurrentUserBillingAccount();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BillingAccountControllerApi#getCurrentUserBillingAccount");
@@ -96,7 +96,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BillingAccountWithMoney**](BillingAccountWithMoney.md)
+[**BillingAccount**](BillingAccount.md)
 
 ### Authorization
 

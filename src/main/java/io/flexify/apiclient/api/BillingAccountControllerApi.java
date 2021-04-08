@@ -8,7 +8,7 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import io.flexify.apiclient.model.BillingAccountWithMoney;
+import io.flexify.apiclient.model.BillingAccount;
 import io.flexify.apiclient.model.CostDetails;
 import io.flexify.apiclient.model.Payment;
 
@@ -85,20 +85,20 @@ public class BillingAccountControllerApi {
   /**
    * Get billing account for current user
    * 
-   * @return BillingAccountWithMoney
+   * @return BillingAccount
    * @throws ApiException if fails to make API call
    */
-  public BillingAccountWithMoney getCurrentUserBillingAccount() throws ApiException {
+  public BillingAccount getCurrentUserBillingAccount() throws ApiException {
     return getCurrentUserBillingAccountWithHttpInfo().getData();
       }
 
   /**
    * Get billing account for current user
    * 
-   * @return ApiResponse&lt;BillingAccountWithMoney&gt;
+   * @return ApiResponse&lt;BillingAccount&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<BillingAccountWithMoney> getCurrentUserBillingAccountWithHttpInfo() throws ApiException {
+  public ApiResponse<BillingAccount> getCurrentUserBillingAccountWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -124,7 +124,7 @@ public class BillingAccountControllerApi {
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<BillingAccountWithMoney> localVarReturnType = new GenericType<BillingAccountWithMoney>() {};
+    GenericType<BillingAccount> localVarReturnType = new GenericType<BillingAccount>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
