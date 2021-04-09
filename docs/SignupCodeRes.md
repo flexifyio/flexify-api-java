@@ -5,8 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** |  |  [optional]
+**roles** | [**List&lt;RolesEnum&gt;**](#List&lt;RolesEnum&gt;) |  |  [optional]
 **singleUse** | **Boolean** |  |  [optional]
 **stat** | [**SignupCodeStat**](SignupCodeStat.md) |  |  [optional]
+
+
+<a name="List<RolesEnum>"></a>
+## Enum: List&lt;RolesEnum&gt;
+Name | Value
+---- | -----
+ACTUATOR | &quot;ROLE_ACTUATOR&quot;
+ADMIN | &quot;ROLE_ADMIN&quot;
+BILLING | &quot;ROLE_BILLING&quot;
+DISTRIBUTOR | &quot;ROLE_DISTRIBUTOR&quot;
+IMPERSONATOR | &quot;ROLE_IMPERSONATOR&quot;
+PARTNER_ADMIN | &quot;ROLE_PARTNER_ADMIN&quot;
+USER | &quot;ROLE_USER&quot;
 
 
 

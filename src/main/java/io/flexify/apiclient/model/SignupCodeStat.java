@@ -18,6 +18,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.flexify.apiclient.model.BillingAccount;
 import io.flexify.apiclient.model.PriceList;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,6 +36,9 @@ import org.joda.time.DateTime;
 public class SignupCodeStat {
   @JsonProperty("available")
   private Boolean available = null;
+
+  @JsonProperty("billingAccount")
+  private BillingAccount billingAccount = null;
 
   @JsonProperty("created")
   private DateTime created = null;
@@ -61,6 +65,24 @@ public class SignupCodeStat {
 
   public void setAvailable(Boolean available) {
     this.available = available;
+  }
+
+  public SignupCodeStat billingAccount(BillingAccount billingAccount) {
+    this.billingAccount = billingAccount;
+    return this;
+  }
+
+   /**
+   * Get billingAccount
+   * @return billingAccount
+  **/
+  @ApiModelProperty(value = "")
+  public BillingAccount getBillingAccount() {
+    return billingAccount;
+  }
+
+  public void setBillingAccount(BillingAccount billingAccount) {
+    this.billingAccount = billingAccount;
   }
 
   public SignupCodeStat created(DateTime created) {
@@ -136,6 +158,7 @@ public class SignupCodeStat {
     }
     SignupCodeStat signupCodeStat = (SignupCodeStat) o;
     return Objects.equals(this.available, signupCodeStat.available) &&
+        Objects.equals(this.billingAccount, signupCodeStat.billingAccount) &&
         Objects.equals(this.created, signupCodeStat.created) &&
         Objects.equals(this.priceList, signupCodeStat.priceList) &&
         Objects.equals(this.usedBy, signupCodeStat.usedBy);
@@ -143,7 +166,7 @@ public class SignupCodeStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(available, created, priceList, usedBy);
+    return Objects.hash(available, billingAccount, created, priceList, usedBy);
   }
 
 
@@ -153,6 +176,7 @@ public class SignupCodeStat {
     sb.append("class SignupCodeStat {\n");
     
     sb.append("    available: ").append(toIndentedString(available)).append("\n");
+    sb.append("    billingAccount: ").append(toIndentedString(billingAccount)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    priceList: ").append(toIndentedString(priceList)).append("\n");
     sb.append("    usedBy: ").append(toIndentedString(usedBy)).append("\n");

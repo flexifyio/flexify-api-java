@@ -21,6 +21,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.flexify.apiclient.model.SignupCodeStat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * SignupCodeRes
@@ -32,6 +34,54 @@ import io.swagger.annotations.ApiModelProperty;
 public class SignupCodeRes {
   @JsonProperty("code")
   private String code = null;
+
+  /**
+   * Gets or Sets roles
+   */
+  public enum RolesEnum {
+    ACTUATOR("ROLE_ACTUATOR"),
+    
+    ADMIN("ROLE_ADMIN"),
+    
+    BILLING("ROLE_BILLING"),
+    
+    DISTRIBUTOR("ROLE_DISTRIBUTOR"),
+    
+    IMPERSONATOR("ROLE_IMPERSONATOR"),
+    
+    PARTNER_ADMIN("ROLE_PARTNER_ADMIN"),
+    
+    USER("ROLE_USER");
+
+    private String value;
+
+    RolesEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static RolesEnum fromValue(String text) {
+      for (RolesEnum b : RolesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("roles")
+  private List<RolesEnum> roles = null;
 
   @JsonProperty("singleUse")
   private Boolean singleUse = null;
@@ -55,6 +105,32 @@ public class SignupCodeRes {
 
   public void setCode(String code) {
     this.code = code;
+  }
+
+  public SignupCodeRes roles(List<RolesEnum> roles) {
+    this.roles = roles;
+    return this;
+  }
+
+  public SignupCodeRes addRolesItem(RolesEnum rolesItem) {
+    if (this.roles == null) {
+      this.roles = new ArrayList<RolesEnum>();
+    }
+    this.roles.add(rolesItem);
+    return this;
+  }
+
+   /**
+   * Get roles
+   * @return roles
+  **/
+  @ApiModelProperty(value = "")
+  public List<RolesEnum> getRoles() {
+    return roles;
+  }
+
+  public void setRoles(List<RolesEnum> roles) {
+    this.roles = roles;
   }
 
   public SignupCodeRes singleUse(Boolean singleUse) {
@@ -104,13 +180,14 @@ public class SignupCodeRes {
     }
     SignupCodeRes signupCodeRes = (SignupCodeRes) o;
     return Objects.equals(this.code, signupCodeRes.code) &&
+        Objects.equals(this.roles, signupCodeRes.roles) &&
         Objects.equals(this.singleUse, signupCodeRes.singleUse) &&
         Objects.equals(this.stat, signupCodeRes.stat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, singleUse, stat);
+    return Objects.hash(code, roles, singleUse, stat);
   }
 
 
@@ -120,6 +197,7 @@ public class SignupCodeRes {
     sb.append("class SignupCodeRes {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    singleUse: ").append(toIndentedString(singleUse)).append("\n");
     sb.append("    stat: ").append(toIndentedString(stat)).append("\n");
     sb.append("}");
