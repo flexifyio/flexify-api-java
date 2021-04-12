@@ -8,6 +8,7 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import io.flexify.apiclient.model.AddImpersonateCodeRequest;
 import io.flexify.apiclient.model.AddImpersonateFromUserRequest;
 import io.flexify.apiclient.model.ImpersonateUser;
 import io.flexify.apiclient.model.InformationAboutAuthenticationToken;
@@ -37,6 +38,57 @@ public class ImpersonationControllerApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * addImpersonateCode
+   * 
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void addImpersonateCode(AddImpersonateCodeRequest request) throws ApiException {
+
+    addImpersonateCodeWithHttpInfo(request);
+  }
+
+  /**
+   * addImpersonateCode
+   * 
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> addImpersonateCodeWithHttpInfo(AddImpersonateCodeRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling addImpersonateCode");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/impersonate/codes";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
   /**
    * addImpersonateFromUser
    * 
@@ -88,6 +140,51 @@ public class ImpersonationControllerApi {
 
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
+  /**
+   * getImpersonateCodesList
+   * 
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> getImpersonateCodesList() throws ApiException {
+    return getImpersonateCodesListWithHttpInfo().getData();
+      }
+
+  /**
+   * getImpersonateCodesList
+   * 
+   * @return ApiResponse&lt;List&lt;String&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<String>> getImpersonateCodesListWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/impersonate/codes";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
   /**
    * getImpersonateFromList
    * 
@@ -259,6 +356,58 @@ public class ImpersonationControllerApi {
     // create path and map variables
     String localVarPath = "/backend/rest/impersonate/from/{user-id}"
       .replaceAll("\\{" + "user-id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * removeImpersonateFromUser
+   * 
+   * @param code code (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void removeImpersonateFromUser1(String code) throws ApiException {
+
+    removeImpersonateFromUser1WithHttpInfo(code);
+  }
+
+  /**
+   * removeImpersonateFromUser
+   * 
+   * @param code code (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> removeImpersonateFromUser1WithHttpInfo(String code) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'code' is set
+    if (code == null) {
+      throw new ApiException(400, "Missing the required parameter 'code' when calling removeImpersonateFromUser1");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/impersonate/codes/{code}"
+      .replaceAll("\\{" + "code" + "\\}", apiClient.escapeString(code.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
