@@ -248,8 +248,8 @@ public class PartnerSignUpCodesControllerApi {
    * @return List&lt;SignupCodeRes&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<SignupCodeRes> getAll() throws ApiException {
-    return getAllWithHttpInfo().getData();
+  public List<SignupCodeRes> getAll1() throws ApiException {
+    return getAll1WithHttpInfo().getData();
       }
 
   /**
@@ -258,7 +258,7 @@ public class PartnerSignUpCodesControllerApi {
    * @return ApiResponse&lt;List&lt;SignupCodeRes&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<List<SignupCodeRes>> getAllWithHttpInfo() throws ApiException {
+  public ApiResponse<List<SignupCodeRes>> getAll1WithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -293,8 +293,8 @@ public class PartnerSignUpCodesControllerApi {
    * @return List&lt;SignupCodeRes&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<SignupCodeRes> getAll1() throws ApiException {
-    return getAll1WithHttpInfo().getData();
+  public List<SignupCodeRes> getAll2() throws ApiException {
+    return getAll2WithHttpInfo().getData();
       }
 
   /**
@@ -303,7 +303,7 @@ public class PartnerSignUpCodesControllerApi {
    * @return ApiResponse&lt;List&lt;SignupCodeRes&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<List<SignupCodeRes>> getAll1WithHttpInfo() throws ApiException {
+  public ApiResponse<List<SignupCodeRes>> getAll2WithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

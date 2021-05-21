@@ -18,7 +18,6 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.flexify.apiclient.model.UserConfig;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -32,9 +31,6 @@ import io.swagger.annotations.ApiModelProperty;
 public class Organization {
   @JsonProperty("id")
   private Long id = null;
-
-  @JsonProperty("limits")
-  private UserConfig limits = null;
 
   @JsonProperty("name")
   private String name = null;
@@ -55,24 +51,6 @@ public class Organization {
 
   public void setId(Long id) {
     this.id = id;
-  }
-
-  public Organization limits(UserConfig limits) {
-    this.limits = limits;
-    return this;
-  }
-
-   /**
-   * Default limits for all users in the organization
-   * @return limits
-  **/
-  @ApiModelProperty(value = "Default limits for all users in the organization")
-  public UserConfig getLimits() {
-    return limits;
-  }
-
-  public void setLimits(UserConfig limits) {
-    this.limits = limits;
   }
 
   public Organization name(String name) {
@@ -104,13 +82,12 @@ public class Organization {
     }
     Organization organization = (Organization) o;
     return Objects.equals(this.id, organization.id) &&
-        Objects.equals(this.limits, organization.limits) &&
         Objects.equals(this.name, organization.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, limits, name);
+    return Objects.hash(id, name);
   }
 
 
@@ -120,7 +97,6 @@ public class Organization {
     sb.append("class Organization {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    limits: ").append(toIndentedString(limits)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();

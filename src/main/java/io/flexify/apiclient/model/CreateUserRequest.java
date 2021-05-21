@@ -33,6 +33,9 @@ public class CreateUserRequest {
   @JsonProperty("externalId")
   private String externalId = null;
 
+  @JsonProperty("orgId")
+  private Long orgId = null;
+
   @JsonProperty("priceListId")
   private Long priceListId = null;
 
@@ -55,6 +58,24 @@ public class CreateUserRequest {
 
   public void setExternalId(String externalId) {
     this.externalId = externalId;
+  }
+
+  public CreateUserRequest orgId(Long orgId) {
+    this.orgId = orgId;
+    return this;
+  }
+
+   /**
+   * ID of the organization to assign the user to (or default otherwise)
+   * @return orgId
+  **/
+  @ApiModelProperty(value = "ID of the organization to assign the user to (or default otherwise)")
+  public Long getOrgId() {
+    return orgId;
+  }
+
+  public void setOrgId(Long orgId) {
+    this.orgId = orgId;
   }
 
   public CreateUserRequest priceListId(Long priceListId) {
@@ -104,13 +125,14 @@ public class CreateUserRequest {
     }
     CreateUserRequest createUserRequest = (CreateUserRequest) o;
     return Objects.equals(this.externalId, createUserRequest.externalId) &&
+        Objects.equals(this.orgId, createUserRequest.orgId) &&
         Objects.equals(this.priceListId, createUserRequest.priceListId) &&
         Objects.equals(this.profile, createUserRequest.profile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalId, priceListId, profile);
+    return Objects.hash(externalId, orgId, priceListId, profile);
   }
 
 
@@ -120,6 +142,7 @@ public class CreateUserRequest {
     sb.append("class CreateUserRequest {\n");
     
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    priceListId: ").append(toIndentedString(priceListId)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("}");

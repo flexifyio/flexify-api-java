@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** |  |  [optional]
+**orgId** | **Long** |  |  [optional]
 **priceListId** | **Long** |  |  [optional]
 **roles** | [**List&lt;RolesEnum&gt;**](#List&lt;RolesEnum&gt;) |  |  [optional]
 **singleUse** | **Boolean** |  |  [optional]

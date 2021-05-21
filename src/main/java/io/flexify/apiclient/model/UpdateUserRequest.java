@@ -30,8 +30,29 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 public class UpdateUserRequest {
+  @JsonProperty("orgId")
+  private Long orgId = null;
+
   @JsonProperty("profile")
   private UserProfile profile = null;
+
+  public UpdateUserRequest orgId(Long orgId) {
+    this.orgId = orgId;
+    return this;
+  }
+
+   /**
+   * ID os user&#39;s organization
+   * @return orgId
+  **/
+  @ApiModelProperty(value = "ID os user's organization")
+  public Long getOrgId() {
+    return orgId;
+  }
+
+  public void setOrgId(Long orgId) {
+    this.orgId = orgId;
+  }
 
   public UpdateUserRequest profile(UserProfile profile) {
     this.profile = profile;
@@ -61,12 +82,13 @@ public class UpdateUserRequest {
       return false;
     }
     UpdateUserRequest updateUserRequest = (UpdateUserRequest) o;
-    return Objects.equals(this.profile, updateUserRequest.profile);
+    return Objects.equals(this.orgId, updateUserRequest.orgId) &&
+        Objects.equals(this.profile, updateUserRequest.profile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profile);
+    return Objects.hash(orgId, profile);
   }
 
 
@@ -75,6 +97,7 @@ public class UpdateUserRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateUserRequest {\n");
     
+    sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("}");
     return sb.toString();

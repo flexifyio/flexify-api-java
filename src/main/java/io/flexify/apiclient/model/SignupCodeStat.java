@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.flexify.apiclient.model.BillingAccount;
+import io.flexify.apiclient.model.Organization;
 import io.flexify.apiclient.model.PriceList;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,6 +43,9 @@ public class SignupCodeStat {
 
   @JsonProperty("created")
   private DateTime created = null;
+
+  @JsonProperty("org")
+  private Organization org = null;
 
   @JsonProperty("priceList")
   private PriceList priceList = null;
@@ -103,6 +107,24 @@ public class SignupCodeStat {
     this.created = created;
   }
 
+  public SignupCodeStat org(Organization org) {
+    this.org = org;
+    return this;
+  }
+
+   /**
+   * Get org
+   * @return org
+  **/
+  @ApiModelProperty(value = "")
+  public Organization getOrg() {
+    return org;
+  }
+
+  public void setOrg(Organization org) {
+    this.org = org;
+  }
+
   public SignupCodeStat priceList(PriceList priceList) {
     this.priceList = priceList;
     return this;
@@ -160,13 +182,14 @@ public class SignupCodeStat {
     return Objects.equals(this.available, signupCodeStat.available) &&
         Objects.equals(this.billingAccount, signupCodeStat.billingAccount) &&
         Objects.equals(this.created, signupCodeStat.created) &&
+        Objects.equals(this.org, signupCodeStat.org) &&
         Objects.equals(this.priceList, signupCodeStat.priceList) &&
         Objects.equals(this.usedBy, signupCodeStat.usedBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(available, billingAccount, created, priceList, usedBy);
+    return Objects.hash(available, billingAccount, created, org, priceList, usedBy);
   }
 
 
@@ -178,6 +201,7 @@ public class SignupCodeStat {
     sb.append("    available: ").append(toIndentedString(available)).append("\n");
     sb.append("    billingAccount: ").append(toIndentedString(billingAccount)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    org: ").append(toIndentedString(org)).append("\n");
     sb.append("    priceList: ").append(toIndentedString(priceList)).append("\n");
     sb.append("    usedBy: ").append(toIndentedString(usedBy)).append("\n");
     sb.append("}");

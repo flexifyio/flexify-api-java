@@ -34,6 +34,9 @@ public class SignupCodeReq {
   @JsonProperty("code")
   private String code = null;
 
+  @JsonProperty("orgId")
+  private Long orgId = null;
+
   @JsonProperty("priceListId")
   private Long priceListId = null;
 
@@ -107,6 +110,24 @@ public class SignupCodeReq {
 
   public void setCode(String code) {
     this.code = code;
+  }
+
+  public SignupCodeReq orgId(Long orgId) {
+    this.orgId = orgId;
+    return this;
+  }
+
+   /**
+   * Get orgId
+   * @return orgId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getOrgId() {
+    return orgId;
+  }
+
+  public void setOrgId(Long orgId) {
+    this.orgId = orgId;
   }
 
   public SignupCodeReq priceListId(Long priceListId) {
@@ -200,6 +221,7 @@ public class SignupCodeReq {
     }
     SignupCodeReq signupCodeReq = (SignupCodeReq) o;
     return Objects.equals(this.code, signupCodeReq.code) &&
+        Objects.equals(this.orgId, signupCodeReq.orgId) &&
         Objects.equals(this.priceListId, signupCodeReq.priceListId) &&
         Objects.equals(this.roles, signupCodeReq.roles) &&
         Objects.equals(this.singleUse, signupCodeReq.singleUse) &&
@@ -208,7 +230,7 @@ public class SignupCodeReq {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, priceListId, roles, singleUse, useMyBillingAccount);
+    return Objects.hash(code, orgId, priceListId, roles, singleUse, useMyBillingAccount);
   }
 
 
@@ -218,6 +240,7 @@ public class SignupCodeReq {
     sb.append("class SignupCodeReq {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    priceListId: ").append(toIndentedString(priceListId)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    singleUse: ").append(toIndentedString(singleUse)).append("\n");

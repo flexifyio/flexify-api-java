@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**createCode1**](PartnerSignUpCodesControllerApi.md#createCode1) | **POST** /backend/rest/partner/codes | createCode
 [**deleteCode**](PartnerSignUpCodesControllerApi.md#deleteCode) | **DELETE** /backend/rest/distributor/codes/{code} | deleteCode
 [**deleteCode1**](PartnerSignUpCodesControllerApi.md#deleteCode1) | **DELETE** /backend/rest/partner/codes/{code} | deleteCode
-[**getAll**](PartnerSignUpCodesControllerApi.md#getAll) | **GET** /backend/rest/distributor/codes | getAll
-[**getAll1**](PartnerSignUpCodesControllerApi.md#getAll1) | **GET** /backend/rest/partner/codes | getAll
+[**getAll1**](PartnerSignUpCodesControllerApi.md#getAll1) | **GET** /backend/rest/distributor/codes | getAll
+[**getAll2**](PartnerSignUpCodesControllerApi.md#getAll2) | **GET** /backend/rest/partner/codes | getAll
 
 
 <a name="createCode"></a>
@@ -220,55 +220,6 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
-<a name="getAll"></a>
-# **getAll**
-> List&lt;SignupCodeRes&gt; getAll()
-
-getAll
-
-### Example
-```java
-// Import classes:
-//import io.flexify.apiclient.handler.ApiClient;
-//import io.flexify.apiclient.handler.ApiException;
-//import io.flexify.apiclient.handler.Configuration;
-//import io.flexify.apiclient.handler.auth.*;
-//import io.flexify.apiclient.api.PartnerSignUpCodesControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: Bearer
-ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-Bearer.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.setApiKeyPrefix("Token");
-
-PartnerSignUpCodesControllerApi apiInstance = new PartnerSignUpCodesControllerApi();
-try {
-    List<SignupCodeRes> result = apiInstance.getAll();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PartnerSignUpCodesControllerApi#getAll");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;SignupCodeRes&gt;**](SignupCodeRes.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json;charset=UTF-8
-
 <a name="getAll1"></a>
 # **getAll1**
 > List&lt;SignupCodeRes&gt; getAll1()
@@ -298,6 +249,55 @@ try {
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PartnerSignUpCodesControllerApi#getAll1");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;SignupCodeRes&gt;**](SignupCodeRes.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="getAll2"></a>
+# **getAll2**
+> List&lt;SignupCodeRes&gt; getAll2()
+
+getAll
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerSignUpCodesControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerSignUpCodesControllerApi apiInstance = new PartnerSignUpCodesControllerApi();
+try {
+    List<SignupCodeRes> result = apiInstance.getAll2();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerSignUpCodesControllerApi#getAll2");
     e.printStackTrace();
 }
 ```
