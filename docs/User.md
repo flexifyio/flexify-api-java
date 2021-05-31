@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account** | [**BillingAccount**](BillingAccount.md) | Billing Account associated with this user |  [optional]
 **actualLimits** | [**UserConfig**](UserConfig.md) | Actual limits thar are currently in force |  [optional]
+**billingServerAccountId** | **String** | ID of this user&#39;s billing account on an external billing server |  [optional]
 **deleteRequested** | [**DateTime**](DateTime.md) | If not null - time when the user requested to delete his or her account |  [optional]
 **externalId** | **String** | External ID of the user, if specified |  [optional]
 **id** | **Long** | User ID in the system |  [optional]

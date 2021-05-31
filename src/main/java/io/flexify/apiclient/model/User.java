@@ -44,6 +44,9 @@ public class User {
   @JsonProperty("actualLimits")
   private UserConfig actualLimits = null;
 
+  @JsonProperty("billingServerAccountId")
+  private String billingServerAccountId = null;
+
   @JsonProperty("deleteRequested")
   private DateTime deleteRequested = null;
 
@@ -199,6 +202,24 @@ public class User {
 
   public void setActualLimits(UserConfig actualLimits) {
     this.actualLimits = actualLimits;
+  }
+
+  public User billingServerAccountId(String billingServerAccountId) {
+    this.billingServerAccountId = billingServerAccountId;
+    return this;
+  }
+
+   /**
+   * ID of this user&#39;s billing account on an external billing server
+   * @return billingServerAccountId
+  **/
+  @ApiModelProperty(value = "ID of this user's billing account on an external billing server")
+  public String getBillingServerAccountId() {
+    return billingServerAccountId;
+  }
+
+  public void setBillingServerAccountId(String billingServerAccountId) {
+    this.billingServerAccountId = billingServerAccountId;
   }
 
   public User deleteRequested(DateTime deleteRequested) {
@@ -455,6 +476,7 @@ public class User {
     User user = (User) o;
     return Objects.equals(this.account, user.account) &&
         Objects.equals(this.actualLimits, user.actualLimits) &&
+        Objects.equals(this.billingServerAccountId, user.billingServerAccountId) &&
         Objects.equals(this.deleteRequested, user.deleteRequested) &&
         Objects.equals(this.externalId, user.externalId) &&
         Objects.equals(this.id, user.id) &&
@@ -472,7 +494,7 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, actualLimits, deleteRequested, externalId, id, org, profile, registered, requireLicenseTerms, roles, settings, signUpCode, state, userLimits, username);
+    return Objects.hash(account, actualLimits, billingServerAccountId, deleteRequested, externalId, id, org, profile, registered, requireLicenseTerms, roles, settings, signUpCode, state, userLimits, username);
   }
 
 
@@ -483,6 +505,7 @@ public class User {
     
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    actualLimits: ").append(toIndentedString(actualLimits)).append("\n");
+    sb.append("    billingServerAccountId: ").append(toIndentedString(billingServerAccountId)).append("\n");
     sb.append("    deleteRequested: ").append(toIndentedString(deleteRequested)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
