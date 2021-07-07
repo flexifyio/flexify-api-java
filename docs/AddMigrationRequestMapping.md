@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **destStorageAccountId** | **Long** | ID of source destination account | 
 **keyAddPrefix** | **String** | Prefix to to be added to each key when migrating |  [optional]
 **keyRemovePrefix** | **String** | Prefix to to be removed from each key when migrating |  [optional]
+**objectsListUri** | **String** | A URI of a text file to take objects list from |  [optional]
 **sourceBucketName** | **String** | Name of source bucket or container | 
 **sourceStorageAccountId** | **Long** | ID of source storage account | 
 
