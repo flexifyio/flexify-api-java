@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'io.flexify'
-version = '2.12.6'
+version = '2.12.7-SNAPSHOT'
 
 buildscript {
     repositories {
