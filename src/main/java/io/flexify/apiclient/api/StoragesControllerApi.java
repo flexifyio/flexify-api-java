@@ -8,6 +8,7 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import io.flexify.apiclient.model.Bucket;
 import io.flexify.apiclient.model.BucketsRequest;
 import io.flexify.apiclient.model.IdsList;
 import io.flexify.apiclient.model.StorageProvider;
@@ -214,6 +215,67 @@ public class StoragesControllerApi {
 
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
+  /**
+   * Get detailed stats for the bucket
+   * 
+   * @param bucketId bucket-id (required)
+   * @param storageAccountId storage-account-id (required)
+   * @return Bucket
+   * @throws ApiException if fails to make API call
+   */
+  public Bucket getBucket(Long bucketId, Long storageAccountId) throws ApiException {
+    return getBucketWithHttpInfo(bucketId, storageAccountId).getData();
+      }
+
+  /**
+   * Get detailed stats for the bucket
+   * 
+   * @param bucketId bucket-id (required)
+   * @param storageAccountId storage-account-id (required)
+   * @return ApiResponse&lt;Bucket&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Bucket> getBucketWithHttpInfo(Long bucketId, Long storageAccountId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'bucketId' is set
+    if (bucketId == null) {
+      throw new ApiException(400, "Missing the required parameter 'bucketId' when calling getBucket");
+    }
+    
+    // verify the required parameter 'storageAccountId' is set
+    if (storageAccountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling getBucket");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}"
+      .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
+      .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<Bucket> localVarReturnType = new GenericType<Bucket>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
   /**
    * Get all storage providers
    * 

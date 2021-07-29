@@ -184,6 +184,7 @@ Class | Method | HTTP request | Description
 *StoragesControllerApi* | [**addBuckets**](docs/StoragesControllerApi.md#addBuckets) | **POST** /backend/rest/storage-accounts/{storage-account-id}/buckets | Add buckets to the storage account
 *StoragesControllerApi* | [**deleteBucket**](docs/StoragesControllerApi.md#deleteBucket) | **DELETE** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Deletes (hides) a bucket/container
 *StoragesControllerApi* | [**deleteBuckets**](docs/StoragesControllerApi.md#deleteBuckets) | **POST** /backend/rest/storage-accounts/actions/delete-buckets | Deletes (hides) multiple buckets/containers
+*StoragesControllerApi* | [**getBucket**](docs/StoragesControllerApi.md#getBucket) | **GET** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Get detailed stats for the bucket
 *StoragesControllerApi* | [**getProviders**](docs/StoragesControllerApi.md#getProviders) | **GET** /backend/rest/providers | Get all storage providers
 *StoragesControllerApi* | [**refreshBucket**](docs/StoragesControllerApi.md#refreshBucket) | **POST** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}/actions/refresh | Refresh statistics of a single bucket
 *StoragesControllerApi* | [**refreshBuckets**](docs/StoragesControllerApi.md#refreshBuckets) | **POST** /backend/rest/storage-accounts/actions/refresh-buckets | Refresh statistics of multiple buckets

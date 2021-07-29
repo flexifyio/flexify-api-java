@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addBuckets**](StoragesControllerApi.md#addBuckets) | **POST** /backend/rest/storage-accounts/{storage-account-id}/buckets | Add buckets to the storage account
 [**deleteBucket**](StoragesControllerApi.md#deleteBucket) | **DELETE** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Deletes (hides) a bucket/container
 [**deleteBuckets**](StoragesControllerApi.md#deleteBuckets) | **POST** /backend/rest/storage-accounts/actions/delete-buckets | Deletes (hides) multiple buckets/containers
+[**getBucket**](StoragesControllerApi.md#getBucket) | **GET** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Get detailed stats for the bucket
 [**getProviders**](StoragesControllerApi.md#getProviders) | **GET** /backend/rest/providers | Get all storage providers
 [**refreshBucket**](StoragesControllerApi.md#refreshBucket) | **POST** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}/actions/refresh | Refresh statistics of a single bucket
 [**refreshBuckets**](StoragesControllerApi.md#refreshBuckets) | **POST** /backend/rest/storage-accounts/actions/refresh-buckets | Refresh statistics of multiple buckets
@@ -175,6 +176,61 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="getBucket"></a>
+# **getBucket**
+> Bucket getBucket(bucketId, storageAccountId)
+
+Get detailed stats for the bucket
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.StoragesControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+StoragesControllerApi apiInstance = new StoragesControllerApi();
+Long bucketId = 789L; // Long | bucket-id
+Long storageAccountId = 789L; // Long | storage-account-id
+try {
+    Bucket result = apiInstance.getBucket(bucketId, storageAccountId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StoragesControllerApi#getBucket");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucketId** | **Long**| bucket-id |
+ **storageAccountId** | **Long**| storage-account-id |
+
+### Return type
+
+[**Bucket**](Bucket.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
 <a name="getProviders"></a>
