@@ -127,6 +127,9 @@ public class UserStat {
   @JsonProperty("email")
   private String email = null;
 
+  @JsonProperty("externalId")
+  private String externalId = null;
+
   @JsonProperty("id")
   private Long id = null;
 
@@ -347,6 +350,24 @@ public class UserStat {
     this.email = email;
   }
 
+  public UserStat externalId(String externalId) {
+    this.externalId = externalId;
+    return this;
+  }
+
+   /**
+   * Get externalId
+   * @return externalId
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalId() {
+    return externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
   public UserStat id(Long id) {
     this.id = id;
     return this;
@@ -492,6 +513,7 @@ public class UserStat {
         Objects.equals(this.displayName, userStat.displayName) &&
         Objects.equals(this.distributorName, userStat.distributorName) &&
         Objects.equals(this.email, userStat.email) &&
+        Objects.equals(this.externalId, userStat.externalId) &&
         Objects.equals(this.id, userStat.id) &&
         Objects.equals(this.orgName, userStat.orgName) &&
         Objects.equals(this.priceListName, userStat.priceListName) &&
@@ -503,7 +525,7 @@ public class UserStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeMigrationsCount, billingAccountAdminState, billingAccountName, billingAccountState, company, deleteRequested, displayName, distributorName, email, id, orgName, priceListName, registered, storageAccountsCount, totalMigrationsCount, userState);
+    return Objects.hash(activeMigrationsCount, billingAccountAdminState, billingAccountName, billingAccountState, company, deleteRequested, displayName, distributorName, email, externalId, id, orgName, priceListName, registered, storageAccountsCount, totalMigrationsCount, userState);
   }
 
 
@@ -521,6 +543,7 @@ public class UserStat {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    distributorName: ").append(toIndentedString(distributorName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    priceListName: ").append(toIndentedString(priceListName)).append("\n");

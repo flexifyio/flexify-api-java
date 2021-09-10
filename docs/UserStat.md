@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **displayName** | **String** |  |  [optional]
 **distributorName** | **String** |  |  [optional]
 **email** | **String** |  |  [optional]
+**externalId** | **String** |  |  [optional]
 **id** | **Long** |  |  [optional]
 **orgName** | **String** |  |  [optional]
 **priceListName** | **String** |  |  [optional]
