@@ -146,45 +146,46 @@ public class MigrationsControllerApi {
   /**
    * Get all migrations for logged in user in paged mode
    * 
-   * @param page Page number (required)
-   * @param size Page size (required)
+   * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
+   * @param page [Deprecated] Page number (required)
+   * @param size Max number of entries to return (AKA page size) (required)
    * @param includeHidden Include hidden migrations to response (optional, default to true)
-   * @param sort Attributes to sort (optional)
+   * @param paged  (optional)
+   * @param pageNumber  (optional)
+   * @param pageSize  (optional)
+   * @param sortSorted  (optional)
+   * @param sortUnsorted  (optional)
    * @param sortDirection Sort Direction (optional)
-   * @param springPageRequestOffset  (optional)
-   * @param springPageRequestPaged  (optional)
-   * @param springPageRequestPageNumber  (optional)
-   * @param springPageRequestPageSize  (optional)
-   * @param springPageRequestSortSorted  (optional)
-   * @param springPageRequestSortUnsorted  (optional)
-   * @param springPageRequestUnpaged  (optional)
    * @return PageMigration
    * @throws ApiException if fails to make API call
    */
-  public PageMigration getMigrations(Integer page, Integer size, Boolean includeHidden, List<String> sort, String sortDirection, Long springPageRequestOffset, Boolean springPageRequestPaged, Integer springPageRequestPageNumber, Integer springPageRequestPageSize, Boolean springPageRequestSortSorted, Boolean springPageRequestSortUnsorted, Boolean springPageRequestUnpaged) throws ApiException {
-    return getMigrationsWithHttpInfo(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPaged, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged).getData();
+  public PageMigration getMigrations(Long offset, Integer page, Integer size, Boolean includeHidden, Boolean paged, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
+    return getMigrationsWithHttpInfo(offset, page, size, includeHidden, paged, pageNumber, pageSize, sortSorted, sortUnsorted, sortDirection).getData();
       }
 
   /**
    * Get all migrations for logged in user in paged mode
    * 
-   * @param page Page number (required)
-   * @param size Page size (required)
+   * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
+   * @param page [Deprecated] Page number (required)
+   * @param size Max number of entries to return (AKA page size) (required)
    * @param includeHidden Include hidden migrations to response (optional, default to true)
-   * @param sort Attributes to sort (optional)
+   * @param paged  (optional)
+   * @param pageNumber  (optional)
+   * @param pageSize  (optional)
+   * @param sortSorted  (optional)
+   * @param sortUnsorted  (optional)
    * @param sortDirection Sort Direction (optional)
-   * @param springPageRequestOffset  (optional)
-   * @param springPageRequestPaged  (optional)
-   * @param springPageRequestPageNumber  (optional)
-   * @param springPageRequestPageSize  (optional)
-   * @param springPageRequestSortSorted  (optional)
-   * @param springPageRequestSortUnsorted  (optional)
-   * @param springPageRequestUnpaged  (optional)
    * @return ApiResponse&lt;PageMigration&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PageMigration> getMigrationsWithHttpInfo(Integer page, Integer size, Boolean includeHidden, List<String> sort, String sortDirection, Long springPageRequestOffset, Boolean springPageRequestPaged, Integer springPageRequestPageNumber, Integer springPageRequestPageSize, Boolean springPageRequestSortSorted, Boolean springPageRequestSortUnsorted, Boolean springPageRequestUnpaged) throws ApiException {
+  public ApiResponse<PageMigration> getMigrationsWithHttpInfo(Long offset, Integer page, Integer size, Boolean includeHidden, Boolean paged, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
     Object localVarPostBody = null;
+    
+    // verify the required parameter 'offset' is set
+    if (offset == null) {
+      throw new ApiException(400, "Missing the required parameter 'offset' when calling getMigrations");
+    }
     
     // verify the required parameter 'page' is set
     if (page == null) {
@@ -205,17 +206,15 @@ public class MigrationsControllerApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-hidden", includeHidden));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "paged", paged));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageNumber", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageSize", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.sorted", sortSorted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.unsorted", sortUnsorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.offset", springPageRequestOffset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.paged", springPageRequestPaged));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.pageNumber", springPageRequestPageNumber));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.pageSize", springPageRequestPageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.sort.sorted", springPageRequestSortSorted));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.sort.unsorted", springPageRequestSortUnsorted));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "springPageRequest.unpaged", springPageRequestUnpaged));
 
     
     

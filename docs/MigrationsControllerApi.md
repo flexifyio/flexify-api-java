@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 <a name="getMigrations"></a>
 # **getMigrations**
-> PageMigration getMigrations(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPaged, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged)
+> PageMigration getMigrations(offset, page, size, includeHidden, paged, pageNumber, pageSize, sortSorted, sortUnsorted, sortDirection)
 
 Get all migrations for logged in user in paged mode
 
@@ -143,20 +143,18 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 MigrationsControllerApi apiInstance = new MigrationsControllerApi();
-Integer page = 0; // Integer | Page number
-Integer size = 100; // Integer | Page size
+Long offset = 0L; // Long | Position of the first migration in the list (or null to start from the beginning)
+Integer page = 0; // Integer | [Deprecated] Page number
+Integer size = 100; // Integer | Max number of entries to return (AKA page size)
 Boolean includeHidden = true; // Boolean | Include hidden migrations to response
-List<String> sort = Arrays.asList("sort_example"); // List<String> | Attributes to sort
+Boolean paged = true; // Boolean | 
+Integer pageNumber = 56; // Integer | 
+Integer pageSize = 56; // Integer | 
+Boolean sortSorted = true; // Boolean | 
+Boolean sortUnsorted = true; // Boolean | 
 String sortDirection = "ASC"; // String | Sort Direction
-Long springPageRequestOffset = 789L; // Long | 
-Boolean springPageRequestPaged = true; // Boolean | 
-Integer springPageRequestPageNumber = 56; // Integer | 
-Integer springPageRequestPageSize = 56; // Integer | 
-Boolean springPageRequestSortSorted = true; // Boolean | 
-Boolean springPageRequestSortUnsorted = true; // Boolean | 
-Boolean springPageRequestUnpaged = true; // Boolean | 
 try {
-    PageMigration result = apiInstance.getMigrations(page, size, includeHidden, sort, sortDirection, springPageRequestOffset, springPageRequestPaged, springPageRequestPageNumber, springPageRequestPageSize, springPageRequestSortSorted, springPageRequestSortUnsorted, springPageRequestUnpaged);
+    PageMigration result = apiInstance.getMigrations(offset, page, size, includeHidden, paged, pageNumber, pageSize, sortSorted, sortUnsorted, sortDirection);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MigrationsControllerApi#getMigrations");
@@ -168,18 +166,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Page number |
- **size** | **Integer**| Page size |
+ **offset** | **Long**| Position of the first migration in the list (or null to start from the beginning) |
+ **page** | **Integer**| [Deprecated] Page number |
+ **size** | **Integer**| Max number of entries to return (AKA page size) |
  **includeHidden** | **Boolean**| Include hidden migrations to response | [optional] [default to true]
- **sort** | [**List&lt;String&gt;**](String.md)| Attributes to sort | [optional]
+ **paged** | **Boolean**|  | [optional]
+ **pageNumber** | **Integer**|  | [optional]
+ **pageSize** | **Integer**|  | [optional]
+ **sortSorted** | **Boolean**|  | [optional]
+ **sortUnsorted** | **Boolean**|  | [optional]
  **sortDirection** | **String**| Sort Direction | [optional] [enum: ASC, DESC]
- **springPageRequestOffset** | **Long**|  | [optional]
- **springPageRequestPaged** | **Boolean**|  | [optional]
- **springPageRequestPageNumber** | **Integer**|  | [optional]
- **springPageRequestPageSize** | **Integer**|  | [optional]
- **springPageRequestSortSorted** | **Boolean**|  | [optional]
- **springPageRequestSortUnsorted** | **Boolean**|  | [optional]
- **springPageRequestUnpaged** | **Boolean**|  | [optional]
 
 ### Return type
 
