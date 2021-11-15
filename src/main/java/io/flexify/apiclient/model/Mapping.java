@@ -56,6 +56,48 @@ public class Mapping {
   @JsonProperty("objectsListUri")
   private String objectsListUri = null;
 
+  /**
+   * Method selected for comparison
+   */
+  public enum SelectedComparisonMethodEnum {
+    AUTO("AUTO"),
+    
+    LIST_ONLY("LIST_ONLY"),
+    
+    LIST_PROBE("LIST_PROBE"),
+    
+    PROBE_ONLY("PROBE_ONLY");
+
+    private String value;
+
+    SelectedComparisonMethodEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SelectedComparisonMethodEnum fromValue(String text) {
+      for (SelectedComparisonMethodEnum b : SelectedComparisonMethodEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("selectedComparisonMethod")
+  private SelectedComparisonMethodEnum selectedComparisonMethod = null;
+
   @JsonProperty("slots")
   private List<Slot> slots = new ArrayList<Slot>();
 
@@ -194,6 +236,24 @@ public class Mapping {
     this.objectsListUri = objectsListUri;
   }
 
+  public Mapping selectedComparisonMethod(SelectedComparisonMethodEnum selectedComparisonMethod) {
+    this.selectedComparisonMethod = selectedComparisonMethod;
+    return this;
+  }
+
+   /**
+   * Method selected for comparison
+   * @return selectedComparisonMethod
+  **/
+  @ApiModelProperty(value = "Method selected for comparison")
+  public SelectedComparisonMethodEnum getSelectedComparisonMethod() {
+    return selectedComparisonMethod;
+  }
+
+  public void setSelectedComparisonMethod(SelectedComparisonMethodEnum selectedComparisonMethod) {
+    this.selectedComparisonMethod = selectedComparisonMethod;
+  }
+
   public Mapping slots(List<Slot> slots) {
     this.slots = slots;
     return this;
@@ -288,6 +348,7 @@ public class Mapping {
         Objects.equals(this.keyAddPrefix, mapping.keyAddPrefix) &&
         Objects.equals(this.keyRemovePrefix, mapping.keyRemovePrefix) &&
         Objects.equals(this.objectsListUri, mapping.objectsListUri) &&
+        Objects.equals(this.selectedComparisonMethod, mapping.selectedComparisonMethod) &&
         Objects.equals(this.slots, mapping.slots) &&
         Objects.equals(this.sourceBucket, mapping.sourceBucket) &&
         Objects.equals(this.sourceStorageAccount, mapping.sourceStorageAccount) &&
@@ -296,7 +357,7 @@ public class Mapping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destBucket, destBucketNewRegion, destStorageAccount, id, keyAddPrefix, keyRemovePrefix, objectsListUri, slots, sourceBucket, sourceStorageAccount, stat);
+    return Objects.hash(destBucket, destBucketNewRegion, destStorageAccount, id, keyAddPrefix, keyRemovePrefix, objectsListUri, selectedComparisonMethod, slots, sourceBucket, sourceStorageAccount, stat);
   }
 
 
@@ -312,6 +373,7 @@ public class Mapping {
     sb.append("    keyAddPrefix: ").append(toIndentedString(keyAddPrefix)).append("\n");
     sb.append("    keyRemovePrefix: ").append(toIndentedString(keyRemovePrefix)).append("\n");
     sb.append("    objectsListUri: ").append(toIndentedString(objectsListUri)).append("\n");
+    sb.append("    selectedComparisonMethod: ").append(toIndentedString(selectedComparisonMethod)).append("\n");
     sb.append("    slots: ").append(toIndentedString(slots)).append("\n");
     sb.append("    sourceBucket: ").append(toIndentedString(sourceBucket)).append("\n");
     sb.append("    sourceStorageAccount: ").append(toIndentedString(sourceStorageAccount)).append("\n");

@@ -33,6 +33,48 @@ import org.joda.time.DateTime;
 
 public class MigrationSettingsRes {
   /**
+   * Destination comparison method
+   */
+  public enum ComparisonMethodEnum {
+    AUTO("AUTO"),
+    
+    LIST_ONLY("LIST_ONLY"),
+    
+    LIST_PROBE("LIST_PROBE"),
+    
+    PROBE_ONLY("PROBE_ONLY");
+
+    private String value;
+
+    ComparisonMethodEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ComparisonMethodEnum fromValue(String text) {
+      for (ComparisonMethodEnum b : ComparisonMethodEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("comparisonMethod")
+  private ComparisonMethodEnum comparisonMethod = null;
+
+  /**
    * Conflict resolution
    */
   public enum ConflictResolutionEnum {
@@ -161,6 +203,50 @@ public class MigrationSettingsRes {
   @JsonProperty("lastModifiedFrom")
   private DateTime lastModifiedFrom = null;
 
+  /**
+   * Log level
+   */
+  public enum LogLevelEnum {
+    DEBUG("DEBUG"),
+    
+    ERROR("ERROR"),
+    
+    INFO("INFO"),
+    
+    TRACE("TRACE"),
+    
+    WARNING("WARNING");
+
+    private String value;
+
+    LogLevelEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static LogLevelEnum fromValue(String text) {
+      for (LogLevelEnum b : LogLevelEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("logLevel")
+  private LogLevelEnum logLevel = null;
+
   @JsonProperty("maxEngines")
   private Integer maxEngines = null;
 
@@ -237,6 +323,24 @@ public class MigrationSettingsRes {
 
   @JsonProperty("slotsPerMapping")
   private Integer slotsPerMapping = null;
+
+  public MigrationSettingsRes comparisonMethod(ComparisonMethodEnum comparisonMethod) {
+    this.comparisonMethod = comparisonMethod;
+    return this;
+  }
+
+   /**
+   * Destination comparison method
+   * @return comparisonMethod
+  **/
+  @ApiModelProperty(example = "LIST_PROBE", value = "Destination comparison method")
+  public ComparisonMethodEnum getComparisonMethod() {
+    return comparisonMethod;
+  }
+
+  public void setComparisonMethod(ComparisonMethodEnum comparisonMethod) {
+    this.comparisonMethod = comparisonMethod;
+  }
 
   public MigrationSettingsRes conflictResolution(ConflictResolutionEnum conflictResolution) {
     this.conflictResolution = conflictResolution;
@@ -344,6 +448,24 @@ public class MigrationSettingsRes {
 
   public void setLastModifiedFrom(DateTime lastModifiedFrom) {
     this.lastModifiedFrom = lastModifiedFrom;
+  }
+
+  public MigrationSettingsRes logLevel(LogLevelEnum logLevel) {
+    this.logLevel = logLevel;
+    return this;
+  }
+
+   /**
+   * Log level
+   * @return logLevel
+  **/
+  @ApiModelProperty(value = "Log level")
+  public LogLevelEnum getLogLevel() {
+    return logLevel;
+  }
+
+  public void setLogLevel(LogLevelEnum logLevel) {
+    this.logLevel = logLevel;
   }
 
   public MigrationSettingsRes maxEngines(Integer maxEngines) {
@@ -608,12 +730,14 @@ public class MigrationSettingsRes {
       return false;
     }
     MigrationSettingsRes migrationSettingsRes = (MigrationSettingsRes) o;
-    return Objects.equals(this.conflictResolution, migrationSettingsRes.conflictResolution) &&
+    return Objects.equals(this.comparisonMethod, migrationSettingsRes.comparisonMethod) &&
+        Objects.equals(this.conflictResolution, migrationSettingsRes.conflictResolution) &&
         Objects.equals(this.deploymentType, migrationSettingsRes.deploymentType) &&
         Objects.equals(this.dryRun, migrationSettingsRes.dryRun) &&
         Objects.equals(this.enginesLocation, migrationSettingsRes.enginesLocation) &&
         Objects.equals(this.existingDataInDestination, migrationSettingsRes.existingDataInDestination) &&
         Objects.equals(this.lastModifiedFrom, migrationSettingsRes.lastModifiedFrom) &&
+        Objects.equals(this.logLevel, migrationSettingsRes.logLevel) &&
         Objects.equals(this.maxEngines, migrationSettingsRes.maxEngines) &&
         Objects.equals(this.maxRetries, migrationSettingsRes.maxRetries) &&
         Objects.equals(this.maxRetriesForCopy, migrationSettingsRes.maxRetriesForCopy) &&
@@ -632,7 +756,7 @@ public class MigrationSettingsRes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conflictResolution, deploymentType, dryRun, enginesLocation, existingDataInDestination, lastModifiedFrom, maxEngines, maxRetries, maxRetriesForCopy, maxRetryTimeout, maxStreams, migrationMode, multipartConcurrency, multipartLimit, multipartPartSize, name, objectKeyFilter, retryTimeout, skipIfHashMatches, slotsPerMapping);
+    return Objects.hash(comparisonMethod, conflictResolution, deploymentType, dryRun, enginesLocation, existingDataInDestination, lastModifiedFrom, logLevel, maxEngines, maxRetries, maxRetriesForCopy, maxRetryTimeout, maxStreams, migrationMode, multipartConcurrency, multipartLimit, multipartPartSize, name, objectKeyFilter, retryTimeout, skipIfHashMatches, slotsPerMapping);
   }
 
 
@@ -641,12 +765,14 @@ public class MigrationSettingsRes {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationSettingsRes {\n");
     
+    sb.append("    comparisonMethod: ").append(toIndentedString(comparisonMethod)).append("\n");
     sb.append("    conflictResolution: ").append(toIndentedString(conflictResolution)).append("\n");
     sb.append("    deploymentType: ").append(toIndentedString(deploymentType)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    enginesLocation: ").append(toIndentedString(enginesLocation)).append("\n");
     sb.append("    existingDataInDestination: ").append(toIndentedString(existingDataInDestination)).append("\n");
     sb.append("    lastModifiedFrom: ").append(toIndentedString(lastModifiedFrom)).append("\n");
+    sb.append("    logLevel: ").append(toIndentedString(logLevel)).append("\n");
     sb.append("    maxEngines: ").append(toIndentedString(maxEngines)).append("\n");
     sb.append("    maxRetries: ").append(toIndentedString(maxRetries)).append("\n");
     sb.append("    maxRetriesForCopy: ").append(toIndentedString(maxRetriesForCopy)).append("\n");

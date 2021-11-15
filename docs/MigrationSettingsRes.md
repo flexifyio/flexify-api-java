@@ -4,12 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**comparisonMethod** | [**ComparisonMethodEnum**](#ComparisonMethodEnum) | Destination comparison method |  [optional]
 **conflictResolution** | [**ConflictResolutionEnum**](#ConflictResolutionEnum) | Conflict resolution |  [optional]
 **deploymentType** | [**DeploymentTypeEnum**](#DeploymentTypeEnum) | The type of engine deployment |  [optional]
 **dryRun** | **Boolean** | Dry run mode |  [optional]
 **enginesLocation** | [**CloudLocationRes**](CloudLocationRes.md) | Location of the engines to migrate |  [optional]
 **existingDataInDestination** | [**ExistingDataInDestinationEnum**](#ExistingDataInDestinationEnum) | Keep or clean data in destination before migration (identical with source objects keep in any cases) |  [optional]
 **lastModifiedFrom** | [**DateTime**](DateTime.md) | Migrate objects modified on or after specified date |  [optional]
+**logLevel** | [**LogLevelEnum**](#LogLevelEnum) | Log level |  [optional]
 **maxEngines** | **Integer** | Maximum number of engines this migration uses (experimental) |  [optional]
 **maxRetries** | **Integer** | Maximum number of retries |  [optional]
 **maxRetriesForCopy** | **Integer** | Maximum number of retries after copy started |  [optional]
@@ -24,6 +26,16 @@ Name | Type | Description | Notes
 **retryTimeout** | **Integer** | Initial timeout between retries in seconds |  [optional]
 **skipIfHashMatches** | **Boolean** | Skip migration if source and destination object hash match |  [optional]
 **slotsPerMapping** | **Integer** | Number of slots of storage mapping (bucket) |  [optional]
+
+
+<a name="ComparisonMethodEnum"></a>
+## Enum: ComparisonMethodEnum
+Name | Value
+---- | -----
+AUTO | &quot;AUTO&quot;
+LIST_ONLY | &quot;LIST_ONLY&quot;
+LIST_PROBE | &quot;LIST_PROBE&quot;
+PROBE_ONLY | &quot;PROBE_ONLY&quot;
 
 
 <a name="ConflictResolutionEnum"></a>
@@ -51,6 +63,17 @@ Name | Value
 ---- | -----
 CLEAN | &quot;CLEAN&quot;
 KEEP | &quot;KEEP&quot;
+
+
+<a name="LogLevelEnum"></a>
+## Enum: LogLevelEnum
+Name | Value
+---- | -----
+DEBUG | &quot;DEBUG&quot;
+ERROR | &quot;ERROR&quot;
+INFO | &quot;INFO&quot;
+TRACE | &quot;TRACE&quot;
+WARNING | &quot;WARNING&quot;
 
 
 <a name="MigrationModeEnum"></a>
