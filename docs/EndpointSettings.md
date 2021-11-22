@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **identity** | **String** | Storage Identity (Access Key) |  [optional]
 **protocol** | [**ProtocolEnum**](#ProtocolEnum) | Storage Protocol |  [optional]
 **publicAccessReadAllBlobs** | **Boolean** | Public read access for all objects in virtual buckets |  [optional]
-**selectionBreakTimeout** | **Long** | Timeout before canceling rqeusts to non-responing clouds in FASTEST selection policy |  [optional]
+**selectionBreakTimeout** | **Long** | Timeout before canceling requests to non-responding clouds in FASTEST selection policy |  [optional]
 **selectionPolicy** | [**SelectionPolicyEnum**](#SelectionPolicyEnum) | Storage selection policy for GET/HEAD object requests |  [optional]
 
 
@@ -29,6 +29,7 @@ Name | Value
 ---- | -----
 FASTEST | &quot;FASTEST&quot;
 NEWEST | &quot;NEWEST&quot;
+PRIORITY | &quot;PRIORITY&quot;
 
 
 

@@ -92,7 +92,9 @@ public class EndpointSettings {
   public enum SelectionPolicyEnum {
     FASTEST("FASTEST"),
     
-    NEWEST("NEWEST");
+    NEWEST("NEWEST"),
+    
+    PRIORITY("PRIORITY");
 
     private String value;
 
@@ -202,10 +204,10 @@ public class EndpointSettings {
   }
 
    /**
-   * Timeout before canceling rqeusts to non-responing clouds in FASTEST selection policy
+   * Timeout before canceling requests to non-responding clouds in FASTEST selection policy
    * @return selectionBreakTimeout
   **/
-  @ApiModelProperty(example = "300", value = "Timeout before canceling rqeusts to non-responing clouds in FASTEST selection policy")
+  @ApiModelProperty(example = "300", value = "Timeout before canceling requests to non-responding clouds in FASTEST selection policy")
   public Long getSelectionBreakTimeout() {
     return selectionBreakTimeout;
   }
