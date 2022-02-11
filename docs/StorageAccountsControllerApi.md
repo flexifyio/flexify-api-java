@@ -177,7 +177,7 @@ null (empty response body)
 
 <a name="getStorageAccount"></a>
 # **getStorageAccount**
-> StorageAccount getStorageAccount(storageAccountId)
+> StorageAccountWithBuckets getStorageAccount(storageAccountId)
 
 Get storage account by id
 
@@ -201,7 +201,7 @@ Bearer.setApiKey("YOUR API KEY");
 StorageAccountsControllerApi apiInstance = new StorageAccountsControllerApi();
 Long storageAccountId = 789L; // Long | storage-account-id
 try {
-    StorageAccount result = apiInstance.getStorageAccount(storageAccountId);
+    StorageAccountWithBuckets result = apiInstance.getStorageAccount(storageAccountId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageAccountsControllerApi#getStorageAccount");
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StorageAccount**](StorageAccount.md)
+[**StorageAccountWithBuckets**](StorageAccountWithBuckets.md)
 
 ### Authorization
 

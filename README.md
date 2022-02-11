@@ -274,6 +274,7 @@ Class | Method | HTTP request | Description
  - [StorageAccountSettingsReq](docs/StorageAccountSettingsReq.md)
  - [StorageAccountSettingsRes](docs/StorageAccountSettingsRes.md)
  - [StorageAccountStat](docs/StorageAccountStat.md)
+ - [StorageAccountWithBuckets](docs/StorageAccountWithBuckets.md)
  - [StorageProvider](docs/StorageProvider.md)
  - [TokenConfiguration](docs/TokenConfiguration.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)

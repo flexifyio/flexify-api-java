@@ -13,6 +13,7 @@ import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.IdsList;
 import io.flexify.apiclient.model.StorageAccount;
 import io.flexify.apiclient.model.StorageAccountSettingsReq;
+import io.flexify.apiclient.model.StorageAccountWithBuckets;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -204,10 +205,10 @@ public class StorageAccountsControllerApi {
    * Get storage account by id
    * 
    * @param storageAccountId storage-account-id (required)
-   * @return StorageAccount
+   * @return StorageAccountWithBuckets
    * @throws ApiException if fails to make API call
    */
-  public StorageAccount getStorageAccount(Long storageAccountId) throws ApiException {
+  public StorageAccountWithBuckets getStorageAccount(Long storageAccountId) throws ApiException {
     return getStorageAccountWithHttpInfo(storageAccountId).getData();
       }
 
@@ -215,10 +216,10 @@ public class StorageAccountsControllerApi {
    * Get storage account by id
    * 
    * @param storageAccountId storage-account-id (required)
-   * @return ApiResponse&lt;StorageAccount&gt;
+   * @return ApiResponse&lt;StorageAccountWithBuckets&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<StorageAccount> getStorageAccountWithHttpInfo(Long storageAccountId) throws ApiException {
+  public ApiResponse<StorageAccountWithBuckets> getStorageAccountWithHttpInfo(Long storageAccountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'storageAccountId' is set
@@ -250,7 +251,7 @@ public class StorageAccountsControllerApi {
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<StorageAccount> localVarReturnType = new GenericType<StorageAccount>() {};
+    GenericType<StorageAccountWithBuckets> localVarReturnType = new GenericType<StorageAccountWithBuckets>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
