@@ -9,7 +9,6 @@ import io.flexify.apiclient.handler.Pair;
 import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.AddStorageAccountRequest;
-import io.flexify.apiclient.model.Bucket;
 import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.IdsList;
 import io.flexify.apiclient.model.StorageAccount;
@@ -205,10 +204,10 @@ public class StorageAccountsControllerApi {
    * Get storage account by id
    * 
    * @param storageAccountId storage-account-id (required)
-   * @return List&lt;Bucket&gt;
+   * @return StorageAccount
    * @throws ApiException if fails to make API call
    */
-  public List<Bucket> getStorageAccount(Long storageAccountId) throws ApiException {
+  public StorageAccount getStorageAccount(Long storageAccountId) throws ApiException {
     return getStorageAccountWithHttpInfo(storageAccountId).getData();
       }
 
@@ -216,10 +215,10 @@ public class StorageAccountsControllerApi {
    * Get storage account by id
    * 
    * @param storageAccountId storage-account-id (required)
-   * @return ApiResponse&lt;List&lt;Bucket&gt;&gt;
+   * @return ApiResponse&lt;StorageAccount&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<List<Bucket>> getStorageAccountWithHttpInfo(Long storageAccountId) throws ApiException {
+  public ApiResponse<StorageAccount> getStorageAccountWithHttpInfo(Long storageAccountId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'storageAccountId' is set
@@ -251,7 +250,7 @@ public class StorageAccountsControllerApi {
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<List<Bucket>> localVarReturnType = new GenericType<List<Bucket>>() {};
+    GenericType<StorageAccount> localVarReturnType = new GenericType<StorageAccount>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
