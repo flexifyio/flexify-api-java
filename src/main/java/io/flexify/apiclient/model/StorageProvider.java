@@ -68,6 +68,9 @@ public class StorageProvider {
   @JsonProperty("portHttps")
   private Integer portHttps = null;
 
+  @JsonProperty("privateEndpoint")
+  private String privateEndpoint = null;
+
   @JsonProperty("productName")
   private String productName = null;
 
@@ -346,6 +349,24 @@ public class StorageProvider {
     this.portHttps = portHttps;
   }
 
+  public StorageProvider privateEndpoint(String privateEndpoint) {
+    this.privateEndpoint = privateEndpoint;
+    return this;
+  }
+
+   /**
+   * Endpoint used by engines (or null if only public endpoint is used)
+   * @return privateEndpoint
+  **/
+  @ApiModelProperty(example = "s3.private.amazonaws.com", value = "Endpoint used by engines (or null if only public endpoint is used)")
+  public String getPrivateEndpoint() {
+    return privateEndpoint;
+  }
+
+  public void setPrivateEndpoint(String privateEndpoint) {
+    this.privateEndpoint = privateEndpoint;
+  }
+
   public StorageProvider productName(String productName) {
     this.productName = productName;
     return this;
@@ -502,6 +523,7 @@ public class StorageProvider {
         Objects.equals(this.name, storageProvider.name) &&
         Objects.equals(this.portHttp, storageProvider.portHttp) &&
         Objects.equals(this.portHttps, storageProvider.portHttps) &&
+        Objects.equals(this.privateEndpoint, storageProvider.privateEndpoint) &&
         Objects.equals(this.productName, storageProvider.productName) &&
         Objects.equals(this.protocol, storageProvider.protocol) &&
         Objects.equals(this.regions, storageProvider.regions) &&
@@ -513,7 +535,7 @@ public class StorageProvider {
 
   @Override
   public int hashCode() {
-    return Objects.hash(canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, dotEncode, endpoint, id, maxUploadSize, multiRegional, name, portHttp, portHttps, productName, protocol, regions, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
+    return Objects.hash(canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, dotEncode, endpoint, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, productName, protocol, regions, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
   }
 
 
@@ -534,6 +556,7 @@ public class StorageProvider {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    portHttp: ").append(toIndentedString(portHttp)).append("\n");
     sb.append("    portHttps: ").append(toIndentedString(portHttps)).append("\n");
+    sb.append("    privateEndpoint: ").append(toIndentedString(privateEndpoint)).append("\n");
     sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");

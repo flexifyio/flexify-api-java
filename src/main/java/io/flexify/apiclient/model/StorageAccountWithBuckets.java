@@ -41,6 +41,9 @@ public class StorageAccountWithBuckets {
   @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("privateUrl")
+  private String privateUrl = null;
+
   @JsonProperty("provider")
   private StorageProvider provider = null;
 
@@ -86,6 +89,24 @@ public class StorageAccountWithBuckets {
   @ApiModelProperty(value = "Id of the storage account")
   public Long getId() {
     return id;
+  }
+
+  public StorageAccountWithBuckets privateUrl(String privateUrl) {
+    this.privateUrl = privateUrl;
+    return this;
+  }
+
+   /**
+   * URL used by engines to access the cloud
+   * @return privateUrl
+  **/
+  @ApiModelProperty(example = "https://s3.amazonaws.com", value = "URL used by engines to access the cloud")
+  public String getPrivateUrl() {
+    return privateUrl;
+  }
+
+  public void setPrivateUrl(String privateUrl) {
+    this.privateUrl = privateUrl;
   }
 
   public StorageAccountWithBuckets provider(StorageProvider provider) {
@@ -172,6 +193,7 @@ public class StorageAccountWithBuckets {
     StorageAccountWithBuckets storageAccountWithBuckets = (StorageAccountWithBuckets) o;
     return Objects.equals(this.buckets, storageAccountWithBuckets.buckets) &&
         Objects.equals(this.id, storageAccountWithBuckets.id) &&
+        Objects.equals(this.privateUrl, storageAccountWithBuckets.privateUrl) &&
         Objects.equals(this.provider, storageAccountWithBuckets.provider) &&
         Objects.equals(this.settings, storageAccountWithBuckets.settings) &&
         Objects.equals(this.stat, storageAccountWithBuckets.stat) &&
@@ -180,7 +202,7 @@ public class StorageAccountWithBuckets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buckets, id, provider, settings, stat, url);
+    return Objects.hash(buckets, id, privateUrl, provider, settings, stat, url);
   }
 
 
@@ -191,6 +213,7 @@ public class StorageAccountWithBuckets {
     
     sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    privateUrl: ").append(toIndentedString(privateUrl)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    stat: ").append(toIndentedString(stat)).append("\n");

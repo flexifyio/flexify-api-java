@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the provider |  [optional]
 **portHttp** | **Integer** | Port for HTTP request (null for default 80) |  [optional]
 **portHttps** | **Integer** | Port for HTTPS request (null for default 443) |  [optional]
+**privateEndpoint** | **String** | Endpoint used by engines (or null if only public endpoint is used) |  [optional]
 **productName** | **String** | Name of product/region for this provider |  [optional]
 **protocol** | [**ProtocolEnum**](#ProtocolEnum) | Storage protocol this provider uses |  [optional]
 **regions** | **List&lt;String&gt;** | List of regions supported for this provider (or null if regions are not supported |  [optional]
