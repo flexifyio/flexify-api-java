@@ -40,6 +40,9 @@ public class AddMigrationRequest {
   @JsonProperty("settings")
   private MigrationSettingsReq settings = null;
 
+  @JsonProperty("verifyBuckets")
+  private Boolean verifyBuckets = null;
+
   public AddMigrationRequest mappings(List<AddMigrationRequestMapping> mappings) {
     this.mappings = mappings;
     return this;
@@ -84,6 +87,24 @@ public class AddMigrationRequest {
     this.settings = settings;
   }
 
+  public AddMigrationRequest verifyBuckets(Boolean verifyBuckets) {
+    this.verifyBuckets = verifyBuckets;
+    return this;
+  }
+
+   /**
+   * If buckets should be verified by HEAD request
+   * @return verifyBuckets
+  **/
+  @ApiModelProperty(value = "If buckets should be verified by HEAD request")
+  public Boolean isVerifyBuckets() {
+    return verifyBuckets;
+  }
+
+  public void setVerifyBuckets(Boolean verifyBuckets) {
+    this.verifyBuckets = verifyBuckets;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -95,12 +116,13 @@ public class AddMigrationRequest {
     }
     AddMigrationRequest addMigrationRequest = (AddMigrationRequest) o;
     return Objects.equals(this.mappings, addMigrationRequest.mappings) &&
-        Objects.equals(this.settings, addMigrationRequest.settings);
+        Objects.equals(this.settings, addMigrationRequest.settings) &&
+        Objects.equals(this.verifyBuckets, addMigrationRequest.verifyBuckets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mappings, settings);
+    return Objects.hash(mappings, settings, verifyBuckets);
   }
 
 
@@ -111,6 +133,7 @@ public class AddMigrationRequest {
     
     sb.append("    mappings: ").append(toIndentedString(mappings)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("    verifyBuckets: ").append(toIndentedString(verifyBuckets)).append("\n");
     sb.append("}");
     return sb.toString();
   }
