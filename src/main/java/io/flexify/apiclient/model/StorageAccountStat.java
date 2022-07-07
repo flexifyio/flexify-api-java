@@ -226,10 +226,10 @@ public class StorageAccountStat {
   }
 
    /**
-   * When the limit of the maxmimum number of buckets/containers is exceeed and not all storages are shown
+   * When the limit of the maximum number of buckets/containers is exceed and not all storages are shown
    * @return storagesLimitExceeded
   **/
-  @ApiModelProperty(value = "When the limit of the maxmimum number of buckets/containers is exceeed and not all storages are shown")
+  @ApiModelProperty(value = "When the limit of the maximum number of buckets/containers is exceed and not all storages are shown")
   public Boolean isStoragesLimitExceeded() {
     return storagesLimitExceeded;
   }

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **lastRefreshed** | [**DateTime**](DateTime.md) | When buckets/containers were requested last time |  [optional]
 **state** | [**StateEnum**](#StateEnum) | State of this storage account |  [optional]
 **storagesCount** | **Integer** | Number of buckets/containers reported by the storage |  [optional]
-**storagesLimitExceeded** | **Boolean** | When the limit of the maxmimum number of buckets/containers is exceeed and not all storages are shown |  [optional]
+**storagesLimitExceeded** | **Boolean** | When the limit of the maximum number of buckets/containers is exceed and not all storages are shown |  [optional]
 
 
 <a name="AzureEnvEnum"></a>

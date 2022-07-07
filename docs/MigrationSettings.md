@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**autoRestoreIfArchived** | **Boolean** | Automatically restore objects from archival tier |  [optional]
 **comparisonMethod** | [**ComparisonMethodEnum**](#ComparisonMethodEnum) | Destination comparison method |  [optional]
 **conflictResolution** | [**ConflictResolutionEnum**](#ConflictResolutionEnum) | Conflict resolution |  [optional]
 **deploymentType** | [**DeploymentTypeEnum**](#DeploymentTypeEnum) | The type of engine deployment |  [optional]
@@ -23,6 +24,9 @@ Name | Type | Description | Notes
 **multipartPartSize** | **Long** | Part size for multipart upload |  [optional]
 **name** | **String** | Name of the migration |  [optional]
 **objectKeyFilter** | **String** | Migrate objects matching pattern |  [optional]
+**restoreDays** | **Integer** | Number of days to keep restored objects when automatically restoring objects from archival tier |  [optional]
+**restoreMaxSize** | **Long** | Maximum total size of objects to restore when automatically restoring objects from archival tier |  [optional]
+**restoreTier** | [**RestoreTierEnum**](#RestoreTierEnum) | Restore tier when automatically restoring objects from archival tier |  [optional]
 **retryTimeout** | **Integer** | Initial timeout between retries in seconds |  [optional]
 **skipIfHashMatches** | **Boolean** | Skip migration if source and destination object hash match |  [optional]
 **slotsPerMapping** | **Integer** | Number of slots of storage mapping (bucket) |  [optional]
@@ -82,6 +86,15 @@ Name | Value
 ---- | -----
 COPY | &quot;COPY&quot;
 MOVE | &quot;MOVE&quot;
+
+
+<a name="RestoreTierEnum"></a>
+## Enum: RestoreTierEnum
+Name | Value
+---- | -----
+BULK | &quot;BULK&quot;
+EXPEDITED | &quot;EXPEDITED&quot;
+STANDARD | &quot;STANDARD&quot;
 
 
 

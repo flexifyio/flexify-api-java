@@ -43,6 +43,9 @@ public class MappingStat {
   @JsonProperty("bytesFailed")
   private Long bytesFailed = null;
 
+  @JsonProperty("bytesGlacierRestoreStarted")
+  private Long bytesGlacierRestoreStarted = null;
+
   @JsonProperty("bytesNotMatchingPattern")
   private Long bytesNotMatchingPattern = null;
 
@@ -78,6 +81,9 @@ public class MappingStat {
 
   @JsonProperty("objectsFailed")
   private Long objectsFailed = null;
+
+  @JsonProperty("objectsGlacierRestoreStarted")
+  private Long objectsGlacierRestoreStarted = null;
 
   @JsonProperty("objectsNotMatchingPattern")
   private Long objectsNotMatchingPattern = null;
@@ -282,6 +288,24 @@ public class MappingStat {
 
   public void setBytesFailed(Long bytesFailed) {
     this.bytesFailed = bytesFailed;
+  }
+
+  public MappingStat bytesGlacierRestoreStarted(Long bytesGlacierRestoreStarted) {
+    this.bytesGlacierRestoreStarted = bytesGlacierRestoreStarted;
+    return this;
+  }
+
+   /**
+   * Get bytesGlacierRestoreStarted
+   * @return bytesGlacierRestoreStarted
+  **/
+  @ApiModelProperty(value = "")
+  public Long getBytesGlacierRestoreStarted() {
+    return bytesGlacierRestoreStarted;
+  }
+
+  public void setBytesGlacierRestoreStarted(Long bytesGlacierRestoreStarted) {
+    this.bytesGlacierRestoreStarted = bytesGlacierRestoreStarted;
   }
 
   public MappingStat bytesNotMatchingPattern(Long bytesNotMatchingPattern) {
@@ -498,6 +522,24 @@ public class MappingStat {
 
   public void setObjectsFailed(Long objectsFailed) {
     this.objectsFailed = objectsFailed;
+  }
+
+  public MappingStat objectsGlacierRestoreStarted(Long objectsGlacierRestoreStarted) {
+    this.objectsGlacierRestoreStarted = objectsGlacierRestoreStarted;
+    return this;
+  }
+
+   /**
+   * Get objectsGlacierRestoreStarted
+   * @return objectsGlacierRestoreStarted
+  **/
+  @ApiModelProperty(value = "")
+  public Long getObjectsGlacierRestoreStarted() {
+    return objectsGlacierRestoreStarted;
+  }
+
+  public void setObjectsGlacierRestoreStarted(Long objectsGlacierRestoreStarted) {
+    this.objectsGlacierRestoreStarted = objectsGlacierRestoreStarted;
   }
 
   public MappingStat objectsNotMatchingPattern(Long objectsNotMatchingPattern) {
@@ -784,6 +826,7 @@ public class MappingStat {
         Objects.equals(this.activeSlots, mappingStat.activeSlots) &&
         Objects.equals(this.activeStreams, mappingStat.activeStreams) &&
         Objects.equals(this.bytesFailed, mappingStat.bytesFailed) &&
+        Objects.equals(this.bytesGlacierRestoreStarted, mappingStat.bytesGlacierRestoreStarted) &&
         Objects.equals(this.bytesNotMatchingPattern, mappingStat.bytesNotMatchingPattern) &&
         Objects.equals(this.bytesProcessed, mappingStat.bytesProcessed) &&
         Objects.equals(this.bytesSkipped, mappingStat.bytesSkipped) &&
@@ -796,6 +839,7 @@ public class MappingStat {
         Objects.equals(this.initialBytes, mappingStat.initialBytes) &&
         Objects.equals(this.initialObjects, mappingStat.initialObjects) &&
         Objects.equals(this.objectsFailed, mappingStat.objectsFailed) &&
+        Objects.equals(this.objectsGlacierRestoreStarted, mappingStat.objectsGlacierRestoreStarted) &&
         Objects.equals(this.objectsNotMatchingPattern, mappingStat.objectsNotMatchingPattern) &&
         Objects.equals(this.objectsProcessed, mappingStat.objectsProcessed) &&
         Objects.equals(this.objectsSkipped, mappingStat.objectsSkipped) &&
@@ -815,7 +859,7 @@ public class MappingStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeEngines, activeSlots, activeStreams, bytesFailed, bytesNotMatchingPattern, bytesProcessed, bytesSkipped, bytesSkippedGlacier, bytesUploaded, cleanup, dstRegion, estimated, finished, initialBytes, initialObjects, objectsFailed, objectsNotMatchingPattern, objectsProcessed, objectsSkipped, objectsSkippedGlacier, objectsUploaded, processingObjectsPerSecond, progress, retried, srcRegion, started, state, step, totalUpload, uploadingBytesPerSecond, uploadingObjectsPerSecond);
+    return Objects.hash(activeEngines, activeSlots, activeStreams, bytesFailed, bytesGlacierRestoreStarted, bytesNotMatchingPattern, bytesProcessed, bytesSkipped, bytesSkippedGlacier, bytesUploaded, cleanup, dstRegion, estimated, finished, initialBytes, initialObjects, objectsFailed, objectsGlacierRestoreStarted, objectsNotMatchingPattern, objectsProcessed, objectsSkipped, objectsSkippedGlacier, objectsUploaded, processingObjectsPerSecond, progress, retried, srcRegion, started, state, step, totalUpload, uploadingBytesPerSecond, uploadingObjectsPerSecond);
   }
 
 
@@ -828,6 +872,7 @@ public class MappingStat {
     sb.append("    activeSlots: ").append(toIndentedString(activeSlots)).append("\n");
     sb.append("    activeStreams: ").append(toIndentedString(activeStreams)).append("\n");
     sb.append("    bytesFailed: ").append(toIndentedString(bytesFailed)).append("\n");
+    sb.append("    bytesGlacierRestoreStarted: ").append(toIndentedString(bytesGlacierRestoreStarted)).append("\n");
     sb.append("    bytesNotMatchingPattern: ").append(toIndentedString(bytesNotMatchingPattern)).append("\n");
     sb.append("    bytesProcessed: ").append(toIndentedString(bytesProcessed)).append("\n");
     sb.append("    bytesSkipped: ").append(toIndentedString(bytesSkipped)).append("\n");
@@ -840,6 +885,7 @@ public class MappingStat {
     sb.append("    initialBytes: ").append(toIndentedString(initialBytes)).append("\n");
     sb.append("    initialObjects: ").append(toIndentedString(initialObjects)).append("\n");
     sb.append("    objectsFailed: ").append(toIndentedString(objectsFailed)).append("\n");
+    sb.append("    objectsGlacierRestoreStarted: ").append(toIndentedString(objectsGlacierRestoreStarted)).append("\n");
     sb.append("    objectsNotMatchingPattern: ").append(toIndentedString(objectsNotMatchingPattern)).append("\n");
     sb.append("    objectsProcessed: ").append(toIndentedString(objectsProcessed)).append("\n");
     sb.append("    objectsSkipped: ").append(toIndentedString(objectsSkipped)).append("\n");

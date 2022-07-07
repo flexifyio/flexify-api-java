@@ -32,6 +32,9 @@ import org.joda.time.DateTime;
 
 
 public class MigrationSettings {
+  @JsonProperty("autoRestoreIfArchived")
+  private Boolean autoRestoreIfArchived = null;
+
   /**
    * Destination comparison method
    */
@@ -315,6 +318,52 @@ public class MigrationSettings {
   @JsonProperty("objectKeyFilter")
   private String objectKeyFilter = null;
 
+  @JsonProperty("restoreDays")
+  private Integer restoreDays = null;
+
+  @JsonProperty("restoreMaxSize")
+  private Long restoreMaxSize = null;
+
+  /**
+   * Restore tier when automatically restoring objects from archival tier
+   */
+  public enum RestoreTierEnum {
+    BULK("BULK"),
+    
+    EXPEDITED("EXPEDITED"),
+    
+    STANDARD("STANDARD");
+
+    private String value;
+
+    RestoreTierEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static RestoreTierEnum fromValue(String text) {
+      for (RestoreTierEnum b : RestoreTierEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("restoreTier")
+  private RestoreTierEnum restoreTier = null;
+
   @JsonProperty("retryTimeout")
   private Integer retryTimeout = null;
 
@@ -323,6 +372,24 @@ public class MigrationSettings {
 
   @JsonProperty("slotsPerMapping")
   private Integer slotsPerMapping = null;
+
+  public MigrationSettings autoRestoreIfArchived(Boolean autoRestoreIfArchived) {
+    this.autoRestoreIfArchived = autoRestoreIfArchived;
+    return this;
+  }
+
+   /**
+   * Automatically restore objects from archival tier
+   * @return autoRestoreIfArchived
+  **/
+  @ApiModelProperty(example = "true", value = "Automatically restore objects from archival tier")
+  public Boolean isAutoRestoreIfArchived() {
+    return autoRestoreIfArchived;
+  }
+
+  public void setAutoRestoreIfArchived(Boolean autoRestoreIfArchived) {
+    this.autoRestoreIfArchived = autoRestoreIfArchived;
+  }
 
   public MigrationSettings comparisonMethod(ComparisonMethodEnum comparisonMethod) {
     this.comparisonMethod = comparisonMethod;
@@ -666,6 +733,60 @@ public class MigrationSettings {
     this.objectKeyFilter = objectKeyFilter;
   }
 
+  public MigrationSettings restoreDays(Integer restoreDays) {
+    this.restoreDays = restoreDays;
+    return this;
+  }
+
+   /**
+   * Number of days to keep restored objects when automatically restoring objects from archival tier
+   * @return restoreDays
+  **/
+  @ApiModelProperty(example = "7", value = "Number of days to keep restored objects when automatically restoring objects from archival tier")
+  public Integer getRestoreDays() {
+    return restoreDays;
+  }
+
+  public void setRestoreDays(Integer restoreDays) {
+    this.restoreDays = restoreDays;
+  }
+
+  public MigrationSettings restoreMaxSize(Long restoreMaxSize) {
+    this.restoreMaxSize = restoreMaxSize;
+    return this;
+  }
+
+   /**
+   * Maximum total size of objects to restore when automatically restoring objects from archival tier
+   * @return restoreMaxSize
+  **/
+  @ApiModelProperty(example = "1000000000", value = "Maximum total size of objects to restore when automatically restoring objects from archival tier")
+  public Long getRestoreMaxSize() {
+    return restoreMaxSize;
+  }
+
+  public void setRestoreMaxSize(Long restoreMaxSize) {
+    this.restoreMaxSize = restoreMaxSize;
+  }
+
+  public MigrationSettings restoreTier(RestoreTierEnum restoreTier) {
+    this.restoreTier = restoreTier;
+    return this;
+  }
+
+   /**
+   * Restore tier when automatically restoring objects from archival tier
+   * @return restoreTier
+  **/
+  @ApiModelProperty(example = "BULK", value = "Restore tier when automatically restoring objects from archival tier")
+  public RestoreTierEnum getRestoreTier() {
+    return restoreTier;
+  }
+
+  public void setRestoreTier(RestoreTierEnum restoreTier) {
+    this.restoreTier = restoreTier;
+  }
+
   public MigrationSettings retryTimeout(Integer retryTimeout) {
     this.retryTimeout = retryTimeout;
     return this;
@@ -730,7 +851,8 @@ public class MigrationSettings {
       return false;
     }
     MigrationSettings migrationSettings = (MigrationSettings) o;
-    return Objects.equals(this.comparisonMethod, migrationSettings.comparisonMethod) &&
+    return Objects.equals(this.autoRestoreIfArchived, migrationSettings.autoRestoreIfArchived) &&
+        Objects.equals(this.comparisonMethod, migrationSettings.comparisonMethod) &&
         Objects.equals(this.conflictResolution, migrationSettings.conflictResolution) &&
         Objects.equals(this.deploymentType, migrationSettings.deploymentType) &&
         Objects.equals(this.dryRun, migrationSettings.dryRun) &&
@@ -749,6 +871,9 @@ public class MigrationSettings {
         Objects.equals(this.multipartPartSize, migrationSettings.multipartPartSize) &&
         Objects.equals(this.name, migrationSettings.name) &&
         Objects.equals(this.objectKeyFilter, migrationSettings.objectKeyFilter) &&
+        Objects.equals(this.restoreDays, migrationSettings.restoreDays) &&
+        Objects.equals(this.restoreMaxSize, migrationSettings.restoreMaxSize) &&
+        Objects.equals(this.restoreTier, migrationSettings.restoreTier) &&
         Objects.equals(this.retryTimeout, migrationSettings.retryTimeout) &&
         Objects.equals(this.skipIfHashMatches, migrationSettings.skipIfHashMatches) &&
         Objects.equals(this.slotsPerMapping, migrationSettings.slotsPerMapping);
@@ -756,7 +881,7 @@ public class MigrationSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonMethod, conflictResolution, deploymentType, dryRun, enginesLocation, existingDataInDestination, lastModifiedFrom, logLevel, maxEngines, maxRetries, maxRetriesForCopy, maxRetryTimeout, maxStreams, migrationMode, multipartConcurrency, multipartLimit, multipartPartSize, name, objectKeyFilter, retryTimeout, skipIfHashMatches, slotsPerMapping);
+    return Objects.hash(autoRestoreIfArchived, comparisonMethod, conflictResolution, deploymentType, dryRun, enginesLocation, existingDataInDestination, lastModifiedFrom, logLevel, maxEngines, maxRetries, maxRetriesForCopy, maxRetryTimeout, maxStreams, migrationMode, multipartConcurrency, multipartLimit, multipartPartSize, name, objectKeyFilter, restoreDays, restoreMaxSize, restoreTier, retryTimeout, skipIfHashMatches, slotsPerMapping);
   }
 
 
@@ -765,6 +890,7 @@ public class MigrationSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationSettings {\n");
     
+    sb.append("    autoRestoreIfArchived: ").append(toIndentedString(autoRestoreIfArchived)).append("\n");
     sb.append("    comparisonMethod: ").append(toIndentedString(comparisonMethod)).append("\n");
     sb.append("    conflictResolution: ").append(toIndentedString(conflictResolution)).append("\n");
     sb.append("    deploymentType: ").append(toIndentedString(deploymentType)).append("\n");
@@ -784,6 +910,9 @@ public class MigrationSettings {
     sb.append("    multipartPartSize: ").append(toIndentedString(multipartPartSize)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    objectKeyFilter: ").append(toIndentedString(objectKeyFilter)).append("\n");
+    sb.append("    restoreDays: ").append(toIndentedString(restoreDays)).append("\n");
+    sb.append("    restoreMaxSize: ").append(toIndentedString(restoreMaxSize)).append("\n");
+    sb.append("    restoreTier: ").append(toIndentedString(restoreTier)).append("\n");
     sb.append("    retryTimeout: ").append(toIndentedString(retryTimeout)).append("\n");
     sb.append("    skipIfHashMatches: ").append(toIndentedString(skipIfHashMatches)).append("\n");
     sb.append("    slotsPerMapping: ").append(toIndentedString(slotsPerMapping)).append("\n");

@@ -43,6 +43,9 @@ public class MigrationStat {
   @JsonProperty("bytesFailed")
   private Long bytesFailed = null;
 
+  @JsonProperty("bytesGlacierRestoreStarted")
+  private Long bytesGlacierRestoreStarted = null;
+
   @JsonProperty("bytesNotMatchingPattern")
   private Long bytesNotMatchingPattern = null;
 
@@ -81,6 +84,9 @@ public class MigrationStat {
 
   @JsonProperty("objectsFailed")
   private Long objectsFailed = null;
+
+  @JsonProperty("objectsGlacierRestoreStarted")
+  private Long objectsGlacierRestoreStarted = null;
 
   @JsonProperty("objectsNotMatchingPattern")
   private Long objectsNotMatchingPattern = null;
@@ -285,6 +291,24 @@ public class MigrationStat {
 
   public void setBytesFailed(Long bytesFailed) {
     this.bytesFailed = bytesFailed;
+  }
+
+  public MigrationStat bytesGlacierRestoreStarted(Long bytesGlacierRestoreStarted) {
+    this.bytesGlacierRestoreStarted = bytesGlacierRestoreStarted;
+    return this;
+  }
+
+   /**
+   * Get bytesGlacierRestoreStarted
+   * @return bytesGlacierRestoreStarted
+  **/
+  @ApiModelProperty(value = "")
+  public Long getBytesGlacierRestoreStarted() {
+    return bytesGlacierRestoreStarted;
+  }
+
+  public void setBytesGlacierRestoreStarted(Long bytesGlacierRestoreStarted) {
+    this.bytesGlacierRestoreStarted = bytesGlacierRestoreStarted;
   }
 
   public MigrationStat bytesNotMatchingPattern(Long bytesNotMatchingPattern) {
@@ -519,6 +543,24 @@ public class MigrationStat {
 
   public void setObjectsFailed(Long objectsFailed) {
     this.objectsFailed = objectsFailed;
+  }
+
+  public MigrationStat objectsGlacierRestoreStarted(Long objectsGlacierRestoreStarted) {
+    this.objectsGlacierRestoreStarted = objectsGlacierRestoreStarted;
+    return this;
+  }
+
+   /**
+   * Get objectsGlacierRestoreStarted
+   * @return objectsGlacierRestoreStarted
+  **/
+  @ApiModelProperty(value = "")
+  public Long getObjectsGlacierRestoreStarted() {
+    return objectsGlacierRestoreStarted;
+  }
+
+  public void setObjectsGlacierRestoreStarted(Long objectsGlacierRestoreStarted) {
+    this.objectsGlacierRestoreStarted = objectsGlacierRestoreStarted;
   }
 
   public MigrationStat objectsNotMatchingPattern(Long objectsNotMatchingPattern) {
@@ -805,6 +847,7 @@ public class MigrationStat {
         Objects.equals(this.activeSlots, migrationStat.activeSlots) &&
         Objects.equals(this.activeStreams, migrationStat.activeStreams) &&
         Objects.equals(this.bytesFailed, migrationStat.bytesFailed) &&
+        Objects.equals(this.bytesGlacierRestoreStarted, migrationStat.bytesGlacierRestoreStarted) &&
         Objects.equals(this.bytesNotMatchingPattern, migrationStat.bytesNotMatchingPattern) &&
         Objects.equals(this.bytesProcessed, migrationStat.bytesProcessed) &&
         Objects.equals(this.bytesSkipped, migrationStat.bytesSkipped) &&
@@ -818,6 +861,7 @@ public class MigrationStat {
         Objects.equals(this.initialBytes, migrationStat.initialBytes) &&
         Objects.equals(this.initialObjects, migrationStat.initialObjects) &&
         Objects.equals(this.objectsFailed, migrationStat.objectsFailed) &&
+        Objects.equals(this.objectsGlacierRestoreStarted, migrationStat.objectsGlacierRestoreStarted) &&
         Objects.equals(this.objectsNotMatchingPattern, migrationStat.objectsNotMatchingPattern) &&
         Objects.equals(this.objectsProcessed, migrationStat.objectsProcessed) &&
         Objects.equals(this.objectsSkipped, migrationStat.objectsSkipped) &&
@@ -837,7 +881,7 @@ public class MigrationStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeEngines, activeSlots, activeStreams, bytesFailed, bytesNotMatchingPattern, bytesProcessed, bytesSkipped, bytesSkippedGlacier, bytesUploaded, cleanup, created, dstRegion, estimated, finished, initialBytes, initialObjects, objectsFailed, objectsNotMatchingPattern, objectsProcessed, objectsSkipped, objectsSkippedGlacier, objectsUploaded, processingObjectsPerSecond, progress, retried, srcRegion, started, state, step, totalUpload, uploadingBytesPerSecond, uploadingObjectsPerSecond);
+    return Objects.hash(activeEngines, activeSlots, activeStreams, bytesFailed, bytesGlacierRestoreStarted, bytesNotMatchingPattern, bytesProcessed, bytesSkipped, bytesSkippedGlacier, bytesUploaded, cleanup, created, dstRegion, estimated, finished, initialBytes, initialObjects, objectsFailed, objectsGlacierRestoreStarted, objectsNotMatchingPattern, objectsProcessed, objectsSkipped, objectsSkippedGlacier, objectsUploaded, processingObjectsPerSecond, progress, retried, srcRegion, started, state, step, totalUpload, uploadingBytesPerSecond, uploadingObjectsPerSecond);
   }
 
 
@@ -850,6 +894,7 @@ public class MigrationStat {
     sb.append("    activeSlots: ").append(toIndentedString(activeSlots)).append("\n");
     sb.append("    activeStreams: ").append(toIndentedString(activeStreams)).append("\n");
     sb.append("    bytesFailed: ").append(toIndentedString(bytesFailed)).append("\n");
+    sb.append("    bytesGlacierRestoreStarted: ").append(toIndentedString(bytesGlacierRestoreStarted)).append("\n");
     sb.append("    bytesNotMatchingPattern: ").append(toIndentedString(bytesNotMatchingPattern)).append("\n");
     sb.append("    bytesProcessed: ").append(toIndentedString(bytesProcessed)).append("\n");
     sb.append("    bytesSkipped: ").append(toIndentedString(bytesSkipped)).append("\n");
@@ -863,6 +908,7 @@ public class MigrationStat {
     sb.append("    initialBytes: ").append(toIndentedString(initialBytes)).append("\n");
     sb.append("    initialObjects: ").append(toIndentedString(initialObjects)).append("\n");
     sb.append("    objectsFailed: ").append(toIndentedString(objectsFailed)).append("\n");
+    sb.append("    objectsGlacierRestoreStarted: ").append(toIndentedString(objectsGlacierRestoreStarted)).append("\n");
     sb.append("    objectsNotMatchingPattern: ").append(toIndentedString(objectsNotMatchingPattern)).append("\n");
     sb.append("    objectsProcessed: ").append(toIndentedString(objectsProcessed)).append("\n");
     sb.append("    objectsSkipped: ").append(toIndentedString(objectsSkipped)).append("\n");

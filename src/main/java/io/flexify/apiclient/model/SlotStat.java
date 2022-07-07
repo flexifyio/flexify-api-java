@@ -39,6 +39,9 @@ public class SlotStat {
   @JsonProperty("bytesFailed")
   private Long bytesFailed = null;
 
+  @JsonProperty("bytesGlacierRestoreStarted")
+  private Long bytesGlacierRestoreStarted = null;
+
   @JsonProperty("bytesNotMatchingPattern")
   private Long bytesNotMatchingPattern = null;
 
@@ -62,6 +65,9 @@ public class SlotStat {
 
   @JsonProperty("objectsFailed")
   private Long objectsFailed = null;
+
+  @JsonProperty("objectsGlacierRestoreStarted")
+  private Long objectsGlacierRestoreStarted = null;
 
   @JsonProperty("objectsNotMatchingPattern")
   private Long objectsNotMatchingPattern = null;
@@ -207,6 +213,24 @@ public class SlotStat {
     this.bytesFailed = bytesFailed;
   }
 
+  public SlotStat bytesGlacierRestoreStarted(Long bytesGlacierRestoreStarted) {
+    this.bytesGlacierRestoreStarted = bytesGlacierRestoreStarted;
+    return this;
+  }
+
+   /**
+   * Get bytesGlacierRestoreStarted
+   * @return bytesGlacierRestoreStarted
+  **/
+  @ApiModelProperty(value = "")
+  public Long getBytesGlacierRestoreStarted() {
+    return bytesGlacierRestoreStarted;
+  }
+
+  public void setBytesGlacierRestoreStarted(Long bytesGlacierRestoreStarted) {
+    this.bytesGlacierRestoreStarted = bytesGlacierRestoreStarted;
+  }
+
   public SlotStat bytesNotMatchingPattern(Long bytesNotMatchingPattern) {
     this.bytesNotMatchingPattern = bytesNotMatchingPattern;
     return this;
@@ -349,6 +373,24 @@ public class SlotStat {
 
   public void setObjectsFailed(Long objectsFailed) {
     this.objectsFailed = objectsFailed;
+  }
+
+  public SlotStat objectsGlacierRestoreStarted(Long objectsGlacierRestoreStarted) {
+    this.objectsGlacierRestoreStarted = objectsGlacierRestoreStarted;
+    return this;
+  }
+
+   /**
+   * Get objectsGlacierRestoreStarted
+   * @return objectsGlacierRestoreStarted
+  **/
+  @ApiModelProperty(value = "")
+  public Long getObjectsGlacierRestoreStarted() {
+    return objectsGlacierRestoreStarted;
+  }
+
+  public void setObjectsGlacierRestoreStarted(Long objectsGlacierRestoreStarted) {
+    this.objectsGlacierRestoreStarted = objectsGlacierRestoreStarted;
   }
 
   public SlotStat objectsNotMatchingPattern(Long objectsNotMatchingPattern) {
@@ -598,6 +640,7 @@ public class SlotStat {
     return Objects.equals(this.activeEngines, slotStat.activeEngines) &&
         Objects.equals(this.activeStreams, slotStat.activeStreams) &&
         Objects.equals(this.bytesFailed, slotStat.bytesFailed) &&
+        Objects.equals(this.bytesGlacierRestoreStarted, slotStat.bytesGlacierRestoreStarted) &&
         Objects.equals(this.bytesNotMatchingPattern, slotStat.bytesNotMatchingPattern) &&
         Objects.equals(this.bytesProcessed, slotStat.bytesProcessed) &&
         Objects.equals(this.bytesSkipped, slotStat.bytesSkipped) &&
@@ -606,6 +649,7 @@ public class SlotStat {
         Objects.equals(this.dstRegion, slotStat.dstRegion) &&
         Objects.equals(this.finished, slotStat.finished) &&
         Objects.equals(this.objectsFailed, slotStat.objectsFailed) &&
+        Objects.equals(this.objectsGlacierRestoreStarted, slotStat.objectsGlacierRestoreStarted) &&
         Objects.equals(this.objectsNotMatchingPattern, slotStat.objectsNotMatchingPattern) &&
         Objects.equals(this.objectsProcessed, slotStat.objectsProcessed) &&
         Objects.equals(this.objectsSkipped, slotStat.objectsSkipped) &&
@@ -623,7 +667,7 @@ public class SlotStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeEngines, activeStreams, bytesFailed, bytesNotMatchingPattern, bytesProcessed, bytesSkipped, bytesSkippedGlacier, bytesUploaded, dstRegion, finished, objectsFailed, objectsNotMatchingPattern, objectsProcessed, objectsSkipped, objectsSkippedGlacier, objectsUploaded, processingObjectsPerSecond, retried, srcRegion, started, state, totalUpload, uploadingBytesPerSecond, uploadingObjectsPerSecond);
+    return Objects.hash(activeEngines, activeStreams, bytesFailed, bytesGlacierRestoreStarted, bytesNotMatchingPattern, bytesProcessed, bytesSkipped, bytesSkippedGlacier, bytesUploaded, dstRegion, finished, objectsFailed, objectsGlacierRestoreStarted, objectsNotMatchingPattern, objectsProcessed, objectsSkipped, objectsSkippedGlacier, objectsUploaded, processingObjectsPerSecond, retried, srcRegion, started, state, totalUpload, uploadingBytesPerSecond, uploadingObjectsPerSecond);
   }
 
 
@@ -635,6 +679,7 @@ public class SlotStat {
     sb.append("    activeEngines: ").append(toIndentedString(activeEngines)).append("\n");
     sb.append("    activeStreams: ").append(toIndentedString(activeStreams)).append("\n");
     sb.append("    bytesFailed: ").append(toIndentedString(bytesFailed)).append("\n");
+    sb.append("    bytesGlacierRestoreStarted: ").append(toIndentedString(bytesGlacierRestoreStarted)).append("\n");
     sb.append("    bytesNotMatchingPattern: ").append(toIndentedString(bytesNotMatchingPattern)).append("\n");
     sb.append("    bytesProcessed: ").append(toIndentedString(bytesProcessed)).append("\n");
     sb.append("    bytesSkipped: ").append(toIndentedString(bytesSkipped)).append("\n");
@@ -643,6 +688,7 @@ public class SlotStat {
     sb.append("    dstRegion: ").append(toIndentedString(dstRegion)).append("\n");
     sb.append("    finished: ").append(toIndentedString(finished)).append("\n");
     sb.append("    objectsFailed: ").append(toIndentedString(objectsFailed)).append("\n");
+    sb.append("    objectsGlacierRestoreStarted: ").append(toIndentedString(objectsGlacierRestoreStarted)).append("\n");
     sb.append("    objectsNotMatchingPattern: ").append(toIndentedString(objectsNotMatchingPattern)).append("\n");
     sb.append("    objectsProcessed: ").append(toIndentedString(objectsProcessed)).append("\n");
     sb.append("    objectsSkipped: ").append(toIndentedString(objectsSkipped)).append("\n");
