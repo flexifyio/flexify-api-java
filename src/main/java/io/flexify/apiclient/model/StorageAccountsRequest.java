@@ -32,34 +32,34 @@ import java.util.List;
 
 
 
-public class AttachStorageAccountsRequest {
-  @JsonProperty("newStorageAccounts")
-  private List<EndpointStorageAccountReq> newStorageAccounts = null;
+public class StorageAccountsRequest {
+  @JsonProperty("storageAccounts")
+  private List<EndpointStorageAccountReq> storageAccounts = null;
 
-  public AttachStorageAccountsRequest newStorageAccounts(List<EndpointStorageAccountReq> newStorageAccounts) {
-    this.newStorageAccounts = newStorageAccounts;
+  public StorageAccountsRequest storageAccounts(List<EndpointStorageAccountReq> storageAccounts) {
+    this.storageAccounts = storageAccounts;
     return this;
   }
 
-  public AttachStorageAccountsRequest addNewStorageAccountsItem(EndpointStorageAccountReq newStorageAccountsItem) {
-    if (this.newStorageAccounts == null) {
-      this.newStorageAccounts = new ArrayList<EndpointStorageAccountReq>();
+  public StorageAccountsRequest addStorageAccountsItem(EndpointStorageAccountReq storageAccountsItem) {
+    if (this.storageAccounts == null) {
+      this.storageAccounts = new ArrayList<EndpointStorageAccountReq>();
     }
-    this.newStorageAccounts.add(newStorageAccountsItem);
+    this.storageAccounts.add(storageAccountsItem);
     return this;
   }
 
    /**
    * A list of endpoint storage accounts to attach
-   * @return newStorageAccounts
+   * @return storageAccounts
   **/
   @ApiModelProperty(value = "A list of endpoint storage accounts to attach")
-  public List<EndpointStorageAccountReq> getNewStorageAccounts() {
-    return newStorageAccounts;
+  public List<EndpointStorageAccountReq> getStorageAccounts() {
+    return storageAccounts;
   }
 
-  public void setNewStorageAccounts(List<EndpointStorageAccountReq> newStorageAccounts) {
-    this.newStorageAccounts = newStorageAccounts;
+  public void setStorageAccounts(List<EndpointStorageAccountReq> storageAccounts) {
+    this.storageAccounts = storageAccounts;
   }
 
 
@@ -71,22 +71,22 @@ public class AttachStorageAccountsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttachStorageAccountsRequest attachStorageAccountsRequest = (AttachStorageAccountsRequest) o;
-    return Objects.equals(this.newStorageAccounts, attachStorageAccountsRequest.newStorageAccounts);
+    StorageAccountsRequest storageAccountsRequest = (StorageAccountsRequest) o;
+    return Objects.equals(this.storageAccounts, storageAccountsRequest.storageAccounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newStorageAccounts);
+    return Objects.hash(storageAccounts);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttachStorageAccountsRequest {\n");
+    sb.append("class StorageAccountsRequest {\n");
     
-    sb.append("    newStorageAccounts: ").append(toIndentedString(newStorageAccounts)).append("\n");
+    sb.append("    storageAccounts: ").append(toIndentedString(storageAccounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

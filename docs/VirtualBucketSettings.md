@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bucketName** | **String** | Backet name | 
+**bucketName** | **String** | Bucket name | 
 
 
 

@@ -39,10 +39,10 @@ public class VirtualBucketSettings {
   }
 
    /**
-   * Backet name
+   * Bucket name
    * @return bucketName
   **/
-  @ApiModelProperty(example = "flexifyio", required = true, value = "Backet name")
+  @ApiModelProperty(example = "fl-demo", required = true, value = "Bucket name")
   public String getBucketName() {
     return bucketName;
   }

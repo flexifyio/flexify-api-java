@@ -32,34 +32,34 @@ import java.util.List;
 
 
 
-public class AttachVirtualBucketStoragesRequest {
-  @JsonProperty("newStorages")
-  private List<VirtualBucketStorageReq> newStorages = null;
+public class VirtualBucketStoragesRequest {
+  @JsonProperty("storages")
+  private List<VirtualBucketStorageReq> storages = null;
 
-  public AttachVirtualBucketStoragesRequest newStorages(List<VirtualBucketStorageReq> newStorages) {
-    this.newStorages = newStorages;
+  public VirtualBucketStoragesRequest storages(List<VirtualBucketStorageReq> storages) {
+    this.storages = storages;
     return this;
   }
 
-  public AttachVirtualBucketStoragesRequest addNewStoragesItem(VirtualBucketStorageReq newStoragesItem) {
-    if (this.newStorages == null) {
-      this.newStorages = new ArrayList<VirtualBucketStorageReq>();
+  public VirtualBucketStoragesRequest addStoragesItem(VirtualBucketStorageReq storagesItem) {
+    if (this.storages == null) {
+      this.storages = new ArrayList<VirtualBucketStorageReq>();
     }
-    this.newStorages.add(newStoragesItem);
+    this.storages.add(storagesItem);
     return this;
   }
 
    /**
-   * A list of storagea to accounts to virtual bucket
-   * @return newStorages
+   * A list of storages to accounts to virtual bucket
+   * @return storages
   **/
-  @ApiModelProperty(value = "A list of storagea to accounts to virtual bucket")
-  public List<VirtualBucketStorageReq> getNewStorages() {
-    return newStorages;
+  @ApiModelProperty(value = "A list of storages to accounts to virtual bucket")
+  public List<VirtualBucketStorageReq> getStorages() {
+    return storages;
   }
 
-  public void setNewStorages(List<VirtualBucketStorageReq> newStorages) {
-    this.newStorages = newStorages;
+  public void setStorages(List<VirtualBucketStorageReq> storages) {
+    this.storages = storages;
   }
 
 
@@ -71,22 +71,22 @@ public class AttachVirtualBucketStoragesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttachVirtualBucketStoragesRequest attachVirtualBucketStoragesRequest = (AttachVirtualBucketStoragesRequest) o;
-    return Objects.equals(this.newStorages, attachVirtualBucketStoragesRequest.newStorages);
+    VirtualBucketStoragesRequest virtualBucketStoragesRequest = (VirtualBucketStoragesRequest) o;
+    return Objects.equals(this.storages, virtualBucketStoragesRequest.storages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newStorages);
+    return Objects.hash(storages);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttachVirtualBucketStoragesRequest {\n");
+    sb.append("class VirtualBucketStoragesRequest {\n");
     
-    sb.append("    newStorages: ").append(toIndentedString(newStorages)).append("\n");
+    sb.append("    storages: ").append(toIndentedString(storages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

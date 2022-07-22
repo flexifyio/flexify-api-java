@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**attachAccounts**](EndpointsControllerApi.md#attachAccounts) | **POST** /backend/rest/endpoints/{endpoint-id}/storage-accounts | Attach storage accounts to the endpoint
 [**attachBuckets**](EndpointsControllerApi.md#attachBuckets) | **POST** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets | Attach storages to the virtual bucket
+[**changeAccounts**](EndpointsControllerApi.md#changeAccounts) | **PUT** /backend/rest/endpoints/{endpoint-id}/storage-accounts | Modified all storage accounts to the endpoint
+[**changeBuckets**](EndpointsControllerApi.md#changeBuckets) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets | Replaces the list of storages attached to the virtual bucket
 [**createEndpoint**](EndpointsControllerApi.md#createEndpoint) | **POST** /backend/rest/endpoints | Creates new endpoint
 [**createVirtualBucket**](EndpointsControllerApi.md#createVirtualBucket) | **POST** /backend/rest/endpoints/{endpoint-id}/virtual-buckets | Creates new virtual bucket
 [**delete**](EndpointsControllerApi.md#delete) | **DELETE** /backend/rest/endpoints/{endpoint-id} | Delete the endpoint
@@ -48,7 +50,7 @@ Bearer.setApiKey("YOUR API KEY");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
-AttachStorageAccountsRequest request = new AttachStorageAccountsRequest(); // AttachStorageAccountsRequest | request
+StorageAccountsRequest request = new StorageAccountsRequest(); // StorageAccountsRequest | request
 try {
     apiInstance.attachAccounts(endpointId, request);
 } catch (ApiException e) {
@@ -62,7 +64,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **endpointId** | **Long**| endpoint-id |
- **request** | [**AttachStorageAccountsRequest**](AttachStorageAccountsRequest.md)| request |
+ **request** | [**StorageAccountsRequest**](StorageAccountsRequest.md)| request |
 
 ### Return type
 
@@ -102,7 +104,7 @@ Bearer.setApiKey("YOUR API KEY");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
-AttachVirtualBucketStoragesRequest request = new AttachVirtualBucketStoragesRequest(); // AttachVirtualBucketStoragesRequest | request
+VirtualBucketStoragesRequest request = new VirtualBucketStoragesRequest(); // VirtualBucketStoragesRequest | request
 String virtualBucket = "virtualBucket_example"; // String | virtual-bucket
 try {
     apiInstance.attachBuckets(endpointId, request, virtualBucket);
@@ -117,7 +119,117 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **endpointId** | **Long**| endpoint-id |
- **request** | [**AttachVirtualBucketStoragesRequest**](AttachVirtualBucketStoragesRequest.md)| request |
+ **request** | [**VirtualBucketStoragesRequest**](VirtualBucketStoragesRequest.md)| request |
+ **virtualBucket** | **String**| virtual-bucket |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="changeAccounts"></a>
+# **changeAccounts**
+> changeAccounts(endpointId, request)
+
+Modified all storage accounts to the endpoint
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.EndpointsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+EndpointsControllerApi apiInstance = new EndpointsControllerApi();
+Long endpointId = 789L; // Long | endpoint-id
+StorageAccountsRequest request = new StorageAccountsRequest(); // StorageAccountsRequest | request
+try {
+    apiInstance.changeAccounts(endpointId, request);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsControllerApi#changeAccounts");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **endpointId** | **Long**| endpoint-id |
+ **request** | [**StorageAccountsRequest**](StorageAccountsRequest.md)| request |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="changeBuckets"></a>
+# **changeBuckets**
+> changeBuckets(endpointId, request, virtualBucket)
+
+Replaces the list of storages attached to the virtual bucket
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.EndpointsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+EndpointsControllerApi apiInstance = new EndpointsControllerApi();
+Long endpointId = 789L; // Long | endpoint-id
+VirtualBucketStoragesRequest request = new VirtualBucketStoragesRequest(); // VirtualBucketStoragesRequest | request
+String virtualBucket = "virtualBucket_example"; // String | virtual-bucket
+try {
+    apiInstance.changeBuckets(endpointId, request, virtualBucket);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsControllerApi#changeBuckets");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **endpointId** | **Long**| endpoint-id |
+ **request** | [**VirtualBucketStoragesRequest**](VirtualBucketStoragesRequest.md)| request |
  **virtualBucket** | **String**| virtual-bucket |
 
 ### Return type

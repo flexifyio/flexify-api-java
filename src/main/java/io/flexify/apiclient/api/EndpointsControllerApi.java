@@ -9,15 +9,15 @@ import io.flexify.apiclient.handler.Pair;
 import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.AccessKeysPair;
-import io.flexify.apiclient.model.AttachStorageAccountsRequest;
-import io.flexify.apiclient.model.AttachVirtualBucketStoragesRequest;
 import io.flexify.apiclient.model.CreateVirtualBucketRequest;
 import io.flexify.apiclient.model.EndpointDetails;
 import io.flexify.apiclient.model.EndpointSettings;
 import io.flexify.apiclient.model.EndpointStorageAccountSettings;
 import io.flexify.apiclient.model.IdResponse;
+import io.flexify.apiclient.model.StorageAccountsRequest;
 import io.flexify.apiclient.model.VirtualBucketSettings;
 import io.flexify.apiclient.model.VirtualBucketStorageSettings;
+import io.flexify.apiclient.model.VirtualBucketStoragesRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,7 +51,7 @@ public class EndpointsControllerApi {
    * @param request request (required)
    * @throws ApiException if fails to make API call
    */
-  public void attachAccounts(Long endpointId, AttachStorageAccountsRequest request) throws ApiException {
+  public void attachAccounts(Long endpointId, StorageAccountsRequest request) throws ApiException {
 
     attachAccountsWithHttpInfo(endpointId, request);
   }
@@ -63,7 +63,7 @@ public class EndpointsControllerApi {
    * @param request request (required)
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> attachAccountsWithHttpInfo(Long endpointId, AttachStorageAccountsRequest request) throws ApiException {
+  public ApiResponse<Void> attachAccountsWithHttpInfo(Long endpointId, StorageAccountsRequest request) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'endpointId' is set
@@ -111,7 +111,7 @@ public class EndpointsControllerApi {
    * @param virtualBucket virtual-bucket (required)
    * @throws ApiException if fails to make API call
    */
-  public void attachBuckets(Long endpointId, AttachVirtualBucketStoragesRequest request, String virtualBucket) throws ApiException {
+  public void attachBuckets(Long endpointId, VirtualBucketStoragesRequest request, String virtualBucket) throws ApiException {
 
     attachBucketsWithHttpInfo(endpointId, request, virtualBucket);
   }
@@ -124,7 +124,7 @@ public class EndpointsControllerApi {
    * @param virtualBucket virtual-bucket (required)
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> attachBucketsWithHttpInfo(Long endpointId, AttachVirtualBucketStoragesRequest request, String virtualBucket) throws ApiException {
+  public ApiResponse<Void> attachBucketsWithHttpInfo(Long endpointId, VirtualBucketStoragesRequest request, String virtualBucket) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'endpointId' is set
@@ -169,6 +169,132 @@ public class EndpointsControllerApi {
 
 
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Modified all storage accounts to the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void changeAccounts(Long endpointId, StorageAccountsRequest request) throws ApiException {
+
+    changeAccountsWithHttpInfo(endpointId, request);
+  }
+
+  /**
+   * Modified all storage accounts to the endpoint
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> changeAccountsWithHttpInfo(Long endpointId, StorageAccountsRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling changeAccounts");
+    }
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling changeAccounts");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/storage-accounts"
+      .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Replaces the list of storages attached to the virtual bucket
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param request request (required)
+   * @param virtualBucket virtual-bucket (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void changeBuckets(Long endpointId, VirtualBucketStoragesRequest request, String virtualBucket) throws ApiException {
+
+    changeBucketsWithHttpInfo(endpointId, request, virtualBucket);
+  }
+
+  /**
+   * Replaces the list of storages attached to the virtual bucket
+   * 
+   * @param endpointId endpoint-id (required)
+   * @param request request (required)
+   * @param virtualBucket virtual-bucket (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> changeBucketsWithHttpInfo(Long endpointId, VirtualBucketStoragesRequest request, String virtualBucket) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling changeBuckets");
+    }
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling changeBuckets");
+    }
+    
+    // verify the required parameter 'virtualBucket' is set
+    if (virtualBucket == null) {
+      throw new ApiException(400, "Missing the required parameter 'virtualBucket' when calling changeBuckets");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets"
+      .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()))
+      .replaceAll("\\{" + "virtual-bucket" + "\\}", apiClient.escapeString(virtualBucket.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Creates new endpoint

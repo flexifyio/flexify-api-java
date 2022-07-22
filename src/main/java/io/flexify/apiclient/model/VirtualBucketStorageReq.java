@@ -43,10 +43,10 @@ public class VirtualBucketStorageReq {
   }
 
    /**
-   * Id of atatched bucket
+   * ID of attached bucket
    * @return bucketId
   **/
-  @ApiModelProperty(value = "Id of atatched bucket")
+  @ApiModelProperty(value = "ID of attached bucket")
   public Long getBucketId() {
     return bucketId;
   }

@@ -80,6 +80,8 @@ Class | Method | HTTP request | Description
 *CostEstimateControllerApi* | [**estimateMigrationCost**](docs/CostEstimateControllerApi.md#estimateMigrationCost) | **POST** /backend/rest/cost/migration | estimateMigrationCost
 *EndpointsControllerApi* | [**attachAccounts**](docs/EndpointsControllerApi.md#attachAccounts) | **POST** /backend/rest/endpoints/{endpoint-id}/storage-accounts | Attach storage accounts to the endpoint
 *EndpointsControllerApi* | [**attachBuckets**](docs/EndpointsControllerApi.md#attachBuckets) | **POST** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets | Attach storages to the virtual bucket
+*EndpointsControllerApi* | [**changeAccounts**](docs/EndpointsControllerApi.md#changeAccounts) | **PUT** /backend/rest/endpoints/{endpoint-id}/storage-accounts | Modified all storage accounts to the endpoint
+*EndpointsControllerApi* | [**changeBuckets**](docs/EndpointsControllerApi.md#changeBuckets) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets | Replaces the list of storages attached to the virtual bucket
 *EndpointsControllerApi* | [**createEndpoint**](docs/EndpointsControllerApi.md#createEndpoint) | **POST** /backend/rest/endpoints | Creates new endpoint
 *EndpointsControllerApi* | [**createVirtualBucket**](docs/EndpointsControllerApi.md#createVirtualBucket) | **POST** /backend/rest/endpoints/{endpoint-id}/virtual-buckets | Creates new virtual bucket
 *EndpointsControllerApi* | [**delete**](docs/EndpointsControllerApi.md#delete) | **DELETE** /backend/rest/endpoints/{endpoint-id} | Delete the endpoint
@@ -199,8 +201,6 @@ Class | Method | HTTP request | Description
  - [AddMigrationRequest](docs/AddMigrationRequest.md)
  - [AddMigrationRequestMapping](docs/AddMigrationRequestMapping.md)
  - [AddStorageAccountRequest](docs/AddStorageAccountRequest.md)
- - [AttachStorageAccountsRequest](docs/AttachStorageAccountsRequest.md)
- - [AttachVirtualBucketStoragesRequest](docs/AttachVirtualBucketStoragesRequest.md)
  - [AuthAppInfo](docs/AuthAppInfo.md)
  - [AuthenticationRequest](docs/AuthenticationRequest.md)
  - [AuthenticationResponse](docs/AuthenticationResponse.md)
@@ -273,6 +273,7 @@ Class | Method | HTTP request | Description
  - [StorageAccountSettingsRes](docs/StorageAccountSettingsRes.md)
  - [StorageAccountStat](docs/StorageAccountStat.md)
  - [StorageAccountWithBuckets](docs/StorageAccountWithBuckets.md)
+ - [StorageAccountsRequest](docs/StorageAccountsRequest.md)
  - [StorageProvider](docs/StorageProvider.md)
  - [TokenConfiguration](docs/TokenConfiguration.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
@@ -286,6 +287,7 @@ Class | Method | HTTP request | Description
  - [VirtualBucketStorageReq](docs/VirtualBucketStorageReq.md)
  - [VirtualBucketStorageRes](docs/VirtualBucketStorageRes.md)
  - [VirtualBucketStorageSettings](docs/VirtualBucketStorageSettings.md)
+ - [VirtualBucketStoragesRequest](docs/VirtualBucketStoragesRequest.md)
 
 
 ## Documentation for Authorization
