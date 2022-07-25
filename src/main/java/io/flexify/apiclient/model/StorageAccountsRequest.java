@@ -25,41 +25,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Request to attach a number of storage accounts to endpoint
+ * Request to set or attach a number of storage accounts to endpoint
  */
-@ApiModel(description = "Request to attach a number of storage accounts to endpoint")
+@ApiModel(description = "Request to set or attach a number of storage accounts to endpoint")
 
 
 
 
 public class StorageAccountsRequest {
-  @JsonProperty("storageAccounts")
-  private List<EndpointStorageAccountReq> storageAccounts = null;
+  @JsonProperty("newStorageAccounts")
+  private List<EndpointStorageAccountReq> newStorageAccounts = null;
 
-  public StorageAccountsRequest storageAccounts(List<EndpointStorageAccountReq> storageAccounts) {
-    this.storageAccounts = storageAccounts;
+  public StorageAccountsRequest newStorageAccounts(List<EndpointStorageAccountReq> newStorageAccounts) {
+    this.newStorageAccounts = newStorageAccounts;
     return this;
   }
 
-  public StorageAccountsRequest addStorageAccountsItem(EndpointStorageAccountReq storageAccountsItem) {
-    if (this.storageAccounts == null) {
-      this.storageAccounts = new ArrayList<EndpointStorageAccountReq>();
+  public StorageAccountsRequest addNewStorageAccountsItem(EndpointStorageAccountReq newStorageAccountsItem) {
+    if (this.newStorageAccounts == null) {
+      this.newStorageAccounts = new ArrayList<EndpointStorageAccountReq>();
     }
-    this.storageAccounts.add(storageAccountsItem);
+    this.newStorageAccounts.add(newStorageAccountsItem);
     return this;
   }
 
    /**
-   * A list of endpoint storage accounts to attach
-   * @return storageAccounts
+   * A list of endpoint storage accounts to set or attach
+   * @return newStorageAccounts
   **/
-  @ApiModelProperty(value = "A list of endpoint storage accounts to attach")
-  public List<EndpointStorageAccountReq> getStorageAccounts() {
-    return storageAccounts;
+  @ApiModelProperty(value = "A list of endpoint storage accounts to set or attach")
+  public List<EndpointStorageAccountReq> getNewStorageAccounts() {
+    return newStorageAccounts;
   }
 
-  public void setStorageAccounts(List<EndpointStorageAccountReq> storageAccounts) {
-    this.storageAccounts = storageAccounts;
+  public void setNewStorageAccounts(List<EndpointStorageAccountReq> newStorageAccounts) {
+    this.newStorageAccounts = newStorageAccounts;
   }
 
 
@@ -72,12 +72,12 @@ public class StorageAccountsRequest {
       return false;
     }
     StorageAccountsRequest storageAccountsRequest = (StorageAccountsRequest) o;
-    return Objects.equals(this.storageAccounts, storageAccountsRequest.storageAccounts);
+    return Objects.equals(this.newStorageAccounts, storageAccountsRequest.newStorageAccounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storageAccounts);
+    return Objects.hash(newStorageAccounts);
   }
 
 
@@ -86,7 +86,7 @@ public class StorageAccountsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageAccountsRequest {\n");
     
-    sb.append("    storageAccounts: ").append(toIndentedString(storageAccounts)).append("\n");
+    sb.append("    newStorageAccounts: ").append(toIndentedString(newStorageAccounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
