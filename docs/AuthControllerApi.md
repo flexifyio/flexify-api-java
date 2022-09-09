@@ -5,14 +5,14 @@ All URIs are relative to *https://api.flexify.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authenticate**](AuthControllerApi.md#authenticate) | **POST** /backend/rest/auth | Generate new access token for the user
-[**authorize**](AuthControllerApi.md#authorize) | **POST** /backend/rest/auth/authorize | Authorization check of given token
+[**checkTokenAndGetUser**](AuthControllerApi.md#checkTokenAndGetUser) | **GET** /backend/rest/auth/user | Check of given token
 [**getConfig**](AuthControllerApi.md#getConfig) | **GET** /backend/rest/auth/config | Logout
 [**logout**](AuthControllerApi.md#logout) | **POST** /backend/rest/auth/logout | Logout
 
 
 <a name="authenticate"></a>
 # **authenticate**
-> Object authenticate(authenticationRequest)
+> AuthenticationResponse authenticate(authenticationRequest)
 
 Generate new access token for the user
 
@@ -26,7 +26,7 @@ Generate new access token for the user
 AuthControllerApi apiInstance = new AuthControllerApi();
 AuthenticationRequest authenticationRequest = new AuthenticationRequest(); // AuthenticationRequest | authenticationRequest
 try {
-    Object result = apiInstance.authenticate(authenticationRequest);
+    AuthenticationResponse result = apiInstance.authenticate(authenticationRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthControllerApi#authenticate");
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**AuthenticationResponse**](AuthenticationResponse.md)
 
 ### Authorization
 
@@ -53,11 +53,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="authorize"></a>
-# **authorize**
-> Object authorize()
+<a name="checkTokenAndGetUser"></a>
+# **checkTokenAndGetUser**
+> AuthCheckTokenAndGetUserResponse checkTokenAndGetUser()
 
-Authorization check of given token
+Check of given token
 
 ### Example
 ```java
@@ -78,10 +78,10 @@ Bearer.setApiKey("YOUR API KEY");
 
 AuthControllerApi apiInstance = new AuthControllerApi();
 try {
-    Object result = apiInstance.authorize();
+    AuthCheckTokenAndGetUserResponse result = apiInstance.checkTokenAndGetUser();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthControllerApi#authorize");
+    System.err.println("Exception when calling AuthControllerApi#checkTokenAndGetUser");
     e.printStackTrace();
 }
 ```
@@ -91,7 +91,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**AuthCheckTokenAndGetUserResponse**](AuthCheckTokenAndGetUserResponse.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 <a name="getConfig"></a>

@@ -8,7 +8,9 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import io.flexify.apiclient.model.AuthCheckTokenAndGetUserResponse;
 import io.flexify.apiclient.model.AuthenticationRequest;
+import io.flexify.apiclient.model.AuthenticationResponse;
 import io.flexify.apiclient.model.LogoutRequest;
 import io.flexify.apiclient.model.PublicAuthenticationConfiguration;
 
@@ -41,10 +43,10 @@ public class AuthControllerApi {
    * Generate new access token for the user
    * 
    * @param authenticationRequest authenticationRequest (required)
-   * @return Object
+   * @return AuthenticationResponse
    * @throws ApiException if fails to make API call
    */
-  public Object authenticate(AuthenticationRequest authenticationRequest) throws ApiException {
+  public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) throws ApiException {
     return authenticateWithHttpInfo(authenticationRequest).getData();
       }
 
@@ -52,10 +54,10 @@ public class AuthControllerApi {
    * Generate new access token for the user
    * 
    * @param authenticationRequest authenticationRequest (required)
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;AuthenticationResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Object> authenticateWithHttpInfo(AuthenticationRequest authenticationRequest) throws ApiException {
+  public ApiResponse<AuthenticationResponse> authenticateWithHttpInfo(AuthenticationRequest authenticationRequest) throws ApiException {
     Object localVarPostBody = authenticationRequest;
     
     // verify the required parameter 'authenticationRequest' is set
@@ -86,30 +88,30 @@ public class AuthControllerApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
+    GenericType<AuthenticationResponse> localVarReturnType = new GenericType<AuthenticationResponse>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Authorization check of given token
+   * Check of given token
    * 
-   * @return Object
+   * @return AuthCheckTokenAndGetUserResponse
    * @throws ApiException if fails to make API call
    */
-  public Object authorize() throws ApiException {
-    return authorizeWithHttpInfo().getData();
+  public AuthCheckTokenAndGetUserResponse checkTokenAndGetUser() throws ApiException {
+    return checkTokenAndGetUserWithHttpInfo().getData();
       }
 
   /**
-   * Authorization check of given token
+   * Check of given token
    * 
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;AuthCheckTokenAndGetUserResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Object> authorizeWithHttpInfo() throws ApiException {
+  public ApiResponse<AuthCheckTokenAndGetUserResponse> checkTokenAndGetUserWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/backend/rest/auth/authorize";
+    String localVarPath = "/backend/rest/auth/user";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -125,14 +127,14 @@ public class AuthControllerApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    GenericType<AuthCheckTokenAndGetUserResponse> localVarReturnType = new GenericType<AuthCheckTokenAndGetUserResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Logout
