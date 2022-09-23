@@ -35,6 +35,9 @@ public class StorageAccount {
   @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("isSas")
+  private Boolean isSas = null;
+
   @JsonProperty("privateUrl")
   private String privateUrl = null;
 
@@ -57,6 +60,24 @@ public class StorageAccount {
   @ApiModelProperty(value = "Id of the storage account")
   public Long getId() {
     return id;
+  }
+
+  public StorageAccount isSas(Boolean isSas) {
+    this.isSas = isSas;
+    return this;
+  }
+
+   /**
+   * Get isSas
+   * @return isSas
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsSas() {
+    return isSas;
+  }
+
+  public void setIsSas(Boolean isSas) {
+    this.isSas = isSas;
   }
 
   public StorageAccount privateUrl(String privateUrl) {
@@ -160,6 +181,7 @@ public class StorageAccount {
     }
     StorageAccount storageAccount = (StorageAccount) o;
     return Objects.equals(this.id, storageAccount.id) &&
+        Objects.equals(this.isSas, storageAccount.isSas) &&
         Objects.equals(this.privateUrl, storageAccount.privateUrl) &&
         Objects.equals(this.provider, storageAccount.provider) &&
         Objects.equals(this.settings, storageAccount.settings) &&
@@ -169,7 +191,7 @@ public class StorageAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, privateUrl, provider, settings, stat, url);
+    return Objects.hash(id, isSas, privateUrl, provider, settings, stat, url);
   }
 
 
@@ -179,6 +201,7 @@ public class StorageAccount {
     sb.append("class StorageAccount {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isSas: ").append(toIndentedString(isSas)).append("\n");
     sb.append("    privateUrl: ").append(toIndentedString(privateUrl)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
