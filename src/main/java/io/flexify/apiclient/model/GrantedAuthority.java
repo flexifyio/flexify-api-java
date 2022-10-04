@@ -18,38 +18,36 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.flexify.apiclient.model.VirtualBucketSettings;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Request to create new virtual bucket
+ * GrantedAuthority
  */
-@ApiModel(description = "Request to create new virtual bucket")
 
 
 
 
-public class CreateVirtualBucketRequest {
-  @JsonProperty("settings")
-  private VirtualBucketSettings settings = null;
+public class GrantedAuthority {
+  @JsonProperty("authority")
+  private String authority = null;
 
-  public CreateVirtualBucketRequest settings(VirtualBucketSettings settings) {
-    this.settings = settings;
+  public GrantedAuthority authority(String authority) {
+    this.authority = authority;
     return this;
   }
 
    /**
-   * Settings of the newly created virtual bucket
-   * @return settings
+   * Get authority
+   * @return authority
   **/
-  @ApiModelProperty(value = "Settings of the newly created virtual bucket")
-  public VirtualBucketSettings getSettings() {
-    return settings;
+  @ApiModelProperty(value = "")
+  public String getAuthority() {
+    return authority;
   }
 
-  public void setSettings(VirtualBucketSettings settings) {
-    this.settings = settings;
+  public void setAuthority(String authority) {
+    this.authority = authority;
   }
 
 
@@ -61,22 +59,22 @@ public class CreateVirtualBucketRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateVirtualBucketRequest createVirtualBucketRequest = (CreateVirtualBucketRequest) o;
-    return Objects.equals(this.settings, createVirtualBucketRequest.settings);
+    GrantedAuthority grantedAuthority = (GrantedAuthority) o;
+    return Objects.equals(this.authority, grantedAuthority.authority);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settings);
+    return Objects.hash(authority);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateVirtualBucketRequest {\n");
+    sb.append("class GrantedAuthority {\n");
     
-    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("    authority: ").append(toIndentedString(authority)).append("\n");
     sb.append("}");
     return sb.toString();
   }
