@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.12.10.hf3</version>
+    <version>2.12.10.hf4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.flexify:management-apiclient:2.12.10.hf3"
+compile "io.flexify:management-apiclient:2.12.10.hf4"
 ```
 
 ### Others
@@ -55,7 +55,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/management-apiclient-2.12.10.hf3.jar
+* target/management-apiclient-2.12.10.hf4.jar
 * target/lib/*.jar
 
 ## Getting Started
