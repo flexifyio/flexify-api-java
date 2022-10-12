@@ -24,13 +24,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SetRolesRequest
+ * Check token response
  */
+@ApiModel(description = "Check token response")
 
 
 
 
-public class SetRolesRequest {
+public class AuthCheckTokenAndGetUserResponse {
   /**
    * Gets or Sets roles
    */
@@ -79,12 +80,18 @@ public class SetRolesRequest {
   @JsonProperty("roles")
   private List<RolesEnum> roles = null;
 
-  public SetRolesRequest roles(List<RolesEnum> roles) {
+  @JsonProperty("userId")
+  private Long userId = null;
+
+  @JsonProperty("username")
+  private String username = null;
+
+  public AuthCheckTokenAndGetUserResponse roles(List<RolesEnum> roles) {
     this.roles = roles;
     return this;
   }
 
-  public SetRolesRequest addRolesItem(RolesEnum rolesItem) {
+  public AuthCheckTokenAndGetUserResponse addRolesItem(RolesEnum rolesItem) {
     if (this.roles == null) {
       this.roles = new ArrayList<RolesEnum>();
     }
@@ -105,6 +112,42 @@ public class SetRolesRequest {
     this.roles = roles;
   }
 
+  public AuthCheckTokenAndGetUserResponse userId(Long userId) {
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * Get userId
+   * @return userId
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Long userId) {
+    this.userId = userId;
+  }
+
+  public AuthCheckTokenAndGetUserResponse username(String username) {
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -114,22 +157,26 @@ public class SetRolesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetRolesRequest setRolesRequest = (SetRolesRequest) o;
-    return Objects.equals(this.roles, setRolesRequest.roles);
+    AuthCheckTokenAndGetUserResponse authCheckTokenAndGetUserResponse = (AuthCheckTokenAndGetUserResponse) o;
+    return Objects.equals(this.roles, authCheckTokenAndGetUserResponse.roles) &&
+        Objects.equals(this.userId, authCheckTokenAndGetUserResponse.userId) &&
+        Objects.equals(this.username, authCheckTokenAndGetUserResponse.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roles);
+    return Objects.hash(roles, userId, username);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetRolesRequest {\n");
+    sb.append("class AuthCheckTokenAndGetUserResponse {\n");
     
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

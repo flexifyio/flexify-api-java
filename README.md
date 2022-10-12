@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.12.10.hf4</version>
+    <version>2.12.11-SNAPSHOT</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.flexify:management-apiclient:2.12.10.hf4"
+compile "io.flexify:management-apiclient:2.12.11-SNAPSHOT"
 ```
 
 ### Others
@@ -55,7 +55,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/management-apiclient-2.12.10.hf4.jar
+* target/management-apiclient-2.12.11-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -69,7 +69,7 @@ All URIs are relative to *https://api.flexify.io*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthControllerApi* | [**authenticate**](docs/AuthControllerApi.md#authenticate) | **POST** /backend/rest/auth | Generate new access token for the user
-*AuthControllerApi* | [**authorize**](docs/AuthControllerApi.md#authorize) | **POST** /backend/rest/auth/authorize | Authorization check of given token
+*AuthControllerApi* | [**checkTokenAndGetUser**](docs/AuthControllerApi.md#checkTokenAndGetUser) | **GET** /backend/rest/auth/user | Check of given token
 *AuthControllerApi* | [**getConfig**](docs/AuthControllerApi.md#getConfig) | **GET** /backend/rest/auth/config | Logout
 *AuthControllerApi* | [**logout**](docs/AuthControllerApi.md#logout) | **POST** /backend/rest/auth/logout | Logout
 *BillingAccountControllerApi* | [**getCostsForCurrentUserBillingAccount**](docs/BillingAccountControllerApi.md#getCostsForCurrentUserBillingAccount) | **GET** /backend/rest/account/costs | Get costs for current user
@@ -202,9 +202,9 @@ Class | Method | HTTP request | Description
  - [AddMigrationRequestMapping](docs/AddMigrationRequestMapping.md)
  - [AddStorageAccountRequest](docs/AddStorageAccountRequest.md)
  - [AuthAppInfo](docs/AuthAppInfo.md)
+ - [AuthCheckTokenAndGetUserResponse](docs/AuthCheckTokenAndGetUserResponse.md)
  - [AuthenticationRequest](docs/AuthenticationRequest.md)
  - [AuthenticationResponse](docs/AuthenticationResponse.md)
- - [AuthorizationResponse](docs/AuthorizationResponse.md)
  - [BillingAccount](docs/BillingAccount.md)
  - [Bucket](docs/Bucket.md)
  - [BucketStat](docs/BucketStat.md)
@@ -227,7 +227,6 @@ Class | Method | HTTP request | Description
  - [EndpointStorageAccountReq](docs/EndpointStorageAccountReq.md)
  - [EndpointStorageAccountRes](docs/EndpointStorageAccountRes.md)
  - [EndpointStorageAccountSettings](docs/EndpointStorageAccountSettings.md)
- - [GrantedAuthority](docs/GrantedAuthority.md)
  - [IdResponse](docs/IdResponse.md)
  - [IdsList](docs/IdsList.md)
  - [ImpersonateUser](docs/ImpersonateUser.md)
