@@ -29,8 +29,29 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 public class VirtualBucketStorageSettings {
+  @JsonProperty("deleteObjects")
+  private Boolean deleteObjects = null;
+
   @JsonProperty("putObjects")
   private Boolean putObjects = null;
+
+  public VirtualBucketStorageSettings deleteObjects(Boolean deleteObjects) {
+    this.deleteObjects = deleteObjects;
+    return this;
+  }
+
+   /**
+   * Delete data from this storage
+   * @return deleteObjects
+  **/
+  @ApiModelProperty(value = "Delete data from this storage")
+  public Boolean isDeleteObjects() {
+    return deleteObjects;
+  }
+
+  public void setDeleteObjects(Boolean deleteObjects) {
+    this.deleteObjects = deleteObjects;
+  }
 
   public VirtualBucketStorageSettings putObjects(Boolean putObjects) {
     this.putObjects = putObjects;
@@ -60,12 +81,13 @@ public class VirtualBucketStorageSettings {
       return false;
     }
     VirtualBucketStorageSettings virtualBucketStorageSettings = (VirtualBucketStorageSettings) o;
-    return Objects.equals(this.putObjects, virtualBucketStorageSettings.putObjects);
+    return Objects.equals(this.deleteObjects, virtualBucketStorageSettings.deleteObjects) &&
+        Objects.equals(this.putObjects, virtualBucketStorageSettings.putObjects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(putObjects);
+    return Objects.hash(deleteObjects, putObjects);
   }
 
 
@@ -74,6 +96,7 @@ public class VirtualBucketStorageSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class VirtualBucketStorageSettings {\n");
     
+    sb.append("    deleteObjects: ").append(toIndentedString(deleteObjects)).append("\n");
     sb.append("    putObjects: ").append(toIndentedString(putObjects)).append("\n");
     sb.append("}");
     return sb.toString();

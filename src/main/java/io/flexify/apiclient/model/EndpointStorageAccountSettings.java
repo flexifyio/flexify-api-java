@@ -32,6 +32,9 @@ public class EndpointStorageAccountSettings {
   @JsonProperty("createNewBucketsIn")
   private String createNewBucketsIn = null;
 
+  @JsonProperty("deleteObjects")
+  private Boolean deleteObjects = null;
+
   @JsonProperty("putObjects")
   private Boolean putObjects = null;
 
@@ -51,6 +54,24 @@ public class EndpointStorageAccountSettings {
 
   public void setCreateNewBucketsIn(String createNewBucketsIn) {
     this.createNewBucketsIn = createNewBucketsIn;
+  }
+
+  public EndpointStorageAccountSettings deleteObjects(Boolean deleteObjects) {
+    this.deleteObjects = deleteObjects;
+    return this;
+  }
+
+   /**
+   * Delete data from this storage account
+   * @return deleteObjects
+  **/
+  @ApiModelProperty(value = "Delete data from this storage account")
+  public Boolean isDeleteObjects() {
+    return deleteObjects;
+  }
+
+  public void setDeleteObjects(Boolean deleteObjects) {
+    this.deleteObjects = deleteObjects;
   }
 
   public EndpointStorageAccountSettings putObjects(Boolean putObjects) {
@@ -82,12 +103,13 @@ public class EndpointStorageAccountSettings {
     }
     EndpointStorageAccountSettings endpointStorageAccountSettings = (EndpointStorageAccountSettings) o;
     return Objects.equals(this.createNewBucketsIn, endpointStorageAccountSettings.createNewBucketsIn) &&
+        Objects.equals(this.deleteObjects, endpointStorageAccountSettings.deleteObjects) &&
         Objects.equals(this.putObjects, endpointStorageAccountSettings.putObjects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createNewBucketsIn, putObjects);
+    return Objects.hash(createNewBucketsIn, deleteObjects, putObjects);
   }
 
 
@@ -97,6 +119,7 @@ public class EndpointStorageAccountSettings {
     sb.append("class EndpointStorageAccountSettings {\n");
     
     sb.append("    createNewBucketsIn: ").append(toIndentedString(createNewBucketsIn)).append("\n");
+    sb.append("    deleteObjects: ").append(toIndentedString(deleteObjects)).append("\n");
     sb.append("    putObjects: ").append(toIndentedString(putObjects)).append("\n");
     sb.append("}");
     return sb.toString();
