@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -22,12 +22,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Flexify.IO Virtual Endpoint
+ * Flexify IO Virtual Endpoint
  */
-@ApiModel(description = "Flexify.IO Virtual Endpoint")
-
-
-
+@ApiModel(description = "Flexify IO Virtual Endpoint")
 
 public class EndpointSettings {
   @JsonProperty("credential")
@@ -67,9 +64,9 @@ public class EndpointSettings {
     }
 
     @JsonCreator
-    public static ProtocolEnum fromValue(String text) {
+    public static ProtocolEnum fromValue(String value) {
       for (ProtocolEnum b : ProtocolEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -113,9 +110,9 @@ public class EndpointSettings {
     }
 
     @JsonCreator
-    public static SelectionPolicyEnum fromValue(String text) {
+    public static SelectionPolicyEnum fromValue(String value) {
       for (SelectionPolicyEnum b : SelectionPolicyEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

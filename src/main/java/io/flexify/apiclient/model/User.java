@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -30,12 +30,9 @@ import java.util.List;
 import org.joda.time.DateTime;
 
 /**
- * Flexify.IO user
+ * Flexify IO user
  */
-@ApiModel(description = "Flexify.IO user")
-
-
-
+@ApiModel(description = "Flexify IO user")
 
 public class User {
   @JsonProperty("account")
@@ -103,9 +100,9 @@ public class User {
     }
 
     @JsonCreator
-    public static RolesEnum fromValue(String text) {
+    public static RolesEnum fromValue(String value) {
       for (RolesEnum b : RolesEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -149,9 +146,9 @@ public class User {
     }
 
     @JsonCreator
-    public static StateEnum fromValue(String text) {
+    public static StateEnum fromValue(String value) {
       for (StateEnum b : StateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

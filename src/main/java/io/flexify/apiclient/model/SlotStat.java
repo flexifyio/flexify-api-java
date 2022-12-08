@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -25,9 +25,6 @@ import org.joda.time.DateTime;
 /**
  * SlotStat
  */
-
-
-
 
 public class SlotStat {
   @JsonProperty("activeEngines")
@@ -137,9 +134,9 @@ public class SlotStat {
     }
 
     @JsonCreator
-    public static StateEnum fromValue(String text) {
+    public static StateEnum fromValue(String value) {
       for (StateEnum b : StateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

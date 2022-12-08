@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -26,9 +26,6 @@ import io.swagger.annotations.ApiModelProperty;
  * Request to create new virtual bucket
  */
 @ApiModel(description = "Request to create new virtual bucket")
-
-
-
 
 public class CreateVirtualBucketRequest {
   @JsonProperty("settings")

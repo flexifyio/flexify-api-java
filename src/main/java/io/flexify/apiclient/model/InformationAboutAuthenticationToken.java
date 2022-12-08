@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -25,9 +25,6 @@ import org.joda.time.DateTime;
 /**
  * InformationAboutAuthenticationToken
  */
-
-
-
 
 public class InformationAboutAuthenticationToken {
   @JsonProperty("comments")
@@ -74,9 +71,9 @@ public class InformationAboutAuthenticationToken {
     }
 
     @JsonCreator
-    public static TokenTypeEnum fromValue(String text) {
+    public static TokenTypeEnum fromValue(String value) {
       for (TokenTypeEnum b : TokenTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

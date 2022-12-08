@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -27,9 +27,6 @@ import java.util.List;
  * Storage Provider
  */
 @ApiModel(description = "Storage Provider")
-
-
-
 
 public class StorageProvider {
   @JsonProperty("canCreateBucketsWithUppercase")
@@ -105,9 +102,9 @@ public class StorageProvider {
     }
 
     @JsonCreator
-    public static ProtocolEnum fromValue(String text) {
+    public static ProtocolEnum fromValue(String value) {
       for (ProtocolEnum b : ProtocolEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

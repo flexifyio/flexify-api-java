@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -30,9 +30,6 @@ import org.joda.time.DateTime;
  */
 @ApiModel(description = "Billing Account Information")
 
-
-
-
 public class BillingAccount {
   /**
    * System Account state (Updated by Administrator)
@@ -59,9 +56,9 @@ public class BillingAccount {
     }
 
     @JsonCreator
-    public static AdminStateEnum fromValue(String text) {
+    public static AdminStateEnum fromValue(String value) {
       for (AdminStateEnum b : AdminStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -97,9 +94,9 @@ public class BillingAccount {
     }
 
     @JsonCreator
-    public static AggregateStateEnum fromValue(String text) {
+    public static AggregateStateEnum fromValue(String value) {
       for (AggregateStateEnum b : AggregateStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -135,9 +132,9 @@ public class BillingAccount {
     }
 
     @JsonCreator
-    public static BillingStateEnum fromValue(String text) {
+    public static BillingStateEnum fromValue(String value) {
       for (BillingStateEnum b : BillingStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -173,9 +170,9 @@ public class BillingAccount {
     }
 
     @JsonCreator
-    public static BillingTypeEnum fromValue(String text) {
+    public static BillingTypeEnum fromValue(String value) {
       for (BillingTypeEnum b : BillingTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

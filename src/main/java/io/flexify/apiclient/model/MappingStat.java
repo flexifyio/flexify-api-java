@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -26,9 +26,6 @@ import org.joda.time.DateTime;
 /**
  * MappingStat
  */
-
-
-
 
 public class MappingStat {
   @JsonProperty("activeEngines")
@@ -156,9 +153,9 @@ public class MappingStat {
     }
 
     @JsonCreator
-    public static StateEnum fromValue(String text) {
+    public static StateEnum fromValue(String value) {
       for (StateEnum b : StateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -196,9 +193,9 @@ public class MappingStat {
     }
 
     @JsonCreator
-    public static StepEnum fromValue(String text) {
+    public static StepEnum fromValue(String value) {
       for (StepEnum b : StepEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

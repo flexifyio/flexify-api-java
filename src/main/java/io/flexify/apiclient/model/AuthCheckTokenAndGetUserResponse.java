@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -27,9 +27,6 @@ import java.util.List;
  * Check token response
  */
 @ApiModel(description = "Check token response")
-
-
-
 
 public class AuthCheckTokenAndGetUserResponse {
   /**
@@ -67,9 +64,9 @@ public class AuthCheckTokenAndGetUserResponse {
     }
 
     @JsonCreator
-    public static RolesEnum fromValue(String text) {
+    public static RolesEnum fromValue(String value) {
       for (RolesEnum b : RolesEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

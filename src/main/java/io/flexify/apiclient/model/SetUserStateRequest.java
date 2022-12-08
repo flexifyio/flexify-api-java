@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -24,9 +24,6 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * SetUserStateRequest
  */
-
-
-
 
 public class SetUserStateRequest {
   /**
@@ -56,9 +53,9 @@ public class SetUserStateRequest {
     }
 
     @JsonCreator
-    public static NewStateEnum fromValue(String text) {
+    public static NewStateEnum fromValue(String value) {
       for (NewStateEnum b : NewStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

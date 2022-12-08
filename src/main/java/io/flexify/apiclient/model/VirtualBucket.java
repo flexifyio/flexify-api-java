@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -26,12 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Flexify.IO Virtual Bucket
+ * Flexify IO Virtual Bucket
  */
-@ApiModel(description = "Flexify.IO Virtual Bucket")
-
-
-
+@ApiModel(description = "Flexify IO Virtual Bucket")
 
 public class VirtualBucket {
   @JsonProperty("settings")

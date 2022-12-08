@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -25,9 +25,6 @@ import org.joda.time.DateTime;
 /**
  * UserStat
  */
-
-
-
 
 public class UserStat {
   @JsonProperty("activeMigrationsCount")
@@ -58,9 +55,9 @@ public class UserStat {
     }
 
     @JsonCreator
-    public static BillingAccountAdminStateEnum fromValue(String text) {
+    public static BillingAccountAdminStateEnum fromValue(String value) {
       for (BillingAccountAdminStateEnum b : BillingAccountAdminStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -99,9 +96,9 @@ public class UserStat {
     }
 
     @JsonCreator
-    public static BillingAccountStateEnum fromValue(String text) {
+    public static BillingAccountStateEnum fromValue(String value) {
       for (BillingAccountStateEnum b : BillingAccountStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -175,9 +172,9 @@ public class UserStat {
     }
 
     @JsonCreator
-    public static UserStateEnum fromValue(String text) {
+    public static UserStateEnum fromValue(String value) {
       for (UserStateEnum b : UserStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

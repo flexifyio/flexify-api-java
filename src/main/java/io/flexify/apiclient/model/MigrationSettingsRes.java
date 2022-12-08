@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -27,9 +27,6 @@ import org.joda.time.DateTime;
  * Start new migration request
  */
 @ApiModel(description = "Start new migration request")
-
-
-
 
 public class MigrationSettingsRes {
   @JsonProperty("autoRestoreIfArchived")
@@ -64,9 +61,9 @@ public class MigrationSettingsRes {
     }
 
     @JsonCreator
-    public static ComparisonMethodEnum fromValue(String text) {
+    public static ComparisonMethodEnum fromValue(String value) {
       for (ComparisonMethodEnum b : ComparisonMethodEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -106,9 +103,9 @@ public class MigrationSettingsRes {
     }
 
     @JsonCreator
-    public static ConflictResolutionEnum fromValue(String text) {
+    public static ConflictResolutionEnum fromValue(String value) {
       for (ConflictResolutionEnum b : ConflictResolutionEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -146,9 +143,9 @@ public class MigrationSettingsRes {
     }
 
     @JsonCreator
-    public static DeploymentTypeEnum fromValue(String text) {
+    public static DeploymentTypeEnum fromValue(String value) {
       for (DeploymentTypeEnum b : DeploymentTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -190,9 +187,9 @@ public class MigrationSettingsRes {
     }
 
     @JsonCreator
-    public static ExistingDataInDestinationEnum fromValue(String text) {
+    public static ExistingDataInDestinationEnum fromValue(String value) {
       for (ExistingDataInDestinationEnum b : ExistingDataInDestinationEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -237,9 +234,9 @@ public class MigrationSettingsRes {
     }
 
     @JsonCreator
-    public static LogLevelEnum fromValue(String text) {
+    public static LogLevelEnum fromValue(String value) {
       for (LogLevelEnum b : LogLevelEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -290,9 +287,9 @@ public class MigrationSettingsRes {
     }
 
     @JsonCreator
-    public static MigrationModeEnum fromValue(String text) {
+    public static MigrationModeEnum fromValue(String value) {
       for (MigrationModeEnum b : MigrationModeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -351,9 +348,9 @@ public class MigrationSettingsRes {
     }
 
     @JsonCreator
-    public static RestoreTierEnum fromValue(String text) {
+    public static RestoreTierEnum fromValue(String value) {
       for (RestoreTierEnum b : RestoreTierEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

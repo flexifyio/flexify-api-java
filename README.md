@@ -1,6 +1,6 @@
-# Java API Client for Flexify.IO Management
+# Java API Client for Flexify IO Management
 
-With [Flexify.IO](https://flexify.io/), storing your data in a cloud does not imply dependency on a single provider anymore!
+With [Flexify IO](https://flexify.io/), storing your data in a cloud does not imply dependency on a single provider anymore!
 
 By unlocking your application from the specific cloud vendor or protocol, you finally gain the freedom to decide when and where to store your data.
 

@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -27,9 +27,6 @@ import org.joda.time.DateTime;
  * Payment information
  */
 @ApiModel(description = "Payment information")
-
-
-
 
 public class Payment {
   @JsonProperty("amount")
@@ -63,9 +60,9 @@ public class Payment {
     }
 
     @JsonCreator
-    public static EntryModeEnum fromValue(String text) {
+    public static EntryModeEnum fromValue(String value) {
       for (EntryModeEnum b : EntryModeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
@@ -107,9 +104,9 @@ public class Payment {
     }
 
     @JsonCreator
-    public static MethodEnum fromValue(String text) {
+    public static MethodEnum fromValue(String value) {
       for (MethodEnum b : MethodEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }

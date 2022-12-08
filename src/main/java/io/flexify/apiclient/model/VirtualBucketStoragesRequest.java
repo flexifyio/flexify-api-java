@@ -1,6 +1,6 @@
 /*
- * Flexify.IO User REST API
- * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify.IO REST API
+ * Flexify IO User REST API
+ * + Get API token + Authorize using `Bearer TOKEN` + Enjoy Flexify IO REST API
  *
  * OpenAPI spec version: 2.12.12-SNAPSHOT
  * Contact: info@flexify.io
@@ -28,9 +28,6 @@ import java.util.List;
  * Request to set or attach a number of storages to virtual bucket
  */
 @ApiModel(description = "Request to set or attach a number of storages to virtual bucket")
-
-
-
 
 public class VirtualBucketStoragesRequest {
   @JsonProperty("newStorages")
