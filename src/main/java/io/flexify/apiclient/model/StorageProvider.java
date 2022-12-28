@@ -20,8 +20,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Storage Provider
@@ -47,6 +45,9 @@ public class StorageProvider {
   @JsonProperty("endpoint")
   private String endpoint = null;
 
+  @JsonProperty("endpointPattern")
+  private String endpointPattern = null;
+
   @JsonProperty("id")
   private Long id = null;
 
@@ -67,6 +68,9 @@ public class StorageProvider {
 
   @JsonProperty("privateEndpoint")
   private String privateEndpoint = null;
+
+  @JsonProperty("privateEndpointPattern")
+  private String privateEndpointPattern = null;
 
   @JsonProperty("productName")
   private String productName = null;
@@ -114,9 +118,6 @@ public class StorageProvider {
 
   @JsonProperty("protocol")
   private ProtocolEnum protocol = null;
-
-  @JsonProperty("regions")
-  private List<String> regions = null;
 
   @JsonProperty("supportsHttp")
   private Boolean supportsHttp = null;
@@ -236,6 +237,24 @@ public class StorageProvider {
 
   public void setEndpoint(String endpoint) {
     this.endpoint = endpoint;
+  }
+
+  public StorageProvider endpointPattern(String endpointPattern) {
+    this.endpointPattern = endpointPattern;
+    return this;
+  }
+
+   /**
+   * Endpoint pattern to access specific region of this provider
+   * @return endpointPattern
+  **/
+  @ApiModelProperty(example = "s3.{region}.amazonaws.com", value = "Endpoint pattern to access specific region of this provider")
+  public String getEndpointPattern() {
+    return endpointPattern;
+  }
+
+  public void setEndpointPattern(String endpointPattern) {
+    this.endpointPattern = endpointPattern;
   }
 
   public StorageProvider id(Long id) {
@@ -364,6 +383,24 @@ public class StorageProvider {
     this.privateEndpoint = privateEndpoint;
   }
 
+  public StorageProvider privateEndpointPattern(String privateEndpointPattern) {
+    this.privateEndpointPattern = privateEndpointPattern;
+    return this;
+  }
+
+   /**
+   * Endpoint pattern used by engines for specific region
+   * @return privateEndpointPattern
+  **/
+  @ApiModelProperty(example = "s3.{region}.private.amazonaws.com", value = "Endpoint pattern used by engines for specific region")
+  public String getPrivateEndpointPattern() {
+    return privateEndpointPattern;
+  }
+
+  public void setPrivateEndpointPattern(String privateEndpointPattern) {
+    this.privateEndpointPattern = privateEndpointPattern;
+  }
+
   public StorageProvider productName(String productName) {
     this.productName = productName;
     return this;
@@ -398,32 +435,6 @@ public class StorageProvider {
 
   public void setProtocol(ProtocolEnum protocol) {
     this.protocol = protocol;
-  }
-
-  public StorageProvider regions(List<String> regions) {
-    this.regions = regions;
-    return this;
-  }
-
-  public StorageProvider addRegionsItem(String regionsItem) {
-    if (this.regions == null) {
-      this.regions = new ArrayList<String>();
-    }
-    this.regions.add(regionsItem);
-    return this;
-  }
-
-   /**
-   * List of regions supported for this provider (or null if regions are not supported
-   * @return regions
-  **/
-  @ApiModelProperty(value = "List of regions supported for this provider (or null if regions are not supported")
-  public List<String> getRegions() {
-    return regions;
-  }
-
-  public void setRegions(List<String> regions) {
-    this.regions = regions;
   }
 
   public StorageProvider supportsHttp(Boolean supportsHttp) {
@@ -514,6 +525,7 @@ public class StorageProvider {
         Objects.equals(this.disabledAsDestination, storageProvider.disabledAsDestination) &&
         Objects.equals(this.dotEncode, storageProvider.dotEncode) &&
         Objects.equals(this.endpoint, storageProvider.endpoint) &&
+        Objects.equals(this.endpointPattern, storageProvider.endpointPattern) &&
         Objects.equals(this.id, storageProvider.id) &&
         Objects.equals(this.maxUploadSize, storageProvider.maxUploadSize) &&
         Objects.equals(this.multiRegional, storageProvider.multiRegional) &&
@@ -521,9 +533,9 @@ public class StorageProvider {
         Objects.equals(this.portHttp, storageProvider.portHttp) &&
         Objects.equals(this.portHttps, storageProvider.portHttps) &&
         Objects.equals(this.privateEndpoint, storageProvider.privateEndpoint) &&
+        Objects.equals(this.privateEndpointPattern, storageProvider.privateEndpointPattern) &&
         Objects.equals(this.productName, storageProvider.productName) &&
         Objects.equals(this.protocol, storageProvider.protocol) &&
-        Objects.equals(this.regions, storageProvider.regions) &&
         Objects.equals(this.supportsHttp, storageProvider.supportsHttp) &&
         Objects.equals(this.supportsHttps, storageProvider.supportsHttps) &&
         Objects.equals(this.supportsMultipartUpload, storageProvider.supportsMultipartUpload) &&
@@ -532,7 +544,7 @@ public class StorageProvider {
 
   @Override
   public int hashCode() {
-    return Objects.hash(canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, dotEncode, endpoint, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, productName, protocol, regions, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
+    return Objects.hash(canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, dotEncode, endpoint, endpointPattern, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, privateEndpointPattern, productName, protocol, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
   }
 
 
@@ -547,6 +559,7 @@ public class StorageProvider {
     sb.append("    disabledAsDestination: ").append(toIndentedString(disabledAsDestination)).append("\n");
     sb.append("    dotEncode: ").append(toIndentedString(dotEncode)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+    sb.append("    endpointPattern: ").append(toIndentedString(endpointPattern)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    maxUploadSize: ").append(toIndentedString(maxUploadSize)).append("\n");
     sb.append("    multiRegional: ").append(toIndentedString(multiRegional)).append("\n");
@@ -554,9 +567,9 @@ public class StorageProvider {
     sb.append("    portHttp: ").append(toIndentedString(portHttp)).append("\n");
     sb.append("    portHttps: ").append(toIndentedString(portHttps)).append("\n");
     sb.append("    privateEndpoint: ").append(toIndentedString(privateEndpoint)).append("\n");
+    sb.append("    privateEndpointPattern: ").append(toIndentedString(privateEndpointPattern)).append("\n");
     sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
-    sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    supportsHttp: ").append(toIndentedString(supportsHttp)).append("\n");
     sb.append("    supportsHttps: ").append(toIndentedString(supportsHttps)).append("\n");
     sb.append("    supportsMultipartUpload: ").append(toIndentedString(supportsMultipartUpload)).append("\n");
