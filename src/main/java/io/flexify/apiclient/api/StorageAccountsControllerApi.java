@@ -228,7 +228,7 @@ public class StorageAccountsControllerApi {
     }
     
     // create path and map variables
-    String localVarPath = "/backend/rest/storage-accounts/storage-accounts/{storage-account-id}"
+    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}"
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
 
     // query params
