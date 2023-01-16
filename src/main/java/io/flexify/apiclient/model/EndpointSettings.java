@@ -77,9 +77,6 @@ public class EndpointSettings {
   @JsonProperty("protocol")
   private ProtocolEnum protocol = null;
 
-  @JsonProperty("publicAccessReadAllBlobs")
-  private Boolean publicAccessReadAllBlobs = null;
-
   @JsonProperty("selectionBreakTimeout")
   private Long selectionBreakTimeout = null;
 
@@ -132,7 +129,7 @@ public class EndpointSettings {
    * Storage Credential (Secret Key)
    * @return credential
   **/
-  @ApiModelProperty(example = "xRFZjLNGnRv8Y3hIWW5yX2WKKjzwZZaJBo3TvlF9", value = "Storage Credential (Secret Key)")
+  @ApiModelProperty(value = "Storage Credential (Secret Key)")
   public String getCredential() {
     return credential;
   }
@@ -150,7 +147,7 @@ public class EndpointSettings {
    * Storage Identity (Access Key)
    * @return identity
   **/
-  @ApiModelProperty(example = "P16UNOh1ELAXQXFWLhok", value = "Storage Identity (Access Key)")
+  @ApiModelProperty(value = "Storage Identity (Access Key)")
   public String getIdentity() {
     return identity;
   }
@@ -175,24 +172,6 @@ public class EndpointSettings {
 
   public void setProtocol(ProtocolEnum protocol) {
     this.protocol = protocol;
-  }
-
-  public EndpointSettings publicAccessReadAllBlobs(Boolean publicAccessReadAllBlobs) {
-    this.publicAccessReadAllBlobs = publicAccessReadAllBlobs;
-    return this;
-  }
-
-   /**
-   * Public read access for all objects in virtual buckets
-   * @return publicAccessReadAllBlobs
-  **/
-  @ApiModelProperty(example = "false", value = "Public read access for all objects in virtual buckets")
-  public Boolean isPublicAccessReadAllBlobs() {
-    return publicAccessReadAllBlobs;
-  }
-
-  public void setPublicAccessReadAllBlobs(Boolean publicAccessReadAllBlobs) {
-    this.publicAccessReadAllBlobs = publicAccessReadAllBlobs;
   }
 
   public EndpointSettings selectionBreakTimeout(Long selectionBreakTimeout) {
@@ -244,14 +223,13 @@ public class EndpointSettings {
     return Objects.equals(this.credential, endpointSettings.credential) &&
         Objects.equals(this.identity, endpointSettings.identity) &&
         Objects.equals(this.protocol, endpointSettings.protocol) &&
-        Objects.equals(this.publicAccessReadAllBlobs, endpointSettings.publicAccessReadAllBlobs) &&
         Objects.equals(this.selectionBreakTimeout, endpointSettings.selectionBreakTimeout) &&
         Objects.equals(this.selectionPolicy, endpointSettings.selectionPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credential, identity, protocol, publicAccessReadAllBlobs, selectionBreakTimeout, selectionPolicy);
+    return Objects.hash(credential, identity, protocol, selectionBreakTimeout, selectionPolicy);
   }
 
 
@@ -263,7 +241,6 @@ public class EndpointSettings {
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
-    sb.append("    publicAccessReadAllBlobs: ").append(toIndentedString(publicAccessReadAllBlobs)).append("\n");
     sb.append("    selectionBreakTimeout: ").append(toIndentedString(selectionBreakTimeout)).append("\n");
     sb.append("    selectionPolicy: ").append(toIndentedString(selectionPolicy)).append("\n");
     sb.append("}");

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **credential** | **String** | Storage Credential (Secret Key) |  [optional]
 **identity** | **String** | Storage Identity (Access Key) |  [optional]
 **protocol** | [**ProtocolEnum**](#ProtocolEnum) | Storage Protocol |  [optional]
-**publicAccessReadAllBlobs** | **Boolean** | Public read access for all objects in virtual buckets |  [optional]
 **selectionBreakTimeout** | **Long** | Timeout before canceling requests to non-responding clouds in FASTEST selection policy |  [optional]
 **selectionPolicy** | [**SelectionPolicyEnum**](#SelectionPolicyEnum) | Storage selection policy for GET/HEAD object requests |  [optional]
 

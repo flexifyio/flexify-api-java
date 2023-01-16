@@ -4,7 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bucketName** | **String** | Bucket name | 
+**accessPolicy** | [**VirtualBucketAccessPolicy**](VirtualBucketAccessPolicy.md) | Virtual bucket access policy |  [optional]
+**bucketName** | **String** | Virtual bucket name | 
 
 
 
