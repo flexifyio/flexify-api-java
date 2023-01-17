@@ -62,6 +62,9 @@ public class UserConfig {
   @JsonProperty("maxMigrationsInQueue")
   private Integer maxMigrationsInQueue = null;
 
+  @JsonProperty("maxPolicyRulesPerVirtualBucket")
+  private Integer maxPolicyRulesPerVirtualBucket = null;
+
   @JsonProperty("maxStorageAccountsPerEndpoint")
   private Integer maxStorageAccountsPerEndpoint = null;
 
@@ -293,6 +296,24 @@ public class UserConfig {
     this.maxMigrationsInQueue = maxMigrationsInQueue;
   }
 
+  public UserConfig maxPolicyRulesPerVirtualBucket(Integer maxPolicyRulesPerVirtualBucket) {
+    this.maxPolicyRulesPerVirtualBucket = maxPolicyRulesPerVirtualBucket;
+    return this;
+  }
+
+   /**
+   * Get maxPolicyRulesPerVirtualBucket
+   * @return maxPolicyRulesPerVirtualBucket
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getMaxPolicyRulesPerVirtualBucket() {
+    return maxPolicyRulesPerVirtualBucket;
+  }
+
+  public void setMaxPolicyRulesPerVirtualBucket(Integer maxPolicyRulesPerVirtualBucket) {
+    this.maxPolicyRulesPerVirtualBucket = maxPolicyRulesPerVirtualBucket;
+  }
+
   public UserConfig maxStorageAccountsPerEndpoint(Integer maxStorageAccountsPerEndpoint) {
     this.maxStorageAccountsPerEndpoint = maxStorageAccountsPerEndpoint;
     return this;
@@ -405,6 +426,7 @@ public class UserConfig {
         Objects.equals(this.maxMigrationStreamRamKb, userConfig.maxMigrationStreamRamKb) &&
         Objects.equals(this.maxMigrationStreams, userConfig.maxMigrationStreams) &&
         Objects.equals(this.maxMigrationsInQueue, userConfig.maxMigrationsInQueue) &&
+        Objects.equals(this.maxPolicyRulesPerVirtualBucket, userConfig.maxPolicyRulesPerVirtualBucket) &&
         Objects.equals(this.maxStorageAccountsPerEndpoint, userConfig.maxStorageAccountsPerEndpoint) &&
         Objects.equals(this.maxStorages, userConfig.maxStorages) &&
         Objects.equals(this.maxStoragesPerVirtualBucket, userConfig.maxStoragesPerVirtualBucket) &&
@@ -414,7 +436,7 @@ public class UserConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxActiveMigrations, maxAutoDeployEnginesCount, maxEndpoints, maxMigrationCopyRetries, maxMigrationEngines, maxMigrationMappings, maxMigrationRamMb, maxMigrationRetries, maxMigrationSlots, maxMigrationStreamRamKb, maxMigrationStreams, maxMigrationsInQueue, maxStorageAccountsPerEndpoint, maxStorages, maxStoragesPerVirtualBucket, maxVirtualBucketsPerEndpoint, skipAutoUndeploy);
+    return Objects.hash(maxActiveMigrations, maxAutoDeployEnginesCount, maxEndpoints, maxMigrationCopyRetries, maxMigrationEngines, maxMigrationMappings, maxMigrationRamMb, maxMigrationRetries, maxMigrationSlots, maxMigrationStreamRamKb, maxMigrationStreams, maxMigrationsInQueue, maxPolicyRulesPerVirtualBucket, maxStorageAccountsPerEndpoint, maxStorages, maxStoragesPerVirtualBucket, maxVirtualBucketsPerEndpoint, skipAutoUndeploy);
   }
 
 
@@ -435,6 +457,7 @@ public class UserConfig {
     sb.append("    maxMigrationStreamRamKb: ").append(toIndentedString(maxMigrationStreamRamKb)).append("\n");
     sb.append("    maxMigrationStreams: ").append(toIndentedString(maxMigrationStreams)).append("\n");
     sb.append("    maxMigrationsInQueue: ").append(toIndentedString(maxMigrationsInQueue)).append("\n");
+    sb.append("    maxPolicyRulesPerVirtualBucket: ").append(toIndentedString(maxPolicyRulesPerVirtualBucket)).append("\n");
     sb.append("    maxStorageAccountsPerEndpoint: ").append(toIndentedString(maxStorageAccountsPerEndpoint)).append("\n");
     sb.append("    maxStorages: ").append(toIndentedString(maxStorages)).append("\n");
     sb.append("    maxStoragesPerVirtualBucket: ").append(toIndentedString(maxStoragesPerVirtualBucket)).append("\n");

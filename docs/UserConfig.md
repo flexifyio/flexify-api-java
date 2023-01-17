@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **maxMigrationStreamRamKb** | **Integer** |  |  [optional]
 **maxMigrationStreams** | **Integer** |  |  [optional]
 **maxMigrationsInQueue** | **Integer** |  |  [optional]
+**maxPolicyRulesPerVirtualBucket** | **Integer** |  |  [optional]
 **maxStorageAccountsPerEndpoint** | **Integer** |  |  [optional]
 **maxStorages** | **Integer** |  |  [optional]
 **maxStoragesPerVirtualBucket** | **Integer** |  |  [optional]
