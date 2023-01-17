@@ -18,9 +18,10 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.flexify.apiclient.model.PolicyConditions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PolicyRule
@@ -67,8 +68,54 @@ public class PolicyRule {
   @JsonProperty("action")
   private ActionEnum action = null;
 
-  @JsonProperty("conditions")
-  private PolicyConditions conditions = null;
+  @JsonProperty("keyPattern")
+  private String keyPattern = null;
+
+  /**
+   * Gets or Sets operations
+   */
+  public enum OperationsEnum {
+    DELETEOBJECT("DeleteObject"),
+    
+    GETBUCKETLOCATION("GetBucketLocation"),
+    
+    GETOBJECT("GetObject"),
+    
+    HEADBUCKET("HeadBucket"),
+    
+    LISTOBJECTS("ListObjects"),
+    
+    PUTOBJECT("PutObject");
+
+    private String value;
+
+    OperationsEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OperationsEnum fromValue(String value) {
+      for (OperationsEnum b : OperationsEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("operations")
+  private List<OperationsEnum> operations = null;
 
   public PolicyRule action(ActionEnum action) {
     this.action = action;
@@ -88,22 +135,48 @@ public class PolicyRule {
     this.action = action;
   }
 
-  public PolicyRule conditions(PolicyConditions conditions) {
-    this.conditions = conditions;
+  public PolicyRule keyPattern(String keyPattern) {
+    this.keyPattern = keyPattern;
     return this;
   }
 
    /**
-   * Get conditions
-   * @return conditions
+   * Get keyPattern
+   * @return keyPattern
   **/
   @ApiModelProperty(value = "")
-  public PolicyConditions getConditions() {
-    return conditions;
+  public String getKeyPattern() {
+    return keyPattern;
   }
 
-  public void setConditions(PolicyConditions conditions) {
-    this.conditions = conditions;
+  public void setKeyPattern(String keyPattern) {
+    this.keyPattern = keyPattern;
+  }
+
+  public PolicyRule operations(List<OperationsEnum> operations) {
+    this.operations = operations;
+    return this;
+  }
+
+  public PolicyRule addOperationsItem(OperationsEnum operationsItem) {
+    if (this.operations == null) {
+      this.operations = new ArrayList<OperationsEnum>();
+    }
+    this.operations.add(operationsItem);
+    return this;
+  }
+
+   /**
+   * Get operations
+   * @return operations
+  **/
+  @ApiModelProperty(value = "")
+  public List<OperationsEnum> getOperations() {
+    return operations;
+  }
+
+  public void setOperations(List<OperationsEnum> operations) {
+    this.operations = operations;
   }
 
 
@@ -117,12 +190,13 @@ public class PolicyRule {
     }
     PolicyRule policyRule = (PolicyRule) o;
     return Objects.equals(this.action, policyRule.action) &&
-        Objects.equals(this.conditions, policyRule.conditions);
+        Objects.equals(this.keyPattern, policyRule.keyPattern) &&
+        Objects.equals(this.operations, policyRule.operations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, conditions);
+    return Objects.hash(action, keyPattern, operations);
   }
 
 
@@ -132,7 +206,8 @@ public class PolicyRule {
     sb.append("class PolicyRule {\n");
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    keyPattern: ").append(toIndentedString(keyPattern)).append("\n");
+    sb.append("    operations: ").append(toIndentedString(operations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

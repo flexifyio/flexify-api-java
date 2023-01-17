@@ -250,7 +250,6 @@ Class | Method | HTTP request | Description
  - [PasswordResetToken](docs/PasswordResetToken.md)
  - [Payment](docs/Payment.md)
  - [PaymentOptions](docs/PaymentOptions.md)
- - [PolicyConditions](docs/PolicyConditions.md)
  - [PolicyRule](docs/PolicyRule.md)
  - [Price](docs/Price.md)
  - [PriceConstraints](docs/PriceConstraints.md)
