@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**enable**](EndpointsControllerApi.md#enable) | **PUT** /backend/rest/endpoints/{endpoint-id}/actions/enable | Enable the endpoint
 [**generateAccessKeys**](EndpointsControllerApi.md#generateAccessKeys) | **GET** /backend/rest/endpoints/generated-access-keys | Generate new access keys pair
 [**getEndpointDetails**](EndpointsControllerApi.md#getEndpointDetails) | **GET** /backend/rest/endpoints/{endpoint-id} | Get endpoint details
-[**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /backend/rest/endpoints | Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
+[**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /backend/rest/endpoints | Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
 [**setAttachedAccountSettings**](EndpointsControllerApi.md#setAttachedAccountSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}/settings | Modifies settings of the attached storage account
 [**setAttachedBucketSettings**](EndpointsControllerApi.md#setAttachedBucketSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}/settings | Modifies settings of the attached storage
 [**setVirtualBucketSettings**](EndpointsControllerApi.md#setVirtualBucketSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/settings | Modifies virtual bucket configuration
@@ -776,9 +776,9 @@ Name | Type | Description  | Notes
 
 <a name="getEndpointsForCurrentUser"></a>
 # **getEndpointsForCurrentUser**
-> List&lt;EndpointDetails&gt; getEndpointsForCurrentUser()
+> List&lt;EndpointDetails&gt; getEndpointsForCurrentUser(name)
 
-Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
+Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
 
 ### Example
 ```java
@@ -798,8 +798,9 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
+String name = "name_example"; // String | name
 try {
-    List<EndpointDetails> result = apiInstance.getEndpointsForCurrentUser();
+    List<EndpointDetails> result = apiInstance.getEndpointsForCurrentUser(name);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EndpointsControllerApi#getEndpointsForCurrentUser");
@@ -808,7 +809,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name | [optional]
 
 ### Return type
 

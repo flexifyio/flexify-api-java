@@ -850,22 +850,24 @@ public class EndpointsControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
+   * Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
    * 
+   * @param name name (optional)
    * @return List&lt;EndpointDetails&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<EndpointDetails> getEndpointsForCurrentUser() throws ApiException {
-    return getEndpointsForCurrentUserWithHttpInfo().getData();
+  public List<EndpointDetails> getEndpointsForCurrentUser(String name) throws ApiException {
+    return getEndpointsForCurrentUserWithHttpInfo(name).getData();
       }
 
   /**
-   * Get endpoint for current user. This method will create new endpoint if no endpoints exist for user
+   * Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
    * 
+   * @param name name (optional)
    * @return ApiResponse&lt;List&lt;EndpointDetails&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<List<EndpointDetails>> getEndpointsForCurrentUserWithHttpInfo() throws ApiException {
+  public ApiResponse<List<EndpointDetails>> getEndpointsForCurrentUserWithHttpInfo(String name) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -876,6 +878,7 @@ public class EndpointsControllerApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
 
     
     
