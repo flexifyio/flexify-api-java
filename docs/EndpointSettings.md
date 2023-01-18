@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **credential** | **String** | Storage Credential (Secret Key) |  [optional]
 **identity** | **String** | Storage Identity (Access Key) |  [optional]
+**name** | **String** | User-define name of the endpoint |  [optional]
 **protocol** | [**ProtocolEnum**](#ProtocolEnum) | Storage Protocol |  [optional]
 **selectionBreakTimeout** | **Long** | Timeout before canceling requests to non-responding clouds in FASTEST selection policy |  [optional]
 **selectionPolicy** | [**SelectionPolicyEnum**](#SelectionPolicyEnum) | Storage selection policy for GET/HEAD object requests |  [optional]

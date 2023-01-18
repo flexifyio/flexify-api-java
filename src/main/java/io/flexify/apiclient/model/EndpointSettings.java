@@ -33,6 +33,9 @@ public class EndpointSettings {
   @JsonProperty("identity")
   private String identity = null;
 
+  @JsonProperty("name")
+  private String name = null;
+
   /**
    * Storage Protocol
    */
@@ -156,6 +159,24 @@ public class EndpointSettings {
     this.identity = identity;
   }
 
+  public EndpointSettings name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * User-define name of the endpoint
+   * @return name
+  **/
+  @ApiModelProperty(value = "User-define name of the endpoint")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public EndpointSettings protocol(ProtocolEnum protocol) {
     this.protocol = protocol;
     return this;
@@ -222,6 +243,7 @@ public class EndpointSettings {
     EndpointSettings endpointSettings = (EndpointSettings) o;
     return Objects.equals(this.credential, endpointSettings.credential) &&
         Objects.equals(this.identity, endpointSettings.identity) &&
+        Objects.equals(this.name, endpointSettings.name) &&
         Objects.equals(this.protocol, endpointSettings.protocol) &&
         Objects.equals(this.selectionBreakTimeout, endpointSettings.selectionBreakTimeout) &&
         Objects.equals(this.selectionPolicy, endpointSettings.selectionPolicy);
@@ -229,7 +251,7 @@ public class EndpointSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credential, identity, protocol, selectionBreakTimeout, selectionPolicy);
+    return Objects.hash(credential, identity, name, protocol, selectionBreakTimeout, selectionPolicy);
   }
 
 
@@ -240,6 +262,7 @@ public class EndpointSettings {
     
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    selectionBreakTimeout: ").append(toIndentedString(selectionBreakTimeout)).append("\n");
     sb.append("    selectionPolicy: ").append(toIndentedString(selectionPolicy)).append("\n");

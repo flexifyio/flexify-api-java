@@ -247,7 +247,7 @@ null (empty response body)
 
 <a name="createEndpoint"></a>
 # **createEndpoint**
-> IdResponse createEndpoint()
+> IdResponse createEndpoint(settings)
 
 Creates new endpoint
 
@@ -269,8 +269,9 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
+EndpointSettings settings = new EndpointSettings(); // EndpointSettings | settings
 try {
-    IdResponse result = apiInstance.createEndpoint();
+    IdResponse result = apiInstance.createEndpoint(settings);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EndpointsControllerApi#createEndpoint");
@@ -279,7 +280,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settings** | [**EndpointSettings**](EndpointSettings.md)| settings |
 
 ### Return type
 

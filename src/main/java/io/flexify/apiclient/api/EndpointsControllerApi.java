@@ -299,21 +299,28 @@ public class EndpointsControllerApi {
   /**
    * Creates new endpoint
    * 
+   * @param settings settings (required)
    * @return IdResponse
    * @throws ApiException if fails to make API call
    */
-  public IdResponse createEndpoint() throws ApiException {
-    return createEndpointWithHttpInfo().getData();
+  public IdResponse createEndpoint(EndpointSettings settings) throws ApiException {
+    return createEndpointWithHttpInfo(settings).getData();
       }
 
   /**
    * Creates new endpoint
    * 
+   * @param settings settings (required)
    * @return ApiResponse&lt;IdResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<IdResponse> createEndpointWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<IdResponse> createEndpointWithHttpInfo(EndpointSettings settings) throws ApiException {
+    Object localVarPostBody = settings;
+    
+    // verify the required parameter 'settings' is set
+    if (settings == null) {
+      throw new ApiException(400, "Missing the required parameter 'settings' when calling createEndpoint");
+    }
     
     // create path and map variables
     String localVarPath = "/backend/rest/endpoints";
