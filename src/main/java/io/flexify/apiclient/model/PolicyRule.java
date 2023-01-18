@@ -77,15 +77,15 @@ public class PolicyRule {
   public enum OperationsEnum {
     DELETEOBJECT("DeleteObject"),
     
-    GETBUCKETLOCATION("GetBucketLocation"),
-    
     GETOBJECT("GetObject"),
     
     HEADBUCKET("HeadBucket"),
     
     LISTOBJECTS("ListObjects"),
     
-    PUTOBJECT("PutObject");
+    PUTOBJECT("PutObject"),
+    
+    RESTOREOBJECT("RestoreObject");
 
     private String value;
 

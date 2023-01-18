@@ -23,11 +23,11 @@ FORBID | &quot;forbid&quot;
 Name | Value
 ---- | -----
 DELETEOBJECT | &quot;DeleteObject&quot;
-GETBUCKETLOCATION | &quot;GetBucketLocation&quot;
 GETOBJECT | &quot;GetObject&quot;
 HEADBUCKET | &quot;HeadBucket&quot;
 LISTOBJECTS | &quot;ListObjects&quot;
 PUTOBJECT | &quot;PutObject&quot;
+RESTOREOBJECT | &quot;RestoreObject&quot;
 
 
 
