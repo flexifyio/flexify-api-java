@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **errorEngines** | **Long** |  |  [optional]
 **health** | [**HealthEnum**](#HealthEnum) |  |  [optional]
 **state** | [**StateEnum**](#StateEnum) |  |  [optional]
+**stateUpdateRequested** | **Boolean** |  |  [optional]
 **totalEngines** | **Long** |  |  [optional]
 **upToDateEngines** | **Long** |  |  [optional]
 **userDownloadBytes** | **Long** |  |  [optional]

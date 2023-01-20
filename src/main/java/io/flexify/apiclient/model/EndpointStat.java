@@ -127,6 +127,9 @@ public class EndpointStat {
   @JsonProperty("state")
   private StateEnum state = null;
 
+  @JsonProperty("stateUpdateRequested")
+  private Boolean stateUpdateRequested = null;
+
   @JsonProperty("totalEngines")
   private Long totalEngines = null;
 
@@ -236,6 +239,24 @@ public class EndpointStat {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+  public EndpointStat stateUpdateRequested(Boolean stateUpdateRequested) {
+    this.stateUpdateRequested = stateUpdateRequested;
+    return this;
+  }
+
+   /**
+   * Get stateUpdateRequested
+   * @return stateUpdateRequested
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isStateUpdateRequested() {
+    return stateUpdateRequested;
+  }
+
+  public void setStateUpdateRequested(Boolean stateUpdateRequested) {
+    this.stateUpdateRequested = stateUpdateRequested;
   }
 
   public EndpointStat totalEngines(Long totalEngines) {
@@ -379,6 +400,7 @@ public class EndpointStat {
         Objects.equals(this.errorEngines, endpointStat.errorEngines) &&
         Objects.equals(this.health, endpointStat.health) &&
         Objects.equals(this.state, endpointStat.state) &&
+        Objects.equals(this.stateUpdateRequested, endpointStat.stateUpdateRequested) &&
         Objects.equals(this.totalEngines, endpointStat.totalEngines) &&
         Objects.equals(this.upToDateEngines, endpointStat.upToDateEngines) &&
         Objects.equals(this.userDownloadBytes, endpointStat.userDownloadBytes) &&
@@ -390,7 +412,7 @@ public class EndpointStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudDownloadBytes, cloudUploadBytes, errorEngines, health, state, totalEngines, upToDateEngines, userDownloadBytes, userSpeedDownload, userSpeedUpload, userUploadBytes, warningEngines);
+    return Objects.hash(cloudDownloadBytes, cloudUploadBytes, errorEngines, health, state, stateUpdateRequested, totalEngines, upToDateEngines, userDownloadBytes, userSpeedDownload, userSpeedUpload, userUploadBytes, warningEngines);
   }
 
 
@@ -404,6 +426,7 @@ public class EndpointStat {
     sb.append("    errorEngines: ").append(toIndentedString(errorEngines)).append("\n");
     sb.append("    health: ").append(toIndentedString(health)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    stateUpdateRequested: ").append(toIndentedString(stateUpdateRequested)).append("\n");
     sb.append("    totalEngines: ").append(toIndentedString(totalEngines)).append("\n");
     sb.append("    upToDateEngines: ").append(toIndentedString(upToDateEngines)).append("\n");
     sb.append("    userDownloadBytes: ").append(toIndentedString(userDownloadBytes)).append("\n");
