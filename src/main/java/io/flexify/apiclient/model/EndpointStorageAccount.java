@@ -27,14 +27,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Storage account attached to endpoint")
 
-public class EndpointStorageAccountReq {
+public class EndpointStorageAccount {
   @JsonProperty("settings")
   private EndpointStorageAccountSettings settings = null;
 
   @JsonProperty("storageAccountId")
   private Long storageAccountId = null;
 
-  public EndpointStorageAccountReq settings(EndpointStorageAccountSettings settings) {
+  public EndpointStorageAccount settings(EndpointStorageAccountSettings settings) {
     this.settings = settings;
     return this;
   }
@@ -52,7 +52,7 @@ public class EndpointStorageAccountReq {
     this.settings = settings;
   }
 
-  public EndpointStorageAccountReq storageAccountId(Long storageAccountId) {
+  public EndpointStorageAccount storageAccountId(Long storageAccountId) {
     this.storageAccountId = storageAccountId;
     return this;
   }
@@ -79,9 +79,9 @@ public class EndpointStorageAccountReq {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EndpointStorageAccountReq endpointStorageAccountReq = (EndpointStorageAccountReq) o;
-    return Objects.equals(this.settings, endpointStorageAccountReq.settings) &&
-        Objects.equals(this.storageAccountId, endpointStorageAccountReq.storageAccountId);
+    EndpointStorageAccount endpointStorageAccount = (EndpointStorageAccount) o;
+    return Objects.equals(this.settings, endpointStorageAccount.settings) &&
+        Objects.equals(this.storageAccountId, endpointStorageAccount.storageAccountId);
   }
 
   @Override
@@ -93,7 +93,7 @@ public class EndpointStorageAccountReq {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EndpointStorageAccountReq {\n");
+    sb.append("class EndpointStorageAccount {\n");
     
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    storageAccountId: ").append(toIndentedString(storageAccountId)).append("\n");

@@ -1,5 +1,5 @@
 
-# VirtualBucketStorageReq
+# VirtualBucketStorage
 
 ## Properties
 Name | Type | Description | Notes

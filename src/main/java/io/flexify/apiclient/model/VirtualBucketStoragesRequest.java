@@ -18,7 +18,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.flexify.apiclient.model.VirtualBucketStorageReq;
+import io.flexify.apiclient.model.VirtualBucketStorage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -31,16 +31,16 @@ import java.util.List;
 
 public class VirtualBucketStoragesRequest {
   @JsonProperty("newStorages")
-  private List<VirtualBucketStorageReq> newStorages = null;
+  private List<VirtualBucketStorage> newStorages = null;
 
-  public VirtualBucketStoragesRequest newStorages(List<VirtualBucketStorageReq> newStorages) {
+  public VirtualBucketStoragesRequest newStorages(List<VirtualBucketStorage> newStorages) {
     this.newStorages = newStorages;
     return this;
   }
 
-  public VirtualBucketStoragesRequest addNewStoragesItem(VirtualBucketStorageReq newStoragesItem) {
+  public VirtualBucketStoragesRequest addNewStoragesItem(VirtualBucketStorage newStoragesItem) {
     if (this.newStorages == null) {
-      this.newStorages = new ArrayList<VirtualBucketStorageReq>();
+      this.newStorages = new ArrayList<VirtualBucketStorage>();
     }
     this.newStorages.add(newStoragesItem);
     return this;
@@ -51,11 +51,11 @@ public class VirtualBucketStoragesRequest {
    * @return newStorages
   **/
   @ApiModelProperty(value = "A list of storages to set or accounts to virtual bucket")
-  public List<VirtualBucketStorageReq> getNewStorages() {
+  public List<VirtualBucketStorage> getNewStorages() {
     return newStorages;
   }
 
-  public void setNewStorages(List<VirtualBucketStorageReq> newStorages) {
+  public void setNewStorages(List<VirtualBucketStorage> newStorages) {
     this.newStorages = newStorages;
   }
 

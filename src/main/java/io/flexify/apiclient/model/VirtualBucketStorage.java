@@ -27,17 +27,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Storage attached to virtual bucket")
 
-public class VirtualBucketStorageRes {
+public class VirtualBucketStorage {
   @JsonProperty("bucketId")
   private Long bucketId = null;
 
   @JsonProperty("settings")
   private VirtualBucketStorageSettings settings = null;
 
-  @JsonProperty("transparent")
-  private Boolean transparent = null;
-
-  public VirtualBucketStorageRes bucketId(Long bucketId) {
+  public VirtualBucketStorage bucketId(Long bucketId) {
     this.bucketId = bucketId;
     return this;
   }
@@ -55,7 +52,7 @@ public class VirtualBucketStorageRes {
     this.bucketId = bucketId;
   }
 
-  public VirtualBucketStorageRes settings(VirtualBucketStorageSettings settings) {
+  public VirtualBucketStorage settings(VirtualBucketStorageSettings settings) {
     this.settings = settings;
     return this;
   }
@@ -73,15 +70,6 @@ public class VirtualBucketStorageRes {
     this.settings = settings;
   }
 
-   /**
-   * Transparent proxy is enabled for this storage
-   * @return transparent
-  **/
-  @ApiModelProperty(value = "Transparent proxy is enabled for this storage")
-  public Boolean isTransparent() {
-    return transparent;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,26 +79,24 @@ public class VirtualBucketStorageRes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VirtualBucketStorageRes virtualBucketStorageRes = (VirtualBucketStorageRes) o;
-    return Objects.equals(this.bucketId, virtualBucketStorageRes.bucketId) &&
-        Objects.equals(this.settings, virtualBucketStorageRes.settings) &&
-        Objects.equals(this.transparent, virtualBucketStorageRes.transparent);
+    VirtualBucketStorage virtualBucketStorage = (VirtualBucketStorage) o;
+    return Objects.equals(this.bucketId, virtualBucketStorage.bucketId) &&
+        Objects.equals(this.settings, virtualBucketStorage.settings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketId, settings, transparent);
+    return Objects.hash(bucketId, settings);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VirtualBucketStorageRes {\n");
+    sb.append("class VirtualBucketStorage {\n");
     
     sb.append("    bucketId: ").append(toIndentedString(bucketId)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
-    sb.append("    transparent: ").append(toIndentedString(transparent)).append("\n");
     sb.append("}");
     return sb.toString();
   }

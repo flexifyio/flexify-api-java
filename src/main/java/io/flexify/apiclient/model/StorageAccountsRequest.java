@@ -18,7 +18,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.flexify.apiclient.model.EndpointStorageAccountReq;
+import io.flexify.apiclient.model.EndpointStorageAccount;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -31,16 +31,16 @@ import java.util.List;
 
 public class StorageAccountsRequest {
   @JsonProperty("newStorageAccounts")
-  private List<EndpointStorageAccountReq> newStorageAccounts = null;
+  private List<EndpointStorageAccount> newStorageAccounts = null;
 
-  public StorageAccountsRequest newStorageAccounts(List<EndpointStorageAccountReq> newStorageAccounts) {
+  public StorageAccountsRequest newStorageAccounts(List<EndpointStorageAccount> newStorageAccounts) {
     this.newStorageAccounts = newStorageAccounts;
     return this;
   }
 
-  public StorageAccountsRequest addNewStorageAccountsItem(EndpointStorageAccountReq newStorageAccountsItem) {
+  public StorageAccountsRequest addNewStorageAccountsItem(EndpointStorageAccount newStorageAccountsItem) {
     if (this.newStorageAccounts == null) {
-      this.newStorageAccounts = new ArrayList<EndpointStorageAccountReq>();
+      this.newStorageAccounts = new ArrayList<EndpointStorageAccount>();
     }
     this.newStorageAccounts.add(newStorageAccountsItem);
     return this;
@@ -51,11 +51,11 @@ public class StorageAccountsRequest {
    * @return newStorageAccounts
   **/
   @ApiModelProperty(value = "A list of endpoint storage accounts to set or attach")
-  public List<EndpointStorageAccountReq> getNewStorageAccounts() {
+  public List<EndpointStorageAccount> getNewStorageAccounts() {
     return newStorageAccounts;
   }
 
-  public void setNewStorageAccounts(List<EndpointStorageAccountReq> newStorageAccounts) {
+  public void setNewStorageAccounts(List<EndpointStorageAccount> newStorageAccounts) {
     this.newStorageAccounts = newStorageAccounts;
   }
 

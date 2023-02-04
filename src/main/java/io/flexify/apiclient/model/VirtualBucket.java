@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.flexify.apiclient.model.VirtualBucketSettings;
-import io.flexify.apiclient.model.VirtualBucketStorageRes;
+import io.flexify.apiclient.model.VirtualBucketStorage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class VirtualBucket {
   private VirtualBucketSettings settings = null;
 
   @JsonProperty("storages")
-  private List<VirtualBucketStorageRes> storages = new ArrayList<VirtualBucketStorageRes>();
+  private List<VirtualBucketStorage> storages = new ArrayList<VirtualBucketStorage>();
 
   public VirtualBucket settings(VirtualBucketSettings settings) {
     this.settings = settings;
@@ -55,12 +55,12 @@ public class VirtualBucket {
     this.settings = settings;
   }
 
-  public VirtualBucket storages(List<VirtualBucketStorageRes> storages) {
+  public VirtualBucket storages(List<VirtualBucketStorage> storages) {
     this.storages = storages;
     return this;
   }
 
-  public VirtualBucket addStoragesItem(VirtualBucketStorageRes storagesItem) {
+  public VirtualBucket addStoragesItem(VirtualBucketStorage storagesItem) {
     this.storages.add(storagesItem);
     return this;
   }
@@ -70,11 +70,11 @@ public class VirtualBucket {
    * @return storages
   **/
   @ApiModelProperty(required = true, value = "List of storages mapped to this virtual bucket")
-  public List<VirtualBucketStorageRes> getStorages() {
+  public List<VirtualBucketStorage> getStorages() {
     return storages;
   }
 
-  public void setStorages(List<VirtualBucketStorageRes> storages) {
+  public void setStorages(List<VirtualBucketStorage> storages) {
     this.storages = storages;
   }
 

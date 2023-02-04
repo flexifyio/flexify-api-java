@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.flexify.apiclient.model.EndpointSettings;
 import io.flexify.apiclient.model.EndpointStat;
-import io.flexify.apiclient.model.EndpointStorageAccountRes;
+import io.flexify.apiclient.model.EndpointStorageAccount;
 import io.flexify.apiclient.model.VirtualBucket;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,7 +34,7 @@ import java.util.List;
 
 public class EndpointDetails {
   @JsonProperty("accounts")
-  private List<EndpointStorageAccountRes> accounts = null;
+  private List<EndpointStorageAccount> accounts = null;
 
   @JsonProperty("hostnames")
   private List<String> hostnames = null;
@@ -51,14 +51,14 @@ public class EndpointDetails {
   @JsonProperty("virtualBuckets")
   private List<VirtualBucket> virtualBuckets = null;
 
-  public EndpointDetails accounts(List<EndpointStorageAccountRes> accounts) {
+  public EndpointDetails accounts(List<EndpointStorageAccount> accounts) {
     this.accounts = accounts;
     return this;
   }
 
-  public EndpointDetails addAccountsItem(EndpointStorageAccountRes accountsItem) {
+  public EndpointDetails addAccountsItem(EndpointStorageAccount accountsItem) {
     if (this.accounts == null) {
-      this.accounts = new ArrayList<EndpointStorageAccountRes>();
+      this.accounts = new ArrayList<EndpointStorageAccount>();
     }
     this.accounts.add(accountsItem);
     return this;
@@ -69,11 +69,11 @@ public class EndpointDetails {
    * @return accounts
   **/
   @ApiModelProperty(value = "")
-  public List<EndpointStorageAccountRes> getAccounts() {
+  public List<EndpointStorageAccount> getAccounts() {
     return accounts;
   }
 
-  public void setAccounts(List<EndpointStorageAccountRes> accounts) {
+  public void setAccounts(List<EndpointStorageAccount> accounts) {
     this.accounts = accounts;
   }
 
