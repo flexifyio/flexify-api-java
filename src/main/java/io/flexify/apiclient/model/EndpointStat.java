@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * EndpointStat
@@ -74,6 +76,9 @@ public class EndpointStat {
 
   @JsonProperty("health")
   private HealthEnum health = null;
+
+  @JsonProperty("hostnames")
+  private List<String> hostnames = null;
 
   /**
    * Gets or Sets state
@@ -221,6 +226,32 @@ public class EndpointStat {
 
   public void setHealth(HealthEnum health) {
     this.health = health;
+  }
+
+  public EndpointStat hostnames(List<String> hostnames) {
+    this.hostnames = hostnames;
+    return this;
+  }
+
+  public EndpointStat addHostnamesItem(String hostnamesItem) {
+    if (this.hostnames == null) {
+      this.hostnames = new ArrayList<String>();
+    }
+    this.hostnames.add(hostnamesItem);
+    return this;
+  }
+
+   /**
+   * Get hostnames
+   * @return hostnames
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getHostnames() {
+    return hostnames;
+  }
+
+  public void setHostnames(List<String> hostnames) {
+    this.hostnames = hostnames;
   }
 
   public EndpointStat state(StateEnum state) {
@@ -399,6 +430,7 @@ public class EndpointStat {
         Objects.equals(this.cloudUploadBytes, endpointStat.cloudUploadBytes) &&
         Objects.equals(this.errorEngines, endpointStat.errorEngines) &&
         Objects.equals(this.health, endpointStat.health) &&
+        Objects.equals(this.hostnames, endpointStat.hostnames) &&
         Objects.equals(this.state, endpointStat.state) &&
         Objects.equals(this.stateUpdateRequested, endpointStat.stateUpdateRequested) &&
         Objects.equals(this.totalEngines, endpointStat.totalEngines) &&
@@ -412,7 +444,7 @@ public class EndpointStat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudDownloadBytes, cloudUploadBytes, errorEngines, health, state, stateUpdateRequested, totalEngines, upToDateEngines, userDownloadBytes, userSpeedDownload, userSpeedUpload, userUploadBytes, warningEngines);
+    return Objects.hash(cloudDownloadBytes, cloudUploadBytes, errorEngines, health, hostnames, state, stateUpdateRequested, totalEngines, upToDateEngines, userDownloadBytes, userSpeedDownload, userSpeedUpload, userUploadBytes, warningEngines);
   }
 
 
@@ -425,6 +457,7 @@ public class EndpointStat {
     sb.append("    cloudUploadBytes: ").append(toIndentedString(cloudUploadBytes)).append("\n");
     sb.append("    errorEngines: ").append(toIndentedString(errorEngines)).append("\n");
     sb.append("    health: ").append(toIndentedString(health)).append("\n");
+    sb.append("    hostnames: ").append(toIndentedString(hostnames)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    stateUpdateRequested: ").append(toIndentedString(stateUpdateRequested)).append("\n");
     sb.append("    totalEngines: ").append(toIndentedString(totalEngines)).append("\n");

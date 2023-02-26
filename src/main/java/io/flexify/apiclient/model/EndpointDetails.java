@@ -36,9 +36,6 @@ public class EndpointDetails {
   @JsonProperty("accounts")
   private List<EndpointStorageAccount> accounts = null;
 
-  @JsonProperty("hostnames")
-  private List<String> hostnames = null;
-
   @JsonProperty("id")
   private Long id = null;
 
@@ -75,32 +72,6 @@ public class EndpointDetails {
 
   public void setAccounts(List<EndpointStorageAccount> accounts) {
     this.accounts = accounts;
-  }
-
-  public EndpointDetails hostnames(List<String> hostnames) {
-    this.hostnames = hostnames;
-    return this;
-  }
-
-  public EndpointDetails addHostnamesItem(String hostnamesItem) {
-    if (this.hostnames == null) {
-      this.hostnames = new ArrayList<String>();
-    }
-    this.hostnames.add(hostnamesItem);
-    return this;
-  }
-
-   /**
-   * Get hostnames
-   * @return hostnames
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getHostnames() {
-    return hostnames;
-  }
-
-  public void setHostnames(List<String> hostnames) {
-    this.hostnames = hostnames;
   }
 
    /**
@@ -185,7 +156,6 @@ public class EndpointDetails {
     }
     EndpointDetails endpointDetails = (EndpointDetails) o;
     return Objects.equals(this.accounts, endpointDetails.accounts) &&
-        Objects.equals(this.hostnames, endpointDetails.hostnames) &&
         Objects.equals(this.id, endpointDetails.id) &&
         Objects.equals(this.settings, endpointDetails.settings) &&
         Objects.equals(this.stat, endpointDetails.stat) &&
@@ -194,7 +164,7 @@ public class EndpointDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounts, hostnames, id, settings, stat, virtualBuckets);
+    return Objects.hash(accounts, id, settings, stat, virtualBuckets);
   }
 
 
@@ -204,7 +174,6 @@ public class EndpointDetails {
     sb.append("class EndpointDetails {\n");
     
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
-    sb.append("    hostnames: ").append(toIndentedString(hostnames)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    stat: ").append(toIndentedString(stat)).append("\n");

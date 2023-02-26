@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **cloudUploadBytes** | **Long** |  |  [optional]
 **errorEngines** | **Long** |  |  [optional]
 **health** | [**HealthEnum**](#HealthEnum) |  |  [optional]
+**hostnames** | **List&lt;String&gt;** |  |  [optional]
 **state** | [**StateEnum**](#StateEnum) |  |  [optional]
 **stateUpdateRequested** | **Boolean** |  |  [optional]
 **totalEngines** | **Long** |  |  [optional]
