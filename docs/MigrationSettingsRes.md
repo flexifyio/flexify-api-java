@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 **retryTimeout** | **Integer** | Initial timeout between retries in seconds |  [optional]
 **skipIfHashMatches** | **Boolean** | Skip migration if source and destination object hash match |  [optional]
 **slotsPerMapping** | **Integer** | Number of slots of storage mapping (bucket) |  [optional]
+**uploadTimestampMode** | [**UploadTimestampModeEnum**](#UploadTimestampModeEnum) | Specify if to copy original or set specified timestamp when migration to B2 |  [optional]
+**uploadTimestampValue** | [**DateTime**](DateTime.md) | The B2 timestamp value to set if uploadTimestampMode is CUSTOM |  [optional]
 
 
 <a name="ComparisonMethodEnum"></a>
@@ -95,6 +97,15 @@ Name | Value
 BULK | &quot;BULK&quot;
 EXPEDITED | &quot;EXPEDITED&quot;
 STANDARD | &quot;STANDARD&quot;
+
+
+<a name="UploadTimestampModeEnum"></a>
+## Enum: UploadTimestampModeEnum
+Name | Value
+---- | -----
+ACTUAL | &quot;ACTUAL&quot;
+CUSTOM | &quot;CUSTOM&quot;
+ORIGINAL | &quot;ORIGINAL&quot;
 
 
 

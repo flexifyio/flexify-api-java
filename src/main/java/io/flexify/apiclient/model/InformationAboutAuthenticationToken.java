@@ -30,6 +30,9 @@ public class InformationAboutAuthenticationToken {
   @JsonProperty("comments")
   private String comments = null;
 
+  @JsonProperty("id")
+  private Long id = null;
+
   @JsonProperty("ip")
   private String ip = null;
 
@@ -100,6 +103,24 @@ public class InformationAboutAuthenticationToken {
 
   public void setComments(String comments) {
     this.comments = comments;
+  }
+
+  public InformationAboutAuthenticationToken id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Unique token ID
+   * @return id
+  **/
+  @ApiModelProperty(value = "Unique token ID")
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public InformationAboutAuthenticationToken ip(String ip) {
@@ -203,6 +224,7 @@ public class InformationAboutAuthenticationToken {
     }
     InformationAboutAuthenticationToken informationAboutAuthenticationToken = (InformationAboutAuthenticationToken) o;
     return Objects.equals(this.comments, informationAboutAuthenticationToken.comments) &&
+        Objects.equals(this.id, informationAboutAuthenticationToken.id) &&
         Objects.equals(this.ip, informationAboutAuthenticationToken.ip) &&
         Objects.equals(this.issued, informationAboutAuthenticationToken.issued) &&
         Objects.equals(this.lastUsed, informationAboutAuthenticationToken.lastUsed) &&
@@ -212,7 +234,7 @@ public class InformationAboutAuthenticationToken {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, ip, issued, lastUsed, token, tokenType);
+    return Objects.hash(comments, id, ip, issued, lastUsed, token, tokenType);
   }
 
 
@@ -222,6 +244,7 @@ public class InformationAboutAuthenticationToken {
     sb.append("class InformationAboutAuthenticationToken {\n");
     
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    issued: ").append(toIndentedString(issued)).append("\n");
     sb.append("    lastUsed: ").append(toIndentedString(lastUsed)).append("\n");

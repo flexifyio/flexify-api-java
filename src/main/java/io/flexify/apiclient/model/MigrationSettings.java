@@ -370,6 +370,49 @@ public class MigrationSettings {
   @JsonProperty("slotsPerMapping")
   private Integer slotsPerMapping = null;
 
+  /**
+   * Specify if to copy original or set specified timestamp when migration to B2
+   */
+  public enum UploadTimestampModeEnum {
+    ACTUAL("ACTUAL"),
+    
+    CUSTOM("CUSTOM"),
+    
+    ORIGINAL("ORIGINAL");
+
+    private String value;
+
+    UploadTimestampModeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static UploadTimestampModeEnum fromValue(String value) {
+      for (UploadTimestampModeEnum b : UploadTimestampModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("uploadTimestampMode")
+  private UploadTimestampModeEnum uploadTimestampMode = null;
+
+  @JsonProperty("uploadTimestampValue")
+  private DateTime uploadTimestampValue = null;
+
   public MigrationSettings autoRestoreIfArchived(Boolean autoRestoreIfArchived) {
     this.autoRestoreIfArchived = autoRestoreIfArchived;
     return this;
@@ -811,7 +854,7 @@ public class MigrationSettings {
    * Skip migration if source and destination object hash match
    * @return skipIfHashMatches
   **/
-  @ApiModelProperty(example = "true", value = "Skip migration if source and destination object hash match")
+  @ApiModelProperty(value = "Skip migration if source and destination object hash match")
   public Boolean isSkipIfHashMatches() {
     return skipIfHashMatches;
   }
@@ -836,6 +879,42 @@ public class MigrationSettings {
 
   public void setSlotsPerMapping(Integer slotsPerMapping) {
     this.slotsPerMapping = slotsPerMapping;
+  }
+
+  public MigrationSettings uploadTimestampMode(UploadTimestampModeEnum uploadTimestampMode) {
+    this.uploadTimestampMode = uploadTimestampMode;
+    return this;
+  }
+
+   /**
+   * Specify if to copy original or set specified timestamp when migration to B2
+   * @return uploadTimestampMode
+  **/
+  @ApiModelProperty(value = "Specify if to copy original or set specified timestamp when migration to B2")
+  public UploadTimestampModeEnum getUploadTimestampMode() {
+    return uploadTimestampMode;
+  }
+
+  public void setUploadTimestampMode(UploadTimestampModeEnum uploadTimestampMode) {
+    this.uploadTimestampMode = uploadTimestampMode;
+  }
+
+  public MigrationSettings uploadTimestampValue(DateTime uploadTimestampValue) {
+    this.uploadTimestampValue = uploadTimestampValue;
+    return this;
+  }
+
+   /**
+   * The B2 timestamp value to set if uploadTimestampMode is CUSTOM
+   * @return uploadTimestampValue
+  **/
+  @ApiModelProperty(value = "The B2 timestamp value to set if uploadTimestampMode is CUSTOM")
+  public DateTime getUploadTimestampValue() {
+    return uploadTimestampValue;
+  }
+
+  public void setUploadTimestampValue(DateTime uploadTimestampValue) {
+    this.uploadTimestampValue = uploadTimestampValue;
   }
 
 
@@ -873,12 +952,14 @@ public class MigrationSettings {
         Objects.equals(this.restoreTier, migrationSettings.restoreTier) &&
         Objects.equals(this.retryTimeout, migrationSettings.retryTimeout) &&
         Objects.equals(this.skipIfHashMatches, migrationSettings.skipIfHashMatches) &&
-        Objects.equals(this.slotsPerMapping, migrationSettings.slotsPerMapping);
+        Objects.equals(this.slotsPerMapping, migrationSettings.slotsPerMapping) &&
+        Objects.equals(this.uploadTimestampMode, migrationSettings.uploadTimestampMode) &&
+        Objects.equals(this.uploadTimestampValue, migrationSettings.uploadTimestampValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRestoreIfArchived, comparisonMethod, conflictResolution, deploymentType, dryRun, enginesLocation, existingDataInDestination, lastModifiedFrom, logLevel, maxEngines, maxRetries, maxRetriesForCopy, maxRetryTimeout, maxStreams, migrationMode, multipartConcurrency, multipartLimit, multipartPartSize, name, objectKeyFilter, restoreDays, restoreMaxSize, restoreTier, retryTimeout, skipIfHashMatches, slotsPerMapping);
+    return Objects.hash(autoRestoreIfArchived, comparisonMethod, conflictResolution, deploymentType, dryRun, enginesLocation, existingDataInDestination, lastModifiedFrom, logLevel, maxEngines, maxRetries, maxRetriesForCopy, maxRetryTimeout, maxStreams, migrationMode, multipartConcurrency, multipartLimit, multipartPartSize, name, objectKeyFilter, restoreDays, restoreMaxSize, restoreTier, retryTimeout, skipIfHashMatches, slotsPerMapping, uploadTimestampMode, uploadTimestampValue);
   }
 
 
@@ -913,6 +994,8 @@ public class MigrationSettings {
     sb.append("    retryTimeout: ").append(toIndentedString(retryTimeout)).append("\n");
     sb.append("    skipIfHashMatches: ").append(toIndentedString(skipIfHashMatches)).append("\n");
     sb.append("    slotsPerMapping: ").append(toIndentedString(slotsPerMapping)).append("\n");
+    sb.append("    uploadTimestampMode: ").append(toIndentedString(uploadTimestampMode)).append("\n");
+    sb.append("    uploadTimestampValue: ").append(toIndentedString(uploadTimestampValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
