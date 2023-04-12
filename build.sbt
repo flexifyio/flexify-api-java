@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "io.flexify",
     name := "management-apiclient",
-    version := "2.12.14",
+    version := "2.12.15-SNAPSHOT",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),
