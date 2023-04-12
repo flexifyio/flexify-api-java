@@ -4,7 +4,7 @@
     <artifactId>management-apiclient</artifactId>
     <packaging>jar</packaging>
     <name>Flexify IO Management API Java Client</name>
-    <version>2.12.15-SNAPSHOT</version>
+    <version>2.12.14</version>
     <url>https://flexify.io</url>
     <description>Java wrapper for Flexify IO Management REST API</description>
 
@@ -28,6 +28,19 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>sk</id>
+            <name>Sergey Kandaurov</name>
+            <email>sk@flexify.io</email>
+            <organization>Flexify</organization>
+            <organizationUrl>https://flexify.io/</organizationUrl>
+            <roles>
+                <role>Flexify Founder</role>
+            </roles>
+        </developer>
+    </developers>
 
     <build>
         <plugins>
