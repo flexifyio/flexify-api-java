@@ -70,7 +70,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthControllerApi* | [**authenticate**](docs/AuthControllerApi.md#authenticate) | **POST** /backend/rest/auth | Generate new access token for the user
 *AuthControllerApi* | [**checkTokenAndGetUser**](docs/AuthControllerApi.md#checkTokenAndGetUser) | **GET** /backend/rest/auth/user | Check of given token
-*AuthControllerApi* | [**getConfig**](docs/AuthControllerApi.md#getConfig) | **GET** /backend/rest/auth/config | Logout
+*AuthControllerApi* | [**getConfig**](docs/AuthControllerApi.md#getConfig) | **GET** /backend/rest/auth/config | Get public auth config
 *AuthControllerApi* | [**logout**](docs/AuthControllerApi.md#logout) | **POST** /backend/rest/auth/logout | Logout
 *BillingAccountControllerApi* | [**getCostsForCurrentUserBillingAccount**](docs/BillingAccountControllerApi.md#getCostsForCurrentUserBillingAccount) | **GET** /backend/rest/account/costs | Get costs for current user
 *BillingAccountControllerApi* | [**getCurrentUserBillingAccount**](docs/BillingAccountControllerApi.md#getCurrentUserBillingAccount) | **GET** /backend/rest/account | Get billing account for current user
@@ -188,6 +188,7 @@ Class | Method | HTTP request | Description
 *StoragesControllerApi* | [**deleteBucket**](docs/StoragesControllerApi.md#deleteBucket) | **DELETE** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Deletes (hides) a bucket/container
 *StoragesControllerApi* | [**getBucket**](docs/StoragesControllerApi.md#getBucket) | **GET** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Get detailed stats for the bucket
 *StoragesControllerApi* | [**refreshBucket**](docs/StoragesControllerApi.md#refreshBucket) | **POST** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id}/actions/refresh | Refresh statistics of a single bucket
+*UserControllerApi* | [**changeMicrosoftSso**](docs/UserControllerApi.md#changeMicrosoftSso) | **POST** /backend/rest/user/current/sso-microsoft | changeMicrosoftSso
 *UserControllerApi* | [**getCurrentUser**](docs/UserControllerApi.md#getCurrentUser) | **GET** /backend/rest/user/current | Get details of user corresponding to provided auth token
 *UserControllerApi* | [**requestDelete**](docs/UserControllerApi.md#requestDelete) | **POST** /backend/rest/user/request-delete | requestDelete
 *UserControllerApi* | [**requestResetPassword**](docs/UserControllerApi.md#requestResetPassword) | **POST** /backend/rest/user/request-reset-password | requestResetPassword
@@ -210,6 +211,7 @@ Class | Method | HTTP request | Description
  - [BucketStat](docs/BucketStat.md)
  - [BucketsRequest](docs/BucketsRequest.md)
  - [ChangePasswordRequest](docs/ChangePasswordRequest.md)
+ - [ChangeSsoMicrosoftRequest](docs/ChangeSsoMicrosoftRequest.md)
  - [CleanupStat](docs/CleanupStat.md)
  - [CloudLocation](docs/CloudLocation.md)
  - [CloudLocationReq](docs/CloudLocationReq.md)

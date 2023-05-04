@@ -53,8 +53,17 @@ public class User {
   @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("microsoftOid")
+  private String microsoftOid = null;
+
+  @JsonProperty("microsoftUserName")
+  private String microsoftUserName = null;
+
   @JsonProperty("org")
   private Organization org = null;
+
+  @JsonProperty("passwordIsEmpty")
+  private Boolean passwordIsEmpty = null;
 
   @JsonProperty("profile")
   private UserProfile profile = null;
@@ -273,6 +282,42 @@ public class User {
     this.id = id;
   }
 
+  public User microsoftOid(String microsoftOid) {
+    this.microsoftOid = microsoftOid;
+    return this;
+  }
+
+   /**
+   * Microsoft oid
+   * @return microsoftOid
+  **/
+  @ApiModelProperty(value = "Microsoft oid")
+  public String getMicrosoftOid() {
+    return microsoftOid;
+  }
+
+  public void setMicrosoftOid(String microsoftOid) {
+    this.microsoftOid = microsoftOid;
+  }
+
+  public User microsoftUserName(String microsoftUserName) {
+    this.microsoftUserName = microsoftUserName;
+    return this;
+  }
+
+   /**
+   * Microsoft user name (email)
+   * @return microsoftUserName
+  **/
+  @ApiModelProperty(value = "Microsoft user name (email)")
+  public String getMicrosoftUserName() {
+    return microsoftUserName;
+  }
+
+  public void setMicrosoftUserName(String microsoftUserName) {
+    this.microsoftUserName = microsoftUserName;
+  }
+
   public User org(Organization org) {
     this.org = org;
     return this;
@@ -289,6 +334,24 @@ public class User {
 
   public void setOrg(Organization org) {
     this.org = org;
+  }
+
+  public User passwordIsEmpty(Boolean passwordIsEmpty) {
+    this.passwordIsEmpty = passwordIsEmpty;
+    return this;
+  }
+
+   /**
+   * Indicates that this user does not have a password
+   * @return passwordIsEmpty
+  **/
+  @ApiModelProperty(value = "Indicates that this user does not have a password")
+  public Boolean isPasswordIsEmpty() {
+    return passwordIsEmpty;
+  }
+
+  public void setPasswordIsEmpty(Boolean passwordIsEmpty) {
+    this.passwordIsEmpty = passwordIsEmpty;
   }
 
   public User profile(UserProfile profile) {
@@ -333,10 +396,10 @@ public class User {
   }
 
    /**
-   * Indicates that this user does not have a password and needs to accept EULA
+   * Indicates that this user does not have a password or SSO and needs to accept EULA
    * @return requireLicenseTerms
   **/
-  @ApiModelProperty(value = "Indicates that this user does not have a password and needs to accept EULA")
+  @ApiModelProperty(value = "Indicates that this user does not have a password or SSO and needs to accept EULA")
   public Boolean isRequireLicenseTerms() {
     return requireLicenseTerms;
   }
@@ -477,7 +540,10 @@ public class User {
         Objects.equals(this.deleteRequested, user.deleteRequested) &&
         Objects.equals(this.externalId, user.externalId) &&
         Objects.equals(this.id, user.id) &&
+        Objects.equals(this.microsoftOid, user.microsoftOid) &&
+        Objects.equals(this.microsoftUserName, user.microsoftUserName) &&
         Objects.equals(this.org, user.org) &&
+        Objects.equals(this.passwordIsEmpty, user.passwordIsEmpty) &&
         Objects.equals(this.profile, user.profile) &&
         Objects.equals(this.registered, user.registered) &&
         Objects.equals(this.requireLicenseTerms, user.requireLicenseTerms) &&
@@ -491,7 +557,7 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, actualLimits, billingServerAccountId, deleteRequested, externalId, id, org, profile, registered, requireLicenseTerms, roles, settings, signUpCode, state, userLimits, username);
+    return Objects.hash(account, actualLimits, billingServerAccountId, deleteRequested, externalId, id, microsoftOid, microsoftUserName, org, passwordIsEmpty, profile, registered, requireLicenseTerms, roles, settings, signUpCode, state, userLimits, username);
   }
 
 
@@ -506,7 +572,10 @@ public class User {
     sb.append("    deleteRequested: ").append(toIndentedString(deleteRequested)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    microsoftOid: ").append(toIndentedString(microsoftOid)).append("\n");
+    sb.append("    microsoftUserName: ").append(toIndentedString(microsoftUserName)).append("\n");
     sb.append("    org: ").append(toIndentedString(org)).append("\n");
+    sb.append("    passwordIsEmpty: ").append(toIndentedString(passwordIsEmpty)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("    registered: ").append(toIndentedString(registered)).append("\n");
     sb.append("    requireLicenseTerms: ").append(toIndentedString(requireLicenseTerms)).append("\n");

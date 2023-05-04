@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authenticate**](AuthControllerApi.md#authenticate) | **POST** /backend/rest/auth | Generate new access token for the user
 [**checkTokenAndGetUser**](AuthControllerApi.md#checkTokenAndGetUser) | **GET** /backend/rest/auth/user | Check of given token
-[**getConfig**](AuthControllerApi.md#getConfig) | **GET** /backend/rest/auth/config | Logout
+[**getConfig**](AuthControllerApi.md#getConfig) | **GET** /backend/rest/auth/config | Get public auth config
 [**logout**](AuthControllerApi.md#logout) | **POST** /backend/rest/auth/logout | Logout
 
 
@@ -106,7 +106,7 @@ This endpoint does not need any parameter.
 # **getConfig**
 > PublicAuthenticationConfiguration getConfig()
 
-Logout
+Get public auth config
 
 ### Example
 ```java

@@ -8,6 +8,7 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import io.flexify.apiclient.model.ChangeSsoMicrosoftRequest;
 import io.flexify.apiclient.model.RequestResetPasswordRequest;
 import io.flexify.apiclient.model.User;
 
@@ -36,6 +37,57 @@ public class UserControllerApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * changeMicrosoftSso
+   * 
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void changeMicrosoftSso(ChangeSsoMicrosoftRequest request) throws ApiException {
+
+    changeMicrosoftSsoWithHttpInfo(request);
+  }
+
+  /**
+   * changeMicrosoftSso
+   * 
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> changeMicrosoftSsoWithHttpInfo(ChangeSsoMicrosoftRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling changeMicrosoftSso");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/user/current/sso-microsoft";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
   /**
    * Get details of user corresponding to provided auth token
    * 

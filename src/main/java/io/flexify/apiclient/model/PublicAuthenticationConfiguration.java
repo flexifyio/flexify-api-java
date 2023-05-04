@@ -26,46 +26,46 @@ import io.swagger.annotations.ApiModelProperty;
  */
 
 public class PublicAuthenticationConfiguration {
-  @JsonProperty("configured")
-  private Boolean configured = null;
+  @JsonProperty("microsoftClientId")
+  private String microsoftClientId = null;
 
-  @JsonProperty("singleUserMode")
-  private Boolean singleUserMode = null;
+  @JsonProperty("microsoftScope")
+  private String microsoftScope = null;
 
-  public PublicAuthenticationConfiguration configured(Boolean configured) {
-    this.configured = configured;
+  public PublicAuthenticationConfiguration microsoftClientId(String microsoftClientId) {
+    this.microsoftClientId = microsoftClientId;
     return this;
   }
 
    /**
-   * Specifics if credentials are configured on a single user mode
-   * @return configured
+   * Required client Id in Microsoft access token
+   * @return microsoftClientId
   **/
-  @ApiModelProperty(value = "Specifics if credentials are configured on a single user mode")
-  public Boolean isConfigured() {
-    return configured;
+  @ApiModelProperty(value = "Required client Id in Microsoft access token")
+  public String getMicrosoftClientId() {
+    return microsoftClientId;
   }
 
-  public void setConfigured(Boolean configured) {
-    this.configured = configured;
+  public void setMicrosoftClientId(String microsoftClientId) {
+    this.microsoftClientId = microsoftClientId;
   }
 
-  public PublicAuthenticationConfiguration singleUserMode(Boolean singleUserMode) {
-    this.singleUserMode = singleUserMode;
+  public PublicAuthenticationConfiguration microsoftScope(String microsoftScope) {
+    this.microsoftScope = microsoftScope;
     return this;
   }
 
    /**
-   * In the single user mode only one user account is possible
-   * @return singleUserMode
+   * Required scope in Microsoft access token
+   * @return microsoftScope
   **/
-  @ApiModelProperty(value = "In the single user mode only one user account is possible")
-  public Boolean isSingleUserMode() {
-    return singleUserMode;
+  @ApiModelProperty(value = "Required scope in Microsoft access token")
+  public String getMicrosoftScope() {
+    return microsoftScope;
   }
 
-  public void setSingleUserMode(Boolean singleUserMode) {
-    this.singleUserMode = singleUserMode;
+  public void setMicrosoftScope(String microsoftScope) {
+    this.microsoftScope = microsoftScope;
   }
 
 
@@ -78,13 +78,13 @@ public class PublicAuthenticationConfiguration {
       return false;
     }
     PublicAuthenticationConfiguration publicAuthenticationConfiguration = (PublicAuthenticationConfiguration) o;
-    return Objects.equals(this.configured, publicAuthenticationConfiguration.configured) &&
-        Objects.equals(this.singleUserMode, publicAuthenticationConfiguration.singleUserMode);
+    return Objects.equals(this.microsoftClientId, publicAuthenticationConfiguration.microsoftClientId) &&
+        Objects.equals(this.microsoftScope, publicAuthenticationConfiguration.microsoftScope);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configured, singleUserMode);
+    return Objects.hash(microsoftClientId, microsoftScope);
   }
 
 
@@ -93,8 +93,8 @@ public class PublicAuthenticationConfiguration {
     StringBuilder sb = new StringBuilder();
     sb.append("class PublicAuthenticationConfiguration {\n");
     
-    sb.append("    configured: ").append(toIndentedString(configured)).append("\n");
-    sb.append("    singleUserMode: ").append(toIndentedString(singleUserMode)).append("\n");
+    sb.append("    microsoftClientId: ").append(toIndentedString(microsoftClientId)).append("\n");
+    sb.append("    microsoftScope: ").append(toIndentedString(microsoftScope)).append("\n");
     sb.append("}");
     return sb.toString();
   }

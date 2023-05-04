@@ -43,6 +43,15 @@ public class SignUpRequest {
   @JsonProperty("signupCode")
   private String signupCode = null;
 
+  @JsonProperty("ssoEmail")
+  private String ssoEmail = null;
+
+  @JsonProperty("ssoId")
+  private String ssoId = null;
+
+  @JsonProperty("ssoType")
+  private String ssoType = null;
+
   public SignUpRequest externalId(String externalId) {
     this.externalId = externalId;
     return this;
@@ -133,6 +142,60 @@ public class SignUpRequest {
     this.signupCode = signupCode;
   }
 
+  public SignUpRequest ssoEmail(String ssoEmail) {
+    this.ssoEmail = ssoEmail;
+    return this;
+  }
+
+   /**
+   * Get ssoEmail
+   * @return ssoEmail
+  **/
+  @ApiModelProperty(value = "")
+  public String getSsoEmail() {
+    return ssoEmail;
+  }
+
+  public void setSsoEmail(String ssoEmail) {
+    this.ssoEmail = ssoEmail;
+  }
+
+  public SignUpRequest ssoId(String ssoId) {
+    this.ssoId = ssoId;
+    return this;
+  }
+
+   /**
+   * Get ssoId
+   * @return ssoId
+  **/
+  @ApiModelProperty(value = "")
+  public String getSsoId() {
+    return ssoId;
+  }
+
+  public void setSsoId(String ssoId) {
+    this.ssoId = ssoId;
+  }
+
+  public SignUpRequest ssoType(String ssoType) {
+    this.ssoType = ssoType;
+    return this;
+  }
+
+   /**
+   * Get ssoType
+   * @return ssoType
+  **/
+  @ApiModelProperty(value = "")
+  public String getSsoType() {
+    return ssoType;
+  }
+
+  public void setSsoType(String ssoType) {
+    this.ssoType = ssoType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -147,12 +210,15 @@ public class SignUpRequest {
         Objects.equals(this.password, signUpRequest.password) &&
         Objects.equals(this.profile, signUpRequest.profile) &&
         Objects.equals(this.settings, signUpRequest.settings) &&
-        Objects.equals(this.signupCode, signUpRequest.signupCode);
+        Objects.equals(this.signupCode, signUpRequest.signupCode) &&
+        Objects.equals(this.ssoEmail, signUpRequest.ssoEmail) &&
+        Objects.equals(this.ssoId, signUpRequest.ssoId) &&
+        Objects.equals(this.ssoType, signUpRequest.ssoType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalId, password, profile, settings, signupCode);
+    return Objects.hash(externalId, password, profile, settings, signupCode, ssoEmail, ssoId, ssoType);
   }
 
 
@@ -166,6 +232,9 @@ public class SignUpRequest {
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    signupCode: ").append(toIndentedString(signupCode)).append("\n");
+    sb.append("    ssoEmail: ").append(toIndentedString(ssoEmail)).append("\n");
+    sb.append("    ssoId: ").append(toIndentedString(ssoId)).append("\n");
+    sb.append("    ssoType: ").append(toIndentedString(ssoType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

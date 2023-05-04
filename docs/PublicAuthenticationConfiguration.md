@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configured** | **Boolean** | Specifics if credentials are configured on a single user mode |  [optional]
-**singleUserMode** | **Boolean** | In the single user mode only one user account is possible |  [optional]
+**microsoftClientId** | **String** | Required client Id in Microsoft access token |  [optional]
+**microsoftScope** | **String** | Required scope in Microsoft access token |  [optional]
 
 
 

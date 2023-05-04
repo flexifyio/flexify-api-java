@@ -35,6 +35,9 @@ public class SignupResult {
   @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("ssoMicrosoftEmail")
+  private String ssoMicrosoftEmail = null;
+
   @JsonProperty("username")
   private String username = null;
 
@@ -92,6 +95,24 @@ public class SignupResult {
     this.id = id;
   }
 
+  public SignupResult ssoMicrosoftEmail(String ssoMicrosoftEmail) {
+    this.ssoMicrosoftEmail = ssoMicrosoftEmail;
+    return this;
+  }
+
+   /**
+   * Get ssoMicrosoftEmail
+   * @return ssoMicrosoftEmail
+  **/
+  @ApiModelProperty(value = "")
+  public String getSsoMicrosoftEmail() {
+    return ssoMicrosoftEmail;
+  }
+
+  public void setSsoMicrosoftEmail(String ssoMicrosoftEmail) {
+    this.ssoMicrosoftEmail = ssoMicrosoftEmail;
+  }
+
   public SignupResult username(String username) {
     this.username = username;
     return this;
@@ -123,12 +144,13 @@ public class SignupResult {
     return Objects.equals(this.billingAccountId, signupResult.billingAccountId) &&
         Objects.equals(this.externalId, signupResult.externalId) &&
         Objects.equals(this.id, signupResult.id) &&
+        Objects.equals(this.ssoMicrosoftEmail, signupResult.ssoMicrosoftEmail) &&
         Objects.equals(this.username, signupResult.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAccountId, externalId, id, username);
+    return Objects.hash(billingAccountId, externalId, id, ssoMicrosoftEmail, username);
   }
 
 
@@ -140,6 +162,7 @@ public class SignupResult {
     sb.append("    billingAccountId: ").append(toIndentedString(billingAccountId)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    ssoMicrosoftEmail: ").append(toIndentedString(ssoMicrosoftEmail)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -4,10 +4,63 @@ All URIs are relative to *https://api.flexify.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**changeMicrosoftSso**](UserControllerApi.md#changeMicrosoftSso) | **POST** /backend/rest/user/current/sso-microsoft | changeMicrosoftSso
 [**getCurrentUser**](UserControllerApi.md#getCurrentUser) | **GET** /backend/rest/user/current | Get details of user corresponding to provided auth token
 [**requestDelete**](UserControllerApi.md#requestDelete) | **POST** /backend/rest/user/request-delete | requestDelete
 [**requestResetPassword**](UserControllerApi.md#requestResetPassword) | **POST** /backend/rest/user/request-reset-password | requestResetPassword
 
+
+<a name="changeMicrosoftSso"></a>
+# **changeMicrosoftSso**
+> changeMicrosoftSso(request)
+
+changeMicrosoftSso
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.UserControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+UserControllerApi apiInstance = new UserControllerApi();
+ChangeSsoMicrosoftRequest request = new ChangeSsoMicrosoftRequest(); // ChangeSsoMicrosoftRequest | request
+try {
+    apiInstance.changeMicrosoftSso(request);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserControllerApi#changeMicrosoftSso");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ChangeSsoMicrosoftRequest**](ChangeSsoMicrosoftRequest.md)| request |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
 
 <a name="getCurrentUser"></a>
 # **getCurrentUser**

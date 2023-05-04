@@ -137,7 +137,7 @@ public class AuthControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Logout
+   * Get public auth config
    * 
    * @return PublicAuthenticationConfiguration
    * @throws ApiException if fails to make API call
@@ -147,7 +147,7 @@ public class AuthControllerApi {
       }
 
   /**
-   * Logout
+   * Get public auth config
    * 
    * @return ApiResponse&lt;PublicAuthenticationConfiguration&gt;
    * @throws ApiException if fails to make API call
