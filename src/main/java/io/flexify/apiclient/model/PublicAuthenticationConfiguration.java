@@ -32,6 +32,9 @@ public class PublicAuthenticationConfiguration {
   @JsonProperty("microsoftScope")
   private String microsoftScope = null;
 
+  @JsonProperty("microsoftTenantId")
+  private String microsoftTenantId = null;
+
   public PublicAuthenticationConfiguration microsoftClientId(String microsoftClientId) {
     this.microsoftClientId = microsoftClientId;
     return this;
@@ -68,6 +71,24 @@ public class PublicAuthenticationConfiguration {
     this.microsoftScope = microsoftScope;
   }
 
+  public PublicAuthenticationConfiguration microsoftTenantId(String microsoftTenantId) {
+    this.microsoftTenantId = microsoftTenantId;
+    return this;
+  }
+
+   /**
+   * Optional tenant Id in Microsoft access token
+   * @return microsoftTenantId
+  **/
+  @ApiModelProperty(value = "Optional tenant Id in Microsoft access token")
+  public String getMicrosoftTenantId() {
+    return microsoftTenantId;
+  }
+
+  public void setMicrosoftTenantId(String microsoftTenantId) {
+    this.microsoftTenantId = microsoftTenantId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -79,12 +100,13 @@ public class PublicAuthenticationConfiguration {
     }
     PublicAuthenticationConfiguration publicAuthenticationConfiguration = (PublicAuthenticationConfiguration) o;
     return Objects.equals(this.microsoftClientId, publicAuthenticationConfiguration.microsoftClientId) &&
-        Objects.equals(this.microsoftScope, publicAuthenticationConfiguration.microsoftScope);
+        Objects.equals(this.microsoftScope, publicAuthenticationConfiguration.microsoftScope) &&
+        Objects.equals(this.microsoftTenantId, publicAuthenticationConfiguration.microsoftTenantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(microsoftClientId, microsoftScope);
+    return Objects.hash(microsoftClientId, microsoftScope, microsoftTenantId);
   }
 
 
@@ -95,6 +117,7 @@ public class PublicAuthenticationConfiguration {
     
     sb.append("    microsoftClientId: ").append(toIndentedString(microsoftClientId)).append("\n");
     sb.append("    microsoftScope: ").append(toIndentedString(microsoftScope)).append("\n");
+    sb.append("    microsoftTenantId: ").append(toIndentedString(microsoftTenantId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
