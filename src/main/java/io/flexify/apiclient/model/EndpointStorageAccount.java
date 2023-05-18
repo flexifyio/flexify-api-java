@@ -61,7 +61,7 @@ public class EndpointStorageAccount {
    * Id of attached storage account
    * @return storageAccountId
   **/
-  @ApiModelProperty(value = "Id of attached storage account")
+  @ApiModelProperty(required = true, value = "Id of attached storage account")
   public Long getStorageAccountId() {
     return storageAccountId;
   }

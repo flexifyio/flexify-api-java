@@ -31,7 +31,7 @@ import java.util.List;
 
 public class StorageAccountsRequest {
   @JsonProperty("newStorageAccounts")
-  private List<EndpointStorageAccount> newStorageAccounts = null;
+  private List<EndpointStorageAccount> newStorageAccounts = new ArrayList<EndpointStorageAccount>();
 
   public StorageAccountsRequest newStorageAccounts(List<EndpointStorageAccount> newStorageAccounts) {
     this.newStorageAccounts = newStorageAccounts;
@@ -39,9 +39,6 @@ public class StorageAccountsRequest {
   }
 
   public StorageAccountsRequest addNewStorageAccountsItem(EndpointStorageAccount newStorageAccountsItem) {
-    if (this.newStorageAccounts == null) {
-      this.newStorageAccounts = new ArrayList<EndpointStorageAccount>();
-    }
     this.newStorageAccounts.add(newStorageAccountsItem);
     return this;
   }
@@ -50,7 +47,7 @@ public class StorageAccountsRequest {
    * A list of endpoint storage accounts to set or attach
    * @return newStorageAccounts
   **/
-  @ApiModelProperty(value = "A list of endpoint storage accounts to set or attach")
+  @ApiModelProperty(required = true, value = "A list of endpoint storage accounts to set or attach")
   public List<EndpointStorageAccount> getNewStorageAccounts() {
     return newStorageAccounts;
   }
