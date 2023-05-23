@@ -258,6 +258,7 @@ Class | Method | HTTP request | Description
  - [PublicAuthenticationConfiguration](docs/PublicAuthenticationConfiguration.md)
  - [RequestResetPasswordRequest](docs/RequestResetPasswordRequest.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
+ - [ResetSsoRequest](docs/ResetSsoRequest.md)
  - [SetRolesRequest](docs/SetRolesRequest.md)
  - [SetUserStateRequest](docs/SetUserStateRequest.md)
  - [SignUpRequest](docs/SignUpRequest.md)
