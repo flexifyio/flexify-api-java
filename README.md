@@ -147,6 +147,8 @@ Class | Method | HTTP request | Description
 *PartnerUsersControllerApi* | [**generateTokenByExternalId1**](docs/PartnerUsersControllerApi.md#generateTokenByExternalId1) | **POST** /backend/rest/partner/users/external/{externalId}/tokens | Create token by external ID
 *PartnerUsersControllerApi* | [**generateTokenByUsername**](docs/PartnerUsersControllerApi.md#generateTokenByUsername) | **POST** /backend/rest/distributor/users/username/{username}/tokens | Create token by username
 *PartnerUsersControllerApi* | [**generateTokenByUsername1**](docs/PartnerUsersControllerApi.md#generateTokenByUsername1) | **POST** /backend/rest/partner/users/username/{username}/tokens | Create token by username
+*PartnerUsersControllerApi* | [**getAllUsersPageable**](docs/PartnerUsersControllerApi.md#getAllUsersPageable) | **GET** /backend/rest/distributor/users/search | Get users with search, sorting and pagination
+*PartnerUsersControllerApi* | [**getAllUsersPageable1**](docs/PartnerUsersControllerApi.md#getAllUsersPageable1) | **GET** /backend/rest/partner/users/search | Get users with search, sorting and pagination
 *PartnerUsersControllerApi* | [**getUser**](docs/PartnerUsersControllerApi.md#getUser) | **GET** /backend/rest/distributor/users/{userId} | Get user details
 *PartnerUsersControllerApi* | [**getUser1**](docs/PartnerUsersControllerApi.md#getUser1) | **GET** /backend/rest/partner/users/{userId} | Get user details
 *PartnerUsersControllerApi* | [**getUserByExternalId**](docs/PartnerUsersControllerApi.md#getUserByExternalId) | **GET** /backend/rest/distributor/users/external/{externalId} | Get user details by external ID
@@ -247,6 +249,7 @@ Class | Method | HTTP request | Description
  - [NewStorageAccount](docs/NewStorageAccount.md)
  - [Organization](docs/Organization.md)
  - [PageMigration](docs/PageMigration.md)
+ - [PageUserStat](docs/PageUserStat.md)
  - [Pageable](docs/Pageable.md)
  - [PasswordResetToken](docs/PasswordResetToken.md)
  - [Payment](docs/Payment.md)
