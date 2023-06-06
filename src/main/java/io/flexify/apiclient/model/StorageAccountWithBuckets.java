@@ -32,6 +32,9 @@ import java.util.List;
  */
 
 public class StorageAccountWithBuckets {
+  @JsonProperty("azureKeyVaultSecretId")
+  private String azureKeyVaultSecretId = null;
+
   @JsonProperty("buckets")
   private List<Bucket> buckets = null;
 
@@ -55,6 +58,24 @@ public class StorageAccountWithBuckets {
 
   @JsonProperty("url")
   private String url = null;
+
+  public StorageAccountWithBuckets azureKeyVaultSecretId(String azureKeyVaultSecretId) {
+    this.azureKeyVaultSecretId = azureKeyVaultSecretId;
+    return this;
+  }
+
+   /**
+   * Get azureKeyVaultSecretId
+   * @return azureKeyVaultSecretId
+  **/
+  @ApiModelProperty(value = "")
+  public String getAzureKeyVaultSecretId() {
+    return azureKeyVaultSecretId;
+  }
+
+  public void setAzureKeyVaultSecretId(String azureKeyVaultSecretId) {
+    this.azureKeyVaultSecretId = azureKeyVaultSecretId;
+  }
 
   public StorageAccountWithBuckets buckets(List<Bucket> buckets) {
     this.buckets = buckets;
@@ -209,7 +230,8 @@ public class StorageAccountWithBuckets {
       return false;
     }
     StorageAccountWithBuckets storageAccountWithBuckets = (StorageAccountWithBuckets) o;
-    return Objects.equals(this.buckets, storageAccountWithBuckets.buckets) &&
+    return Objects.equals(this.azureKeyVaultSecretId, storageAccountWithBuckets.azureKeyVaultSecretId) &&
+        Objects.equals(this.buckets, storageAccountWithBuckets.buckets) &&
         Objects.equals(this.id, storageAccountWithBuckets.id) &&
         Objects.equals(this.isSas, storageAccountWithBuckets.isSas) &&
         Objects.equals(this.privateUrl, storageAccountWithBuckets.privateUrl) &&
@@ -221,7 +243,7 @@ public class StorageAccountWithBuckets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buckets, id, isSas, privateUrl, provider, settings, stat, url);
+    return Objects.hash(azureKeyVaultSecretId, buckets, id, isSas, privateUrl, provider, settings, stat, url);
   }
 
 
@@ -230,6 +252,7 @@ public class StorageAccountWithBuckets {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageAccountWithBuckets {\n");
     
+    sb.append("    azureKeyVaultSecretId: ").append(toIndentedString(azureKeyVaultSecretId)).append("\n");
     sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isSas: ").append(toIndentedString(isSas)).append("\n");

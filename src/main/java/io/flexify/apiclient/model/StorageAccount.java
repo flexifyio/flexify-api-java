@@ -29,6 +29,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 
 public class StorageAccount {
+  @JsonProperty("azureKeyVaultSecretId")
+  private String azureKeyVaultSecretId = null;
+
   @JsonProperty("id")
   private Long id = null;
 
@@ -49,6 +52,24 @@ public class StorageAccount {
 
   @JsonProperty("url")
   private String url = null;
+
+  public StorageAccount azureKeyVaultSecretId(String azureKeyVaultSecretId) {
+    this.azureKeyVaultSecretId = azureKeyVaultSecretId;
+    return this;
+  }
+
+   /**
+   * Get azureKeyVaultSecretId
+   * @return azureKeyVaultSecretId
+  **/
+  @ApiModelProperty(value = "")
+  public String getAzureKeyVaultSecretId() {
+    return azureKeyVaultSecretId;
+  }
+
+  public void setAzureKeyVaultSecretId(String azureKeyVaultSecretId) {
+    this.azureKeyVaultSecretId = azureKeyVaultSecretId;
+  }
 
    /**
    * Id of the storage account
@@ -177,7 +198,8 @@ public class StorageAccount {
       return false;
     }
     StorageAccount storageAccount = (StorageAccount) o;
-    return Objects.equals(this.id, storageAccount.id) &&
+    return Objects.equals(this.azureKeyVaultSecretId, storageAccount.azureKeyVaultSecretId) &&
+        Objects.equals(this.id, storageAccount.id) &&
         Objects.equals(this.isSas, storageAccount.isSas) &&
         Objects.equals(this.privateUrl, storageAccount.privateUrl) &&
         Objects.equals(this.provider, storageAccount.provider) &&
@@ -188,7 +210,7 @@ public class StorageAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, isSas, privateUrl, provider, settings, stat, url);
+    return Objects.hash(azureKeyVaultSecretId, id, isSas, privateUrl, provider, settings, stat, url);
   }
 
 
@@ -197,6 +219,7 @@ public class StorageAccount {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageAccount {\n");
     
+    sb.append("    azureKeyVaultSecretId: ").append(toIndentedString(azureKeyVaultSecretId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isSas: ").append(toIndentedString(isSas)).append("\n");
     sb.append("    privateUrl: ").append(toIndentedString(privateUrl)).append("\n");
