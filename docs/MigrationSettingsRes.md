@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **enginesLocation** | [**CloudLocationRes**](CloudLocationRes.md) | Location of the engines to migrate |  [optional]
 **existingDataInDestination** | [**ExistingDataInDestinationEnum**](#ExistingDataInDestinationEnum) | Keep or clean data in destination before migration (identical with source objects keep in any cases) |  [optional]
 **lastModifiedFrom** | [**DateTime**](DateTime.md) | Migrate objects modified on or after specified date |  [optional]
+**lastModifiedTo** | [**DateTime**](DateTime.md) | Migrate objects modified before specified date |  [optional]
 **logLevel** | [**LogLevelEnum**](#LogLevelEnum) | Log level |  [optional]
 **maxEngines** | **Integer** | Maximum number of engines this migration uses (experimental) |  [optional]
 **maxRetries** | **Integer** | Maximum number of retries |  [optional]

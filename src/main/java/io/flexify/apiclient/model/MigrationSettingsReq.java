@@ -203,6 +203,9 @@ public class MigrationSettingsReq {
   @JsonProperty("lastModifiedFrom")
   private DateTime lastModifiedFrom = null;
 
+  @JsonProperty("lastModifiedTo")
+  private DateTime lastModifiedTo = null;
+
   /**
    * Log level
    */
@@ -555,6 +558,24 @@ public class MigrationSettingsReq {
 
   public void setLastModifiedFrom(DateTime lastModifiedFrom) {
     this.lastModifiedFrom = lastModifiedFrom;
+  }
+
+  public MigrationSettingsReq lastModifiedTo(DateTime lastModifiedTo) {
+    this.lastModifiedTo = lastModifiedTo;
+    return this;
+  }
+
+   /**
+   * Migrate objects modified before specified date
+   * @return lastModifiedTo
+  **/
+  @ApiModelProperty(example = "1593080831081", value = "Migrate objects modified before specified date")
+  public DateTime getLastModifiedTo() {
+    return lastModifiedTo;
+  }
+
+  public void setLastModifiedTo(DateTime lastModifiedTo) {
+    this.lastModifiedTo = lastModifiedTo;
   }
 
   public MigrationSettingsReq logLevel(LogLevelEnum logLevel) {
@@ -935,6 +956,7 @@ public class MigrationSettingsReq {
         Objects.equals(this.enginesLocation, migrationSettingsReq.enginesLocation) &&
         Objects.equals(this.existingDataInDestination, migrationSettingsReq.existingDataInDestination) &&
         Objects.equals(this.lastModifiedFrom, migrationSettingsReq.lastModifiedFrom) &&
+        Objects.equals(this.lastModifiedTo, migrationSettingsReq.lastModifiedTo) &&
         Objects.equals(this.logLevel, migrationSettingsReq.logLevel) &&
         Objects.equals(this.maxEngines, migrationSettingsReq.maxEngines) &&
         Objects.equals(this.maxRetries, migrationSettingsReq.maxRetries) &&
@@ -959,7 +981,7 @@ public class MigrationSettingsReq {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRestoreIfArchived, comparisonMethod, conflictResolution, deploymentType, dryRun, enginesLocation, existingDataInDestination, lastModifiedFrom, logLevel, maxEngines, maxRetries, maxRetriesForCopy, maxRetryTimeout, maxStreams, migrationMode, multipartConcurrency, multipartLimit, multipartPartSize, name, objectKeyFilter, restoreDays, restoreMaxSize, restoreTier, retryTimeout, skipIfHashMatches, slotsPerMapping, uploadTimestampMode, uploadTimestampValue);
+    return Objects.hash(autoRestoreIfArchived, comparisonMethod, conflictResolution, deploymentType, dryRun, enginesLocation, existingDataInDestination, lastModifiedFrom, lastModifiedTo, logLevel, maxEngines, maxRetries, maxRetriesForCopy, maxRetryTimeout, maxStreams, migrationMode, multipartConcurrency, multipartLimit, multipartPartSize, name, objectKeyFilter, restoreDays, restoreMaxSize, restoreTier, retryTimeout, skipIfHashMatches, slotsPerMapping, uploadTimestampMode, uploadTimestampValue);
   }
 
 
@@ -976,6 +998,7 @@ public class MigrationSettingsReq {
     sb.append("    enginesLocation: ").append(toIndentedString(enginesLocation)).append("\n");
     sb.append("    existingDataInDestination: ").append(toIndentedString(existingDataInDestination)).append("\n");
     sb.append("    lastModifiedFrom: ").append(toIndentedString(lastModifiedFrom)).append("\n");
+    sb.append("    lastModifiedTo: ").append(toIndentedString(lastModifiedTo)).append("\n");
     sb.append("    logLevel: ").append(toIndentedString(logLevel)).append("\n");
     sb.append("    maxEngines: ").append(toIndentedString(maxEngines)).append("\n");
     sb.append("    maxRetries: ").append(toIndentedString(maxRetries)).append("\n");
