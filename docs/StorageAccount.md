@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**azureKeyVaultSecretId** | **String** |  |  [optional]
 **id** | **Long** | Id of the storage account |  [optional]
 **isSas** | **Boolean** |  |  [optional]
 **privateUrl** | **String** | URL used by engines to access the cloud |  [optional]
