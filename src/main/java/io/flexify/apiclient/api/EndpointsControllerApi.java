@@ -11,7 +11,8 @@ import javax.ws.rs.core.GenericType;
 import io.flexify.apiclient.model.AccessKeysPair;
 import io.flexify.apiclient.model.CreateVirtualBucketRequest;
 import io.flexify.apiclient.model.EndpointDetails;
-import io.flexify.apiclient.model.EndpointSettings;
+import io.flexify.apiclient.model.EndpointSecretResponse;
+import io.flexify.apiclient.model.EndpointSettingsReq;
 import io.flexify.apiclient.model.EndpointStorageAccountSettings;
 import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.StorageAccountsRequest;
@@ -303,7 +304,7 @@ public class EndpointsControllerApi {
    * @return IdResponse
    * @throws ApiException if fails to make API call
    */
-  public IdResponse createEndpoint(EndpointSettings settings) throws ApiException {
+  public IdResponse createEndpoint(EndpointSettingsReq settings) throws ApiException {
     return createEndpointWithHttpInfo(settings).getData();
       }
 
@@ -314,7 +315,7 @@ public class EndpointsControllerApi {
    * @return ApiResponse&lt;IdResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<IdResponse> createEndpointWithHttpInfo(EndpointSettings settings) throws ApiException {
+  public ApiResponse<IdResponse> createEndpointWithHttpInfo(EndpointSettingsReq settings) throws ApiException {
     Object localVarPostBody = settings;
     
     // verify the required parameter 'settings' is set
@@ -850,6 +851,59 @@ public class EndpointsControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Get endpoint secret key
+   * 
+   * @param endpointId endpoint-id (required)
+   * @return EndpointSecretResponse
+   * @throws ApiException if fails to make API call
+   */
+  public EndpointSecretResponse getEndpointSecretKey(Long endpointId) throws ApiException {
+    return getEndpointSecretKeyWithHttpInfo(endpointId).getData();
+      }
+
+  /**
+   * Get endpoint secret key
+   * 
+   * @param endpointId endpoint-id (required)
+   * @return ApiResponse&lt;EndpointSecretResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<EndpointSecretResponse> getEndpointSecretKeyWithHttpInfo(Long endpointId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling getEndpointSecretKey");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/endpoints/{endpoint-id}/settings/secret-key"
+      .replaceAll("\\{" + "endpoint-id" + "\\}", apiClient.escapeString(endpointId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<EndpointSecretResponse> localVarReturnType = new GenericType<EndpointSecretResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
    * 
    * @param name name (optional)
@@ -1113,7 +1167,7 @@ public class EndpointsControllerApi {
    * @param settings settings (required)
    * @throws ApiException if fails to make API call
    */
-  public void updateEndpointSettings(Long endpointId, EndpointSettings settings) throws ApiException {
+  public void updateEndpointSettings(Long endpointId, EndpointSettingsReq settings) throws ApiException {
 
     updateEndpointSettingsWithHttpInfo(endpointId, settings);
   }
@@ -1125,7 +1179,7 @@ public class EndpointsControllerApi {
    * @param settings settings (required)
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> updateEndpointSettingsWithHttpInfo(Long endpointId, EndpointSettings settings) throws ApiException {
+  public ApiResponse<Void> updateEndpointSettingsWithHttpInfo(Long endpointId, EndpointSettingsReq settings) throws ApiException {
     Object localVarPostBody = settings;
     
     // verify the required parameter 'endpointId' is set

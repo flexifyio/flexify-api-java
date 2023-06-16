@@ -18,55 +18,33 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.flexify.apiclient.model.SlotStat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Slot
+ * EndpointSecretResponse
  */
 
-public class Slot {
-  @JsonProperty("slotNumber")
-  private Integer slotNumber = null;
+public class EndpointSecretResponse {
+  @JsonProperty("secretKey")
+  private String secretKey = null;
 
-  @JsonProperty("stat")
-  private SlotStat stat = null;
-
-  public Slot slotNumber(Integer slotNumber) {
-    this.slotNumber = slotNumber;
+  public EndpointSecretResponse secretKey(String secretKey) {
+    this.secretKey = secretKey;
     return this;
   }
 
    /**
-   * Get slotNumber
-   * @return slotNumber
+   * Get secretKey
+   * @return secretKey
   **/
   @ApiModelProperty(value = "")
-  public Integer getSlotNumber() {
-    return slotNumber;
+  public String getSecretKey() {
+    return secretKey;
   }
 
-  public void setSlotNumber(Integer slotNumber) {
-    this.slotNumber = slotNumber;
-  }
-
-  public Slot stat(SlotStat stat) {
-    this.stat = stat;
-    return this;
-  }
-
-   /**
-   * Get stat
-   * @return stat
-  **/
-  @ApiModelProperty(value = "")
-  public SlotStat getStat() {
-    return stat;
-  }
-
-  public void setStat(SlotStat stat) {
-    this.stat = stat;
+  public void setSecretKey(String secretKey) {
+    this.secretKey = secretKey;
   }
 
 
@@ -78,24 +56,22 @@ public class Slot {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Slot slot = (Slot) o;
-    return Objects.equals(this.slotNumber, slot.slotNumber) &&
-        Objects.equals(this.stat, slot.stat);
+    EndpointSecretResponse endpointSecretResponse = (EndpointSecretResponse) o;
+    return Objects.equals(this.secretKey, endpointSecretResponse.secretKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(slotNumber, stat);
+    return Objects.hash(secretKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Slot {\n");
+    sb.append("class EndpointSecretResponse {\n");
     
-    sb.append("    slotNumber: ").append(toIndentedString(slotNumber)).append("\n");
-    sb.append("    stat: ").append(toIndentedString(stat)).append("\n");
+    sb.append("    secretKey: ").append(toIndentedString(secretKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

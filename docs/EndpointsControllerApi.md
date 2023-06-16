@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**enable**](EndpointsControllerApi.md#enable) | **PUT** /backend/rest/endpoints/{endpoint-id}/actions/enable | Enable the endpoint
 [**generateAccessKeys**](EndpointsControllerApi.md#generateAccessKeys) | **GET** /backend/rest/endpoints/generated-access-keys | Generate new access keys pair
 [**getEndpointDetails**](EndpointsControllerApi.md#getEndpointDetails) | **GET** /backend/rest/endpoints/{endpoint-id} | Get endpoint details
+[**getEndpointSecretKey**](EndpointsControllerApi.md#getEndpointSecretKey) | **GET** /backend/rest/endpoints/{endpoint-id}/settings/secret-key | Get endpoint secret key
 [**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /backend/rest/endpoints | Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
 [**setAttachedAccountSettings**](EndpointsControllerApi.md#setAttachedAccountSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}/settings | Modifies settings of the attached storage account
 [**setAttachedBucketSettings**](EndpointsControllerApi.md#setAttachedBucketSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}/settings | Modifies settings of the attached storage
@@ -269,7 +270,7 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
-EndpointSettings settings = new EndpointSettings(); // EndpointSettings | settings
+EndpointSettingsReq settings = new EndpointSettingsReq(); // EndpointSettingsReq | settings
 try {
     IdResponse result = apiInstance.createEndpoint(settings);
     System.out.println(result);
@@ -283,7 +284,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settings** | [**EndpointSettings**](EndpointSettings.md)| settings |
+ **settings** | [**EndpointSettingsReq**](EndpointSettingsReq.md)| settings |
 
 ### Return type
 
@@ -774,6 +775,59 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json;charset=UTF-8
 
+<a name="getEndpointSecretKey"></a>
+# **getEndpointSecretKey**
+> EndpointSecretResponse getEndpointSecretKey(endpointId)
+
+Get endpoint secret key
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.EndpointsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+EndpointsControllerApi apiInstance = new EndpointsControllerApi();
+Long endpointId = 789L; // Long | endpoint-id
+try {
+    EndpointSecretResponse result = apiInstance.getEndpointSecretKey(endpointId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsControllerApi#getEndpointSecretKey");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **endpointId** | **Long**| endpoint-id |
+
+### Return type
+
+[**EndpointSecretResponse**](EndpointSecretResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json;charset=UTF-8
+
 <a name="getEndpointsForCurrentUser"></a>
 # **getEndpointsForCurrentUser**
 > List&lt;EndpointDetails&gt; getEndpointsForCurrentUser(name)
@@ -1022,7 +1076,7 @@ Bearer.setApiKey("YOUR API KEY");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
 Long endpointId = 789L; // Long | endpoint-id
-EndpointSettings settings = new EndpointSettings(); // EndpointSettings | settings
+EndpointSettingsReq settings = new EndpointSettingsReq(); // EndpointSettingsReq | settings
 try {
     apiInstance.updateEndpointSettings(endpointId, settings);
 } catch (ApiException e) {
@@ -1036,7 +1090,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **endpointId** | **Long**| endpoint-id |
- **settings** | [**EndpointSettings**](EndpointSettings.md)| settings |
+ **settings** | [**EndpointSettingsReq**](EndpointSettingsReq.md)| settings |
 
 ### Return type
 

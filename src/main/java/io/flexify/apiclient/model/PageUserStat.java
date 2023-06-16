@@ -18,21 +18,21 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.flexify.apiclient.model.Migration;
 import io.flexify.apiclient.model.Pageable;
 import io.flexify.apiclient.model.Sort;
+import io.flexify.apiclient.model.UserStat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * PageMigration
+ * PageUserStat
  */
 
-public class PageMigration {
+public class PageUserStat {
   @JsonProperty("content")
-  private List<Migration> content = null;
+  private List<UserStat> content = null;
 
   @JsonProperty("empty")
   private Boolean empty = null;
@@ -64,14 +64,14 @@ public class PageMigration {
   @JsonProperty("totalPages")
   private Integer totalPages = null;
 
-  public PageMigration content(List<Migration> content) {
+  public PageUserStat content(List<UserStat> content) {
     this.content = content;
     return this;
   }
 
-  public PageMigration addContentItem(Migration contentItem) {
+  public PageUserStat addContentItem(UserStat contentItem) {
     if (this.content == null) {
-      this.content = new ArrayList<Migration>();
+      this.content = new ArrayList<UserStat>();
     }
     this.content.add(contentItem);
     return this;
@@ -82,15 +82,15 @@ public class PageMigration {
    * @return content
   **/
   @ApiModelProperty(value = "")
-  public List<Migration> getContent() {
+  public List<UserStat> getContent() {
     return content;
   }
 
-  public void setContent(List<Migration> content) {
+  public void setContent(List<UserStat> content) {
     this.content = content;
   }
 
-  public PageMigration empty(Boolean empty) {
+  public PageUserStat empty(Boolean empty) {
     this.empty = empty;
     return this;
   }
@@ -108,7 +108,7 @@ public class PageMigration {
     this.empty = empty;
   }
 
-  public PageMigration first(Boolean first) {
+  public PageUserStat first(Boolean first) {
     this.first = first;
     return this;
   }
@@ -126,7 +126,7 @@ public class PageMigration {
     this.first = first;
   }
 
-  public PageMigration last(Boolean last) {
+  public PageUserStat last(Boolean last) {
     this.last = last;
     return this;
   }
@@ -144,7 +144,7 @@ public class PageMigration {
     this.last = last;
   }
 
-  public PageMigration number(Integer number) {
+  public PageUserStat number(Integer number) {
     this.number = number;
     return this;
   }
@@ -162,7 +162,7 @@ public class PageMigration {
     this.number = number;
   }
 
-  public PageMigration numberOfElements(Integer numberOfElements) {
+  public PageUserStat numberOfElements(Integer numberOfElements) {
     this.numberOfElements = numberOfElements;
     return this;
   }
@@ -180,7 +180,7 @@ public class PageMigration {
     this.numberOfElements = numberOfElements;
   }
 
-  public PageMigration pageable(Pageable pageable) {
+  public PageUserStat pageable(Pageable pageable) {
     this.pageable = pageable;
     return this;
   }
@@ -198,7 +198,7 @@ public class PageMigration {
     this.pageable = pageable;
   }
 
-  public PageMigration size(Integer size) {
+  public PageUserStat size(Integer size) {
     this.size = size;
     return this;
   }
@@ -216,7 +216,7 @@ public class PageMigration {
     this.size = size;
   }
 
-  public PageMigration sort(Sort sort) {
+  public PageUserStat sort(Sort sort) {
     this.sort = sort;
     return this;
   }
@@ -234,7 +234,7 @@ public class PageMigration {
     this.sort = sort;
   }
 
-  public PageMigration totalElements(Long totalElements) {
+  public PageUserStat totalElements(Long totalElements) {
     this.totalElements = totalElements;
     return this;
   }
@@ -252,7 +252,7 @@ public class PageMigration {
     this.totalElements = totalElements;
   }
 
-  public PageMigration totalPages(Integer totalPages) {
+  public PageUserStat totalPages(Integer totalPages) {
     this.totalPages = totalPages;
     return this;
   }
@@ -279,18 +279,18 @@ public class PageMigration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PageMigration pageMigration = (PageMigration) o;
-    return Objects.equals(this.content, pageMigration.content) &&
-        Objects.equals(this.empty, pageMigration.empty) &&
-        Objects.equals(this.first, pageMigration.first) &&
-        Objects.equals(this.last, pageMigration.last) &&
-        Objects.equals(this.number, pageMigration.number) &&
-        Objects.equals(this.numberOfElements, pageMigration.numberOfElements) &&
-        Objects.equals(this.pageable, pageMigration.pageable) &&
-        Objects.equals(this.size, pageMigration.size) &&
-        Objects.equals(this.sort, pageMigration.sort) &&
-        Objects.equals(this.totalElements, pageMigration.totalElements) &&
-        Objects.equals(this.totalPages, pageMigration.totalPages);
+    PageUserStat pageUserStat = (PageUserStat) o;
+    return Objects.equals(this.content, pageUserStat.content) &&
+        Objects.equals(this.empty, pageUserStat.empty) &&
+        Objects.equals(this.first, pageUserStat.first) &&
+        Objects.equals(this.last, pageUserStat.last) &&
+        Objects.equals(this.number, pageUserStat.number) &&
+        Objects.equals(this.numberOfElements, pageUserStat.numberOfElements) &&
+        Objects.equals(this.pageable, pageUserStat.pageable) &&
+        Objects.equals(this.size, pageUserStat.size) &&
+        Objects.equals(this.sort, pageUserStat.sort) &&
+        Objects.equals(this.totalElements, pageUserStat.totalElements) &&
+        Objects.equals(this.totalPages, pageUserStat.totalPages);
   }
 
   @Override
@@ -302,7 +302,7 @@ public class PageMigration {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PageMigration {\n");
+    sb.append("class PageUserStat {\n");
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    empty: ").append(toIndentedString(empty)).append("\n");

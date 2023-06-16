@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**azureKeyVaultSecretId** | **String** |  |  [optional]
 **buckets** | [**List&lt;Bucket&gt;**](Bucket.md) | Buckets that we have cached for this storage account |  [optional]
 **id** | **Long** | Id of the storage account |  [optional]
 **isSas** | **Boolean** |  |  [optional]

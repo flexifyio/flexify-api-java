@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.12.16.hf1</version>
+    <version>2.12.17-SNAPSHOT</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.flexify:management-apiclient:2.12.16.hf1"
+compile "io.flexify:management-apiclient:2.12.17-SNAPSHOT"
 ```
 
 ### Others
@@ -55,7 +55,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/management-apiclient-2.12.16.hf1.jar
+* target/management-apiclient-2.12.17-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
 *EndpointsControllerApi* | [**enable**](docs/EndpointsControllerApi.md#enable) | **PUT** /backend/rest/endpoints/{endpoint-id}/actions/enable | Enable the endpoint
 *EndpointsControllerApi* | [**generateAccessKeys**](docs/EndpointsControllerApi.md#generateAccessKeys) | **GET** /backend/rest/endpoints/generated-access-keys | Generate new access keys pair
 *EndpointsControllerApi* | [**getEndpointDetails**](docs/EndpointsControllerApi.md#getEndpointDetails) | **GET** /backend/rest/endpoints/{endpoint-id} | Get endpoint details
+*EndpointsControllerApi* | [**getEndpointSecretKey**](docs/EndpointsControllerApi.md#getEndpointSecretKey) | **GET** /backend/rest/endpoints/{endpoint-id}/settings/secret-key | Get endpoint secret key
 *EndpointsControllerApi* | [**getEndpointsForCurrentUser**](docs/EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /backend/rest/endpoints | Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
 *EndpointsControllerApi* | [**setAttachedAccountSettings**](docs/EndpointsControllerApi.md#setAttachedAccountSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}/settings | Modifies settings of the attached storage account
 *EndpointsControllerApi* | [**setAttachedBucketSettings**](docs/EndpointsControllerApi.md#setAttachedBucketSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}/settings | Modifies settings of the attached storage
@@ -147,6 +148,8 @@ Class | Method | HTTP request | Description
 *PartnerUsersControllerApi* | [**generateTokenByExternalId1**](docs/PartnerUsersControllerApi.md#generateTokenByExternalId1) | **POST** /backend/rest/partner/users/external/{externalId}/tokens | Create token by external ID
 *PartnerUsersControllerApi* | [**generateTokenByUsername**](docs/PartnerUsersControllerApi.md#generateTokenByUsername) | **POST** /backend/rest/distributor/users/username/{username}/tokens | Create token by username
 *PartnerUsersControllerApi* | [**generateTokenByUsername1**](docs/PartnerUsersControllerApi.md#generateTokenByUsername1) | **POST** /backend/rest/partner/users/username/{username}/tokens | Create token by username
+*PartnerUsersControllerApi* | [**getAllUsersPageable**](docs/PartnerUsersControllerApi.md#getAllUsersPageable) | **GET** /backend/rest/distributor/users/search | Get users with search, sorting and pagination
+*PartnerUsersControllerApi* | [**getAllUsersPageable1**](docs/PartnerUsersControllerApi.md#getAllUsersPageable1) | **GET** /backend/rest/partner/users/search | Get users with search, sorting and pagination
 *PartnerUsersControllerApi* | [**getUser**](docs/PartnerUsersControllerApi.md#getUser) | **GET** /backend/rest/distributor/users/{userId} | Get user details
 *PartnerUsersControllerApi* | [**getUser1**](docs/PartnerUsersControllerApi.md#getUser1) | **GET** /backend/rest/partner/users/{userId} | Get user details
 *PartnerUsersControllerApi* | [**getUserByExternalId**](docs/PartnerUsersControllerApi.md#getUserByExternalId) | **GET** /backend/rest/distributor/users/external/{externalId} | Get user details by external ID
@@ -224,7 +227,9 @@ Class | Method | HTTP request | Description
  - [DtoMappingCostEstimateEntry](docs/DtoMappingCostEstimateEntry.md)
  - [DtoMigrationCostEstimate](docs/DtoMigrationCostEstimate.md)
  - [EndpointDetails](docs/EndpointDetails.md)
- - [EndpointSettings](docs/EndpointSettings.md)
+ - [EndpointSecretResponse](docs/EndpointSecretResponse.md)
+ - [EndpointSettingsReq](docs/EndpointSettingsReq.md)
+ - [EndpointSettingsRes](docs/EndpointSettingsRes.md)
  - [EndpointStat](docs/EndpointStat.md)
  - [EndpointStorageAccount](docs/EndpointStorageAccount.md)
  - [EndpointStorageAccountSettings](docs/EndpointStorageAccountSettings.md)
@@ -247,6 +252,7 @@ Class | Method | HTTP request | Description
  - [NewStorageAccount](docs/NewStorageAccount.md)
  - [Organization](docs/Organization.md)
  - [PageMigration](docs/PageMigration.md)
+ - [PageUserStat](docs/PageUserStat.md)
  - [Pageable](docs/Pageable.md)
  - [PasswordResetToken](docs/PasswordResetToken.md)
  - [Payment](docs/Payment.md)

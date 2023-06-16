@@ -1,5 +1,5 @@
 
-# EndpointSettings
+# EndpointSettingsReq
 
 ## Properties
 Name | Type | Description | Notes

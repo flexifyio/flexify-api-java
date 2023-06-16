@@ -11,6 +11,7 @@ import javax.ws.rs.core.GenericType;
 import io.flexify.apiclient.model.CreateUserRequest;
 import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.InformationAboutAuthenticationToken;
+import io.flexify.apiclient.model.PageUserStat;
 import io.flexify.apiclient.model.PasswordResetToken;
 import io.flexify.apiclient.model.SetRolesRequest;
 import io.flexify.apiclient.model.SetUserStateRequest;
@@ -1491,6 +1492,176 @@ public class PartnerUsersControllerApi {
 
     GenericType<InformationAboutAuthenticationToken> localVarReturnType = new GenericType<InformationAboutAuthenticationToken>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get users with search, sorting and pagination
+   * Gets a list of users managed by this distributor
+   * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
+   * @param page [Deprecated] Page number (required)
+   * @param paged  (optional)
+   * @param pageNumber  (optional)
+   * @param pageSize  (optional)
+   * @param searchString Search string (optional)
+   * @param size Max number of entries to return (AKA page size), null means no paging (optional)
+   * @param sortSorted  (optional)
+   * @param sortUnsorted  (optional)
+   * @param sortDirection Sort Direction (optional)
+   * @return PageUserStat
+   * @throws ApiException if fails to make API call
+   */
+  public PageUserStat getAllUsersPageable(Long offset, Integer page, Boolean paged, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
+    return getAllUsersPageableWithHttpInfo(offset, page, paged, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection).getData();
+      }
+
+  /**
+   * Get users with search, sorting and pagination
+   * Gets a list of users managed by this distributor
+   * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
+   * @param page [Deprecated] Page number (required)
+   * @param paged  (optional)
+   * @param pageNumber  (optional)
+   * @param pageSize  (optional)
+   * @param searchString Search string (optional)
+   * @param size Max number of entries to return (AKA page size), null means no paging (optional)
+   * @param sortSorted  (optional)
+   * @param sortUnsorted  (optional)
+   * @param sortDirection Sort Direction (optional)
+   * @return ApiResponse&lt;PageUserStat&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<PageUserStat> getAllUsersPageableWithHttpInfo(Long offset, Integer page, Boolean paged, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'offset' is set
+    if (offset == null) {
+      throw new ApiException(400, "Missing the required parameter 'offset' when calling getAllUsersPageable");
+    }
+    
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling getAllUsersPageable");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/distributor/users/search";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "paged", paged));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageNumber", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageSize", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search-string", searchString));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.sorted", sortSorted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.unsorted", sortUnsorted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<PageUserStat> localVarReturnType = new GenericType<PageUserStat>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get users with search, sorting and pagination
+   * Gets a list of users managed by this distributor
+   * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
+   * @param page [Deprecated] Page number (required)
+   * @param paged  (optional)
+   * @param pageNumber  (optional)
+   * @param pageSize  (optional)
+   * @param searchString Search string (optional)
+   * @param size Max number of entries to return (AKA page size), null means no paging (optional)
+   * @param sortSorted  (optional)
+   * @param sortUnsorted  (optional)
+   * @param sortDirection Sort Direction (optional)
+   * @return PageUserStat
+   * @throws ApiException if fails to make API call
+   */
+  public PageUserStat getAllUsersPageable1(Long offset, Integer page, Boolean paged, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
+    return getAllUsersPageable1WithHttpInfo(offset, page, paged, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection).getData();
+      }
+
+  /**
+   * Get users with search, sorting and pagination
+   * Gets a list of users managed by this distributor
+   * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
+   * @param page [Deprecated] Page number (required)
+   * @param paged  (optional)
+   * @param pageNumber  (optional)
+   * @param pageSize  (optional)
+   * @param searchString Search string (optional)
+   * @param size Max number of entries to return (AKA page size), null means no paging (optional)
+   * @param sortSorted  (optional)
+   * @param sortUnsorted  (optional)
+   * @param sortDirection Sort Direction (optional)
+   * @return ApiResponse&lt;PageUserStat&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<PageUserStat> getAllUsersPageable1WithHttpInfo(Long offset, Integer page, Boolean paged, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'offset' is set
+    if (offset == null) {
+      throw new ApiException(400, "Missing the required parameter 'offset' when calling getAllUsersPageable1");
+    }
+    
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling getAllUsersPageable1");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/partner/users/search";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "paged", paged));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageNumber", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageSize", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search-string", searchString));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.sorted", sortSorted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.unsorted", sortUnsorted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<PageUserStat> localVarReturnType = new GenericType<PageUserStat>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get user details
