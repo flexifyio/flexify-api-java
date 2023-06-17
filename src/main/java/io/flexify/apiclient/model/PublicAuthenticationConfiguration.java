@@ -18,6 +18,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.flexify.apiclient.model.PublicAuthenticationConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -26,67 +27,109 @@ import io.swagger.annotations.ApiModelProperty;
  */
 
 public class PublicAuthenticationConfiguration {
-  @JsonProperty("microsoftClientId")
-  private String microsoftClientId = null;
+  @JsonProperty("anonymousSignupWithMicrosoft")
+  private Boolean anonymousSignupWithMicrosoft = null;
 
-  @JsonProperty("microsoftScope")
-  private String microsoftScope = null;
+  @JsonProperty("anonymousSignupWithPassword")
+  private Boolean anonymousSignupWithPassword = null;
 
-  @JsonProperty("microsoftTenantId")
-  private String microsoftTenantId = null;
+  @JsonProperty("haveUsers")
+  private Boolean haveUsers = null;
 
-  public PublicAuthenticationConfiguration microsoftClientId(String microsoftClientId) {
-    this.microsoftClientId = microsoftClientId;
+  @JsonProperty("singleUserMode")
+  private Boolean singleUserMode = null;
+
+  @JsonProperty("ssoConfig")
+  private PublicAuthenticationConfiguration ssoConfig = null;
+
+  public PublicAuthenticationConfiguration anonymousSignupWithMicrosoft(Boolean anonymousSignupWithMicrosoft) {
+    this.anonymousSignupWithMicrosoft = anonymousSignupWithMicrosoft;
     return this;
   }
 
    /**
-   * Required client Id in Microsoft access token
-   * @return microsoftClientId
+   * Allow anonymous signup with microsoft
+   * @return anonymousSignupWithMicrosoft
   **/
-  @ApiModelProperty(value = "Required client Id in Microsoft access token")
-  public String getMicrosoftClientId() {
-    return microsoftClientId;
+  @ApiModelProperty(value = "Allow anonymous signup with microsoft")
+  public Boolean isAnonymousSignupWithMicrosoft() {
+    return anonymousSignupWithMicrosoft;
   }
 
-  public void setMicrosoftClientId(String microsoftClientId) {
-    this.microsoftClientId = microsoftClientId;
+  public void setAnonymousSignupWithMicrosoft(Boolean anonymousSignupWithMicrosoft) {
+    this.anonymousSignupWithMicrosoft = anonymousSignupWithMicrosoft;
   }
 
-  public PublicAuthenticationConfiguration microsoftScope(String microsoftScope) {
-    this.microsoftScope = microsoftScope;
+  public PublicAuthenticationConfiguration anonymousSignupWithPassword(Boolean anonymousSignupWithPassword) {
+    this.anonymousSignupWithPassword = anonymousSignupWithPassword;
     return this;
   }
 
    /**
-   * Required scope in Microsoft access token
-   * @return microsoftScope
+   * Allow anonymous signup with password
+   * @return anonymousSignupWithPassword
   **/
-  @ApiModelProperty(value = "Required scope in Microsoft access token")
-  public String getMicrosoftScope() {
-    return microsoftScope;
+  @ApiModelProperty(value = "Allow anonymous signup with password")
+  public Boolean isAnonymousSignupWithPassword() {
+    return anonymousSignupWithPassword;
   }
 
-  public void setMicrosoftScope(String microsoftScope) {
-    this.microsoftScope = microsoftScope;
+  public void setAnonymousSignupWithPassword(Boolean anonymousSignupWithPassword) {
+    this.anonymousSignupWithPassword = anonymousSignupWithPassword;
   }
 
-  public PublicAuthenticationConfiguration microsoftTenantId(String microsoftTenantId) {
-    this.microsoftTenantId = microsoftTenantId;
+  public PublicAuthenticationConfiguration haveUsers(Boolean haveUsers) {
+    this.haveUsers = haveUsers;
     return this;
   }
 
    /**
-   * Optional tenant Id in Microsoft access token
-   * @return microsoftTenantId
+   * Specifies if at least one user is configured
+   * @return haveUsers
   **/
-  @ApiModelProperty(value = "Optional tenant Id in Microsoft access token")
-  public String getMicrosoftTenantId() {
-    return microsoftTenantId;
+  @ApiModelProperty(value = "Specifies if at least one user is configured")
+  public Boolean isHaveUsers() {
+    return haveUsers;
   }
 
-  public void setMicrosoftTenantId(String microsoftTenantId) {
-    this.microsoftTenantId = microsoftTenantId;
+  public void setHaveUsers(Boolean haveUsers) {
+    this.haveUsers = haveUsers;
+  }
+
+  public PublicAuthenticationConfiguration singleUserMode(Boolean singleUserMode) {
+    this.singleUserMode = singleUserMode;
+    return this;
+  }
+
+   /**
+   * In the single user mode only one user account is possible
+   * @return singleUserMode
+  **/
+  @ApiModelProperty(value = "In the single user mode only one user account is possible")
+  public Boolean isSingleUserMode() {
+    return singleUserMode;
+  }
+
+  public void setSingleUserMode(Boolean singleUserMode) {
+    this.singleUserMode = singleUserMode;
+  }
+
+  public PublicAuthenticationConfiguration ssoConfig(PublicAuthenticationConfiguration ssoConfig) {
+    this.ssoConfig = ssoConfig;
+    return this;
+  }
+
+   /**
+   * Configuration for SSO
+   * @return ssoConfig
+  **/
+  @ApiModelProperty(value = "Configuration for SSO")
+  public PublicAuthenticationConfiguration getSsoConfig() {
+    return ssoConfig;
+  }
+
+  public void setSsoConfig(PublicAuthenticationConfiguration ssoConfig) {
+    this.ssoConfig = ssoConfig;
   }
 
 
@@ -99,14 +142,16 @@ public class PublicAuthenticationConfiguration {
       return false;
     }
     PublicAuthenticationConfiguration publicAuthenticationConfiguration = (PublicAuthenticationConfiguration) o;
-    return Objects.equals(this.microsoftClientId, publicAuthenticationConfiguration.microsoftClientId) &&
-        Objects.equals(this.microsoftScope, publicAuthenticationConfiguration.microsoftScope) &&
-        Objects.equals(this.microsoftTenantId, publicAuthenticationConfiguration.microsoftTenantId);
+    return Objects.equals(this.anonymousSignupWithMicrosoft, publicAuthenticationConfiguration.anonymousSignupWithMicrosoft) &&
+        Objects.equals(this.anonymousSignupWithPassword, publicAuthenticationConfiguration.anonymousSignupWithPassword) &&
+        Objects.equals(this.haveUsers, publicAuthenticationConfiguration.haveUsers) &&
+        Objects.equals(this.singleUserMode, publicAuthenticationConfiguration.singleUserMode) &&
+        Objects.equals(this.ssoConfig, publicAuthenticationConfiguration.ssoConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(microsoftClientId, microsoftScope, microsoftTenantId);
+    return Objects.hash(anonymousSignupWithMicrosoft, anonymousSignupWithPassword, haveUsers, singleUserMode, ssoConfig);
   }
 
 
@@ -115,9 +160,11 @@ public class PublicAuthenticationConfiguration {
     StringBuilder sb = new StringBuilder();
     sb.append("class PublicAuthenticationConfiguration {\n");
     
-    sb.append("    microsoftClientId: ").append(toIndentedString(microsoftClientId)).append("\n");
-    sb.append("    microsoftScope: ").append(toIndentedString(microsoftScope)).append("\n");
-    sb.append("    microsoftTenantId: ").append(toIndentedString(microsoftTenantId)).append("\n");
+    sb.append("    anonymousSignupWithMicrosoft: ").append(toIndentedString(anonymousSignupWithMicrosoft)).append("\n");
+    sb.append("    anonymousSignupWithPassword: ").append(toIndentedString(anonymousSignupWithPassword)).append("\n");
+    sb.append("    haveUsers: ").append(toIndentedString(haveUsers)).append("\n");
+    sb.append("    singleUserMode: ").append(toIndentedString(singleUserMode)).append("\n");
+    sb.append("    ssoConfig: ").append(toIndentedString(ssoConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }
