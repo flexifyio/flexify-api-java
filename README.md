@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 *MigrationsControllerApi* | [**stopMigration**](docs/MigrationsControllerApi.md#stopMigration) | **POST** /backend/rest/migrations/{migration-id}/actions/stop | Stop (cancel) the migration
 *OAuthControllerApi* | [**getAppInfo**](docs/OAuthControllerApi.md#getAppInfo) | **GET** /backend/rest/oauth/app-info | getAppInfo
 *PartnerOrganizationsControllerApi* | [**getAll**](docs/PartnerOrganizationsControllerApi.md#getAll) | **GET** /backend/rest/partner/organizations | getAll
+*PartnerOrganizationsControllerApi* | [**getOrgLimits**](docs/PartnerOrganizationsControllerApi.md#getOrgLimits) | **GET** /backend/rest/partner/organizations/{orgId}/limits | getOrgLimits
 *PartnerSignUpCodesControllerApi* | [**createCode**](docs/PartnerSignUpCodesControllerApi.md#createCode) | **POST** /backend/rest/distributor/codes | createCode
 *PartnerSignUpCodesControllerApi* | [**createCode1**](docs/PartnerSignUpCodesControllerApi.md#createCode1) | **POST** /backend/rest/partner/codes | createCode
 *PartnerSignUpCodesControllerApi* | [**deleteCode**](docs/PartnerSignUpCodesControllerApi.md#deleteCode) | **DELETE** /backend/rest/distributor/codes/{code} | deleteCode
