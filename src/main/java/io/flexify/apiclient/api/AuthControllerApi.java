@@ -12,7 +12,6 @@ import io.flexify.apiclient.model.AuthCheckTokenAndGetUserResponse;
 import io.flexify.apiclient.model.AuthenticationRequest;
 import io.flexify.apiclient.model.AuthenticationResponse;
 import io.flexify.apiclient.model.LogoutRequest;
-import io.flexify.apiclient.model.PublicAuthenticationConfiguration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -134,51 +133,6 @@ public class AuthControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
     GenericType<AuthCheckTokenAndGetUserResponse> localVarReturnType = new GenericType<AuthCheckTokenAndGetUserResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
-   * Get public auth config
-   * 
-   * @return PublicAuthenticationConfiguration
-   * @throws ApiException if fails to make API call
-   */
-  public PublicAuthenticationConfiguration getConfig() throws ApiException {
-    return getConfigWithHttpInfo().getData();
-      }
-
-  /**
-   * Get public auth config
-   * 
-   * @return ApiResponse&lt;PublicAuthenticationConfiguration&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<PublicAuthenticationConfiguration> getConfigWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/backend/rest/auth/config";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "*/*"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer" };
-
-    GenericType<PublicAuthenticationConfiguration> localVarReturnType = new GenericType<PublicAuthenticationConfiguration>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authenticate**](AuthControllerApi.md#authenticate) | **POST** /backend/rest/auth | Generate new access token for the user
 [**checkTokenAndGetUser**](AuthControllerApi.md#checkTokenAndGetUser) | **GET** /backend/rest/auth/user | Check of given token
-[**getConfig**](AuthControllerApi.md#getConfig) | **GET** /backend/rest/auth/config | Get public auth config
 [**logout**](AuthControllerApi.md#logout) | **POST** /backend/rest/auth/logout | Logout
 
 
@@ -92,55 +91,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**AuthCheckTokenAndGetUserResponse**](AuthCheckTokenAndGetUserResponse.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getConfig"></a>
-# **getConfig**
-> PublicAuthenticationConfiguration getConfig()
-
-Get public auth config
-
-### Example
-```java
-// Import classes:
-//import io.flexify.apiclient.handler.ApiClient;
-//import io.flexify.apiclient.handler.ApiException;
-//import io.flexify.apiclient.handler.Configuration;
-//import io.flexify.apiclient.handler.auth.*;
-//import io.flexify.apiclient.api.AuthControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: Bearer
-ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-Bearer.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.setApiKeyPrefix("Token");
-
-AuthControllerApi apiInstance = new AuthControllerApi();
-try {
-    PublicAuthenticationConfiguration result = apiInstance.getConfig();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AuthControllerApi#getConfig");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**PublicAuthenticationConfiguration**](PublicAuthenticationConfiguration.md)
 
 ### Authorization
 
