@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="systemInfo"></a>
 # **systemInfo**
-> SystemInfo systemInfo()
+> ManagementServerDetailedVersionInfo systemInfo()
 
 Request General System Information
 
@@ -32,7 +32,7 @@ Bearer.setApiKey("YOUR API KEY");
 
 AdminSystemInfoControllerApi apiInstance = new AdminSystemInfoControllerApi();
 try {
-    SystemInfo result = apiInstance.systemInfo();
+    ManagementServerDetailedVersionInfo result = apiInstance.systemInfo();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AdminSystemInfoControllerApi#systemInfo");
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SystemInfo**](SystemInfo.md)
+[**ManagementServerDetailedVersionInfo**](ManagementServerDetailedVersionInfo.md)
 
 ### Authorization
 

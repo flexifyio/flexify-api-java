@@ -8,7 +8,7 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import io.flexify.apiclient.model.SystemInfo;
+import io.flexify.apiclient.model.ManagementServerDetailedVersionInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,20 +38,20 @@ public class AdminSystemInfoControllerApi {
   /**
    * Request General System Information
    * 
-   * @return SystemInfo
+   * @return ManagementServerDetailedVersionInfo
    * @throws ApiException if fails to make API call
    */
-  public SystemInfo systemInfo() throws ApiException {
+  public ManagementServerDetailedVersionInfo systemInfo() throws ApiException {
     return systemInfoWithHttpInfo().getData();
       }
 
   /**
    * Request General System Information
    * 
-   * @return ApiResponse&lt;SystemInfo&gt;
+   * @return ApiResponse&lt;ManagementServerDetailedVersionInfo&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<SystemInfo> systemInfoWithHttpInfo() throws ApiException {
+  public ApiResponse<ManagementServerDetailedVersionInfo> systemInfoWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -77,7 +77,7 @@ public class AdminSystemInfoControllerApi {
 
     String[] localVarAuthNames = new String[] { "Bearer" };
 
-    GenericType<SystemInfo> localVarReturnType = new GenericType<SystemInfo>() {};
+    GenericType<ManagementServerDetailedVersionInfo> localVarReturnType = new GenericType<ManagementServerDetailedVersionInfo>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

@@ -22,10 +22,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * SystemInfo
+ * ManagementServerDetailedVersionInfo
  */
 
-public class SystemInfo {
+public class ManagementServerDetailedVersionInfo {
   @JsonProperty("buildNumber")
   private String buildNumber = null;
 
@@ -35,7 +35,7 @@ public class SystemInfo {
   @JsonProperty("version")
   private String version = null;
 
-  public SystemInfo buildNumber(String buildNumber) {
+  public ManagementServerDetailedVersionInfo buildNumber(String buildNumber) {
     this.buildNumber = buildNumber;
     return this;
   }
@@ -53,7 +53,7 @@ public class SystemInfo {
     this.buildNumber = buildNumber;
   }
 
-  public SystemInfo buildTime(String buildTime) {
+  public ManagementServerDetailedVersionInfo buildTime(String buildTime) {
     this.buildTime = buildTime;
     return this;
   }
@@ -71,7 +71,7 @@ public class SystemInfo {
     this.buildTime = buildTime;
   }
 
-  public SystemInfo version(String version) {
+  public ManagementServerDetailedVersionInfo version(String version) {
     this.version = version;
     return this;
   }
@@ -98,10 +98,10 @@ public class SystemInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SystemInfo systemInfo = (SystemInfo) o;
-    return Objects.equals(this.buildNumber, systemInfo.buildNumber) &&
-        Objects.equals(this.buildTime, systemInfo.buildTime) &&
-        Objects.equals(this.version, systemInfo.version);
+    ManagementServerDetailedVersionInfo managementServerDetailedVersionInfo = (ManagementServerDetailedVersionInfo) o;
+    return Objects.equals(this.buildNumber, managementServerDetailedVersionInfo.buildNumber) &&
+        Objects.equals(this.buildTime, managementServerDetailedVersionInfo.buildTime) &&
+        Objects.equals(this.version, managementServerDetailedVersionInfo.version);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class SystemInfo {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SystemInfo {\n");
+    sb.append("class ManagementServerDetailedVersionInfo {\n");
     
     sb.append("    buildNumber: ").append(toIndentedString(buildNumber)).append("\n");
     sb.append("    buildTime: ").append(toIndentedString(buildTime)).append("\n");
