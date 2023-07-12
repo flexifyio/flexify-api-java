@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**generateAccessKeys**](EndpointsControllerApi.md#generateAccessKeys) | **GET** /backend/rest/endpoints/generated-access-keys | Generate new access keys pair
 [**getEndpointDetails**](EndpointsControllerApi.md#getEndpointDetails) | **GET** /backend/rest/endpoints/{endpoint-id} | Get endpoint details
 [**getEndpointSecretKey**](EndpointsControllerApi.md#getEndpointSecretKey) | **GET** /backend/rest/endpoints/{endpoint-id}/settings/secret-key | Get endpoint secret key
-[**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /backend/rest/endpoints | Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
+[**getEndpointsForCurrentUser**](EndpointsControllerApi.md#getEndpointsForCurrentUser) | **GET** /backend/rest/endpoints | Get the list of endpoints for current user optionally filtering by name or identity using SQL LIKE syntax
 [**setAttachedAccountSettings**](EndpointsControllerApi.md#setAttachedAccountSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/storage-accounts/{storage-account-id}/settings | Modifies settings of the attached storage account
 [**setAttachedBucketSettings**](EndpointsControllerApi.md#setAttachedBucketSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/buckets/{bucket-id}/settings | Modifies settings of the attached storage
 [**setVirtualBucketSettings**](EndpointsControllerApi.md#setVirtualBucketSettings) | **PUT** /backend/rest/endpoints/{endpoint-id}/virtual-buckets/{virtual-bucket}/settings | Modifies virtual bucket configuration
@@ -830,9 +830,9 @@ Name | Type | Description  | Notes
 
 <a name="getEndpointsForCurrentUser"></a>
 # **getEndpointsForCurrentUser**
-> List&lt;EndpointDetails&gt; getEndpointsForCurrentUser(name)
+> List&lt;EndpointDetails&gt; getEndpointsForCurrentUser(identity, name)
 
-Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
+Get the list of endpoints for current user optionally filtering by name or identity using SQL LIKE syntax
 
 ### Example
 ```java
@@ -852,9 +852,10 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 EndpointsControllerApi apiInstance = new EndpointsControllerApi();
+String identity = "identity_example"; // String | identity
 String name = "name_example"; // String | name
 try {
-    List<EndpointDetails> result = apiInstance.getEndpointsForCurrentUser(name);
+    List<EndpointDetails> result = apiInstance.getEndpointsForCurrentUser(identity, name);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EndpointsControllerApi#getEndpointsForCurrentUser");
@@ -866,6 +867,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **identity** | **String**| identity | [optional]
  **name** | **String**| name | [optional]
 
 ### Return type

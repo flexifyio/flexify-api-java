@@ -904,24 +904,26 @@ public class EndpointsControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
+   * Get the list of endpoints for current user optionally filtering by name or identity using SQL LIKE syntax
    * 
+   * @param identity identity (optional)
    * @param name name (optional)
    * @return List&lt;EndpointDetails&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<EndpointDetails> getEndpointsForCurrentUser(String name) throws ApiException {
-    return getEndpointsForCurrentUserWithHttpInfo(name).getData();
+  public List<EndpointDetails> getEndpointsForCurrentUser(String identity, String name) throws ApiException {
+    return getEndpointsForCurrentUserWithHttpInfo(identity, name).getData();
       }
 
   /**
-   * Get the list of endpoints for current user optionally filtering by name using SQL LIKE syntax
+   * Get the list of endpoints for current user optionally filtering by name or identity using SQL LIKE syntax
    * 
+   * @param identity identity (optional)
    * @param name name (optional)
    * @return ApiResponse&lt;List&lt;EndpointDetails&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<List<EndpointDetails>> getEndpointsForCurrentUserWithHttpInfo(String name) throws ApiException {
+  public ApiResponse<List<EndpointDetails>> getEndpointsForCurrentUserWithHttpInfo(String identity, String name) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -932,6 +934,7 @@ public class EndpointsControllerApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "identity", identity));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
 
     
