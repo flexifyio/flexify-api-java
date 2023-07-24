@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comments** | **String** | Comments |  [optional]
 **id** | **Long** | Unique token ID |  [optional]
+**impersonator** | **String** | Impersonator |  [optional]
 **ip** | **String** | IP address from which token was requested |  [optional]
 **issued** | [**DateTime**](DateTime.md) | When the token was issued |  [optional]
 **lastUsed** | [**DateTime**](DateTime.md) | When the token was last used |  [optional]
