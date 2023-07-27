@@ -32,9 +32,6 @@ import java.util.List;
  */
 
 public class StorageAccountWithBuckets {
-  @JsonProperty("azureKeyVaultSecretId")
-  private String azureKeyVaultSecretId = null;
-
   @JsonProperty("buckets")
   private List<Bucket> buckets = null;
 
@@ -44,11 +41,17 @@ public class StorageAccountWithBuckets {
   @JsonProperty("isSas")
   private Boolean isSas = null;
 
+  @JsonProperty("keyVaultSecretId")
+  private String keyVaultSecretId = null;
+
   @JsonProperty("privateUrl")
   private String privateUrl = null;
 
   @JsonProperty("provider")
   private StorageProvider provider = null;
+
+  @JsonProperty("secretInKeyVault")
+  private Boolean secretInKeyVault = null;
 
   @JsonProperty("settings")
   private StorageAccountSettingsRes settings = null;
@@ -58,24 +61,6 @@ public class StorageAccountWithBuckets {
 
   @JsonProperty("url")
   private String url = null;
-
-  public StorageAccountWithBuckets azureKeyVaultSecretId(String azureKeyVaultSecretId) {
-    this.azureKeyVaultSecretId = azureKeyVaultSecretId;
-    return this;
-  }
-
-   /**
-   * Get azureKeyVaultSecretId
-   * @return azureKeyVaultSecretId
-  **/
-  @ApiModelProperty(value = "")
-  public String getAzureKeyVaultSecretId() {
-    return azureKeyVaultSecretId;
-  }
-
-  public void setAzureKeyVaultSecretId(String azureKeyVaultSecretId) {
-    this.azureKeyVaultSecretId = azureKeyVaultSecretId;
-  }
 
   public StorageAccountWithBuckets buckets(List<Bucket> buckets) {
     this.buckets = buckets;
@@ -118,16 +103,34 @@ public class StorageAccountWithBuckets {
   }
 
    /**
-   * Get isSas
+   * For Azure - if credential is SAS signature (not included if storing in key vault)
    * @return isSas
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "For Azure - if credential is SAS signature (not included if storing in key vault)")
   public Boolean isIsSas() {
     return isSas;
   }
 
   public void setIsSas(Boolean isSas) {
     this.isSas = isSas;
+  }
+
+  public StorageAccountWithBuckets keyVaultSecretId(String keyVaultSecretId) {
+    this.keyVaultSecretId = keyVaultSecretId;
+    return this;
+  }
+
+   /**
+   * Key Vault secret ID where this credential secret is stored (only for admins)
+   * @return keyVaultSecretId
+  **/
+  @ApiModelProperty(value = "Key Vault secret ID where this credential secret is stored (only for admins)")
+  public String getKeyVaultSecretId() {
+    return keyVaultSecretId;
+  }
+
+  public void setKeyVaultSecretId(String keyVaultSecretId) {
+    this.keyVaultSecretId = keyVaultSecretId;
   }
 
   public StorageAccountWithBuckets privateUrl(String privateUrl) {
@@ -164,6 +167,24 @@ public class StorageAccountWithBuckets {
 
   public void setProvider(StorageProvider provider) {
     this.provider = provider;
+  }
+
+  public StorageAccountWithBuckets secretInKeyVault(Boolean secretInKeyVault) {
+    this.secretInKeyVault = secretInKeyVault;
+    return this;
+  }
+
+   /**
+   * If secret credential is stored in Key Vault
+   * @return secretInKeyVault
+  **/
+  @ApiModelProperty(value = "If secret credential is stored in Key Vault")
+  public Boolean isSecretInKeyVault() {
+    return secretInKeyVault;
+  }
+
+  public void setSecretInKeyVault(Boolean secretInKeyVault) {
+    this.secretInKeyVault = secretInKeyVault;
   }
 
   public StorageAccountWithBuckets settings(StorageAccountSettingsRes settings) {
@@ -230,12 +251,13 @@ public class StorageAccountWithBuckets {
       return false;
     }
     StorageAccountWithBuckets storageAccountWithBuckets = (StorageAccountWithBuckets) o;
-    return Objects.equals(this.azureKeyVaultSecretId, storageAccountWithBuckets.azureKeyVaultSecretId) &&
-        Objects.equals(this.buckets, storageAccountWithBuckets.buckets) &&
+    return Objects.equals(this.buckets, storageAccountWithBuckets.buckets) &&
         Objects.equals(this.id, storageAccountWithBuckets.id) &&
         Objects.equals(this.isSas, storageAccountWithBuckets.isSas) &&
+        Objects.equals(this.keyVaultSecretId, storageAccountWithBuckets.keyVaultSecretId) &&
         Objects.equals(this.privateUrl, storageAccountWithBuckets.privateUrl) &&
         Objects.equals(this.provider, storageAccountWithBuckets.provider) &&
+        Objects.equals(this.secretInKeyVault, storageAccountWithBuckets.secretInKeyVault) &&
         Objects.equals(this.settings, storageAccountWithBuckets.settings) &&
         Objects.equals(this.stat, storageAccountWithBuckets.stat) &&
         Objects.equals(this.url, storageAccountWithBuckets.url);
@@ -243,7 +265,7 @@ public class StorageAccountWithBuckets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKeyVaultSecretId, buckets, id, isSas, privateUrl, provider, settings, stat, url);
+    return Objects.hash(buckets, id, isSas, keyVaultSecretId, privateUrl, provider, secretInKeyVault, settings, stat, url);
   }
 
 
@@ -252,12 +274,13 @@ public class StorageAccountWithBuckets {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageAccountWithBuckets {\n");
     
-    sb.append("    azureKeyVaultSecretId: ").append(toIndentedString(azureKeyVaultSecretId)).append("\n");
     sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isSas: ").append(toIndentedString(isSas)).append("\n");
+    sb.append("    keyVaultSecretId: ").append(toIndentedString(keyVaultSecretId)).append("\n");
     sb.append("    privateUrl: ").append(toIndentedString(privateUrl)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    secretInKeyVault: ").append(toIndentedString(secretInKeyVault)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    stat: ").append(toIndentedString(stat)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

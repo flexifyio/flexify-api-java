@@ -39,6 +39,12 @@ public class EndpointDetails {
   @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("keyVaultSecretId")
+  private String keyVaultSecretId = null;
+
+  @JsonProperty("secretInKeyVault")
+  private Boolean secretInKeyVault = null;
+
   @JsonProperty("settings")
   private EndpointSettingsRes settings = null;
 
@@ -81,6 +87,42 @@ public class EndpointDetails {
   @ApiModelProperty(value = "Id")
   public Long getId() {
     return id;
+  }
+
+  public EndpointDetails keyVaultSecretId(String keyVaultSecretId) {
+    this.keyVaultSecretId = keyVaultSecretId;
+    return this;
+  }
+
+   /**
+   * Key Vault secret ID where this credential secret is stored (only for admins)
+   * @return keyVaultSecretId
+  **/
+  @ApiModelProperty(value = "Key Vault secret ID where this credential secret is stored (only for admins)")
+  public String getKeyVaultSecretId() {
+    return keyVaultSecretId;
+  }
+
+  public void setKeyVaultSecretId(String keyVaultSecretId) {
+    this.keyVaultSecretId = keyVaultSecretId;
+  }
+
+  public EndpointDetails secretInKeyVault(Boolean secretInKeyVault) {
+    this.secretInKeyVault = secretInKeyVault;
+    return this;
+  }
+
+   /**
+   * If secret credential is stored in Key Vault
+   * @return secretInKeyVault
+  **/
+  @ApiModelProperty(value = "If secret credential is stored in Key Vault")
+  public Boolean isSecretInKeyVault() {
+    return secretInKeyVault;
+  }
+
+  public void setSecretInKeyVault(Boolean secretInKeyVault) {
+    this.secretInKeyVault = secretInKeyVault;
   }
 
   public EndpointDetails settings(EndpointSettingsRes settings) {
@@ -157,6 +199,8 @@ public class EndpointDetails {
     EndpointDetails endpointDetails = (EndpointDetails) o;
     return Objects.equals(this.accounts, endpointDetails.accounts) &&
         Objects.equals(this.id, endpointDetails.id) &&
+        Objects.equals(this.keyVaultSecretId, endpointDetails.keyVaultSecretId) &&
+        Objects.equals(this.secretInKeyVault, endpointDetails.secretInKeyVault) &&
         Objects.equals(this.settings, endpointDetails.settings) &&
         Objects.equals(this.stat, endpointDetails.stat) &&
         Objects.equals(this.virtualBuckets, endpointDetails.virtualBuckets);
@@ -164,7 +208,7 @@ public class EndpointDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounts, id, settings, stat, virtualBuckets);
+    return Objects.hash(accounts, id, keyVaultSecretId, secretInKeyVault, settings, stat, virtualBuckets);
   }
 
 
@@ -175,6 +219,8 @@ public class EndpointDetails {
     
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    keyVaultSecretId: ").append(toIndentedString(keyVaultSecretId)).append("\n");
+    sb.append("    secretInKeyVault: ").append(toIndentedString(secretInKeyVault)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    stat: ").append(toIndentedString(stat)).append("\n");
     sb.append("    virtualBuckets: ").append(toIndentedString(virtualBuckets)).append("\n");
