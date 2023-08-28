@@ -29,6 +29,9 @@ public class StorageAccountSettingsRes {
   @JsonProperty("anonymous")
   private Boolean anonymous = null;
 
+  @JsonProperty("bucketDotEncodeSequence")
+  private String bucketDotEncodeSequence = null;
+
   @JsonProperty("customEndpoint")
   private String customEndpoint = null;
 
@@ -63,6 +66,24 @@ public class StorageAccountSettingsRes {
 
   public void setAnonymous(Boolean anonymous) {
     this.anonymous = anonymous;
+  }
+
+  public StorageAccountSettingsRes bucketDotEncodeSequence(String bucketDotEncodeSequence) {
+    this.bucketDotEncodeSequence = bucketDotEncodeSequence;
+    return this;
+  }
+
+   /**
+   * Dot escape sequence for buckets
+   * @return bucketDotEncodeSequence
+  **/
+  @ApiModelProperty(example = "-dot-", value = "Dot escape sequence for buckets")
+  public String getBucketDotEncodeSequence() {
+    return bucketDotEncodeSequence;
+  }
+
+  public void setBucketDotEncodeSequence(String bucketDotEncodeSequence) {
+    this.bucketDotEncodeSequence = bucketDotEncodeSequence;
   }
 
   public StorageAccountSettingsRes customEndpoint(String customEndpoint) {
@@ -184,6 +205,7 @@ public class StorageAccountSettingsRes {
     }
     StorageAccountSettingsRes storageAccountSettingsRes = (StorageAccountSettingsRes) o;
     return Objects.equals(this.anonymous, storageAccountSettingsRes.anonymous) &&
+        Objects.equals(this.bucketDotEncodeSequence, storageAccountSettingsRes.bucketDotEncodeSequence) &&
         Objects.equals(this.customEndpoint, storageAccountSettingsRes.customEndpoint) &&
         Objects.equals(this.identity, storageAccountSettingsRes.identity) &&
         Objects.equals(this.name, storageAccountSettingsRes.name) &&
@@ -194,7 +216,7 @@ public class StorageAccountSettingsRes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(anonymous, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
+    return Objects.hash(anonymous, bucketDotEncodeSequence, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
   }
 
 
@@ -204,6 +226,7 @@ public class StorageAccountSettingsRes {
     sb.append("class StorageAccountSettingsRes {\n");
     
     sb.append("    anonymous: ").append(toIndentedString(anonymous)).append("\n");
+    sb.append("    bucketDotEncodeSequence: ").append(toIndentedString(bucketDotEncodeSequence)).append("\n");
     sb.append("    customEndpoint: ").append(toIndentedString(customEndpoint)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -26,6 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 
 public class StorageAccountSettingsReq {
+  @JsonProperty("bucketDotEncodeSequence")
+  private String bucketDotEncodeSequence = null;
+
   @JsonProperty("credential")
   private String credential = null;
 
@@ -46,6 +49,24 @@ public class StorageAccountSettingsReq {
 
   @JsonProperty("useSsl")
   private Boolean useSsl = null;
+
+  public StorageAccountSettingsReq bucketDotEncodeSequence(String bucketDotEncodeSequence) {
+    this.bucketDotEncodeSequence = bucketDotEncodeSequence;
+    return this;
+  }
+
+   /**
+   * Dot escape sequence for buckets
+   * @return bucketDotEncodeSequence
+  **/
+  @ApiModelProperty(example = "-dot-", value = "Dot escape sequence for buckets")
+  public String getBucketDotEncodeSequence() {
+    return bucketDotEncodeSequence;
+  }
+
+  public void setBucketDotEncodeSequence(String bucketDotEncodeSequence) {
+    this.bucketDotEncodeSequence = bucketDotEncodeSequence;
+  }
 
   public StorageAccountSettingsReq credential(String credential) {
     this.credential = credential;
@@ -183,7 +204,8 @@ public class StorageAccountSettingsReq {
       return false;
     }
     StorageAccountSettingsReq storageAccountSettingsReq = (StorageAccountSettingsReq) o;
-    return Objects.equals(this.credential, storageAccountSettingsReq.credential) &&
+    return Objects.equals(this.bucketDotEncodeSequence, storageAccountSettingsReq.bucketDotEncodeSequence) &&
+        Objects.equals(this.credential, storageAccountSettingsReq.credential) &&
         Objects.equals(this.customEndpoint, storageAccountSettingsReq.customEndpoint) &&
         Objects.equals(this.identity, storageAccountSettingsReq.identity) &&
         Objects.equals(this.name, storageAccountSettingsReq.name) &&
@@ -194,7 +216,7 @@ public class StorageAccountSettingsReq {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credential, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
+    return Objects.hash(bucketDotEncodeSequence, credential, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
   }
 
 
@@ -203,6 +225,7 @@ public class StorageAccountSettingsReq {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageAccountSettingsReq {\n");
     
+    sb.append("    bucketDotEncodeSequence: ").append(toIndentedString(bucketDotEncodeSequence)).append("\n");
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    customEndpoint: ").append(toIndentedString(customEndpoint)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");

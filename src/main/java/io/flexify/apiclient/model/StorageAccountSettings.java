@@ -29,6 +29,9 @@ public class StorageAccountSettings {
   @JsonProperty("anonymous")
   private Boolean anonymous = null;
 
+  @JsonProperty("bucketDotEncodeSequence")
+  private String bucketDotEncodeSequence = null;
+
   @JsonProperty("customEndpoint")
   private String customEndpoint = null;
 
@@ -63,6 +66,24 @@ public class StorageAccountSettings {
 
   public void setAnonymous(Boolean anonymous) {
     this.anonymous = anonymous;
+  }
+
+  public StorageAccountSettings bucketDotEncodeSequence(String bucketDotEncodeSequence) {
+    this.bucketDotEncodeSequence = bucketDotEncodeSequence;
+    return this;
+  }
+
+   /**
+   * Dot escape sequence for buckets
+   * @return bucketDotEncodeSequence
+  **/
+  @ApiModelProperty(example = "-dot-", value = "Dot escape sequence for buckets")
+  public String getBucketDotEncodeSequence() {
+    return bucketDotEncodeSequence;
+  }
+
+  public void setBucketDotEncodeSequence(String bucketDotEncodeSequence) {
+    this.bucketDotEncodeSequence = bucketDotEncodeSequence;
   }
 
   public StorageAccountSettings customEndpoint(String customEndpoint) {
@@ -184,6 +205,7 @@ public class StorageAccountSettings {
     }
     StorageAccountSettings storageAccountSettings = (StorageAccountSettings) o;
     return Objects.equals(this.anonymous, storageAccountSettings.anonymous) &&
+        Objects.equals(this.bucketDotEncodeSequence, storageAccountSettings.bucketDotEncodeSequence) &&
         Objects.equals(this.customEndpoint, storageAccountSettings.customEndpoint) &&
         Objects.equals(this.identity, storageAccountSettings.identity) &&
         Objects.equals(this.name, storageAccountSettings.name) &&
@@ -194,7 +216,7 @@ public class StorageAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(anonymous, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
+    return Objects.hash(anonymous, bucketDotEncodeSequence, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
   }
 
 
@@ -204,6 +226,7 @@ public class StorageAccountSettings {
     sb.append("class StorageAccountSettings {\n");
     
     sb.append("    anonymous: ").append(toIndentedString(anonymous)).append("\n");
+    sb.append("    bucketDotEncodeSequence: ").append(toIndentedString(bucketDotEncodeSequence)).append("\n");
     sb.append("    customEndpoint: ").append(toIndentedString(customEndpoint)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
