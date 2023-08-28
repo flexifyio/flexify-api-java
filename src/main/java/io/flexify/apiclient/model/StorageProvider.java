@@ -27,6 +27,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Storage Provider")
 
 public class StorageProvider {
+  @JsonProperty("bucketDotEncode")
+  private Boolean bucketDotEncode = null;
+
   @JsonProperty("canCreateBucketsWithUppercase")
   private Boolean canCreateBucketsWithUppercase = null;
 
@@ -38,9 +41,6 @@ public class StorageProvider {
 
   @JsonProperty("disabledAsDestination")
   private Boolean disabledAsDestination = null;
-
-  @JsonProperty("dotEncode")
-  private String dotEncode = null;
 
   @JsonProperty("endpoint")
   private String endpoint = null;
@@ -131,6 +131,24 @@ public class StorageProvider {
   @JsonProperty("supportsOAuth")
   private Boolean supportsOAuth = null;
 
+  public StorageProvider bucketDotEncode(Boolean bucketDotEncode) {
+    this.bucketDotEncode = bucketDotEncode;
+    return this;
+  }
+
+   /**
+   * Indicates that the provider does not support dots in bucket names and how dots should be encoded
+   * @return bucketDotEncode
+  **/
+  @ApiModelProperty(example = "false", value = "Indicates that the provider does not support dots in bucket names and how dots should be encoded")
+  public Boolean isBucketDotEncode() {
+    return bucketDotEncode;
+  }
+
+  public void setBucketDotEncode(Boolean bucketDotEncode) {
+    this.bucketDotEncode = bucketDotEncode;
+  }
+
   public StorageProvider canCreateBucketsWithUppercase(Boolean canCreateBucketsWithUppercase) {
     this.canCreateBucketsWithUppercase = canCreateBucketsWithUppercase;
     return this;
@@ -201,24 +219,6 @@ public class StorageProvider {
 
   public void setDisabledAsDestination(Boolean disabledAsDestination) {
     this.disabledAsDestination = disabledAsDestination;
-  }
-
-  public StorageProvider dotEncode(String dotEncode) {
-    this.dotEncode = dotEncode;
-    return this;
-  }
-
-   /**
-   * Indicates that the provider does not support dots in bucket names and how dots should be encoded
-   * @return dotEncode
-  **/
-  @ApiModelProperty(value = "Indicates that the provider does not support dots in bucket names and how dots should be encoded")
-  public String getDotEncode() {
-    return dotEncode;
-  }
-
-  public void setDotEncode(String dotEncode) {
-    this.dotEncode = dotEncode;
   }
 
   public StorageProvider endpoint(String endpoint) {
@@ -519,11 +519,11 @@ public class StorageProvider {
       return false;
     }
     StorageProvider storageProvider = (StorageProvider) o;
-    return Objects.equals(this.canCreateBucketsWithUppercase, storageProvider.canCreateBucketsWithUppercase) &&
+    return Objects.equals(this.bucketDotEncode, storageProvider.bucketDotEncode) &&
+        Objects.equals(this.canCreateBucketsWithUppercase, storageProvider.canCreateBucketsWithUppercase) &&
         Objects.equals(this.code, storageProvider.code) &&
         Objects.equals(this.defaultRegion, storageProvider.defaultRegion) &&
         Objects.equals(this.disabledAsDestination, storageProvider.disabledAsDestination) &&
-        Objects.equals(this.dotEncode, storageProvider.dotEncode) &&
         Objects.equals(this.endpoint, storageProvider.endpoint) &&
         Objects.equals(this.endpointPattern, storageProvider.endpointPattern) &&
         Objects.equals(this.id, storageProvider.id) &&
@@ -544,7 +544,7 @@ public class StorageProvider {
 
   @Override
   public int hashCode() {
-    return Objects.hash(canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, dotEncode, endpoint, endpointPattern, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, privateEndpointPattern, productName, protocol, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
+    return Objects.hash(bucketDotEncode, canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, endpoint, endpointPattern, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, privateEndpointPattern, productName, protocol, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
   }
 
 
@@ -553,11 +553,11 @@ public class StorageProvider {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageProvider {\n");
     
+    sb.append("    bucketDotEncode: ").append(toIndentedString(bucketDotEncode)).append("\n");
     sb.append("    canCreateBucketsWithUppercase: ").append(toIndentedString(canCreateBucketsWithUppercase)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    defaultRegion: ").append(toIndentedString(defaultRegion)).append("\n");
     sb.append("    disabledAsDestination: ").append(toIndentedString(disabledAsDestination)).append("\n");
-    sb.append("    dotEncode: ").append(toIndentedString(dotEncode)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    endpointPattern: ").append(toIndentedString(endpointPattern)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

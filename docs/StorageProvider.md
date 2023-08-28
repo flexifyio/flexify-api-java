@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**bucketDotEncode** | **Boolean** | Indicates that the provider does not support dots in bucket names and how dots should be encoded |  [optional]
 **canCreateBucketsWithUppercase** | **Boolean** | Indicates that this provider allow creating bucket with uppercase in names |  [optional]
 **code** | **String** | Code of this cloud provider |  [optional]
 **defaultRegion** | **String** | Default region for this provider |  [optional]
 **disabledAsDestination** | **Boolean** | Storage is not allowed to be used as a default storage in endpoint or as a migration destination) |  [optional]
-**dotEncode** | **String** | Indicates that the provider does not support dots in bucket names and how dots should be encoded |  [optional]
 **endpoint** | **String** | Endpoint to access this provider or null for custom providers |  [optional]
 **endpointPattern** | **String** | Endpoint pattern to access specific region of this provider |  [optional]
 **id** | **Long** | Id of the provider in the system |  [optional]
