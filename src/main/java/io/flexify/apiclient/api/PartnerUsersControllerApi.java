@@ -13,6 +13,7 @@ import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.InformationAboutAuthenticationToken;
 import io.flexify.apiclient.model.PageUserStat;
 import io.flexify.apiclient.model.PasswordResetToken;
+import io.flexify.apiclient.model.SetLimitsRequest;
 import io.flexify.apiclient.model.SetRolesRequest;
 import io.flexify.apiclient.model.SetUserStateRequest;
 import io.flexify.apiclient.model.TokenConfiguration;
@@ -2382,6 +2383,360 @@ public class PartnerUsersControllerApi {
 
 
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Set custom user limits by partner
+   * 
+   * @param request request (required)
+   * @param userId userId (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setLimits(SetLimitsRequest request, Long userId) throws ApiException {
+
+    setLimitsWithHttpInfo(request, userId);
+  }
+
+  /**
+   * Set custom user limits by partner
+   * 
+   * @param request request (required)
+   * @param userId userId (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setLimitsWithHttpInfo(SetLimitsRequest request, Long userId) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setLimits");
+    }
+    
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling setLimits");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/distributor/users/{userId}/limits"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Set custom user limits by partner
+   * 
+   * @param request request (required)
+   * @param userId userId (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setLimits1(SetLimitsRequest request, Long userId) throws ApiException {
+
+    setLimits1WithHttpInfo(request, userId);
+  }
+
+  /**
+   * Set custom user limits by partner
+   * 
+   * @param request request (required)
+   * @param userId userId (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setLimits1WithHttpInfo(SetLimitsRequest request, Long userId) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setLimits1");
+    }
+    
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling setLimits1");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/partner/users/{userId}/limits"
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setLimitsByExternalId
+   * 
+   * @param externalId externalId (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setLimitsByExternalId(String externalId, SetLimitsRequest request) throws ApiException {
+
+    setLimitsByExternalIdWithHttpInfo(externalId, request);
+  }
+
+  /**
+   * setLimitsByExternalId
+   * 
+   * @param externalId externalId (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setLimitsByExternalIdWithHttpInfo(String externalId, SetLimitsRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'externalId' is set
+    if (externalId == null) {
+      throw new ApiException(400, "Missing the required parameter 'externalId' when calling setLimitsByExternalId");
+    }
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setLimitsByExternalId");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/distributor/users/external/{externalId}/limits"
+      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(externalId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setLimitsByExternalId
+   * 
+   * @param externalId externalId (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setLimitsByExternalId1(String externalId, SetLimitsRequest request) throws ApiException {
+
+    setLimitsByExternalId1WithHttpInfo(externalId, request);
+  }
+
+  /**
+   * setLimitsByExternalId
+   * 
+   * @param externalId externalId (required)
+   * @param request request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setLimitsByExternalId1WithHttpInfo(String externalId, SetLimitsRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'externalId' is set
+    if (externalId == null) {
+      throw new ApiException(400, "Missing the required parameter 'externalId' when calling setLimitsByExternalId1");
+    }
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setLimitsByExternalId1");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/partner/users/external/{externalId}/limits"
+      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(externalId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setLimitsByUsername
+   * 
+   * @param request request (required)
+   * @param username username (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setLimitsByUsername(SetLimitsRequest request, String username) throws ApiException {
+
+    setLimitsByUsernameWithHttpInfo(request, username);
+  }
+
+  /**
+   * setLimitsByUsername
+   * 
+   * @param request request (required)
+   * @param username username (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setLimitsByUsernameWithHttpInfo(SetLimitsRequest request, String username) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setLimitsByUsername");
+    }
+    
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling setLimitsByUsername");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/distributor/users/username/{username}/limits"
+      .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * setLimitsByUsername
+   * 
+   * @param request request (required)
+   * @param username username (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setLimitsByUsername1(SetLimitsRequest request, String username) throws ApiException {
+
+    setLimitsByUsername1WithHttpInfo(request, username);
+  }
+
+  /**
+   * setLimitsByUsername
+   * 
+   * @param request request (required)
+   * @param username username (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> setLimitsByUsername1WithHttpInfo(SetLimitsRequest request, String username) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling setLimitsByUsername1");
+    }
+    
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling setLimitsByUsername1");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/partner/users/username/{username}/limits"
+      .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * setRoles

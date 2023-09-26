@@ -166,6 +166,12 @@ Class | Method | HTTP request | Description
 *PartnerUsersControllerApi* | [**sendPasswordResetEmailByExternalId1**](docs/PartnerUsersControllerApi.md#sendPasswordResetEmailByExternalId1) | **POST** /backend/rest/partner/users/external/{externalId}/actions/send-password-reset-email | Set/reset password by external ID
 *PartnerUsersControllerApi* | [**sendPasswordResetEmailByUsername**](docs/PartnerUsersControllerApi.md#sendPasswordResetEmailByUsername) | **POST** /backend/rest/distributor/users/username/{username}/actions/send-password-reset-email | Set/reset password by username
 *PartnerUsersControllerApi* | [**sendPasswordResetEmailByUsername1**](docs/PartnerUsersControllerApi.md#sendPasswordResetEmailByUsername1) | **POST** /backend/rest/partner/users/username/{username}/actions/send-password-reset-email | Set/reset password by username
+*PartnerUsersControllerApi* | [**setLimits**](docs/PartnerUsersControllerApi.md#setLimits) | **PUT** /backend/rest/distributor/users/{userId}/limits | Set custom user limits by partner
+*PartnerUsersControllerApi* | [**setLimits1**](docs/PartnerUsersControllerApi.md#setLimits1) | **PUT** /backend/rest/partner/users/{userId}/limits | Set custom user limits by partner
+*PartnerUsersControllerApi* | [**setLimitsByExternalId**](docs/PartnerUsersControllerApi.md#setLimitsByExternalId) | **PUT** /backend/rest/distributor/users/external/{externalId}/limits | setLimitsByExternalId
+*PartnerUsersControllerApi* | [**setLimitsByExternalId1**](docs/PartnerUsersControllerApi.md#setLimitsByExternalId1) | **PUT** /backend/rest/partner/users/external/{externalId}/limits | setLimitsByExternalId
+*PartnerUsersControllerApi* | [**setLimitsByUsername**](docs/PartnerUsersControllerApi.md#setLimitsByUsername) | **PUT** /backend/rest/distributor/users/username/{username}/limits | setLimitsByUsername
+*PartnerUsersControllerApi* | [**setLimitsByUsername1**](docs/PartnerUsersControllerApi.md#setLimitsByUsername1) | **PUT** /backend/rest/partner/users/username/{username}/limits | setLimitsByUsername
 *PartnerUsersControllerApi* | [**setRoles**](docs/PartnerUsersControllerApi.md#setRoles) | **PUT** /backend/rest/distributor/users/{userId}/roles | setRoles
 *PartnerUsersControllerApi* | [**setRoles1**](docs/PartnerUsersControllerApi.md#setRoles1) | **PUT** /backend/rest/partner/users/{userId}/roles | setRoles
 *PartnerUsersControllerApi* | [**setRolesByExternalId**](docs/PartnerUsersControllerApi.md#setRolesByExternalId) | **PUT** /backend/rest/distributor/users/external/{externalId}/roles | setRolesByExternalId
@@ -268,6 +274,7 @@ Class | Method | HTTP request | Description
  - [RequestResetPasswordRequest](docs/RequestResetPasswordRequest.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [ResetSsoRequest](docs/ResetSsoRequest.md)
+ - [SetLimitsRequest](docs/SetLimitsRequest.md)
  - [SetRolesRequest](docs/SetRolesRequest.md)
  - [SetUserStateRequest](docs/SetUserStateRequest.md)
  - [SignUpRequest](docs/SignUpRequest.md)

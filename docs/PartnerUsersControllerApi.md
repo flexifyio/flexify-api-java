@@ -46,6 +46,12 @@ Method | HTTP request | Description
 [**sendPasswordResetEmailByExternalId1**](PartnerUsersControllerApi.md#sendPasswordResetEmailByExternalId1) | **POST** /backend/rest/partner/users/external/{externalId}/actions/send-password-reset-email | Set/reset password by external ID
 [**sendPasswordResetEmailByUsername**](PartnerUsersControllerApi.md#sendPasswordResetEmailByUsername) | **POST** /backend/rest/distributor/users/username/{username}/actions/send-password-reset-email | Set/reset password by username
 [**sendPasswordResetEmailByUsername1**](PartnerUsersControllerApi.md#sendPasswordResetEmailByUsername1) | **POST** /backend/rest/partner/users/username/{username}/actions/send-password-reset-email | Set/reset password by username
+[**setLimits**](PartnerUsersControllerApi.md#setLimits) | **PUT** /backend/rest/distributor/users/{userId}/limits | Set custom user limits by partner
+[**setLimits1**](PartnerUsersControllerApi.md#setLimits1) | **PUT** /backend/rest/partner/users/{userId}/limits | Set custom user limits by partner
+[**setLimitsByExternalId**](PartnerUsersControllerApi.md#setLimitsByExternalId) | **PUT** /backend/rest/distributor/users/external/{externalId}/limits | setLimitsByExternalId
+[**setLimitsByExternalId1**](PartnerUsersControllerApi.md#setLimitsByExternalId1) | **PUT** /backend/rest/partner/users/external/{externalId}/limits | setLimitsByExternalId
+[**setLimitsByUsername**](PartnerUsersControllerApi.md#setLimitsByUsername) | **PUT** /backend/rest/distributor/users/username/{username}/limits | setLimitsByUsername
+[**setLimitsByUsername1**](PartnerUsersControllerApi.md#setLimitsByUsername1) | **PUT** /backend/rest/partner/users/username/{username}/limits | setLimitsByUsername
 [**setRoles**](PartnerUsersControllerApi.md#setRoles) | **PUT** /backend/rest/distributor/users/{userId}/roles | setRoles
 [**setRoles1**](PartnerUsersControllerApi.md#setRoles1) | **PUT** /backend/rest/partner/users/{userId}/roles | setRoles
 [**setRolesByExternalId**](PartnerUsersControllerApi.md#setRolesByExternalId) | **PUT** /backend/rest/distributor/users/external/{externalId}/roles | setRolesByExternalId
@@ -2377,6 +2383,330 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **username** | **String**| username |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setLimits"></a>
+# **setLimits**
+> setLimits(request, userId)
+
+Set custom user limits by partner
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+SetLimitsRequest request = new SetLimitsRequest(); // SetLimitsRequest | request
+Long userId = 789L; // Long | userId
+try {
+    apiInstance.setLimits(request, userId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setLimits");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SetLimitsRequest**](SetLimitsRequest.md)| request |
+ **userId** | **Long**| userId |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setLimits1"></a>
+# **setLimits1**
+> setLimits1(request, userId)
+
+Set custom user limits by partner
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+SetLimitsRequest request = new SetLimitsRequest(); // SetLimitsRequest | request
+Long userId = 789L; // Long | userId
+try {
+    apiInstance.setLimits1(request, userId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setLimits1");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SetLimitsRequest**](SetLimitsRequest.md)| request |
+ **userId** | **Long**| userId |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setLimitsByExternalId"></a>
+# **setLimitsByExternalId**
+> setLimitsByExternalId(externalId, request)
+
+setLimitsByExternalId
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+String externalId = "externalId_example"; // String | externalId
+SetLimitsRequest request = new SetLimitsRequest(); // SetLimitsRequest | request
+try {
+    apiInstance.setLimitsByExternalId(externalId, request);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setLimitsByExternalId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **externalId** | **String**| externalId |
+ **request** | [**SetLimitsRequest**](SetLimitsRequest.md)| request |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setLimitsByExternalId1"></a>
+# **setLimitsByExternalId1**
+> setLimitsByExternalId1(externalId, request)
+
+setLimitsByExternalId
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+String externalId = "externalId_example"; // String | externalId
+SetLimitsRequest request = new SetLimitsRequest(); // SetLimitsRequest | request
+try {
+    apiInstance.setLimitsByExternalId1(externalId, request);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setLimitsByExternalId1");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **externalId** | **String**| externalId |
+ **request** | [**SetLimitsRequest**](SetLimitsRequest.md)| request |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setLimitsByUsername"></a>
+# **setLimitsByUsername**
+> setLimitsByUsername(request, username)
+
+setLimitsByUsername
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+SetLimitsRequest request = new SetLimitsRequest(); // SetLimitsRequest | request
+String username = "username_example"; // String | username
+try {
+    apiInstance.setLimitsByUsername(request, username);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setLimitsByUsername");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SetLimitsRequest**](SetLimitsRequest.md)| request |
+ **username** | **String**| username |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="setLimitsByUsername1"></a>
+# **setLimitsByUsername1**
+> setLimitsByUsername1(request, username)
+
+setLimitsByUsername
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.PartnerUsersControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
+SetLimitsRequest request = new SetLimitsRequest(); // SetLimitsRequest | request
+String username = "username_example"; // String | username
+try {
+    apiInstance.setLimitsByUsername1(request, username);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PartnerUsersControllerApi#setLimitsByUsername1");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SetLimitsRequest**](SetLimitsRequest.md)| request |
  **username** | **String**| username |
 
 ### Return type
