@@ -19,6 +19,7 @@ ERROR | &quot;ERROR&quot;
 NONE | &quot;NONE&quot;
 OK | &quot;OK&quot;
 REFRESHING | &quot;REFRESHING&quot;
+REFRESH_REQUESTED | &quot;REFRESH_REQUESTED&quot;
 WARNING | &quot;WARNING&quot;
 
 

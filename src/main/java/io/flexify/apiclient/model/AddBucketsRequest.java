@@ -24,22 +24,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * BucketsRequest
+ * AddBucketsRequest
  */
 
-public class BucketsRequest {
+public class AddBucketsRequest {
   @JsonProperty("bucketNames")
   private List<String> bucketNames = new ArrayList<String>();
 
   @JsonProperty("refresh")
   private Boolean refresh = null;
 
-  public BucketsRequest bucketNames(List<String> bucketNames) {
+  public AddBucketsRequest bucketNames(List<String> bucketNames) {
     this.bucketNames = bucketNames;
     return this;
   }
 
-  public BucketsRequest addBucketNamesItem(String bucketNamesItem) {
+  public AddBucketsRequest addBucketNamesItem(String bucketNamesItem) {
     this.bucketNames.add(bucketNamesItem);
     return this;
   }
@@ -57,7 +57,7 @@ public class BucketsRequest {
     this.bucketNames = bucketNames;
   }
 
-  public BucketsRequest refresh(Boolean refresh) {
+  public AddBucketsRequest refresh(Boolean refresh) {
     this.refresh = refresh;
     return this;
   }
@@ -84,9 +84,9 @@ public class BucketsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BucketsRequest bucketsRequest = (BucketsRequest) o;
-    return Objects.equals(this.bucketNames, bucketsRequest.bucketNames) &&
-        Objects.equals(this.refresh, bucketsRequest.refresh);
+    AddBucketsRequest addBucketsRequest = (AddBucketsRequest) o;
+    return Objects.equals(this.bucketNames, addBucketsRequest.bucketNames) &&
+        Objects.equals(this.refresh, addBucketsRequest.refresh);
   }
 
   @Override
@@ -98,7 +98,7 @@ public class BucketsRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BucketsRequest {\n");
+    sb.append("class AddBucketsRequest {\n");
     
     sb.append("    bucketNames: ").append(toIndentedString(bucketNames)).append("\n");
     sb.append("    refresh: ").append(toIndentedString(refresh)).append("\n");

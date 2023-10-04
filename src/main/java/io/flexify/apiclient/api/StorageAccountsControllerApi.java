@@ -10,7 +10,6 @@ import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.AddStorageAccountRequest;
 import io.flexify.apiclient.model.IdResponse;
-import io.flexify.apiclient.model.IdsList;
 import io.flexify.apiclient.model.StorageAccount;
 import io.flexify.apiclient.model.StorageAccountSettingsReq;
 import io.flexify.apiclient.model.StorageAccountWithBuckets;
@@ -148,60 +147,6 @@ public class StorageAccountsControllerApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Deletes (hides) a multiple storage accounts and all their buckets/containers
-   * 
-   * @param request request (required)
-   * @param forceDetach force-detach (optional, default to false)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteStorageAccounts(IdsList request, Boolean forceDetach) throws ApiException {
-
-    deleteStorageAccountsWithHttpInfo(request, forceDetach);
-  }
-
-  /**
-   * Deletes (hides) a multiple storage accounts and all their buckets/containers
-   * 
-   * @param request request (required)
-   * @param forceDetach force-detach (optional, default to false)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> deleteStorageAccountsWithHttpInfo(IdsList request, Boolean forceDetach) throws ApiException {
-    Object localVarPostBody = request;
-    
-    // verify the required parameter 'request' is set
-    if (request == null) {
-      throw new ApiException(400, "Missing the required parameter 'request' when calling deleteStorageAccounts");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/backend/rest/storage-accounts/actions/delete";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "force-detach", forceDetach));
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json;charset=UTF-8"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer" };
-
-
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
-  /**
    * Get storage account by id
    * 
    * @param storageAccountId storage-account-id (required)
@@ -330,57 +275,6 @@ public class StorageAccountsControllerApi {
     // create path and map variables
     String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}/actions/refresh"
       .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json;charset=UTF-8"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer" };
-
-
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
-  /**
-   * Requests and updates list of buckets/containers for a list of storage accounts
-   * 
-   * @param request request (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void refreshStorageAccounts(IdsList request) throws ApiException {
-
-    refreshStorageAccountsWithHttpInfo(request);
-  }
-
-  /**
-   * Requests and updates list of buckets/containers for a list of storage accounts
-   * 
-   * @param request request (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> refreshStorageAccountsWithHttpInfo(IdsList request) throws ApiException {
-    Object localVarPostBody = request;
-    
-    // verify the required parameter 'request' is set
-    if (request == null) {
-      throw new ApiException(400, "Missing the required parameter 'request' when calling refreshStorageAccounts");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/backend/rest/storage-accounts/actions/refresh";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

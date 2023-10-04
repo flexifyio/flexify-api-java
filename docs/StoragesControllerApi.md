@@ -34,7 +34,7 @@ Bearer.setApiKey("YOUR API KEY");
 //Bearer.setApiKeyPrefix("Token");
 
 StoragesControllerApi apiInstance = new StoragesControllerApi();
-BucketsRequest request = new BucketsRequest(); // BucketsRequest | request
+AddBucketsRequest request = new AddBucketsRequest(); // AddBucketsRequest | request
 Long storageAccountId = 789L; // Long | storage-account-id
 try {
     IdsList result = apiInstance.addBuckets(request, storageAccountId);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**BucketsRequest**](BucketsRequest.md)| request |
+ **request** | [**AddBucketsRequest**](AddBucketsRequest.md)| request |
  **storageAccountId** | **Long**| storage-account-id |
 
 ### Return type

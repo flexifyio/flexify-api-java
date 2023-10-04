@@ -51,6 +51,8 @@ public class BucketStat {
     
     REFRESHING("REFRESHING"),
     
+    REFRESH_REQUESTED("REFRESH_REQUESTED"),
+    
     WARNING("WARNING");
 
     private String value;

@@ -189,11 +189,9 @@ Class | Method | HTTP request | Description
 *ProvidersControllerApi* | [**getProviders**](docs/ProvidersControllerApi.md#getProviders) | **GET** /backend/rest/providers | Get all storage providers
 *StorageAccountsControllerApi* | [**addStorageAccount**](docs/StorageAccountsControllerApi.md#addStorageAccount) | **POST** /backend/rest/storage-accounts | Add Storage Account with an optional list of buckets
 *StorageAccountsControllerApi* | [**deleteStorageAccount**](docs/StorageAccountsControllerApi.md#deleteStorageAccount) | **DELETE** /backend/rest/storage-accounts/{storage-account-id} | Deletes (hides) storage account and all its buckets/containers
-*StorageAccountsControllerApi* | [**deleteStorageAccounts**](docs/StorageAccountsControllerApi.md#deleteStorageAccounts) | **POST** /backend/rest/storage-accounts/actions/delete | Deletes (hides) a multiple storage accounts and all their buckets/containers
 *StorageAccountsControllerApi* | [**getStorageAccount**](docs/StorageAccountsControllerApi.md#getStorageAccount) | **GET** /backend/rest/storage-accounts/{storage-account-id} | Get storage account by id
 *StorageAccountsControllerApi* | [**getStorageAccounts**](docs/StorageAccountsControllerApi.md#getStorageAccounts) | **GET** /backend/rest/storage-accounts | Get all storage accounts for current user
 *StorageAccountsControllerApi* | [**refreshStorageAccount**](docs/StorageAccountsControllerApi.md#refreshStorageAccount) | **POST** /backend/rest/storage-accounts/{storage-account-id}/actions/refresh | Requests and updates list of buckets/containers for the storage account
-*StorageAccountsControllerApi* | [**refreshStorageAccounts**](docs/StorageAccountsControllerApi.md#refreshStorageAccounts) | **POST** /backend/rest/storage-accounts/actions/refresh | Requests and updates list of buckets/containers for a list of storage accounts
 *StorageAccountsControllerApi* | [**setStorageAccountSettings**](docs/StorageAccountsControllerApi.md#setStorageAccountSettings) | **PUT** /backend/rest/storage-accounts/{storage-account-id}/settings | Updates storage account settings
 *StoragesControllerApi* | [**addBuckets**](docs/StoragesControllerApi.md#addBuckets) | **POST** /backend/rest/storage-accounts/{storage-account-id}/buckets | Add buckets to the storage account
 *StoragesControllerApi* | [**deleteBucket**](docs/StoragesControllerApi.md#deleteBucket) | **DELETE** /backend/rest/storage-accounts/{storage-account-id}/buckets/{bucket-id} | Deletes (hides) a bucket/container
@@ -208,6 +206,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AccessKeysPair](docs/AccessKeysPair.md)
+ - [AddBucketsRequest](docs/AddBucketsRequest.md)
  - [AddImpersonateCodeRequest](docs/AddImpersonateCodeRequest.md)
  - [AddImpersonateFromUserRequest](docs/AddImpersonateFromUserRequest.md)
  - [AddMigrationRequest](docs/AddMigrationRequest.md)
@@ -220,7 +219,6 @@ Class | Method | HTTP request | Description
  - [BillingAccount](docs/BillingAccount.md)
  - [Bucket](docs/Bucket.md)
  - [BucketStat](docs/BucketStat.md)
- - [BucketsRequest](docs/BucketsRequest.md)
  - [ChangePasswordRequest](docs/ChangePasswordRequest.md)
  - [ChangeSsoMicrosoftRequest](docs/ChangeSsoMicrosoftRequest.md)
  - [CleanupStat](docs/CleanupStat.md)

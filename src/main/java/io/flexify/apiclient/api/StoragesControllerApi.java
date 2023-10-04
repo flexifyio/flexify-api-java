@@ -8,8 +8,8 @@ import io.flexify.apiclient.handler.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import io.flexify.apiclient.model.AddBucketsRequest;
 import io.flexify.apiclient.model.Bucket;
-import io.flexify.apiclient.model.BucketsRequest;
 import io.flexify.apiclient.model.IdsList;
 
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class StoragesControllerApi {
    * @return IdsList
    * @throws ApiException if fails to make API call
    */
-  public IdsList addBuckets(BucketsRequest request, Long storageAccountId) throws ApiException {
+  public IdsList addBuckets(AddBucketsRequest request, Long storageAccountId) throws ApiException {
     return addBucketsWithHttpInfo(request, storageAccountId).getData();
       }
 
@@ -57,7 +57,7 @@ public class StoragesControllerApi {
    * @return ApiResponse&lt;IdsList&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<IdsList> addBucketsWithHttpInfo(BucketsRequest request, Long storageAccountId) throws ApiException {
+  public ApiResponse<IdsList> addBucketsWithHttpInfo(AddBucketsRequest request, Long storageAccountId) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'request' is set
