@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.flexify.apiclient.model.BucketStat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.joda.time.DateTime;
 
 /**
  * Storage bucket or container
@@ -36,6 +37,9 @@ public class Bucket {
 
   @JsonProperty("name")
   private String name = null;
+
+  @JsonProperty("refreshRequestedTime")
+  private DateTime refreshRequestedTime = null;
 
   @JsonProperty("stat")
   private BucketStat stat = null;
@@ -85,6 +89,24 @@ public class Bucket {
     this.name = name;
   }
 
+  public Bucket refreshRequestedTime(DateTime refreshRequestedTime) {
+    this.refreshRequestedTime = refreshRequestedTime;
+    return this;
+  }
+
+   /**
+   * Last time refresh of this bucket was requested
+   * @return refreshRequestedTime
+  **/
+  @ApiModelProperty(value = "Last time refresh of this bucket was requested")
+  public DateTime getRefreshRequestedTime() {
+    return refreshRequestedTime;
+  }
+
+  public void setRefreshRequestedTime(DateTime refreshRequestedTime) {
+    this.refreshRequestedTime = refreshRequestedTime;
+  }
+
   public Bucket stat(BucketStat stat) {
     this.stat = stat;
     return this;
@@ -116,12 +138,13 @@ public class Bucket {
     return Objects.equals(this.displayName, bucket.displayName) &&
         Objects.equals(this.id, bucket.id) &&
         Objects.equals(this.name, bucket.name) &&
+        Objects.equals(this.refreshRequestedTime, bucket.refreshRequestedTime) &&
         Objects.equals(this.stat, bucket.stat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, stat);
+    return Objects.hash(displayName, id, name, refreshRequestedTime, stat);
   }
 
 
@@ -133,6 +156,7 @@ public class Bucket {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    refreshRequestedTime: ").append(toIndentedString(refreshRequestedTime)).append("\n");
     sb.append("    stat: ").append(toIndentedString(stat)).append("\n");
     sb.append("}");
     return sb.toString();
