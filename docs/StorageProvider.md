@@ -21,10 +21,12 @@ Name | Type | Description | Notes
 **privateEndpointPattern** | **String** | Endpoint pattern used by engines for specific region |  [optional]
 **productName** | **String** | Name of product/region for this provider |  [optional]
 **protocol** | [**ProtocolEnum**](#ProtocolEnum) | Storage protocol this provider uses |  [optional]
+**supportsCredential** | **Boolean** | If the provider supports auth with credential (storage keys) |  [optional]
 **supportsHttp** | **Boolean** | Indicates that HTTP is supported |  [optional]
 **supportsHttps** | **Boolean** | Indicates that HTTPS (SSL) is supported |  [optional]
 **supportsMultipartUpload** | **Boolean** | Indicates that the provider supports multipart upload |  [optional]
 **supportsOAuth** | **Boolean** | If the provider supports OAuth (instead of storage keys) |  [optional]
+**supportsOAuthName** | **String** | Name the provider is using his variation of OAuth |  [optional]
 
 
 <a name="ProtocolEnum"></a>

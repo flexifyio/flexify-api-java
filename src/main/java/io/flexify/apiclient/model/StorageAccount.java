@@ -32,6 +32,9 @@ public class StorageAccount {
   @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("isOAuth")
+  private Boolean isOAuth = null;
+
   @JsonProperty("isSas")
   private Boolean isSas = null;
 
@@ -63,6 +66,24 @@ public class StorageAccount {
   @ApiModelProperty(value = "Id of the storage account")
   public Long getId() {
     return id;
+  }
+
+  public StorageAccount isOAuth(Boolean isOAuth) {
+    this.isOAuth = isOAuth;
+    return this;
+  }
+
+   /**
+   * For Azure - if OAuth is used for authentication
+   * @return isOAuth
+  **/
+  @ApiModelProperty(value = "For Azure - if OAuth is used for authentication")
+  public Boolean isIsOAuth() {
+    return isOAuth;
+  }
+
+  public void setIsOAuth(Boolean isOAuth) {
+    this.isOAuth = isOAuth;
   }
 
   public StorageAccount isSas(Boolean isSas) {
@@ -220,6 +241,7 @@ public class StorageAccount {
     }
     StorageAccount storageAccount = (StorageAccount) o;
     return Objects.equals(this.id, storageAccount.id) &&
+        Objects.equals(this.isOAuth, storageAccount.isOAuth) &&
         Objects.equals(this.isSas, storageAccount.isSas) &&
         Objects.equals(this.keyVaultSecretId, storageAccount.keyVaultSecretId) &&
         Objects.equals(this.privateUrl, storageAccount.privateUrl) &&
@@ -232,7 +254,7 @@ public class StorageAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, isSas, keyVaultSecretId, privateUrl, provider, secretInKeyVault, settings, stat, url);
+    return Objects.hash(id, isOAuth, isSas, keyVaultSecretId, privateUrl, provider, secretInKeyVault, settings, stat, url);
   }
 
 
@@ -242,6 +264,7 @@ public class StorageAccount {
     sb.append("class StorageAccount {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isOAuth: ").append(toIndentedString(isOAuth)).append("\n");
     sb.append("    isSas: ").append(toIndentedString(isSas)).append("\n");
     sb.append("    keyVaultSecretId: ").append(toIndentedString(keyVaultSecretId)).append("\n");
     sb.append("    privateUrl: ").append(toIndentedString(privateUrl)).append("\n");

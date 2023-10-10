@@ -38,6 +38,9 @@ public class StorageAccountWithBuckets {
   @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("isOAuth")
+  private Boolean isOAuth = null;
+
   @JsonProperty("isSas")
   private Boolean isSas = null;
 
@@ -95,6 +98,24 @@ public class StorageAccountWithBuckets {
   @ApiModelProperty(value = "Id of the storage account")
   public Long getId() {
     return id;
+  }
+
+  public StorageAccountWithBuckets isOAuth(Boolean isOAuth) {
+    this.isOAuth = isOAuth;
+    return this;
+  }
+
+   /**
+   * For Azure - if OAuth is used for authentication
+   * @return isOAuth
+  **/
+  @ApiModelProperty(value = "For Azure - if OAuth is used for authentication")
+  public Boolean isIsOAuth() {
+    return isOAuth;
+  }
+
+  public void setIsOAuth(Boolean isOAuth) {
+    this.isOAuth = isOAuth;
   }
 
   public StorageAccountWithBuckets isSas(Boolean isSas) {
@@ -253,6 +274,7 @@ public class StorageAccountWithBuckets {
     StorageAccountWithBuckets storageAccountWithBuckets = (StorageAccountWithBuckets) o;
     return Objects.equals(this.buckets, storageAccountWithBuckets.buckets) &&
         Objects.equals(this.id, storageAccountWithBuckets.id) &&
+        Objects.equals(this.isOAuth, storageAccountWithBuckets.isOAuth) &&
         Objects.equals(this.isSas, storageAccountWithBuckets.isSas) &&
         Objects.equals(this.keyVaultSecretId, storageAccountWithBuckets.keyVaultSecretId) &&
         Objects.equals(this.privateUrl, storageAccountWithBuckets.privateUrl) &&
@@ -265,7 +287,7 @@ public class StorageAccountWithBuckets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buckets, id, isSas, keyVaultSecretId, privateUrl, provider, secretInKeyVault, settings, stat, url);
+    return Objects.hash(buckets, id, isOAuth, isSas, keyVaultSecretId, privateUrl, provider, secretInKeyVault, settings, stat, url);
   }
 
 
@@ -276,6 +298,7 @@ public class StorageAccountWithBuckets {
     
     sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isOAuth: ").append(toIndentedString(isOAuth)).append("\n");
     sb.append("    isSas: ").append(toIndentedString(isSas)).append("\n");
     sb.append("    keyVaultSecretId: ").append(toIndentedString(keyVaultSecretId)).append("\n");
     sb.append("    privateUrl: ").append(toIndentedString(privateUrl)).append("\n");

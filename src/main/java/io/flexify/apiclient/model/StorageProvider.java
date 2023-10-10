@@ -119,6 +119,9 @@ public class StorageProvider {
   @JsonProperty("protocol")
   private ProtocolEnum protocol = null;
 
+  @JsonProperty("supportsCredential")
+  private Boolean supportsCredential = null;
+
   @JsonProperty("supportsHttp")
   private Boolean supportsHttp = null;
 
@@ -130,6 +133,9 @@ public class StorageProvider {
 
   @JsonProperty("supportsOAuth")
   private Boolean supportsOAuth = null;
+
+  @JsonProperty("supportsOAuthName")
+  private String supportsOAuthName = null;
 
   public StorageProvider bucketDotEncode(Boolean bucketDotEncode) {
     this.bucketDotEncode = bucketDotEncode;
@@ -437,6 +443,24 @@ public class StorageProvider {
     this.protocol = protocol;
   }
 
+  public StorageProvider supportsCredential(Boolean supportsCredential) {
+    this.supportsCredential = supportsCredential;
+    return this;
+  }
+
+   /**
+   * If the provider supports auth with credential (storage keys)
+   * @return supportsCredential
+  **/
+  @ApiModelProperty(example = "false", value = "If the provider supports auth with credential (storage keys)")
+  public Boolean isSupportsCredential() {
+    return supportsCredential;
+  }
+
+  public void setSupportsCredential(Boolean supportsCredential) {
+    this.supportsCredential = supportsCredential;
+  }
+
   public StorageProvider supportsHttp(Boolean supportsHttp) {
     this.supportsHttp = supportsHttp;
     return this;
@@ -509,6 +533,24 @@ public class StorageProvider {
     this.supportsOAuth = supportsOAuth;
   }
 
+  public StorageProvider supportsOAuthName(String supportsOAuthName) {
+    this.supportsOAuthName = supportsOAuthName;
+    return this;
+  }
+
+   /**
+   * Name the provider is using his variation of OAuth
+   * @return supportsOAuthName
+  **/
+  @ApiModelProperty(example = "false", value = "Name the provider is using his variation of OAuth")
+  public String getSupportsOAuthName() {
+    return supportsOAuthName;
+  }
+
+  public void setSupportsOAuthName(String supportsOAuthName) {
+    this.supportsOAuthName = supportsOAuthName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -536,15 +578,17 @@ public class StorageProvider {
         Objects.equals(this.privateEndpointPattern, storageProvider.privateEndpointPattern) &&
         Objects.equals(this.productName, storageProvider.productName) &&
         Objects.equals(this.protocol, storageProvider.protocol) &&
+        Objects.equals(this.supportsCredential, storageProvider.supportsCredential) &&
         Objects.equals(this.supportsHttp, storageProvider.supportsHttp) &&
         Objects.equals(this.supportsHttps, storageProvider.supportsHttps) &&
         Objects.equals(this.supportsMultipartUpload, storageProvider.supportsMultipartUpload) &&
-        Objects.equals(this.supportsOAuth, storageProvider.supportsOAuth);
+        Objects.equals(this.supportsOAuth, storageProvider.supportsOAuth) &&
+        Objects.equals(this.supportsOAuthName, storageProvider.supportsOAuthName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketDotEncode, canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, endpoint, endpointPattern, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, privateEndpointPattern, productName, protocol, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth);
+    return Objects.hash(bucketDotEncode, canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, endpoint, endpointPattern, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, privateEndpointPattern, productName, protocol, supportsCredential, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth, supportsOAuthName);
   }
 
 
@@ -570,10 +614,12 @@ public class StorageProvider {
     sb.append("    privateEndpointPattern: ").append(toIndentedString(privateEndpointPattern)).append("\n");
     sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    supportsCredential: ").append(toIndentedString(supportsCredential)).append("\n");
     sb.append("    supportsHttp: ").append(toIndentedString(supportsHttp)).append("\n");
     sb.append("    supportsHttps: ").append(toIndentedString(supportsHttps)).append("\n");
     sb.append("    supportsMultipartUpload: ").append(toIndentedString(supportsMultipartUpload)).append("\n");
     sb.append("    supportsOAuth: ").append(toIndentedString(supportsOAuth)).append("\n");
+    sb.append("    supportsOAuthName: ").append(toIndentedString(supportsOAuthName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

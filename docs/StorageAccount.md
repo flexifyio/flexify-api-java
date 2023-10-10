@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Long** | Id of the storage account |  [optional]
+**isOAuth** | **Boolean** | For Azure - if OAuth is used for authentication |  [optional]
 **isSas** | **Boolean** | For Azure - if credential is SAS signature (not included if storing in key vault) |  [optional]
 **keyVaultSecretId** | **String** | Key Vault secret ID where this credential secret is stored (only for admins) |  [optional]
 **privateUrl** | **String** | URL used by engines to access the cloud |  [optional]
