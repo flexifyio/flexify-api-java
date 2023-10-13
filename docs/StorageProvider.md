@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allowOverwriteEndpoint** | **Boolean** | If customEndpoint can be used to overwrite the default endpoint |  [optional]
 **bucketDotEncode** | **Boolean** | Indicates that the provider does not support dots in bucket names and how dots should be encoded |  [optional]
 **canCreateBucketsWithUppercase** | **Boolean** | Indicates that this provider allow creating bucket with uppercase in names |  [optional]
 **code** | **String** | Code of this cloud provider |  [optional]

@@ -27,6 +27,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Storage Provider")
 
 public class StorageProvider {
+  @JsonProperty("allowOverwriteEndpoint")
+  private Boolean allowOverwriteEndpoint = null;
+
   @JsonProperty("bucketDotEncode")
   private Boolean bucketDotEncode = null;
 
@@ -136,6 +139,24 @@ public class StorageProvider {
 
   @JsonProperty("supportsOAuthName")
   private String supportsOAuthName = null;
+
+  public StorageProvider allowOverwriteEndpoint(Boolean allowOverwriteEndpoint) {
+    this.allowOverwriteEndpoint = allowOverwriteEndpoint;
+    return this;
+  }
+
+   /**
+   * If customEndpoint can be used to overwrite the default endpoint
+   * @return allowOverwriteEndpoint
+  **/
+  @ApiModelProperty(value = "If customEndpoint can be used to overwrite the default endpoint")
+  public Boolean isAllowOverwriteEndpoint() {
+    return allowOverwriteEndpoint;
+  }
+
+  public void setAllowOverwriteEndpoint(Boolean allowOverwriteEndpoint) {
+    this.allowOverwriteEndpoint = allowOverwriteEndpoint;
+  }
 
   public StorageProvider bucketDotEncode(Boolean bucketDotEncode) {
     this.bucketDotEncode = bucketDotEncode;
@@ -561,7 +582,8 @@ public class StorageProvider {
       return false;
     }
     StorageProvider storageProvider = (StorageProvider) o;
-    return Objects.equals(this.bucketDotEncode, storageProvider.bucketDotEncode) &&
+    return Objects.equals(this.allowOverwriteEndpoint, storageProvider.allowOverwriteEndpoint) &&
+        Objects.equals(this.bucketDotEncode, storageProvider.bucketDotEncode) &&
         Objects.equals(this.canCreateBucketsWithUppercase, storageProvider.canCreateBucketsWithUppercase) &&
         Objects.equals(this.code, storageProvider.code) &&
         Objects.equals(this.defaultRegion, storageProvider.defaultRegion) &&
@@ -588,7 +610,7 @@ public class StorageProvider {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketDotEncode, canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, endpoint, endpointPattern, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, privateEndpointPattern, productName, protocol, supportsCredential, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth, supportsOAuthName);
+    return Objects.hash(allowOverwriteEndpoint, bucketDotEncode, canCreateBucketsWithUppercase, code, defaultRegion, disabledAsDestination, endpoint, endpointPattern, id, maxUploadSize, multiRegional, name, portHttp, portHttps, privateEndpoint, privateEndpointPattern, productName, protocol, supportsCredential, supportsHttp, supportsHttps, supportsMultipartUpload, supportsOAuth, supportsOAuthName);
   }
 
 
@@ -597,6 +619,7 @@ public class StorageProvider {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageProvider {\n");
     
+    sb.append("    allowOverwriteEndpoint: ").append(toIndentedString(allowOverwriteEndpoint)).append("\n");
     sb.append("    bucketDotEncode: ").append(toIndentedString(bucketDotEncode)).append("\n");
     sb.append("    canCreateBucketsWithUppercase: ").append(toIndentedString(canCreateBucketsWithUppercase)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
