@@ -81,6 +81,8 @@ public class StorageAccountStat {
    * State of this storage account
    */
   public enum StateEnum {
+    AUTH_EXPIRED("AUTH_EXPIRED"),
+    
     ERROR("ERROR"),
     
     NONE("NONE"),

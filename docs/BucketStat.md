@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 ## Enum: StateEnum
 Name | Value
 ---- | -----
+AUTH_EXPIRED | &quot;AUTH_EXPIRED&quot;
 ERROR | &quot;ERROR&quot;
 NONE | &quot;NONE&quot;
 OK | &quot;OK&quot;

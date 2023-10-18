@@ -43,6 +43,8 @@ public class BucketStat {
    * State of the bucket/container
    */
   public enum StateEnum {
+    AUTH_EXPIRED("AUTH_EXPIRED"),
+    
     ERROR("ERROR"),
     
     NONE("NONE"),
