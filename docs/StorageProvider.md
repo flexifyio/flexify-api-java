@@ -22,12 +22,11 @@ Name | Type | Description | Notes
 **privateEndpointPattern** | **String** | Endpoint pattern used by engines for specific region |  [optional]
 **productName** | **String** | Name of product/region for this provider |  [optional]
 **protocol** | [**ProtocolEnum**](#ProtocolEnum) | Storage protocol this provider uses |  [optional]
+**supportedOAuthProviders** | [**List&lt;SupportedOAuthProvidersEnum&gt;**](#List&lt;SupportedOAuthProvidersEnum&gt;) | The list of OAuth providers that can be used with this storage provider (instead of storage keys) |  [optional]
 **supportsCredential** | **Boolean** | If the provider supports auth with credential (storage keys) |  [optional]
 **supportsHttp** | **Boolean** | Indicates that HTTP is supported |  [optional]
 **supportsHttps** | **Boolean** | Indicates that HTTPS (SSL) is supported |  [optional]
 **supportsMultipartUpload** | **Boolean** | Indicates that the provider supports multipart upload |  [optional]
-**supportsOAuth** | **Boolean** | If the provider supports OAuth (instead of storage keys) |  [optional]
-**supportsOAuthName** | **String** | Name the provider is using his variation of OAuth |  [optional]
 
 
 <a name="ProtocolEnum"></a>
@@ -39,6 +38,15 @@ B2 | &quot;B2&quot;
 DROPBOX | &quot;DROPBOX&quot;
 DROPBOX_TEAM | &quot;DROPBOX_TEAM&quot;
 S3 | &quot;S3&quot;
+
+
+<a name="List<SupportedOAuthProvidersEnum>"></a>
+## Enum: List&lt;SupportedOAuthProvidersEnum&gt;
+Name | Value
+---- | -----
+DROPBOX | &quot;DROPBOX&quot;
+DROPBOX_TEAM | &quot;DROPBOX_TEAM&quot;
+MICROSOFT | &quot;MICROSOFT&quot;
 
 
 

@@ -36,8 +36,45 @@ public class ResetSsoRequest {
   @JsonProperty("ssoId")
   private String ssoId = null;
 
-  @JsonProperty("ssoType")
-  private String ssoType = null;
+  /**
+   * Gets or Sets ssoProviderId
+   */
+  public enum SsoProviderIdEnum {
+    DROPBOX("DROPBOX"),
+    
+    DROPBOX_TEAM("DROPBOX_TEAM"),
+    
+    MICROSOFT("MICROSOFT");
+
+    private String value;
+
+    SsoProviderIdEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SsoProviderIdEnum fromValue(String value) {
+      for (SsoProviderIdEnum b : SsoProviderIdEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("ssoProviderId")
+  private SsoProviderIdEnum ssoProviderId = null;
 
   @JsonProperty("token")
   private String token = null;
@@ -96,22 +133,22 @@ public class ResetSsoRequest {
     this.ssoId = ssoId;
   }
 
-  public ResetSsoRequest ssoType(String ssoType) {
-    this.ssoType = ssoType;
+  public ResetSsoRequest ssoProviderId(SsoProviderIdEnum ssoProviderId) {
+    this.ssoProviderId = ssoProviderId;
     return this;
   }
 
    /**
-   * Get ssoType
-   * @return ssoType
+   * Get ssoProviderId
+   * @return ssoProviderId
   **/
   @ApiModelProperty(value = "")
-  public String getSsoType() {
-    return ssoType;
+  public SsoProviderIdEnum getSsoProviderId() {
+    return ssoProviderId;
   }
 
-  public void setSsoType(String ssoType) {
-    this.ssoType = ssoType;
+  public void setSsoProviderId(SsoProviderIdEnum ssoProviderId) {
+    this.ssoProviderId = ssoProviderId;
   }
 
   public ResetSsoRequest token(String token) {
@@ -145,13 +182,13 @@ public class ResetSsoRequest {
     return Objects.equals(this.settings, resetSsoRequest.settings) &&
         Objects.equals(this.ssoEmail, resetSsoRequest.ssoEmail) &&
         Objects.equals(this.ssoId, resetSsoRequest.ssoId) &&
-        Objects.equals(this.ssoType, resetSsoRequest.ssoType) &&
+        Objects.equals(this.ssoProviderId, resetSsoRequest.ssoProviderId) &&
         Objects.equals(this.token, resetSsoRequest.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settings, ssoEmail, ssoId, ssoType, token);
+    return Objects.hash(settings, ssoEmail, ssoId, ssoProviderId, token);
   }
 
 
@@ -163,7 +200,7 @@ public class ResetSsoRequest {
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    ssoEmail: ").append(toIndentedString(ssoEmail)).append("\n");
     sb.append("    ssoId: ").append(toIndentedString(ssoId)).append("\n");
-    sb.append("    ssoType: ").append(toIndentedString(ssoType)).append("\n");
+    sb.append("    ssoProviderId: ").append(toIndentedString(ssoProviderId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();

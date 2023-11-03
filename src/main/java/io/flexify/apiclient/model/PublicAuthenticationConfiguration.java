@@ -35,6 +35,9 @@ public class PublicAuthenticationConfiguration {
   @JsonProperty("microsoftTenantId")
   private String microsoftTenantId = null;
 
+  @JsonProperty("useDeviceCodeFlow")
+  private Boolean useDeviceCodeFlow = null;
+
   public PublicAuthenticationConfiguration microsoftClientId(String microsoftClientId) {
     this.microsoftClientId = microsoftClientId;
     return this;
@@ -89,6 +92,24 @@ public class PublicAuthenticationConfiguration {
     this.microsoftTenantId = microsoftTenantId;
   }
 
+  public PublicAuthenticationConfiguration useDeviceCodeFlow(Boolean useDeviceCodeFlow) {
+    this.useDeviceCodeFlow = useDeviceCodeFlow;
+    return this;
+  }
+
+   /**
+   * Use device code flow for authentication
+   * @return useDeviceCodeFlow
+  **/
+  @ApiModelProperty(value = "Use device code flow for authentication")
+  public Boolean isUseDeviceCodeFlow() {
+    return useDeviceCodeFlow;
+  }
+
+  public void setUseDeviceCodeFlow(Boolean useDeviceCodeFlow) {
+    this.useDeviceCodeFlow = useDeviceCodeFlow;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -101,12 +122,13 @@ public class PublicAuthenticationConfiguration {
     PublicAuthenticationConfiguration publicAuthenticationConfiguration = (PublicAuthenticationConfiguration) o;
     return Objects.equals(this.microsoftClientId, publicAuthenticationConfiguration.microsoftClientId) &&
         Objects.equals(this.microsoftScope, publicAuthenticationConfiguration.microsoftScope) &&
-        Objects.equals(this.microsoftTenantId, publicAuthenticationConfiguration.microsoftTenantId);
+        Objects.equals(this.microsoftTenantId, publicAuthenticationConfiguration.microsoftTenantId) &&
+        Objects.equals(this.useDeviceCodeFlow, publicAuthenticationConfiguration.useDeviceCodeFlow);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(microsoftClientId, microsoftScope, microsoftTenantId);
+    return Objects.hash(microsoftClientId, microsoftScope, microsoftTenantId, useDeviceCodeFlow);
   }
 
 
@@ -118,6 +140,7 @@ public class PublicAuthenticationConfiguration {
     sb.append("    microsoftClientId: ").append(toIndentedString(microsoftClientId)).append("\n");
     sb.append("    microsoftScope: ").append(toIndentedString(microsoftScope)).append("\n");
     sb.append("    microsoftTenantId: ").append(toIndentedString(microsoftTenantId)).append("\n");
+    sb.append("    useDeviceCodeFlow: ").append(toIndentedString(useDeviceCodeFlow)).append("\n");
     sb.append("}");
     return sb.toString();
   }
