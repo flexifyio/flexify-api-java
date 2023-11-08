@@ -9,7 +9,6 @@ import io.flexify.apiclient.handler.Pair;
 import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.AddStorageAccountRequest;
-import io.flexify.apiclient.model.FinishOAuthParams;
 import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.StorageAccount;
 import io.flexify.apiclient.model.StorageAccountSettingsReq;
@@ -248,65 +247,6 @@ public class StorageAccountsControllerApi {
     GenericType<List<StorageAccount>> localVarReturnType = new GenericType<List<StorageAccount>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
-  /**
-   * Reauthenticate storage account
-   * 
-   * @param authParams authParams (required)
-   * @param storageAccountId storage-account-id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void reauthStorageAccount(FinishOAuthParams authParams, Long storageAccountId) throws ApiException {
-
-    reauthStorageAccountWithHttpInfo(authParams, storageAccountId);
-  }
-
-  /**
-   * Reauthenticate storage account
-   * 
-   * @param authParams authParams (required)
-   * @param storageAccountId storage-account-id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> reauthStorageAccountWithHttpInfo(FinishOAuthParams authParams, Long storageAccountId) throws ApiException {
-    Object localVarPostBody = authParams;
-    
-    // verify the required parameter 'authParams' is set
-    if (authParams == null) {
-      throw new ApiException(400, "Missing the required parameter 'authParams' when calling reauthStorageAccount");
-    }
-    
-    // verify the required parameter 'storageAccountId' is set
-    if (storageAccountId == null) {
-      throw new ApiException(400, "Missing the required parameter 'storageAccountId' when calling reauthStorageAccount");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/backend/rest/storage-accounts/{storage-account-id}/reauth"
-      .replaceAll("\\{" + "storage-account-id" + "\\}", apiClient.escapeString(storageAccountId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json;charset=UTF-8"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "Bearer" };
-
-
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
   /**
    * Requests and updates list of buckets/containers for the storage account
    * 

@@ -22,29 +22,29 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * AuthenticationResponse
+ * AuthAppInfo
  */
 
-public class AuthenticationResponse {
-  @JsonProperty("token")
-  private String token = null;
+public class AuthAppInfo {
+  @JsonProperty("apiKey")
+  private String apiKey = null;
 
-  public AuthenticationResponse token(String token) {
-    this.token = token;
+  public AuthAppInfo apiKey(String apiKey) {
+    this.apiKey = apiKey;
     return this;
   }
 
    /**
-   * Get token
-   * @return token
+   * Get apiKey
+   * @return apiKey
   **/
   @ApiModelProperty(value = "")
-  public String getToken() {
-    return token;
+  public String getApiKey() {
+    return apiKey;
   }
 
-  public void setToken(String token) {
-    this.token = token;
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
   }
 
 
@@ -56,22 +56,22 @@ public class AuthenticationResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AuthenticationResponse authenticationResponse = (AuthenticationResponse) o;
-    return Objects.equals(this.token, authenticationResponse.token);
+    AuthAppInfo authAppInfo = (AuthAppInfo) o;
+    return Objects.equals(this.apiKey, authAppInfo.apiKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return Objects.hash(apiKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AuthenticationResponse {\n");
+    sb.append("class AuthAppInfo {\n");
     
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }
