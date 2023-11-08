@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 /**
  * OAuthToken
@@ -31,7 +30,7 @@ public class OAuthToken {
   private String accessToken = null;
 
   @JsonProperty("expiresAt")
-  private DateTime expiresAt = null;
+  private String expiresAt = null;
 
   @JsonProperty("refreshToken")
   private String refreshToken = null;
@@ -54,7 +53,7 @@ public class OAuthToken {
     this.accessToken = accessToken;
   }
 
-  public OAuthToken expiresAt(DateTime expiresAt) {
+  public OAuthToken expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -63,12 +62,12 @@ public class OAuthToken {
    * Get expiresAt
    * @return expiresAt
   **/
-  @ApiModelProperty(value = "")
-  public DateTime getExpiresAt() {
+  @ApiModelProperty(example = "yyyy-MM-dd'T'HH:mm:ss'Z'", value = "")
+  public String getExpiresAt() {
     return expiresAt;
   }
 
-  public void setExpiresAt(DateTime expiresAt) {
+  public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
