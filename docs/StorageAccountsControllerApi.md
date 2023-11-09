@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteStorageAccount**](StorageAccountsControllerApi.md#deleteStorageAccount) | **DELETE** /backend/rest/storage-accounts/{storage-account-id} | Deletes (hides) storage account and all its buckets/containers
 [**getStorageAccount**](StorageAccountsControllerApi.md#getStorageAccount) | **GET** /backend/rest/storage-accounts/{storage-account-id} | Get storage account by id
 [**getStorageAccounts**](StorageAccountsControllerApi.md#getStorageAccounts) | **GET** /backend/rest/storage-accounts | Get all storage accounts for current user
+[**reauthStorageAccount**](StorageAccountsControllerApi.md#reauthStorageAccount) | **POST** /backend/rest/storage-accounts/{storage-account-id}/reauth | Reauthenticate storage account
 [**refreshStorageAccount**](StorageAccountsControllerApi.md#refreshStorageAccount) | **POST** /backend/rest/storage-accounts/{storage-account-id}/actions/refresh | Requests and updates list of buckets/containers for the storage account
 [**setStorageAccountSettings**](StorageAccountsControllerApi.md#setStorageAccountSettings) | **PUT** /backend/rest/storage-accounts/{storage-account-id}/settings | Updates storage account settings
 
@@ -223,6 +224,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="reauthStorageAccount"></a>
+# **reauthStorageAccount**
+> reauthStorageAccount(authParams, storageAccountId)
+
+Reauthenticate storage account
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.StorageAccountsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+StorageAccountsControllerApi apiInstance = new StorageAccountsControllerApi();
+FinishOAuthParams authParams = new FinishOAuthParams(); // FinishOAuthParams | authParams
+Long storageAccountId = 789L; // Long | storage-account-id
+try {
+    apiInstance.reauthStorageAccount(authParams, storageAccountId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorageAccountsControllerApi#reauthStorageAccount");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authParams** | [**FinishOAuthParams**](FinishOAuthParams.md)| authParams |
+ **storageAccountId** | **Long**| storage-account-id |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
 <a name="refreshStorageAccount"></a>
