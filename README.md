@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.12.20-SNAPSHOT</version>
+    <version>2.13.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.flexify:management-apiclient:2.12.20-SNAPSHOT"
+compile "io.flexify:management-apiclient:2.13.0"
 ```
 
 ### Others
@@ -55,7 +55,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/management-apiclient-2.12.20-SNAPSHOT.jar
+* target/management-apiclient-2.13.0.jar
 * target/lib/*.jar
 
 ## Getting Started
