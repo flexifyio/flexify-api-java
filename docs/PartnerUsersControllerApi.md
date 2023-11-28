@@ -1498,7 +1498,7 @@ Name | Type | Description  | Notes
 
 <a name="getAllUsersPageable"></a>
 # **getAllUsersPageable**
-> PageUserStat getAllUsersPageable(offset, page, paged, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection)
+> PageUserStat getAllUsersPageable(offset, page, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection, unpaged)
 
 Get users with search, sorting and pagination
 
@@ -1524,7 +1524,6 @@ Bearer.setApiKey("YOUR API KEY");
 PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
 Long offset = 0L; // Long | Position of the first migration in the list (or null to start from the beginning)
 Integer page = 0; // Integer | [Deprecated] Page number
-Boolean paged = true; // Boolean | 
 Integer pageNumber = 56; // Integer | 
 Integer pageSize = 56; // Integer | 
 String searchString = "searchString_example"; // String | Search string
@@ -1532,8 +1531,9 @@ Integer size = 100; // Integer | Max number of entries to return (AKA page size)
 Boolean sortSorted = true; // Boolean | 
 Boolean sortUnsorted = true; // Boolean | 
 String sortDirection = "ASC"; // String | Sort Direction
+Boolean unpaged = true; // Boolean | 
 try {
-    PageUserStat result = apiInstance.getAllUsersPageable(offset, page, paged, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection);
+    PageUserStat result = apiInstance.getAllUsersPageable(offset, page, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection, unpaged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PartnerUsersControllerApi#getAllUsersPageable");
@@ -1547,7 +1547,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Long**| Position of the first migration in the list (or null to start from the beginning) |
  **page** | **Integer**| [Deprecated] Page number |
- **paged** | **Boolean**|  | [optional]
  **pageNumber** | **Integer**|  | [optional]
  **pageSize** | **Integer**|  | [optional]
  **searchString** | **String**| Search string | [optional]
@@ -1555,6 +1554,7 @@ Name | Type | Description  | Notes
  **sortSorted** | **Boolean**|  | [optional]
  **sortUnsorted** | **Boolean**|  | [optional]
  **sortDirection** | **String**| Sort Direction | [optional] [enum: ASC, DESC]
+ **unpaged** | **Boolean**|  | [optional]
 
 ### Return type
 
@@ -1571,7 +1571,7 @@ Name | Type | Description  | Notes
 
 <a name="getAllUsersPageable1"></a>
 # **getAllUsersPageable1**
-> PageUserStat getAllUsersPageable1(offset, page, paged, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection)
+> PageUserStat getAllUsersPageable1(offset, page, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection, unpaged)
 
 Get users with search, sorting and pagination
 
@@ -1597,7 +1597,6 @@ Bearer.setApiKey("YOUR API KEY");
 PartnerUsersControllerApi apiInstance = new PartnerUsersControllerApi();
 Long offset = 0L; // Long | Position of the first migration in the list (or null to start from the beginning)
 Integer page = 0; // Integer | [Deprecated] Page number
-Boolean paged = true; // Boolean | 
 Integer pageNumber = 56; // Integer | 
 Integer pageSize = 56; // Integer | 
 String searchString = "searchString_example"; // String | Search string
@@ -1605,8 +1604,9 @@ Integer size = 100; // Integer | Max number of entries to return (AKA page size)
 Boolean sortSorted = true; // Boolean | 
 Boolean sortUnsorted = true; // Boolean | 
 String sortDirection = "ASC"; // String | Sort Direction
+Boolean unpaged = true; // Boolean | 
 try {
-    PageUserStat result = apiInstance.getAllUsersPageable1(offset, page, paged, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection);
+    PageUserStat result = apiInstance.getAllUsersPageable1(offset, page, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection, unpaged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PartnerUsersControllerApi#getAllUsersPageable1");
@@ -1620,7 +1620,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Long**| Position of the first migration in the list (or null to start from the beginning) |
  **page** | **Integer**| [Deprecated] Page number |
- **paged** | **Boolean**|  | [optional]
  **pageNumber** | **Integer**|  | [optional]
  **pageSize** | **Integer**|  | [optional]
  **searchString** | **String**| Search string | [optional]
@@ -1628,6 +1627,7 @@ Name | Type | Description  | Notes
  **sortSorted** | **Boolean**|  | [optional]
  **sortUnsorted** | **Boolean**|  | [optional]
  **sortDirection** | **String**| Sort Direction | [optional] [enum: ASC, DESC]
+ **unpaged** | **Boolean**|  | [optional]
 
 ### Return type
 

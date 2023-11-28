@@ -1499,7 +1499,6 @@ public class PartnerUsersControllerApi {
    * Gets a list of users managed by this distributor
    * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
    * @param page [Deprecated] Page number (required)
-   * @param paged  (optional)
    * @param pageNumber  (optional)
    * @param pageSize  (optional)
    * @param searchString Search string (optional)
@@ -1507,11 +1506,12 @@ public class PartnerUsersControllerApi {
    * @param sortSorted  (optional)
    * @param sortUnsorted  (optional)
    * @param sortDirection Sort Direction (optional)
+   * @param unpaged  (optional)
    * @return PageUserStat
    * @throws ApiException if fails to make API call
    */
-  public PageUserStat getAllUsersPageable(Long offset, Integer page, Boolean paged, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
-    return getAllUsersPageableWithHttpInfo(offset, page, paged, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection).getData();
+  public PageUserStat getAllUsersPageable(Long offset, Integer page, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection, Boolean unpaged) throws ApiException {
+    return getAllUsersPageableWithHttpInfo(offset, page, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection, unpaged).getData();
       }
 
   /**
@@ -1519,7 +1519,6 @@ public class PartnerUsersControllerApi {
    * Gets a list of users managed by this distributor
    * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
    * @param page [Deprecated] Page number (required)
-   * @param paged  (optional)
    * @param pageNumber  (optional)
    * @param pageSize  (optional)
    * @param searchString Search string (optional)
@@ -1527,10 +1526,11 @@ public class PartnerUsersControllerApi {
    * @param sortSorted  (optional)
    * @param sortUnsorted  (optional)
    * @param sortDirection Sort Direction (optional)
+   * @param unpaged  (optional)
    * @return ApiResponse&lt;PageUserStat&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PageUserStat> getAllUsersPageableWithHttpInfo(Long offset, Integer page, Boolean paged, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
+  public ApiResponse<PageUserStat> getAllUsersPageableWithHttpInfo(Long offset, Integer page, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection, Boolean unpaged) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'offset' is set
@@ -1553,7 +1553,6 @@ public class PartnerUsersControllerApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "paged", paged));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageNumber", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageSize", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "search-string", searchString));
@@ -1561,6 +1560,7 @@ public class PartnerUsersControllerApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.sorted", sortSorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.unsorted", sortUnsorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "unpaged", unpaged));
 
     
     
@@ -1584,7 +1584,6 @@ public class PartnerUsersControllerApi {
    * Gets a list of users managed by this distributor
    * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
    * @param page [Deprecated] Page number (required)
-   * @param paged  (optional)
    * @param pageNumber  (optional)
    * @param pageSize  (optional)
    * @param searchString Search string (optional)
@@ -1592,11 +1591,12 @@ public class PartnerUsersControllerApi {
    * @param sortSorted  (optional)
    * @param sortUnsorted  (optional)
    * @param sortDirection Sort Direction (optional)
+   * @param unpaged  (optional)
    * @return PageUserStat
    * @throws ApiException if fails to make API call
    */
-  public PageUserStat getAllUsersPageable1(Long offset, Integer page, Boolean paged, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
-    return getAllUsersPageable1WithHttpInfo(offset, page, paged, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection).getData();
+  public PageUserStat getAllUsersPageable1(Long offset, Integer page, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection, Boolean unpaged) throws ApiException {
+    return getAllUsersPageable1WithHttpInfo(offset, page, pageNumber, pageSize, searchString, size, sortSorted, sortUnsorted, sortDirection, unpaged).getData();
       }
 
   /**
@@ -1604,7 +1604,6 @@ public class PartnerUsersControllerApi {
    * Gets a list of users managed by this distributor
    * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
    * @param page [Deprecated] Page number (required)
-   * @param paged  (optional)
    * @param pageNumber  (optional)
    * @param pageSize  (optional)
    * @param searchString Search string (optional)
@@ -1612,10 +1611,11 @@ public class PartnerUsersControllerApi {
    * @param sortSorted  (optional)
    * @param sortUnsorted  (optional)
    * @param sortDirection Sort Direction (optional)
+   * @param unpaged  (optional)
    * @return ApiResponse&lt;PageUserStat&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PageUserStat> getAllUsersPageable1WithHttpInfo(Long offset, Integer page, Boolean paged, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
+  public ApiResponse<PageUserStat> getAllUsersPageable1WithHttpInfo(Long offset, Integer page, Integer pageNumber, Integer pageSize, String searchString, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection, Boolean unpaged) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'offset' is set
@@ -1638,7 +1638,6 @@ public class PartnerUsersControllerApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "paged", paged));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageNumber", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageSize", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "search-string", searchString));
@@ -1646,6 +1645,7 @@ public class PartnerUsersControllerApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.sorted", sortSorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.unsorted", sortUnsorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "unpaged", unpaged));
 
     
     

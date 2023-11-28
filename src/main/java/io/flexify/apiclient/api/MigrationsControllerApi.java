@@ -149,18 +149,18 @@ public class MigrationsControllerApi {
    * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
    * @param page [Deprecated] Page number (required)
    * @param includeHidden Include hidden migrations to response (optional, default to true)
-   * @param paged  (optional)
    * @param pageNumber  (optional)
    * @param pageSize  (optional)
    * @param size Max number of entries to return (AKA page size), null means no paging (optional)
    * @param sortSorted  (optional)
    * @param sortUnsorted  (optional)
    * @param sortDirection Sort Direction (optional)
+   * @param unpaged  (optional)
    * @return PageMigration
    * @throws ApiException if fails to make API call
    */
-  public PageMigration getMigrations(Long offset, Integer page, Boolean includeHidden, Boolean paged, Integer pageNumber, Integer pageSize, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
-    return getMigrationsWithHttpInfo(offset, page, includeHidden, paged, pageNumber, pageSize, size, sortSorted, sortUnsorted, sortDirection).getData();
+  public PageMigration getMigrations(Long offset, Integer page, Boolean includeHidden, Integer pageNumber, Integer pageSize, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection, Boolean unpaged) throws ApiException {
+    return getMigrationsWithHttpInfo(offset, page, includeHidden, pageNumber, pageSize, size, sortSorted, sortUnsorted, sortDirection, unpaged).getData();
       }
 
   /**
@@ -169,17 +169,17 @@ public class MigrationsControllerApi {
    * @param offset Position of the first migration in the list (or null to start from the beginning) (required)
    * @param page [Deprecated] Page number (required)
    * @param includeHidden Include hidden migrations to response (optional, default to true)
-   * @param paged  (optional)
    * @param pageNumber  (optional)
    * @param pageSize  (optional)
    * @param size Max number of entries to return (AKA page size), null means no paging (optional)
    * @param sortSorted  (optional)
    * @param sortUnsorted  (optional)
    * @param sortDirection Sort Direction (optional)
+   * @param unpaged  (optional)
    * @return ApiResponse&lt;PageMigration&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PageMigration> getMigrationsWithHttpInfo(Long offset, Integer page, Boolean includeHidden, Boolean paged, Integer pageNumber, Integer pageSize, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection) throws ApiException {
+  public ApiResponse<PageMigration> getMigrationsWithHttpInfo(Long offset, Integer page, Boolean includeHidden, Integer pageNumber, Integer pageSize, Integer size, Boolean sortSorted, Boolean sortUnsorted, String sortDirection, Boolean unpaged) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'offset' is set
@@ -203,13 +203,13 @@ public class MigrationsControllerApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-hidden", includeHidden));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "paged", paged));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageNumber", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageSize", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.sorted", sortSorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort.unsorted", sortUnsorted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDirection", sortDirection));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "unpaged", unpaged));
 
     
     

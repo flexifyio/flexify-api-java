@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 <a name="getMigrations"></a>
 # **getMigrations**
-> PageMigration getMigrations(offset, page, includeHidden, paged, pageNumber, pageSize, size, sortSorted, sortUnsorted, sortDirection)
+> PageMigration getMigrations(offset, page, includeHidden, pageNumber, pageSize, size, sortSorted, sortUnsorted, sortDirection, unpaged)
 
 Get all migrations for logged in user in paged mode
 
@@ -146,15 +146,15 @@ MigrationsControllerApi apiInstance = new MigrationsControllerApi();
 Long offset = 0L; // Long | Position of the first migration in the list (or null to start from the beginning)
 Integer page = 0; // Integer | [Deprecated] Page number
 Boolean includeHidden = true; // Boolean | Include hidden migrations to response
-Boolean paged = true; // Boolean | 
 Integer pageNumber = 56; // Integer | 
 Integer pageSize = 56; // Integer | 
 Integer size = 100; // Integer | Max number of entries to return (AKA page size), null means no paging
 Boolean sortSorted = true; // Boolean | 
 Boolean sortUnsorted = true; // Boolean | 
 String sortDirection = "ASC"; // String | Sort Direction
+Boolean unpaged = true; // Boolean | 
 try {
-    PageMigration result = apiInstance.getMigrations(offset, page, includeHidden, paged, pageNumber, pageSize, size, sortSorted, sortUnsorted, sortDirection);
+    PageMigration result = apiInstance.getMigrations(offset, page, includeHidden, pageNumber, pageSize, size, sortSorted, sortUnsorted, sortDirection, unpaged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MigrationsControllerApi#getMigrations");
@@ -169,13 +169,13 @@ Name | Type | Description  | Notes
  **offset** | **Long**| Position of the first migration in the list (or null to start from the beginning) |
  **page** | **Integer**| [Deprecated] Page number |
  **includeHidden** | **Boolean**| Include hidden migrations to response | [optional] [default to true]
- **paged** | **Boolean**|  | [optional]
  **pageNumber** | **Integer**|  | [optional]
  **pageSize** | **Integer**|  | [optional]
  **size** | **Integer**| Max number of entries to return (AKA page size), null means no paging | [optional]
  **sortSorted** | **Boolean**|  | [optional]
  **sortUnsorted** | **Boolean**|  | [optional]
  **sortDirection** | **String**| Sort Direction | [optional] [enum: ASC, DESC]
+ **unpaged** | **Boolean**|  | [optional]
 
 ### Return type
 
