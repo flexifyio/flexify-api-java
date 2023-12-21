@@ -215,6 +215,46 @@ public class MappingStat {
   @JsonProperty("uploadingObjectsPerSecond")
   private Double uploadingObjectsPerSecond = null;
 
+  /**
+   * The reason why this mapping is in the WAITING state
+   */
+  public enum WaitReasonEnum {
+    MIGRATION_QUEUED("MIGRATION_QUEUED"),
+    
+    NO_ENGINES("NO_ENGINES"),
+    
+    NO_ENGINE_RESOURCES("NO_ENGINE_RESOURCES");
+
+    private String value;
+
+    WaitReasonEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static WaitReasonEnum fromValue(String value) {
+      for (WaitReasonEnum b : WaitReasonEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("waitReason")
+  private WaitReasonEnum waitReason = null;
+
   public MappingStat activeEngines(Long activeEngines) {
     this.activeEngines = activeEngines;
     return this;
@@ -809,6 +849,24 @@ public class MappingStat {
     this.uploadingObjectsPerSecond = uploadingObjectsPerSecond;
   }
 
+  public MappingStat waitReason(WaitReasonEnum waitReason) {
+    this.waitReason = waitReason;
+    return this;
+  }
+
+   /**
+   * The reason why this mapping is in the WAITING state
+   * @return waitReason
+  **/
+  @ApiModelProperty(example = "MIGRATION_QUEUED", value = "The reason why this mapping is in the WAITING state")
+  public WaitReasonEnum getWaitReason() {
+    return waitReason;
+  }
+
+  public void setWaitReason(WaitReasonEnum waitReason) {
+    this.waitReason = waitReason;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -851,12 +909,13 @@ public class MappingStat {
         Objects.equals(this.step, mappingStat.step) &&
         Objects.equals(this.totalUpload, mappingStat.totalUpload) &&
         Objects.equals(this.uploadingBytesPerSecond, mappingStat.uploadingBytesPerSecond) &&
-        Objects.equals(this.uploadingObjectsPerSecond, mappingStat.uploadingObjectsPerSecond);
+        Objects.equals(this.uploadingObjectsPerSecond, mappingStat.uploadingObjectsPerSecond) &&
+        Objects.equals(this.waitReason, mappingStat.waitReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeEngines, activeSlots, activeStreams, bytesFailed, bytesGlacierRestoreStarted, bytesNotMatchingPattern, bytesProcessed, bytesSkipped, bytesSkippedGlacier, bytesUploaded, cleanup, dstRegion, estimated, finished, initialBytes, initialObjects, objectsFailed, objectsGlacierRestoreStarted, objectsNotMatchingPattern, objectsProcessed, objectsSkipped, objectsSkippedGlacier, objectsUploaded, processingObjectsPerSecond, progress, retried, srcRegion, started, state, step, totalUpload, uploadingBytesPerSecond, uploadingObjectsPerSecond);
+    return Objects.hash(activeEngines, activeSlots, activeStreams, bytesFailed, bytesGlacierRestoreStarted, bytesNotMatchingPattern, bytesProcessed, bytesSkipped, bytesSkippedGlacier, bytesUploaded, cleanup, dstRegion, estimated, finished, initialBytes, initialObjects, objectsFailed, objectsGlacierRestoreStarted, objectsNotMatchingPattern, objectsProcessed, objectsSkipped, objectsSkippedGlacier, objectsUploaded, processingObjectsPerSecond, progress, retried, srcRegion, started, state, step, totalUpload, uploadingBytesPerSecond, uploadingObjectsPerSecond, waitReason);
   }
 
 
@@ -898,6 +957,7 @@ public class MappingStat {
     sb.append("    totalUpload: ").append(toIndentedString(totalUpload)).append("\n");
     sb.append("    uploadingBytesPerSecond: ").append(toIndentedString(uploadingBytesPerSecond)).append("\n");
     sb.append("    uploadingObjectsPerSecond: ").append(toIndentedString(uploadingObjectsPerSecond)).append("\n");
+    sb.append("    waitReason: ").append(toIndentedString(waitReason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

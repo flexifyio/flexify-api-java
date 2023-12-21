@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **totalUpload** | **Long** |  |  [optional]
 **uploadingBytesPerSecond** | **Double** |  |  [optional]
 **uploadingObjectsPerSecond** | **Double** |  |  [optional]
+**waitReason** | [**WaitReasonEnum**](#WaitReasonEnum) | The reason why this mapping is in the WAITING state |  [optional]
 
 
 <a name="StateEnum"></a>
@@ -63,6 +64,15 @@ Name | Value
 CLEAN | &quot;CLEAN&quot;
 COUNT | &quot;COUNT&quot;
 MIGRATE | &quot;MIGRATE&quot;
+
+
+<a name="WaitReasonEnum"></a>
+## Enum: WaitReasonEnum
+Name | Value
+---- | -----
+MIGRATION_QUEUED | &quot;MIGRATION_QUEUED&quot;
+NO_ENGINES | &quot;NO_ENGINES&quot;
+NO_ENGINE_RESOURCES | &quot;NO_ENGINE_RESOURCES&quot;
 
 
 
