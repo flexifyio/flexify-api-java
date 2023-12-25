@@ -29,6 +29,9 @@ public class StorageAccountSettingsRes {
   @JsonProperty("anonymous")
   private Boolean anonymous = null;
 
+  @JsonProperty("azureIntegrationId")
+  private Long azureIntegrationId = null;
+
   @JsonProperty("bucketDotEncodeSequence")
   private String bucketDotEncodeSequence = null;
 
@@ -66,6 +69,24 @@ public class StorageAccountSettingsRes {
 
   public void setAnonymous(Boolean anonymous) {
     this.anonymous = anonymous;
+  }
+
+  public StorageAccountSettingsRes azureIntegrationId(Long azureIntegrationId) {
+    this.azureIntegrationId = azureIntegrationId;
+    return this;
+  }
+
+   /**
+   * Id of Azure integration
+   * @return azureIntegrationId
+  **/
+  @ApiModelProperty(value = "Id of Azure integration")
+  public Long getAzureIntegrationId() {
+    return azureIntegrationId;
+  }
+
+  public void setAzureIntegrationId(Long azureIntegrationId) {
+    this.azureIntegrationId = azureIntegrationId;
   }
 
   public StorageAccountSettingsRes bucketDotEncodeSequence(String bucketDotEncodeSequence) {
@@ -205,6 +226,7 @@ public class StorageAccountSettingsRes {
     }
     StorageAccountSettingsRes storageAccountSettingsRes = (StorageAccountSettingsRes) o;
     return Objects.equals(this.anonymous, storageAccountSettingsRes.anonymous) &&
+        Objects.equals(this.azureIntegrationId, storageAccountSettingsRes.azureIntegrationId) &&
         Objects.equals(this.bucketDotEncodeSequence, storageAccountSettingsRes.bucketDotEncodeSequence) &&
         Objects.equals(this.customEndpoint, storageAccountSettingsRes.customEndpoint) &&
         Objects.equals(this.identity, storageAccountSettingsRes.identity) &&
@@ -216,7 +238,7 @@ public class StorageAccountSettingsRes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(anonymous, bucketDotEncodeSequence, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
+    return Objects.hash(anonymous, azureIntegrationId, bucketDotEncodeSequence, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
   }
 
 
@@ -226,6 +248,7 @@ public class StorageAccountSettingsRes {
     sb.append("class StorageAccountSettingsRes {\n");
     
     sb.append("    anonymous: ").append(toIndentedString(anonymous)).append("\n");
+    sb.append("    azureIntegrationId: ").append(toIndentedString(azureIntegrationId)).append("\n");
     sb.append("    bucketDotEncodeSequence: ").append(toIndentedString(bucketDotEncodeSequence)).append("\n");
     sb.append("    customEndpoint: ").append(toIndentedString(customEndpoint)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");

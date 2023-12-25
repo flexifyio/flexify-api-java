@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **anonymous** | **Boolean** | True for public account |  [optional]
+**azureIntegrationId** | **Long** | Id of Azure integration |  [optional]
 **bucketDotEncodeSequence** | **String** | Dot escape sequence for buckets |  [optional]
 **customEndpoint** | **String** | Custom endpoint to be used for requests |  [optional]
 **identity** | **String** | Identity (such as Key ID) of the cloud account |  [optional]

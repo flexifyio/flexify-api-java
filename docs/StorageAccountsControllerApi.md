@@ -5,6 +5,7 @@ All URIs are relative to *https://api.flexify.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addStorageAccount**](StorageAccountsControllerApi.md#addStorageAccount) | **POST** /backend/rest/storage-accounts | Add Storage Account with an optional list of buckets
+[**addStorageAccountsWithAzureIntegration**](StorageAccountsControllerApi.md#addStorageAccountsWithAzureIntegration) | **POST** /backend/rest/storage-accounts/azure-integration | Add multiple storage accounts with Azure integration
 [**deleteStorageAccount**](StorageAccountsControllerApi.md#deleteStorageAccount) | **DELETE** /backend/rest/storage-accounts/{storage-account-id} | Deletes (hides) storage account and all its buckets/containers
 [**getStorageAccount**](StorageAccountsControllerApi.md#getStorageAccount) | **GET** /backend/rest/storage-accounts/{storage-account-id} | Get storage account by id
 [**getStorageAccounts**](StorageAccountsControllerApi.md#getStorageAccounts) | **GET** /backend/rest/storage-accounts | Get all storage accounts for current user
@@ -56,6 +57,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**IdResponse**](IdResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+<a name="addStorageAccountsWithAzureIntegration"></a>
+# **addStorageAccountsWithAzureIntegration**
+> List&lt;IdResponse&gt; addStorageAccountsWithAzureIntegration(request)
+
+Add multiple storage accounts with Azure integration
+
+### Example
+```java
+// Import classes:
+//import io.flexify.apiclient.handler.ApiClient;
+//import io.flexify.apiclient.handler.ApiException;
+//import io.flexify.apiclient.handler.Configuration;
+//import io.flexify.apiclient.handler.auth.*;
+//import io.flexify.apiclient.api.StorageAccountsControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
+
+StorageAccountsControllerApi apiInstance = new StorageAccountsControllerApi();
+AddStorageAccountsWithAzureLinkRequest request = new AddStorageAccountsWithAzureLinkRequest(); // AddStorageAccountsWithAzureLinkRequest | request
+try {
+    List<IdResponse> result = apiInstance.addStorageAccountsWithAzureIntegration(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StorageAccountsControllerApi#addStorageAccountsWithAzureIntegration");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**AddStorageAccountsWithAzureLinkRequest**](AddStorageAccountsWithAzureLinkRequest.md)| request |
+
+### Return type
+
+[**List&lt;IdResponse&gt;**](IdResponse.md)
 
 ### Authorization
 

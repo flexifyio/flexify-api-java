@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**azureIntegrationId** | **Long** | Id of Azure integration |  [optional]
 **bucketDotEncodeSequence** | **String** | Dot escape sequence for buckets |  [optional]
 **credential** | **String** | Credential (such as Secret Key) of the cloud account |  [optional]
 **customEndpoint** | **String** | Custom endpoint to be used for requests |  [optional]

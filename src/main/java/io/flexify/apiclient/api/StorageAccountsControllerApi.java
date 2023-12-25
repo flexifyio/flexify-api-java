@@ -9,6 +9,7 @@ import io.flexify.apiclient.handler.Pair;
 import javax.ws.rs.core.GenericType;
 
 import io.flexify.apiclient.model.AddStorageAccountRequest;
+import io.flexify.apiclient.model.AddStorageAccountsWithAzureLinkRequest;
 import io.flexify.apiclient.model.FinishOAuthParams;
 import io.flexify.apiclient.model.IdResponse;
 import io.flexify.apiclient.model.StorageAccount;
@@ -90,6 +91,58 @@ public class StorageAccountsControllerApi {
     String[] localVarAuthNames = new String[] { "Bearer" };
 
     GenericType<IdResponse> localVarReturnType = new GenericType<IdResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Add multiple storage accounts with Azure integration
+   * 
+   * @param request request (required)
+   * @return List&lt;IdResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<IdResponse> addStorageAccountsWithAzureIntegration(AddStorageAccountsWithAzureLinkRequest request) throws ApiException {
+    return addStorageAccountsWithAzureIntegrationWithHttpInfo(request).getData();
+      }
+
+  /**
+   * Add multiple storage accounts with Azure integration
+   * 
+   * @param request request (required)
+   * @return ApiResponse&lt;List&lt;IdResponse&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<IdResponse>> addStorageAccountsWithAzureIntegrationWithHttpInfo(AddStorageAccountsWithAzureLinkRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'request' is set
+    if (request == null) {
+      throw new ApiException(400, "Missing the required parameter 'request' when calling addStorageAccountsWithAzureIntegration");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/storage-accounts/azure-integration";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<List<IdResponse>> localVarReturnType = new GenericType<List<IdResponse>>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

@@ -26,6 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 
 public class StorageAccountSettingsReq {
+  @JsonProperty("azureIntegrationId")
+  private Long azureIntegrationId = null;
+
   @JsonProperty("bucketDotEncodeSequence")
   private String bucketDotEncodeSequence = null;
 
@@ -49,6 +52,24 @@ public class StorageAccountSettingsReq {
 
   @JsonProperty("useSsl")
   private Boolean useSsl = null;
+
+  public StorageAccountSettingsReq azureIntegrationId(Long azureIntegrationId) {
+    this.azureIntegrationId = azureIntegrationId;
+    return this;
+  }
+
+   /**
+   * Id of Azure integration
+   * @return azureIntegrationId
+  **/
+  @ApiModelProperty(value = "Id of Azure integration")
+  public Long getAzureIntegrationId() {
+    return azureIntegrationId;
+  }
+
+  public void setAzureIntegrationId(Long azureIntegrationId) {
+    this.azureIntegrationId = azureIntegrationId;
+  }
 
   public StorageAccountSettingsReq bucketDotEncodeSequence(String bucketDotEncodeSequence) {
     this.bucketDotEncodeSequence = bucketDotEncodeSequence;
@@ -204,7 +225,8 @@ public class StorageAccountSettingsReq {
       return false;
     }
     StorageAccountSettingsReq storageAccountSettingsReq = (StorageAccountSettingsReq) o;
-    return Objects.equals(this.bucketDotEncodeSequence, storageAccountSettingsReq.bucketDotEncodeSequence) &&
+    return Objects.equals(this.azureIntegrationId, storageAccountSettingsReq.azureIntegrationId) &&
+        Objects.equals(this.bucketDotEncodeSequence, storageAccountSettingsReq.bucketDotEncodeSequence) &&
         Objects.equals(this.credential, storageAccountSettingsReq.credential) &&
         Objects.equals(this.customEndpoint, storageAccountSettingsReq.customEndpoint) &&
         Objects.equals(this.identity, storageAccountSettingsReq.identity) &&
@@ -216,7 +238,7 @@ public class StorageAccountSettingsReq {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketDotEncodeSequence, credential, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
+    return Objects.hash(azureIntegrationId, bucketDotEncodeSequence, credential, customEndpoint, identity, name, refreshIntervalSec, refreshStoragesStat, useSsl);
   }
 
 
@@ -225,6 +247,7 @@ public class StorageAccountSettingsReq {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageAccountSettingsReq {\n");
     
+    sb.append("    azureIntegrationId: ").append(toIndentedString(azureIntegrationId)).append("\n");
     sb.append("    bucketDotEncodeSequence: ").append(toIndentedString(bucketDotEncodeSequence)).append("\n");
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    customEndpoint: ").append(toIndentedString(customEndpoint)).append("\n");
