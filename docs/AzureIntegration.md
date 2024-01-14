@@ -15,6 +15,7 @@ Name | Value
 ---- | -----
 AUTH_ERROR | &quot;AUTH_ERROR&quot;
 AUTH_EXPIRED | &quot;AUTH_EXPIRED&quot;
+AUTH_PARTIAL | &quot;AUTH_PARTIAL&quot;
 OK | &quot;OK&quot;
 
 

@@ -40,6 +40,8 @@ public class AzureIntegration {
     
     AUTH_EXPIRED("AUTH_EXPIRED"),
     
+    AUTH_PARTIAL("AUTH_PARTIAL"),
+    
     OK("OK");
 
     private String value;

@@ -93,6 +93,65 @@ public class AzureIntegrationOAuthControllerApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Authenticate Azure integration storage access
+   * 
+   * @param authParams authParams (required)
+   * @param azureIntegrationId azure-integration-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void authStorage(FinishOAuthParams authParams, Long azureIntegrationId) throws ApiException {
+
+    authStorageWithHttpInfo(authParams, azureIntegrationId);
+  }
+
+  /**
+   * Authenticate Azure integration storage access
+   * 
+   * @param authParams authParams (required)
+   * @param azureIntegrationId azure-integration-id (required)
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> authStorageWithHttpInfo(FinishOAuthParams authParams, Long azureIntegrationId) throws ApiException {
+    Object localVarPostBody = authParams;
+    
+    // verify the required parameter 'authParams' is set
+    if (authParams == null) {
+      throw new ApiException(400, "Missing the required parameter 'authParams' when calling authStorage");
+    }
+    
+    // verify the required parameter 'azureIntegrationId' is set
+    if (azureIntegrationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'azureIntegrationId' when calling authStorage");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/azure-integration/{azure-integration-id}/actions/auth-storage"
+      .replaceAll("\\{" + "azure-integration-id" + "\\}", apiClient.escapeString(azureIntegrationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;charset=UTF-8"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
    * Deletes (hides) Azure integration by Id
    * 
    * @param azureIntegrationId azure-integration-id (required)
@@ -195,8 +254,8 @@ public class AzureIntegrationOAuthControllerApi {
    * @return MicrosoftOAuthConfig
    * @throws ApiException if fails to make API call
    */
-  public MicrosoftOAuthConfig getConfigForStorageList() throws ApiException {
-    return getConfigForStorageListWithHttpInfo().getData();
+  public MicrosoftOAuthConfig getConfigForAzureIntegration() throws ApiException {
+    return getConfigForAzureIntegrationWithHttpInfo().getData();
       }
 
   /**
@@ -205,7 +264,7 @@ public class AzureIntegrationOAuthControllerApi {
    * @return ApiResponse&lt;MicrosoftOAuthConfig&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<MicrosoftOAuthConfig> getConfigForStorageListWithHttpInfo() throws ApiException {
+  public ApiResponse<MicrosoftOAuthConfig> getConfigForAzureIntegrationWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -235,26 +294,71 @@ public class AzureIntegrationOAuthControllerApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Request device code to authorize Azure integration with device code flow
+   * Request device code to authorize Azure integration with device code flow (management access)
    * 
    * @return OAuth2DeviceCodeResponse
    * @throws ApiException if fails to make API call
    */
-  public OAuth2DeviceCodeResponse getDeviceCodeForStorageList() throws ApiException {
-    return getDeviceCodeForStorageListWithHttpInfo().getData();
+  public OAuth2DeviceCodeResponse getDeviceCodeForAzureIntegrationManagement() throws ApiException {
+    return getDeviceCodeForAzureIntegrationManagementWithHttpInfo().getData();
       }
 
   /**
-   * Request device code to authorize Azure integration with device code flow
+   * Request device code to authorize Azure integration with device code flow (management access)
    * 
    * @return ApiResponse&lt;OAuth2DeviceCodeResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<OAuth2DeviceCodeResponse> getDeviceCodeForStorageListWithHttpInfo() throws ApiException {
+  public ApiResponse<OAuth2DeviceCodeResponse> getDeviceCodeForAzureIntegrationManagementWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/backend/rest/azure-integration/oauth/device-code";
+    String localVarPath = "/backend/rest/azure-integration/oauth/device-code/management";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "*/*"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "Bearer" };
+
+    GenericType<OAuth2DeviceCodeResponse> localVarReturnType = new GenericType<OAuth2DeviceCodeResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Request device code to authorize Azure integration with device code flow (storage access)
+   * 
+   * @return OAuth2DeviceCodeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OAuth2DeviceCodeResponse getDeviceCodeForAzureIntegrationStorage() throws ApiException {
+    return getDeviceCodeForAzureIntegrationStorageWithHttpInfo().getData();
+      }
+
+  /**
+   * Request device code to authorize Azure integration with device code flow (storage access)
+   * 
+   * @return ApiResponse&lt;OAuth2DeviceCodeResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<OAuth2DeviceCodeResponse> getDeviceCodeForAzureIntegrationStorageWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/backend/rest/azure-integration/oauth/device-code/storage";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
