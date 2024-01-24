@@ -3,10 +3,10 @@
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
     <packaging>jar</packaging>
-    <name>Flexify IO Management API Java Client</name>
+    <name>Flexify.IO Management API Java Client</name>
     <version>2.15.0-SNAPSHOT</version>
     <url>https://flexify.io</url>
-    <description>Java wrapper for Flexify IO Management REST API</description>
+    <description>Java wrapper for Flexify.IO Management REST API</description>
 
     <licenses>
         <license>

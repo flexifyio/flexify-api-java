@@ -1,12 +1,14 @@
-# Java API Client for Flexify IO Management
+# Java API Client for Flexify.IO Management
 
-With [Flexify IO](https://flexify.io/), storing your data in a cloud does not imply dependency on a single provider anymore!
+With [Flexify<sup>©</sup> IO](https://flexify.io/), storing your data in a cloud does not imply dependency on a single provider anymore!
 
 By unlocking your application from the specific cloud vendor or protocol, you finally gain the freedom to decide when and where to store your data.
 
 And we took care about data migration too!
 
 ## Requirements
+
+Flexify.IO API version 2.15.0-SNAPSHOT
 
 Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
 
