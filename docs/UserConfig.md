@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allowDropboxDestinations** | **Integer** |  |  [optional]
 **maxActiveMigrations** | **Integer** |  |  [optional]
 **maxAutoDeployEnginesCount** | **Integer** |  |  [optional]
 **maxEndpoints** | **Integer** |  |  [optional]

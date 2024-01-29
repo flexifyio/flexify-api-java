@@ -26,6 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 
 public class UserConfig {
+  @JsonProperty("allowDropboxDestinations")
+  private Integer allowDropboxDestinations = null;
+
   @JsonProperty("maxActiveMigrations")
   private Integer maxActiveMigrations = null;
 
@@ -79,6 +82,24 @@ public class UserConfig {
 
   @JsonProperty("skipAutoUndeploy")
   private Integer skipAutoUndeploy = null;
+
+  public UserConfig allowDropboxDestinations(Integer allowDropboxDestinations) {
+    this.allowDropboxDestinations = allowDropboxDestinations;
+    return this;
+  }
+
+   /**
+   * Get allowDropboxDestinations
+   * @return allowDropboxDestinations
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getAllowDropboxDestinations() {
+    return allowDropboxDestinations;
+  }
+
+  public void setAllowDropboxDestinations(Integer allowDropboxDestinations) {
+    this.allowDropboxDestinations = allowDropboxDestinations;
+  }
 
   public UserConfig maxActiveMigrations(Integer maxActiveMigrations) {
     this.maxActiveMigrations = maxActiveMigrations;
@@ -414,7 +435,8 @@ public class UserConfig {
       return false;
     }
     UserConfig userConfig = (UserConfig) o;
-    return Objects.equals(this.maxActiveMigrations, userConfig.maxActiveMigrations) &&
+    return Objects.equals(this.allowDropboxDestinations, userConfig.allowDropboxDestinations) &&
+        Objects.equals(this.maxActiveMigrations, userConfig.maxActiveMigrations) &&
         Objects.equals(this.maxAutoDeployEnginesCount, userConfig.maxAutoDeployEnginesCount) &&
         Objects.equals(this.maxEndpoints, userConfig.maxEndpoints) &&
         Objects.equals(this.maxMigrationCopyRetries, userConfig.maxMigrationCopyRetries) &&
@@ -436,7 +458,7 @@ public class UserConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxActiveMigrations, maxAutoDeployEnginesCount, maxEndpoints, maxMigrationCopyRetries, maxMigrationEngines, maxMigrationMappings, maxMigrationRamMb, maxMigrationRetries, maxMigrationSlots, maxMigrationStreamRamKb, maxMigrationStreams, maxMigrationsInQueue, maxPolicyRulesPerVirtualBucket, maxStorageAccountsPerEndpoint, maxStorages, maxStoragesPerVirtualBucket, maxVirtualBucketsPerEndpoint, skipAutoUndeploy);
+    return Objects.hash(allowDropboxDestinations, maxActiveMigrations, maxAutoDeployEnginesCount, maxEndpoints, maxMigrationCopyRetries, maxMigrationEngines, maxMigrationMappings, maxMigrationRamMb, maxMigrationRetries, maxMigrationSlots, maxMigrationStreamRamKb, maxMigrationStreams, maxMigrationsInQueue, maxPolicyRulesPerVirtualBucket, maxStorageAccountsPerEndpoint, maxStorages, maxStoragesPerVirtualBucket, maxVirtualBucketsPerEndpoint, skipAutoUndeploy);
   }
 
 
@@ -445,6 +467,7 @@ public class UserConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserConfig {\n");
     
+    sb.append("    allowDropboxDestinations: ").append(toIndentedString(allowDropboxDestinations)).append("\n");
     sb.append("    maxActiveMigrations: ").append(toIndentedString(maxActiveMigrations)).append("\n");
     sb.append("    maxAutoDeployEnginesCount: ").append(toIndentedString(maxAutoDeployEnginesCount)).append("\n");
     sb.append("    maxEndpoints: ").append(toIndentedString(maxEndpoints)).append("\n");
