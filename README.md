@@ -1,12 +1,14 @@
-# Java API Client for Flexify IO Management
+# Java API Client for Flexify.IO Management
 
-With [Flexify IO](https://flexify.io/), storing your data in a cloud does not imply dependency on a single provider anymore!
+With [Flexify<sup>©</sup> IO](https://flexify.io/), storing your data in a cloud does not imply dependency on a single provider anymore!
 
 By unlocking your application from the specific cloud vendor or protocol, you finally gain the freedom to decide when and where to store your data.
 
 And we took care about data migration too!
 
 ## Requirements
+
+Flexify.IO API version 2.15.0-SNAPSHOT
 
 Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
 
@@ -34,7 +36,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.flexify</groupId>
     <artifactId>management-apiclient</artifactId>
-    <version>2.14.1</version>
+    <version>2.15.0-SNAPSHOT</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +46,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.flexify:management-apiclient:2.14.1"
+compile "io.flexify:management-apiclient:2.15.0-SNAPSHOT"
 ```
 
 ### Others
@@ -55,7 +57,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/management-apiclient-2.14.1.jar
+* target/management-apiclient-2.15.0-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Getting Started
