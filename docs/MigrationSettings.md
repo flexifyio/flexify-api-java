@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **multipartPartSize** | **Long** | Part size for multipart upload |  [optional]
 **name** | **String** | Name of the migration |  [optional]
 **objectKeyFilter** | **String** | Migrate objects matching pattern |  [optional]
+**removeHeaders** | **List&lt;String&gt;** | List of headers to remove during the migration |  [optional]
 **restoreDays** | **Integer** | Number of days to keep restored objects when automatically restoring objects from archival tier |  [optional]
 **restoreMaxSize** | **Long** | Maximum total size of objects to restore when automatically restoring objects from archival tier |  [optional]
 **restoreTier** | [**RestoreTierEnum**](#RestoreTierEnum) | Restore tier when automatically restoring objects from archival tier |  [optional]
